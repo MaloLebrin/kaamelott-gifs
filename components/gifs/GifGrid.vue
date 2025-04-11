@@ -21,35 +21,39 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-    <div
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+    <article
       v-for="gif in gifs"
       :key="gif.slug"
-      class="group relative aspect-video rounded-3xl overflow-hidden bg-gray-900/5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+      class="bg-white rounded-[55px] p-1.5 border border-gray-200"
       @click="openModal(gif)"
     >
-      <img
-        :src="`/gifs/${gif.filename}`"
-        :alt="gif.quote"
-        class="w-full h-full object-cover"
-        loading="lazy"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
-          <p class="font-medium text-lg mb-2">{{ gif.quote }}</p>
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="character in gif.characters"
-              :key="character"
-              class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm"
-            >
-              {{ character }}
-            </span>
+      <div class="group relative aspect-video rounded-[50px] overflow-hidden bg-gray-900/5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer min-h-[250px] max-w-400px]">
+        <div class="absolute inset-0 overflow-hidden">
+          <img
+            :src="`/gifs/${gif.filename}`"
+            :alt="gif.quote"
+            class="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:-translate-y-8"
+            loading="lazy"
+          />
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+          <div class="absolute bottom-0 left-0 right-0 p-4 transform transition-transform duration-500 translate-y-full group-hover:translate-y-0">
+            <p class="font-medium text-lg mb-2 text-white">{{ gif.quote }}</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="character in gif.characters"
+                :key="character"
+                class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white"
+              >
+                {{ character }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </article>
+  </section>
 
   <GifModal
     v-if="selectedGif"
