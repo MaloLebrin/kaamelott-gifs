@@ -1,4 +1,3 @@
-
 <template>
   <div class="flex flex-col gap-4 p-4">
     <div class="flex gap-2">
@@ -23,7 +22,7 @@
         }"
       >
         <img
-          :src="`/characters/${character.name.toLowerCase().replace(/\s+/g, '-')}.jpg`"
+          :src="`/characters/${slugify(character.name)}.jpg`"
           :alt="`Avatar de ${character.name}`"
           class="w-6 h-6 rounded-full object-cover"
         />
@@ -34,6 +33,8 @@
 </template> 
 
 <script setup lang="ts">
+import { slugify } from '~/utils/strings'
+
 interface Character {
   name: string
   avatar: string
