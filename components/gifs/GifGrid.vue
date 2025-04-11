@@ -25,7 +25,7 @@ const closeModal = () => {
     <div
       v-for="gif in gifs"
       :key="gif.slug"
-      class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer hover:bg-gray-50"
+      class="bg-white/90 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer hover:bg-white"
       @click="openModal(gif)"
     >
       <img
@@ -40,7 +40,7 @@ const closeModal = () => {
           <span
             v-for="character in gif.characters"
             :key="character"
-            class="px-2 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+            class="px-2 py-1 bg-gray-100/80 rounded-full text-sm text-gray-600"
           >
             {{ character }}
           </span>

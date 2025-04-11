@@ -26,11 +26,11 @@ const handleClose = () => {
   >
     <div
       v-if="isOpen"
-      class="fixed inset-0 bg-black/30 flex items-center justify-center p-4 z-50"
+      class="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center p-4 z-50"
       @click="handleClose"
     >
       <div
-        class="bg-white rounded-lg max-w-2xl w-full overflow-hidden shadow-lg"
+        class="bg-white/95 backdrop-blur-sm rounded-lg max-w-2xl w-full overflow-hidden shadow-lg"
         @click.stop
       >
         <img
@@ -46,7 +46,7 @@ const handleClose = () => {
               <span
                 v-for="character in gif.characters"
                 :key="character"
-                class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+                class="px-3 py-1 bg-gray-100/80 rounded-full text-sm text-gray-600"
               >
                 {{ character }}
               </span>
@@ -58,7 +58,7 @@ const handleClose = () => {
               <span
                 v-for="character in gif.characters_speaking"
                 :key="character"
-                class="px-3 py-1 bg-gray-200 rounded-full text-sm text-gray-700"
+                class="px-3 py-1 bg-gray-200/80 rounded-full text-sm text-gray-700"
               >
                 {{ character }}
               </span>
