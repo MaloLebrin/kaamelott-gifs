@@ -8,6 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "clean-gifs": "node scripts/clean-gifs.js",
     "test": "vitest"
   },
   "dependencies": {
