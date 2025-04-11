@@ -1,10 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { slugify } from '~/utils/strings'
-interface Character {
-  name: string
-  avatar: string
-}
 
 export default defineEventHandler(async () => {
   try {
