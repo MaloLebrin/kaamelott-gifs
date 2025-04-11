@@ -1,13 +1,28 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
 
   modules: [
-    '@nuxt/eslint',
-    '@nuxt/icon',
+    '@nuxtjs/tailwindcss',
     '@nuxt/image',
-    '@nuxt/test-utils',
-    '@nuxtjs/tailwindcss'
-  ]
+    '@nuxt/icon',
+  ],
+
+  app: {
+    head: {
+      title: 'Kaamelott GIFs',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Collection de GIFs de la série Kaamelott' },
+      ],
+    },
+  },
+
+  image: {
+    domains: ['localhost'],
+    dir: 'public',
+  },
+
+  compatibilityDate: '2025-04-11',
 })

@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "kaamelott-gifs",
   "private": true,
   "type": "module",
   "scripts": {
@@ -16,9 +16,9 @@
     "@nuxt/test-utils": "3.17.2",
     "@nuxtjs/tailwindcss": "6.13.2",
     "eslint": "^9.0.0",
-    "nuxt": "^3.16.2",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "nuxt": "^3.16.2"
   },
-  "packageManager": "pnpm@10.8.0+sha256.29bf2c5ceaea7991ee82eec15fe7162e0fad816d0c4a6b35a16c01d39274bf69"
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
 }
