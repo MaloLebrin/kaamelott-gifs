@@ -2748,6 +2748,19 @@
     "episode": "S01E12"
   },
   {
+    "quote": "Je crame tout moi !",
+    "characters": [
+      "Guethenoc",
+      "Roparzh"
+    ],
+    "characters_speaking": [
+      "Guethenoc"
+    ],
+    "filename": "je-crame-tout-moi.gif",
+    "slug": "je-crame-tout-moi",
+    "episode": null
+  },
+  {
     "quote": "Arthur craque",
     "characters": [
       "Arthur",
@@ -9407,6 +9420,19 @@
     "filename": "pas-besoin-seduire-deja-la.gif",
     "slug": "vous-avez-pas-besoin-de-me-seduire-puisque-je-suis-deja-la",
     "episode": "S01E45"
+  },
+  {
+    "quote": "Je vais faire moitié bouffe, moitié plumard",
+    "characters": [
+      "Guenièvre",
+      "Arthur"
+    ],
+    "characters_speaking": [
+      "Arthur"
+    ],
+    "filename": "moitie-bouffe-moitie-plumard.gif",
+    "slug": "moitie-bouffe-moitie-plumard",
+    "episode": "S05E03"
   },
   {
     "quote": "Vous jouez de la mandoline pour me séduire",
