@@ -52,6 +52,6 @@ const handleSearch = (query: string, character: string) => {
       :characters="characters"
       @search="handleSearch"
     />
-    <GifGrid :gifs="filteredGifs" />
+    <!-- <GifGrid :gifs="filteredGifs" /> -->
   </main>
 </template> 
