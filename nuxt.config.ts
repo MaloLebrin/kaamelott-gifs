@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxt/icon',
-    '@nuxt/test-utils/module'
   ],
 
   app: {

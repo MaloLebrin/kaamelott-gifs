@@ -43,6 +43,6 @@ const handleSearch = (query: string, character: string) => {
       :characters="charactersData || []"
       @search="handleSearch"
     />
-    <!-- <GifGrid :gifs="filteredGifs" /> -->
+    <GifGrid :gifs="filteredGifs" />
   </main>
 </template> 
