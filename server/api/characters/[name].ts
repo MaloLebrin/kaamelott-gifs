@@ -1,14 +1,8 @@
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { gifs } from '~/server/data/gifs'
 
 export default defineEventHandler(async (event) => {
   try {
     const name = getRouterParam(event, 'name')
-    
-    // Lire le fichier gifs.json
-    const gifsPath = join(process.cwd(), 'content', 'gifs.json')
-    const gifsData = await readFile(gifsPath, 'utf-8')
-    const gifs = JSON.parse(gifsData)
 
     // Trouver le premier GIF où le personnage apparaît
     const characterGif = gifs.find((gif: any) => 

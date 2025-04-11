@@ -1,4 +1,4 @@
-[
+export const episodes = [
   {
     "code": "S00E01",
     "title": "Pilotes"

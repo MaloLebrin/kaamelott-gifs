@@ -1,4 +1,4 @@
-[
+export const gifs = [
   {
     "quote": "Ah nan mais comme ça",
     "characters": [

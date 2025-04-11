@@ -1,13 +1,9 @@
-import { readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { gifs } from '~/server/data/gifs'
 import { slugify } from '~/utils/strings'
 
 export default defineEventHandler(async () => {
   try {
-    const gifsPath = join(process.cwd(), 'content', 'gifs.json')
-    const gifsData = await readFile(gifsPath, 'utf-8')
-    const gifs = JSON.parse(gifsData)
-
+    
     // Créer un Set pour avoir des personnages uniques
     const characters = new Set<string>()
     gifs.forEach((gif: any) => {
