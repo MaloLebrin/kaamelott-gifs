@@ -16,13 +16,8 @@ const searchQuery = ref(route.query.q?.toString() || '')
 const selectedCharacter = ref(route.query.character?.toString() || '')
 
 // Charger les données
-const { data: charactersData } = await useAsyncData<Character[]>('characters', () => {
-  return $fetch('/api/characters')
-})
-
-const { data: gifs } = await useAsyncData<Gif[]>('gifs', () => {
-  return $fetch('/api/gifs')
-})
+const { data: charactersData } = await useFetch<Character[]>('/api/characters')
+const { data: gifs } = await useFetch<Gif[]>('/api/gifs')
 
 // SEO
 useSeoMeta({
