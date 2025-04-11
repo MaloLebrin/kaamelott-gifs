@@ -41,6 +41,8 @@ interface Character {
 
 const props = defineProps<{
   characters: Character[]
+  initialQuery?: string
+  initialCharacter?: string
 }>()
 
 console.log(props.characters, 'characters')
@@ -49,8 +51,17 @@ const emit = defineEmits<{
   (e: 'search', query: string, character: string): void
 }>()
 
-const searchQuery = ref('')
-const selectedCharacter = ref('')
+const searchQuery = ref(props.initialQuery || '')
+const selectedCharacter = ref(props.initialCharacter || '')
+
+// Mettre à jour les valeurs locales quand les props changent
+watch(() => props.initialQuery, (newQuery) => {
+  searchQuery.value = newQuery || ''
+})
+
+watch(() => props.initialCharacter, (newCharacter) => {
+  selectedCharacter.value = newCharacter || ''
+})
 
 const handleSearch = () => {
   emit('search', searchQuery.value, selectedCharacter.value)

@@ -8,14 +8,18 @@ interface Character {
   avatar: string
 }
 
-const searchQuery = ref('')
-const selectedCharacter = ref('')
+const route = useRoute()
+const router = useRouter()
 
+// Initialiser les états depuis l'URL
+const searchQuery = ref(route.query.q?.toString() || '')
+const selectedCharacter = ref(route.query.character?.toString() || '')
+
+// Charger les données
 const { data: charactersData } = await useAsyncData<Character[]>('characters', () => {
   return $fetch('/api/characters')
 })
 
-// Charger les GIFs
 const { data: gifs } = await useAsyncData<Gif[]>('gifs', () => {
   return $fetch('/api/gifs')
 })
@@ -31,16 +35,33 @@ const filteredGifs = computed(() => {
   })
 })
 
+// Mettre à jour l'URL lors de la recherche
 const handleSearch = (query: string, character: string) => {
   searchQuery.value = query
   selectedCharacter.value = character
+
+  router.push({
+    query: {
+      ...route.query,
+      q: query || undefined,
+      character: character || undefined
+    }
+  })
 }
+
+// Réagir aux changements d'URL
+watch(() => route.query, (newQuery) => {
+  searchQuery.value = newQuery.q?.toString() || ''
+  selectedCharacter.value = newQuery.character?.toString() || ''
+}, { immediate: true })
 </script>
 
 <template>
   <main class="flex-1">
     <SearchBar
       :characters="charactersData || []"
+      :initial-query="searchQuery"
+      :initial-character="selectedCharacter"
       @search="handleSearch"
     />
     <GifGrid :gifs="filteredGifs" />
