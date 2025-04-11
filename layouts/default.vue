@@ -12,7 +12,7 @@ const isHome = computed(() => route.path === '/')
         alt="Fond d'écran Kaamelott"
         class="w-full h-full object-cover"
       />
-      <div class="absolute inset-0 bg-white/80"></div>
+      <div class="absolute inset-0 bg-white/20"></div>
     </div>
 
     <!-- Contenu principal -->
