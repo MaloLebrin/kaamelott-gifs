@@ -8,9 +8,16 @@
         class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         @input="handleSearch"
       />
+      <button
+        @click="isMobileMenuOpen = !isMobileMenuOpen"
+        class="md:hidden px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+      >
+        {{ selectedCharacter || 'Personnages' }}
+      </button>
     </div>
     
-    <div class="flex flex-wrap gap-2">
+    <!-- Desktop view -->
+    <div class="hidden md:flex flex-wrap gap-2">
       <CharacterButton
         v-for="character in characters"
         :key="character.name"
@@ -18,6 +25,28 @@
         :is-selected="selectedCharacter === character.name"
         @select="handleCharacterSelect"
       />
+    </div>
+
+    <!-- Mobile view -->
+    <div
+      v-if="isMobileMenuOpen"
+      class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50"
+      @click="isMobileMenuOpen = false"
+    >
+      <div
+        class="absolute bottom-0 left-0 right-0 bg-white p-4 rounded-t-lg max-h-[80vh] overflow-y-auto"
+        @click.stop
+      >
+        <div class="flex flex-wrap gap-2">
+          <CharacterButton
+            v-for="character in characters"
+            :key="character.name"
+            :character="character"
+            :is-selected="selectedCharacter === character.name"
+            @select="handleCharacterSelect"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template> 
@@ -42,6 +71,7 @@ const emit = defineEmits<{
 
 const searchQuery = ref(props.initialQuery || '')
 const selectedCharacter = ref(props.initialCharacter || '')
+const isMobileMenuOpen = ref(false)
 
 // Mettre à jour les valeurs locales quand les props changent
 watch(() => props.initialQuery, (newQuery) => {
@@ -58,6 +88,7 @@ const handleSearch = () => {
 
 const handleCharacterSelect = (character: string) => {
   selectedCharacter.value = character
+  isMobileMenuOpen.value = false
   handleSearch()
 }
 </script>
