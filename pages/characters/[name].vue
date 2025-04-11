@@ -20,6 +20,17 @@ const { data: character } = await useAsyncData(`character-${characterName}`, () 
   return $fetch(`/api/characters/${characterName}`)
 })
 
+// SEO
+useSeoMeta({
+  title: character.value?.name || characterName,
+  ogTitle: `${character.value?.name || characterName} - Kaamelott GIFs`,
+  description: `Découvrez tous les GIFs de ${character.value?.name || characterName} dans Kaamelott. ${gifs.value?.length || 0} GIFs disponibles.`,
+  ogDescription: `Découvrez tous les GIFs de ${character.value?.name || characterName} dans Kaamelott. ${gifs.value?.length || 0} GIFs disponibles.`,
+  ogImage: character.value?.avatar || '/og-image.jpg',
+  twitterCard: 'summary_large_image',
+})
+
+// Structured Data pour le SEO
 useHead({
   title: `${characterName} - Kaamelott GIFs`,
   meta: [

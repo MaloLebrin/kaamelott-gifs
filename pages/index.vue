@@ -24,6 +24,16 @@ const { data: gifs } = await useAsyncData<Gif[]>('gifs', () => {
   return $fetch('/api/gifs')
 })
 
+// SEO
+useSeoMeta({
+  title: 'Accueil',
+  ogTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
+  description: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
+  ogDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
+  ogImage: '/og-image.jpg',
+  twitterCard: 'summary_large_image',
+})
+
 // Filtrer les GIFs
 const filteredGifs = computed(() => {
   if (!gifs.value) return []
