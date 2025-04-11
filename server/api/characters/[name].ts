@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       name,
-      avatar: `/characters/${name.toLowerCase().replace(/\s+/g, '-')}.jpg`
+      avatar: `/characters/${name?.toLowerCase().replace(/\s+/g, '-')}.jpg`
     }
   } catch (error) {
     console.error('Error fetching character:', error)
