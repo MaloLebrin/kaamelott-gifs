@@ -87,7 +87,11 @@ const handleSearch = () => {
 }
 
 const handleCharacterSelect = (character: string) => {
-  selectedCharacter.value = character
+  if (character === selectedCharacter.value) {
+    selectedCharacter.value = ''
+  }else {
+    selectedCharacter.value = character
+  }
   isMobileMenuOpen.value = false
   handleSearch()
 }
