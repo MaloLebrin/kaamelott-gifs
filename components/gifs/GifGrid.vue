@@ -21,29 +21,31 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
     <div
       v-for="gif in gifs"
       :key="gif.slug"
-      class="bg-white/90 backdrop-blur-sm rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer hover:bg-white"
+      class="group relative aspect-video rounded-3xl overflow-hidden bg-gray-900/5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
       @click="openModal(gif)"
     >
       <img
         :src="`/gifs/${gif.filename}`"
         :alt="gif.quote"
-        class="w-full h-48 object-cover"
+        class="w-full h-full object-cover"
         loading="lazy"
       />
-      <div class="p-4">
-        <p class="text-gray-900 font-medium">{{ gif.quote }}</p>
-        <div class="mt-2 flex flex-wrap gap-2">
-          <span
-            v-for="character in gif.characters"
-            :key="character"
-            class="px-2 py-1 bg-gray-100/80 rounded-full text-sm text-gray-600"
-          >
-            {{ character }}
-          </span>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+          <p class="font-medium text-lg mb-2">{{ gif.quote }}</p>
+          <div class="flex flex-wrap gap-2">
+            <span
+              v-for="character in gif.characters"
+              :key="character"
+              class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm"
+            >
+              {{ character }}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -55,4 +57,10 @@ const closeModal = () => {
     :is-open="isModalOpen"
     @close="closeModal"
   />
-</template> 
+</template>
+
+<style scoped>
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+</style> 
