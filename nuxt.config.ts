@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxt/icon',
-    '@nuxt/test-utils/module'
+    '@nuxt/test-utils/module',
+    '@nuxtjs/sitemap',
   ],
 
   app: {
@@ -29,6 +30,13 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     },
+  },
+
+  site: {
+    url: 'https://kaamelottgifs.com',
+    name: 'Kaamelott GIFs',
+    description: 'Collection de GIFs de la série Kaamelott',
+    image: '/og-image.jpg',
   },
 
   image: {
