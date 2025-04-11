@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { join } from 'node:path'
-
+import { slugify } from '~/utils/strings'
 interface Character {
   name: string
   avatar: string
@@ -26,7 +26,7 @@ export default defineEventHandler(async () => {
     // Créer la liste des personnages avec leurs avatars
     return sortedCharacters.map(character => ({
       name: character,
-      avatar: `/images/characters/${character.toLowerCase().replace(/\s+/g, '-')}.jpg`
+      avatar: `/characters/${slugify(character)}.jpg`
     }))
   } catch (error) {
     console.error('Error reading gifs data:', error)
