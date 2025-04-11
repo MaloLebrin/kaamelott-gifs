@@ -1,45 +1,61 @@
+
+<template>
+  <div class="flex flex-col gap-4 p-4">
+    <div class="flex gap-2">
+      <input
+        v-model="searchQuery"
+        type="text"
+        placeholder="Rechercher une réplique..."
+        class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        @input="handleSearch"
+      />
+    </div>
+    
+    <div class="flex flex-wrap gap-2">
+      <button
+        v-for="character in characters"
+        :key="character.name"
+        @click="handleCharacterSelect(character.name)"
+        class="flex items-center gap-2 px-3 py-1 rounded-full transition-colors"
+        :class="{
+          'bg-blue-500 text-white': selectedCharacter === character.name,
+          'bg-gray-200 hover:bg-gray-300': selectedCharacter !== character.name
+        }"
+      >
+        <img
+          :src="`/characters/${character.name.toLowerCase().replace(/\s+/g, '-')}.jpg`"
+          :alt="`Avatar de ${character.name}`"
+          class="w-6 h-6 rounded-full object-cover"
+        />
+        <span>{{ character.name }}</span>
+      </button>
+    </div>
+  </div>
+</template> 
+
 <script setup lang="ts">
-const searchQuery = ref('')
-const selectedCharacter = ref('')
+interface Character {
+  name: string
+  avatar: string
+}
 
 const props = defineProps<{
-  characters: string[]
+  characters: Character[]
 }>()
 
 const emit = defineEmits<{
   (e: 'search', query: string, character: string): void
 }>()
 
+const searchQuery = ref('')
+const selectedCharacter = ref('')
+
 const handleSearch = () => {
   emit('search', searchQuery.value, selectedCharacter.value)
 }
-</script>
 
-<template>
-  <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col sm:flex-row gap-4">
-      <input
-        v-model="searchQuery"
-        type="text"
-        placeholder="Rechercher une citation..."
-        class="flex-1 px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-900 placeholder-gray-400 transition-colors duration-200"
-        @input="handleSearch"
-      />
-      <select
-        v-model="selectedCharacter"
-        class="px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-900 transition-colors duration-200"
-        @change="handleSearch"
-      >
-        <option value="" class="bg-white/90">Tous les personnages</option>
-        <option
-          v-for="character in characters"
-          :key="character"
-          :value="character"
-          class="bg-white/90"
-        >
-          {{ character }}
-        </option>
-      </select>
-    </div>
-  </div>
-</template> 
+const handleCharacterSelect = (character: string) => {
+  selectedCharacter.value = character
+  handleSearch()
+}
+</script>
