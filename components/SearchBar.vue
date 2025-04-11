@@ -15,14 +15,14 @@
         v-for="character in characters"
         :key="character.name"
         @click="handleCharacterSelect(character.name)"
-        class="flex items-center gap-2 px-3 py-1 rounded-full transition-colors"
+        class="flex items-center gap-2 px-3 py-1 rounded-full transition-colors border border-gray-600/20"
         :class="{
           'bg-blue-500 text-white': selectedCharacter === character.name,
           'bg-gray-200 hover:bg-gray-300': selectedCharacter !== character.name
         }"
       >
         <img
-          :src="`/characters/${slugify(character.name)}.jpg`"
+          :src="character.avatar || '/characters/unknown.jpg'"
           :alt="`Avatar de ${character.name}`"
           class="w-6 h-6 rounded-full object-cover"
         />
@@ -33,16 +33,17 @@
 </template> 
 
 <script setup lang="ts">
-import { slugify } from '~/utils/strings'
 
 interface Character {
   name: string
   avatar: string
 }
 
-defineProps<{
+const props = defineProps<{
   characters: Character[]
 }>()
+
+console.log(props.characters, 'characters')
 
 const emit = defineEmits<{
   (e: 'search', query: string, character: string): void

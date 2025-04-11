@@ -10,18 +10,9 @@ interface Character {
 
 const searchQuery = ref('')
 const selectedCharacter = ref('')
-const characters = ref<Character[]>([])
 
-// Charger les personnages au chargement de la page
-onMounted(async () => {
-  try {
-    const { data } = await useFetch<Character[]>('/api/characters')
-    if (data.value) {
-      characters.value = data.value
-    }
-  } catch (error) {
-    console.error('Error loading characters:', error)
-  }
+const { data: charactersData } = await useAsyncData<Character[]>('characters', () => {
+  return $fetch('/api/characters')
 })
 
 // Charger les GIFs
@@ -49,7 +40,7 @@ const handleSearch = (query: string, character: string) => {
 <template>
   <main class="flex-1">
     <SearchBar
-      :characters="characters"
+      :characters="charactersData || []"
       @search="handleSearch"
     />
     <!-- <GifGrid :gifs="filteredGifs" /> -->

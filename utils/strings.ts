@@ -12,7 +12,8 @@ export function slugify(str: string) {
     'ù': 'u', 'ú': 'u', 'û': 'u', 'ü': 'u',
     'ý': 'y', 'ÿ': 'y',
     'ñ': 'n',
-    'ç': 'c'
+    'ç': 'c',
+    'æ': 'ae',
   }
 
   return str
@@ -21,6 +22,6 @@ export function slugify(str: string) {
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '')
     .replace(/^-+|-+$/g, '')
+    .replace(/'/g, '-')
     .replace(/--/g, '-')
-    .replace(/'/g, '')
 }
