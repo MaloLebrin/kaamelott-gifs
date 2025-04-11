@@ -1,33 +1,33 @@
 <template>
   <article
-    class="group bg-black/90 hover:bg-white rounded-[32px] p-4 transition-colors duration-300 cursor-pointer min-h-[250px] max-w-[400px]"
+    class="group bg-white rounded-[32px] p-1.5 transition-colors duration-300 cursor-pointer max-w-[400px]"
     @click="handleClick"
   >
-    <div class="relative aspect-video rounded-2xl overflow-hidden">
+    <div class="relative aspect-video rounded-[32px] overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
         <img 
           :src="`/gifs/${gif.filename}`" 
           :alt="gif.quote"
-          class="w-full h-full object-cover transform transition-transform duration-500 ease-out group-hover:-translate-y-8"
+          class="w-full h-full object-cover transform transition-transform duration-500 ease-out group-hover:-translate-y-12"
           loading="lazy" 
         />
       </div>
 
       <!-- Informations -->
-      <div class="absolute inset-0 flex flex-col justify-end p-4">
+      <div class="absolute inset-0 grid grid-cols-2 items-end p-4">
         <!-- Titre et sous-titre -->
-        <div class="space-y-1 transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
-          <h3 class="font-medium text-lg group-hover:text-gray-900 text-white transition-colors duration-300">
+        <div class="space-y-1 transform transition-transform duration-500">
+          <h3 class="font-medium text-lg text-white transition-colors duration-300 pb-3">
             {{ gif.characters[0] }}
           </h3>
-          <p class="text-sm text-white/80 group-hover:text-gray-600 transition-colors duration-300">
+          <p class="text-sm text-white/80 group-hover:text-gray-900 transition-colors duration-300 truncate">
             {{ gif.quote }}
           </p>
         </div>
 
         <!-- Bouton -->
-        <div class="mt-4 transform transition-all duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-          <div class="flex flex-wrap gap-2">
+        <div class="mt-4 transform transition-all duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pt-2">
+          <div class="flex flex-wrap justify-end gap-2">
             <span
               v-for="character in gif.characters.slice(1)"
               :key="character"
