@@ -39,7 +39,7 @@ interface Character {
   avatar: string
 }
 
-const props = defineProps<{
+defineProps<{
   characters: Character[]
 }>()
 
