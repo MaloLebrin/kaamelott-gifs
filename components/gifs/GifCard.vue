@@ -1,24 +1,38 @@
 <template>
   <article
-    class="bg-white rounded-[55px] p-1.5 border border-gray-200 min-h-[250px] max-w-[400px]"
+    class="group bg-black/90 hover:bg-white rounded-[32px] p-4 transition-colors duration-300 cursor-pointer min-h-[250px] max-w-[400px]"
     @click="handleClick"
   >
-    <div
-      class="group relative aspect-video rounded-[50px] overflow-hidden bg-gray-900/5 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-    >
+    <div class="relative aspect-video rounded-2xl overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
-        <img :src="`/gifs/${gif.filename}`" :alt="gif.quote"
-          class="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:-translate-y-8"
-          loading="lazy" />
+        <img 
+          :src="`/gifs/${gif.filename}`" 
+          :alt="gif.quote"
+          class="w-full h-full object-cover transform transition-transform duration-500 ease-out group-hover:-translate-y-8"
+          loading="lazy" 
+        />
       </div>
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-        <div
-          class="absolute bottom-0 left-0 right-0 p-4 transform transition-transform duration-500 translate-y-full group-hover:translate-y-0">
-          <p class="font-medium text-lg mb-2 text-white">{{ gif.quote }}</p>
+
+      <!-- Informations -->
+      <div class="absolute inset-0 flex flex-col justify-end p-4">
+        <!-- Titre et sous-titre -->
+        <div class="space-y-1 transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
+          <h3 class="font-medium text-lg group-hover:text-gray-900 text-white transition-colors duration-300">
+            {{ gif.characters[0] }}
+          </h3>
+          <p class="text-sm text-white/80 group-hover:text-gray-600 transition-colors duration-300">
+            {{ gif.quote }}
+          </p>
+        </div>
+
+        <!-- Bouton -->
+        <div class="mt-4 transform transition-all duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
           <div class="flex flex-wrap gap-2">
-            <span v-for="character in gif.characters" :key="character"
-              class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm text-white">
+            <span
+              v-for="character in gif.characters.slice(1)"
+              :key="character"
+              class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+            >
               {{ character }}
             </span>
           </div>
@@ -42,6 +56,10 @@ const emit = defineEmits<{
 const handleClick = () => {
   emit('click', props.gif)
 }
-
-
 </script>
+
+<style scoped>
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+</style>
