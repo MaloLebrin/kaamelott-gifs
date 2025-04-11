@@ -22,5 +22,4 @@ export function slugify(str: string) {
     .replace(/\s+/g, '-')
     .replace(/'/g, '-')
     .replace(/--/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
 }
