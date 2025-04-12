@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const isHome = computed(() => route.path === '/')
+const { toasts, removeToast } = useToast()
 </script>
 
 <template>
@@ -54,4 +55,9 @@ const isHome = computed(() => route.path === '/')
       </footer>
     </div>
   </div>
+
+  <BaseToast
+    :toasts="toasts"
+    @remove="removeToast"
+  />
 </template> 
