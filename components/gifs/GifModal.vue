@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { Gif } from '~/types'
+import ShareButtons from './ShareButtons.vue'
+import { useToast } from '~/composables/useToast'
 
 const props = defineProps<{
   gif: Gif
@@ -9,6 +11,9 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
+
+const toast = useToast()
+const gifUrl = computed(() => `${window.location.origin}/gifs/${props.gif.filename}`)
 
 const handleClose = () => {
   emit('close')
@@ -63,6 +68,12 @@ const handleClose = () => {
                 {{ character }}
               </span>
             </div>
+          </div>
+          <div class="mt-6 border-t pt-4">
+            <ShareButtons
+              :gif-url="gifUrl"
+              :quote="gif.quote"
+            />
           </div>
         </div>
       </div>

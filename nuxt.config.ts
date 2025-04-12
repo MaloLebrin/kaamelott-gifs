@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     url: 'https://kaamelottgifs.com',
     name: 'Kaamelott GIFs',
     description: 'Collection de GIFs de la série Kaamelott',
-    image: '/og-image.jpg',
+    image: '/fondKBg.jpg',
   },
 
   image: {
