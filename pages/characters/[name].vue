@@ -7,13 +7,7 @@ const route = useRoute()
 const characterName = route.params.name as string
 
 // Récupérer les GIFs du personnage
-const { data: gifs } = await useFetch<Gif[]>('/api/gifs', {
-  params: {
-    character: characterName
-  }
-})
-
-// Récupérer les informations du personnage
+const { data: gifs } = await useFetch<Gif[]>(`/api/gifs/${characterName}`)
 const { data: character } = await useFetch(`/api/characters/${characterName}`)
 
 // SEO
