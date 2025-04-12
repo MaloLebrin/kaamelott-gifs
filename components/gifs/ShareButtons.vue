@@ -6,7 +6,7 @@ const props = defineProps<{
   quote: string
 }>()
 
-const toast = useToast()
+const { success, denied } = useToast()
 const currentUrl = ref('')
 
 onMounted(() => {
@@ -28,9 +28,9 @@ const shareLinks = computed(() => {
 const copyLink = async () => {
   try {
     await navigator.clipboard.writeText(`${props.gifUrl}`)
-    toast.success('Lien copié dans le presse-papier !')
+    success('Lien copié dans le presse-papier !')
   } catch (err) {
-    toast.error('Erreur lors de la copie du lien')
+    denied('Erreur lors de la copie du lien')
   }
 }
 </script>
