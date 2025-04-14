@@ -60,10 +60,9 @@ const copyLink = async () => {
         class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
         :title="`Partager sur ${platform}`"
       >
-        <img
-          :src="`/social-icons/${platform}.svg`"
-          :alt="platform"
+        <Icon
           class="w-5 h-5"
+          :name="`custom:${platform}`"
         />
       </a>
     </div>

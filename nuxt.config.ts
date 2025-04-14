@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon',
     '@nuxt/test-utils/module',
-    '@nuxtjs/sitemap',
+    '@nuxtjs/seo',
   ],
 
   app: {
@@ -42,6 +42,15 @@ export default defineNuxtConfig({
   image: {
     domains: ['localhost'],
     dir: 'public',
+  },
+
+  icon: {
+    customCollections: [
+      {
+        prefix: 'custom',
+        dir: './assets/icons',
+      },
+    ],
   },
 
   compatibilityDate: '2025-04-11',
