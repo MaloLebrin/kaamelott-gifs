@@ -20,9 +20,6 @@
           <h3 class="font-medium text-lg text-white transition-colors duration-300 pb-3">
             {{ gif.characters[0] }}
           </h3>
-          <p class="text-sm text-white/80 group-hover:text-gray-900 transition-colors duration-300 truncate">
-            {{ gif.quote }}
-          </p>
         </div>
 
         <!-- Bouton -->
