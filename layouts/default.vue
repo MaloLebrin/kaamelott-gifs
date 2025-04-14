@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const isHome = computed(() => route.path === '/')
+const isAbout = computed(() => route.path === '/about')
 const { toasts, removeToast } = useToast()
 </script>
 
@@ -38,6 +39,13 @@ const { toasts, removeToast } = useToast()
                 :class="isHome ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'"
               >
                 Accueil
+              </NuxtLink>
+              <NuxtLink
+                to="/about"
+                class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                :class="isAbout ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'"
+              >
+                À propos
               </NuxtLink>
             </nav>
           </div>
