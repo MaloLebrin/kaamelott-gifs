@@ -1,6 +1,7 @@
 <template>
   <article
     class="group bg-white rounded-[32px] p-1.5 transition-colors duration-300 cursor-pointer max-w-[400px]"
+    :v-posthog-capture="`click_gif_${gif.filename}`"
     @click="handleClick"
   >
     <div class="relative aspect-video rounded-[32px] overflow-hidden">

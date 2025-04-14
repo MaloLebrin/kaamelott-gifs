@@ -10,6 +10,7 @@ interface Character {
 
 const route = useRoute()
 const router = useRouter()
+const { $clientPosthog } = useNuxtApp()
 
 // Initialiser les états depuis l'URL
 const searchQuery = ref(route.query.q?.toString() || '')
@@ -18,16 +19,6 @@ const selectedCharacter = ref(route.query.character?.toString() || '')
 // Charger les données
 const { data: charactersData } = await useFetch<Character[]>('/api/characters')
 const { data: gifs } = await useFetch<Gif[]>('/api/gifs')
-
-// SEO
-useSeoMeta({
-  title: 'Accueil',
-  ogTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
-  description: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
-  ogDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
-  ogImage: '/og-image.jpg',
-  twitterCard: 'summary_large_image',
-})
 
 // Filtrer les GIFs
 const filteredGifs = computed(() => {
@@ -59,6 +50,24 @@ watch(() => route.query, (newQuery) => {
   searchQuery.value = newQuery.q?.toString() || ''
   selectedCharacter.value = newQuery.character?.toString() || ''
 }, { immediate: true })
+
+// SEO
+useSeoMeta({
+  title: 'Accueil',
+  ogTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
+  description: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
+  ogDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
+  ogImage: '/og-image.jpg',
+  twitterCard: 'summary_large_image',
+})
+
+onMounted(() => {
+  if ($clientPosthog) {
+    $clientPosthog.capture('page_view', {
+      page: 'home'
+    })
+  }
+})
 </script>
 
 <template>

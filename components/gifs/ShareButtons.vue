@@ -41,6 +41,7 @@ const copyLink = async () => {
       <h3 class="text-sm font-medium text-gray-700">Partager ce GIF</h3>
       <button
         @click="copyLink"
+        :v-posthog-capture="`copy_clipboard_${props.gifUrl}`"
         class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-gray-900 transition-colors"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,6 +56,7 @@ const copyLink = async () => {
         v-for="(url, platform) in shareLinks"
         :key="platform"
         :href="url"
+        :v-posthog-capture="`share_${platform}_${props.gifUrl}`"
         target="_blank"
         rel="noopener noreferrer"
         class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"

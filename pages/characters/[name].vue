@@ -5,10 +5,20 @@ import GifCard from '~/components/gifs/GifCard.vue'
 
 const route = useRoute()
 const characterName = route.params.name as string
+const { $clientPosthog } = useNuxtApp()
 
 // Récupérer les GIFs du personnage
 const { data: gifs } = await useFetch<Gif[]>(`/api/gifs/${characterName}`)
 const { data: character } = await useFetch(`/api/characters/${characterName}`)
+
+onMounted(() => {
+  if ($clientPosthog) {
+    $clientPosthog.capture('page_view', {
+      page: 'characters',
+      character: characterName
+    })
+  }
+})
 
 // SEO
 useSeoMeta({

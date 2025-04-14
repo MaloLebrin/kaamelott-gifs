@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { $clientPosthog } = useNuxtApp()
 // Meta tags optimisés
 useSeoMeta({
   title: 'À propos - Kaamelott GIFs | Collection de GIFs de la série Kaamelott',
@@ -21,6 +22,14 @@ useHead({
     { name: 'author', content: 'Kaamelott GIFs' },
     { name: 'robots', content: 'index, follow' }
   ]
+})
+
+onMounted(() => {
+  if ($clientPosthog) {
+    $clientPosthog.capture('page_view', {
+      page: 'about'
+    })
+  }
 })
 </script>
 
