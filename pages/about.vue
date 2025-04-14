@@ -34,7 +34,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="flex-1">
+  <div class="flex-1">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 class="text-4xl font-bold text-gray-900 mb-8">À propos de Kaamelott GIFs</h1>
       
@@ -73,5 +73,5 @@ onMounted(() => {
         </div>
       </div>
     </div>
-  </main>
+  </div>
 </template> 

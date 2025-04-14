@@ -71,7 +71,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="flex-1">
+  <div class="flex-1">
     <SearchBar
       :characters="charactersData || []"
       :initial-query="searchQuery"
@@ -79,5 +79,5 @@ onMounted(() => {
       @search="handleSearch"
     />
     <GifGrid :gifs="filteredGifs" />
-  </main>
+  </div>
 </template> 
