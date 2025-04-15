@@ -17,7 +17,7 @@ export const imageClient = cloudinary.v2.config({
  * @param filePath - The path to the gif file
  * @returns The uploaded gif
  */
-export const uploadGifToCloudinary = async (gif: Gif, filePath?: string) => {
+export const uploadGifToCloudinary = async (gif: Omit<Gif, 'filePath' | 'url' | 'public_id'>, filePath?: string) => {
   if (!imageClient) {
     throw new Error('Cloudinary is not configured')
   }

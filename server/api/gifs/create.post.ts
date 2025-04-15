@@ -1,6 +1,7 @@
 import { serverSupabaseClient } from '#supabase/server'
 import { Gif } from '~/types'
 import { createManyGif } from '~/server/services/gif/createGif.service'
+
 export default eventHandler(async (event) => {
   const body = await readBody<{gifs: Gif[]}>(event)
 

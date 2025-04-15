@@ -11,7 +11,7 @@ export async function createManyGif({
   gifs,
   client,
 }: {
-  gifs: (Gif & { filePath: string })[],
+  gifs: (Omit<Gif, 'filePath' | 'url' | 'public_id'> & { filePath: string })[],
   client: any
 }) {
   const uploadedGifs = await Promise.all(gifs.map(async (gif) => {
