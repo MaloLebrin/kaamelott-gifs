@@ -12,8 +12,15 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module',
     '@nuxtjs/seo',
     'nuxt-posthog',
-    // '@nuxtjs/supabase'
+    '@nuxtjs/supabase'
   ],
+
+  supabase: {
+    redirect: false,
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    serviceKey: process.env.SUPABASE_SERVICE_KEY,
+  },
 
   app: {
     head: {
