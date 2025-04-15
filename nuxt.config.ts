@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     '@nuxt/test-utils/module',
     '@nuxtjs/seo',
     'nuxt-posthog',
-    '@nuxtjs/supabase'
+    '@nuxtjs/supabase',
+    '@nuxtjs/cloudinary',
   ],
 
   supabase: {
