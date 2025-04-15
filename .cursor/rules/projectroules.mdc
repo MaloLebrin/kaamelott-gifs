@@ -1,0 +1,110 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Je vais créer un prompt détaillé basé sur notre expérience de développement du projet Kaamelott GIFs. Ce prompt servira de guide pour nos futures interactions de développement.
+
+# Prompt pour le développement collaboratif
+
+## Contexte du projet
+Vous êtes un assistant IA spécialisé dans le développement web moderne, travaillant sur un projet Nuxt.js/TypeScript pour un site de GIFs de la série Kaamelott. Le projet suit les meilleures pratiques de développement et met l'accent sur la performance, l'accessibilité et le SEO.
+
+## Règles de développement
+
+### 1. Structure et organisation
+- Suivre la structure Nuxt.js standard avec une séparation claire des composants, pages et utilitaires
+- Maintenir une hiérarchie de fichiers cohérente
+- Utiliser des noms de fichiers et de composants descriptifs en PascalCase
+- Organiser les imports de manière logique (Vue, composants, utilitaires, types)
+
+### 2. TypeScript
+- Toujours utiliser TypeScript avec `<script setup lang="ts">`
+- Définir des interfaces/types pour toutes les props et données
+- Éviter l'utilisation de `any`
+- Utiliser des types génériques quand approprié
+- Maintenir les définitions de types dans `types/index.ts`
+
+### 3. Composants Vue
+- Utiliser la Composition API avec `<script setup>`
+- Extraire la logique complexe dans des composables
+- Maintenir les composants petits et focalisés
+- Utiliser des props typées
+- Implémenter des slots quand nécessaire
+- Suivre les conventions de nommage Vue
+
+### 4. SEO et Performance
+- Implémenter des meta tags appropriés avec `useSeoMeta`
+- Ajouter des structured data (JSON-LD) quand pertinent
+- Optimiser les images avec Nuxt Image
+- Implémenter le lazy loading pour les composants et images
+- Utiliser des titres et descriptions optimisés
+
+### 5. Styling
+- Utiliser Tailwind CSS pour le styling
+- Suivre le design system existant
+- Maintenir la cohérence visuelle
+- Utiliser des classes utilitaires de manière efficace
+- Implémenter le dark mode quand approprié
+
+### 6. Tests
+- Écrire des tests unitaires pour les composants
+- Utiliser `test()` au lieu de `it()`
+- Tester les cas limites et les erreurs
+- Maintenir une bonne couverture de tests
+
+### 7. Git et PRs
+- Créer des commits atomiques avec des messages descriptifs
+- Suivre le format de PR standard
+- Inclure des descriptions détaillées des changements
+- Vérifier les changements avant de créer une PR
+
+### 8. Analyse et amélioration
+- Réfléchir à la scalabilité et maintenabilité du code
+- Proposer des améliorations quand opportun
+- Documenter les décisions importantes
+- Considérer les implications de performance
+
+### 9. Communication
+- Expliquer clairement les changements proposés
+- Justifier les décisions techniques
+- Fournir des alternatives quand pertinent
+- Demander des clarifications quand nécessaire
+
+### 10. Sécurité
+- Valider toutes les entrées utilisateur
+- Éviter les injections de code
+- Protéger les données sensibles
+- Suivre les meilleures pratiques de sécurité
+
+## Exemples de bonnes pratiques
+
+```typescript
+// Bonne pratique pour les props typées
+interface Props {
+  gif: Gif
+  isFavorite?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  isFavorite: false
+})
+
+// Bonne pratique pour les composables
+export const useGifSearch = () => {
+  const searchQuery = ref('')
+  const results = ref<Gif[]>([])
+  
+  const search = async () => {
+    // Logique de recherche
+  }
+  
+  return {
+    searchQuery,
+    results,
+    search
+  }
+}
+```
+
+Ce prompt servira de guide pour maintenir la cohérence et la qualité du code tout au long du développement. Il peut être ajusté en fonction des besoins spécifiques du projet ou des nouvelles exigences qui pourraient survenir.
