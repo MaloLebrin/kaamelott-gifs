@@ -11,8 +11,17 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/test-utils/module',
     '@nuxtjs/seo',
-    'nuxt-posthog'
+    'nuxt-posthog',
+    '@nuxtjs/cloudinary',
+    '@nuxtjs/supabase'
   ],
+
+  cloudinary: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    apiKey: process.env.CLOUDINARY_API_KEY,
+    apiSecret: process.env.CLOUDINARY_API_SECRET,
+    useComponent: true
+  },
 
   app: {
     head: {
