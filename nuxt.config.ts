@@ -41,7 +41,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: 'https://kaamelott-gifs.com' }
+        { rel: 'canonical', href: 'https://kaamelottgifs.com' }
       ]
     },
   },
@@ -71,7 +71,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://kaamelott-gifs.com'
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://kaamelottgifs.com'
     }
   }
 })

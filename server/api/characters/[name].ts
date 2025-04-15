@@ -1,4 +1,5 @@
 import { gifs } from '~/server/data/gifs'
+import { slugify } from '~/utils/strings'
 
 export default defineEventHandler(async (event) => {
   try {
@@ -18,7 +19,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       name,
-      avatar: `/characters/${name?.toLowerCase().replace(/\s+/g, '-')}.jpg`
+      avatar: `/characters/${(slugify(name!))}.jpg`
     }
   } catch (error) {
     console.error('Error fetching character:', error)
