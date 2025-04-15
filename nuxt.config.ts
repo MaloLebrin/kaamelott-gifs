@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/test-utils/module',
     '@nuxtjs/seo',
-    'nuxt-posthog'
+    'nuxt-posthog',
+    // '@nuxtjs/supabase'
   ],
 
   app: {
