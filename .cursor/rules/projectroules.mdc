@@ -77,6 +77,9 @@ Vous êtes un assistant IA spécialisé dans le développement web moderne, trav
 - Protéger les données sensibles
 - Suivre les meilleures pratiques de sécurité
 
+### 11.Configuration
+- arrête de toujours voiloir installer `@nuxtjs/color-mode`
+
 ## Exemples de bonnes pratiques
 
 ```typescript
