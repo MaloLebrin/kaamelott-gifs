@@ -7,7 +7,6 @@ export default defineEventHandler(async (event) => {
   try {
     const name = getRouterParam(event, 'name')
 
-    console.log(name, 'characterName')
     if (!name) {
       throw createError({
         statusCode: 400,
