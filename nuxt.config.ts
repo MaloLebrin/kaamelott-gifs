@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: {
-    '/': { prerender: true },
+    '/about': { prerender: true },
     '/characters/**': { swr: true },
   },
   modules: [
