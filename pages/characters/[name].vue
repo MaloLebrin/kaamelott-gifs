@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Gif } from '~/types'
 import { slugify } from '~/shared/utils/string'
-import GifCard from '~/components/gifs/GifCard.vue'
+import GifGrid from '~/components/gifs/GifGrid.vue'
 
 const route = useRoute()
 const characterName = route.params.name as string
@@ -56,13 +56,7 @@ useHead({
       </div>
 
       <!-- Grille de GIFs -->
-      <div v-if="gifs && gifs.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <GifCard
-          v-for="gif in gifs"
-          :key="gif.slug"
-          :gif="gif"
-        />
-      </div>
+     <GifGrid v-if="gifs && gifs.length > 0" :gifs="gifs" />
 
       <!-- Message si aucun GIF -->
       <div v-else class="text-center py-12">
