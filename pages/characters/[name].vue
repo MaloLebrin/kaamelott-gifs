@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Gif } from '~/types'
-import { slugify } from '~/utils/strings'
+import { slugify } from '~/shared/utils/string'
 import GifCard from '~/components/gifs/GifCard.vue'
 
 const route = useRoute()
