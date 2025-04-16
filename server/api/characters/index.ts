@@ -1,5 +1,5 @@
 import { gifs } from '~/server/data/gifs'
-import { slugify } from '~/utils/strings'
+import { slugify } from '~/shared/utils/string'
 
 export default defineEventHandler(async () => {
   try {

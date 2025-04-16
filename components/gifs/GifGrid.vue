@@ -2,7 +2,8 @@
 import type { Gif } from '~/types'
 import GifModal from './GifModal.vue'
 import GifCard from './GifCard.vue'
-const props = defineProps<{
+
+defineProps<{
   gifs: Gif[]
 }>()
 

@@ -6,8 +6,8 @@
   >
     <div class="relative aspect-video rounded-[32px] overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
-        <img 
-          :src="`/gifs/${gif.filename}`" 
+        <NuxtImg 
+          :src="gif.url" 
           :alt="gif.quote"
           class="w-full h-full object-cover transform transition-transform duration-500 ease-out group-hover:-translate-y-12"
           loading="lazy" 

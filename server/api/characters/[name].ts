@@ -1,25 +1,42 @@
-import { gifs } from '~/server/data/gifs'
+// import { serverSupabaseClient } from '#supabase/server'
+import { slugify } from '~/shared/utils/string'
+// import { Entities } from '~/types'
+
 
 export default defineEventHandler(async (event) => {
   try {
     const name = getRouterParam(event, 'name')
 
-    // Trouver le premier GIF où le personnage apparaît
-    const characterGif = gifs.find((gif: any) => 
-      gif.characters.includes(name)
-    )
-
-    if (!characterGif) {
+    if (!name) {
       throw createError({
-        statusCode: 404,
-        message: `Character ${name} not found`
+        statusCode: 400,
+        message: 'Name is required'
       })
     }
 
+    const slug = slugify(name)
+  
+    // const client = await serverSupabaseClient(event)
+  
+    // const { data, error } = await client
+    //   .from(Entities.GIF)
+    //   .select('*')
+    //   .or(
+    //     `characters.ilike.%${slug}%,characters_speaking.ilike.%${slug}%`,
+    //     // Doc: https://supabase.com/docs/reference/javascript/v1/or
+    //   )
+
+  
+    // if (error) {
+    //   throw createError({ statusCode: 500, statusMessage: error.message })
+    // }
+
     return {
       name,
-      avatar: `/characters/${name?.toLowerCase().replace(/\s+/g, '-')}.jpg`
+      avatar: `/characters/${slug}.jpg`
     }
+    // return data
+
   } catch (error) {
     console.error('Error fetching character:', error)
     throw createError({

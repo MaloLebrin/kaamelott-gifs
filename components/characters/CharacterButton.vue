@@ -25,7 +25,7 @@
   <!-- Menu contextuel -->
   <div class="absolute left-0 mt-2 w-48 rounded-lg bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
     <NuxtLink
-      :to="`/characters/${character.name}`"
+      :to="`/characters/${slugify(character.name)}`"
       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-t-lg"
     >
       Voir tous les GIFs
@@ -35,6 +35,8 @@
 </template>
 
 <script setup lang="ts">
+import { slugify } from '~/shared/utils/string'
+
 interface Character {
   name: string
   avatar: string

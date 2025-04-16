@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: {
-    '/': { prerender: true },
+    '/about': { prerender: true },
     '/characters/**': { swr: true },
   },
   modules: [
@@ -11,8 +11,17 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/test-utils/module',
     '@nuxtjs/seo',
-    'nuxt-posthog'
+    'nuxt-posthog',
+    '@nuxtjs/supabase',
+    '@nuxtjs/cloudinary',
   ],
+
+  supabase: {
+    redirect: false,
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_KEY,
+    serviceKey: process.env.SUPABASE_SERVICE_KEY,
+  },
 
   app: {
     head: {
