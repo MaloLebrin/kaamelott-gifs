@@ -2,6 +2,7 @@
   "name": "kaamelott-gifs",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.8.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
