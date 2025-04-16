@@ -1,6 +1,6 @@
 // @vitest-environment nuxt
 import { describe, test, expect } from 'vitest'
-import { slugify } from '~/utils/strings'
+import { slugify } from './string'
 
 describe('slugify', () => {
   test('should convert string to lowercase', () => {
