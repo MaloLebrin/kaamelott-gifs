@@ -1,19 +1,6 @@
 import type { Gif } from "~/types"
 import cloudinary from 'cloudinary'
 
-// /**
-//  * Cloudinary client
-//  * @returns The cloudinary client
-//  */
-// export const imageClient = 
-
-// const result = await cloudinary.v2.uploader.upload(file.path, {
-//   folder: `beright-${NODE_ENV}/company-${company.id}/user-${user.id}-${user.firstName}-${user.lastName}/${FileTypeEnum.PROFILE_PICTURE}`,
-//   quality: 'auto',
-//   fetch_format: 'auto',
-//   format: 'webp',
-// })
-
 /**
  * Upload a gif to Cloudinary
  * @param gif - The gif to upload
@@ -21,7 +8,6 @@ import cloudinary from 'cloudinary'
  * @returns The uploaded gif
  */
 export const uploadGifToCloudinary = async (gif: Omit<Gif, 'filePath' | 'url' | 'public_id'>, filePath: string) => {
-
   cloudinary.v2.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
