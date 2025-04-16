@@ -1,6 +1,6 @@
-import { serverSupabaseClient } from '#supabase/server'
+// import { serverSupabaseClient } from '#supabase/server'
 import { slugify } from '~/shared/utils/string'
-import { Entities } from '~/types'
+// import { Entities } from '~/types'
 
 
 export default defineEventHandler(async (event) => {

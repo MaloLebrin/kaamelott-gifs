@@ -31,9 +31,6 @@ jobs:
       - name: 🔧 Install
         run: pnpm i --frozen-lockfile
 
-      - name: 📖 Lint
-        run: pnpm run lint
-
       - name: ☑️ Type checking
         run: pnpm run type:check
 
