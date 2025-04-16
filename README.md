@@ -1,75 +1,70 @@
-# Nuxt Minimal Starter
+# Kaamelott GIFs
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Nuxt](https://img.shields.io/badge/Nuxt-3.0.0-green.svg)](https://nuxt.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue.svg)](https://www.typescriptlang.org/)
 
-## Setup
+Une application web moderne pour explorer et partager des GIFs de la série Kaamelott. Construite avec Nuxt.js et TypeScript.
 
-Make sure to install dependencies:
+## 🚀 Fonctionnalités
+
+- Recherche de GIFs Kaamelott
+- Favoris et historique
+- Interface utilisateur moderne et responsive
+- Optimisation SEO
+- Dark mode
+- Performance optimisée
+
+## 🛠️ Technologies
+
+- [Nuxt.js](https://nuxt.com) - Framework Vue.js
+- [TypeScript](https://www.typescriptlang.org/) - Typage statique
+- [Tailwind CSS](https://tailwindcss.com) - Framework CSS
+
+## 📦 Installation
 
 ```bash
-# npm
-npm install
-
-# pnpm
+# Installation des dépendances
 pnpm install
 
-# yarn
-yarn install
-
-# bun
-bun install
+# Configuration de l'environnement
+cp exemple.env .env
+# Éditez le fichier .env avec vos configurations
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## 🚀 Développement
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
+# Démarrer le serveur de développement
 pnpm dev
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
+# Build pour la production
 pnpm build
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
+# Preview de la production
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Voici comment contribuer :
+
+1. Fork le projet
+2. Créez votre branche (`git checkout -b feature/AmazingFeature`)
+3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
+## 📝 Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 🙏 Remerciements
+
+- [Kaamelott](https://www.kaamelott.com) - La série originale
+- [Nuxt.js](https://nuxt.com) - Pour leur excellent framework
+- Tous les contributeurs qui ont aidé à faire de ce projet ce qu'il est aujourd'hui
+
+## 📞 Contact
+
+Lien du projet: [https://github.com/malolebrin/kaamelott-gifs](https://github.com/malolebrin/kaamelott-gifs)
