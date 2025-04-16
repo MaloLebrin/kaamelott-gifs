@@ -10,7 +10,7 @@ const { toasts, removeToast } = useToast()
     <!-- Fond d'écran avec overlay léger -->
     <div class="fixed inset-0 z-0">
       <img
-        src="/fondKBg.jpg"
+        src="/fondKBg.webp"
         alt="Fond d'écran Kaamelott"
         class="w-full h-full object-cover"
       />
