@@ -8,13 +8,27 @@
             GIFs
           </span>
         </NuxtLink>
+
         <nav class="flex space-x-4">
-          <NuxtLink to="/" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            :class="isHome ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'">
+          <NuxtLink
+            to="/"
+            class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-900"
+            active-class="bg-gray-100 text-gray-900"
+          >
             Accueil
           </NuxtLink>
-          <NuxtLink to="/about" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            :class="isAbout ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'">
+          <NuxtLink
+            to="/livres"
+            class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-900"
+            active-class="bg-gray-100 text-gray-900"
+          >
+            Livres
+          </NuxtLink>
+          <NuxtLink
+            to="/about"
+            class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-900"
+            active-class="bg-gray-100 text-gray-900"
+          >
             À propos
           </NuxtLink>
         </nav>
@@ -22,10 +36,3 @@
     </div>
   </header>
 </template>
-
-<script setup lang="ts">
-const route = useRoute()
-
-const isHome = computed(() => route.path === '/')
-const isAbout = computed(() => route.path === '/about')
-</script>
