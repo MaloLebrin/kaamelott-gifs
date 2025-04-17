@@ -37,7 +37,7 @@ const handleClose = () => {
         @click.stop
       >
         <img
-          :src="`/gifs/${gif.filename}`"
+          :src="gif.url"
           :alt="gif.quote"
           class="w-full"
         />
