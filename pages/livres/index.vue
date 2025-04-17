@@ -32,8 +32,8 @@
 </template>
 
 <script setup lang="ts">
-import { slugify } from '~/shared/utils/string'
 import type { Season } from '~/types/Season'
+
 const { data: seasons } = await useFetch<Season[]>('/api/seasons')
 
 useSeoMeta({
