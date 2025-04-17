@@ -3,6 +3,7 @@ export const seasons = [
   {
     id: 1,
     title: "Livre I",
+    slug: "livre-i",
     airDate: "3 janvier 2005 - mars 2005",
     episodesCount: 100,
     duration: "3-4 minutes par épisode",
@@ -35,6 +36,7 @@ export const seasons = [
   {
     id: 2,
     title: "Livre II",
+    slug: "livre-ii",
     airDate: "2 mai 2005 - 7 octobre 2005",
     episodesCount: 100,
     duration: "3-4 minutes par épisode",
@@ -44,6 +46,7 @@ export const seasons = [
   {
     id: 3,
     title: "Livre III",
+    slug: "livre-iii",
     airDate: "9 janvier 2006 - 22 mars 2006",
     episodesCount: 100,
     duration: "3-4 minutes par épisode",
@@ -53,6 +56,7 @@ export const seasons = [
   {
     id: 4,
     title: "Livre IV",
+    slug: "livre-iv",
     airDate: "2 septembre 2006 - 24 novembre 2006",
     episodesCount: 98,
     duration: "3-4 minutes par épisode",
@@ -62,6 +66,7 @@ export const seasons = [
   {
     id: 5,
     title: "Livre V",
+    slug: "livre-v",
     airDate: "15 janvier 2007 - 28 mai 2007",
     episodesCount: 8,
     duration: "45 minutes par épisode",
@@ -71,6 +76,7 @@ export const seasons = [
   {
     id: 6,
     title: "Livre VI",
+    slug: "livre-vi",
     airDate: "15 janvier 2007 - 28 mai 2007",
     episodesCount: 9,
     duration: "45 minutes par épisode",

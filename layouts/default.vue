@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const route = useRoute()
-const isHome = computed(() => route.path === '/')
-const isAbout = computed(() => route.path === '/about')
+import Header from '~/components/layout/Header.vue'
+import Footer from '~/components/layout/Footer.vue'
+
 const { toasts, removeToast } = useToast()
 </script>
 
@@ -13,38 +13,11 @@ const { toasts, removeToast } = useToast()
     </div>
 
     <div class="relative z-10 flex flex-col min-h-screen">
-      <header class="bg-white/90 backdrop-blur-sm shadow-sm">
-        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between items-center">
-            <NuxtLink to="/" class="flex items-center space-x-3">
-              <img src="/KaamelottLogo.webp" alt="Logo Kaamelott" class="h-12 w-auto" />
-              <span class="text-3xl font-bold text-gray-900 hover:text-gray-700 transition-colors duration-200">
-                GIFs
-              </span>
-            </NuxtLink>
-            <nav class="flex space-x-4">
-              <NuxtLink to="/" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                :class="isHome ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'">
-                Accueil
-              </NuxtLink>
-              <NuxtLink to="/about" class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-                :class="isAbout ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-900'">
-                À propos
-              </NuxtLink>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
       <main class="flex-1">
         <slot />
       </main>
-      <footer class="bg-white/90 backdrop-blur-sm shadow-sm mt-8">
-        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-          <p class="text-center text-gray-500 text-sm">
-            © {{ new Date().getFullYear() }} Kaamelott GIFs - Tous droits réservés
-          </p>
-        </div>
-      </footer>
+      <Footer />
       <BaseToast :toasts="toasts" @remove="removeToast" />
     </div>
   </div>
