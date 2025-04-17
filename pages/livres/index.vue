@@ -6,7 +6,7 @@
       <NuxtLink 
         v-for="season in seasons" 
         :key="season.id"
-        :to="`/livres/${slugify(season.title)}`"
+        :to="`/livres/${season.slug}`"
         class="group"
       >
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">

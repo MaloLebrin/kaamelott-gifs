@@ -6,5 +6,6 @@ export interface Season extends BaseEntity {
   airDate: string
   episodesCount: number
   duration: string
+  slug: string
   wikipediaLink: string
 }
