@@ -1,5 +1,5 @@
 import type { Gif } from "~/types"
-import cloudinary from 'cloudinary'
+import { v2 as cloudinary   } from 'cloudinary'
 
 /**
  * Upload a gif to Cloudinary
@@ -8,25 +8,29 @@ import cloudinary from 'cloudinary'
  * @returns The uploaded gif
  */
 export const uploadGifToCloudinary = async (gif: Omit<Gif, 'filePath' | 'url' | 'public_id'>, filePath: string) => {
-  cloudinary.v2.config({
+  cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
   })
 
-  if (!cloudinary.v2) {
+  if (!cloudinary) {
     throw new Error('Cloudinary is not configured')
   }
   // const filePath = path.join(process.cwd(), 'public', 'gifs', `${gif.filename}`)
 
-  const result = await cloudinary.v2.uploader.upload(filePath, {
+  const result = await cloudinary.uploader.upload(filePath, {
     resource_type: 'auto',
     folder: 'kaamelott-gifs',
     public_id: gif.slug,
     overwrite: false,
     transformation: [
       { quality: 'auto' },
-      { fetch_format: 'auto' }
+      { fetch_format: 'auto' },
+      { dpr: 'auto' },
+      { width: 'auto' },
+      { crop: 'scale' },
+      { flags: 'lossy' }
     ]
   })
 
