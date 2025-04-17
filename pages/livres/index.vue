@@ -46,4 +46,13 @@ useSeoMeta({
 definePageMeta({
   layout: 'default'
 })
+
+const { $clientPosthog } = useNuxtApp()
+onMounted(() => {
+  if ($clientPosthog) {
+    $clientPosthog.capture('page_view', {
+      page: 'livres',
+    })
+  }
+})
 </script>

@@ -32,6 +32,16 @@ const { data: seasonData } = await useFetch<{
   season: Season
 }>(`/api/seasons/${slug}`)
 
+const { $clientPosthog } = useNuxtApp()
+onMounted(() => {
+  if ($clientPosthog) {
+    $clientPosthog.capture('page_view', {
+      page: 'livres',
+      season: seasonData.value?.season.title
+    })
+  }
+})
+
 useSeoMeta({
   title: `${seasonData.value?.season.title} - Kaamelott GIFs`,
   description: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
