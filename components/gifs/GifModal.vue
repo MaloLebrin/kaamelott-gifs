@@ -69,7 +69,7 @@ const handleClose = () => {
           </div>
           <div class="mt-6 border-t pt-4">
             <ShareButtons
-              :gif-url="gifUrl"
+              :gif-url="gif.url"
               :quote="gif.quote"
             />
           </div>
