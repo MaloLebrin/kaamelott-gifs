@@ -47,3 +47,10 @@ export interface EpisodeStructuredData {
   image: string
   datePublished: string
 } 
+
+export interface SeasonStructuredData {
+  "@context": "https://schema.org"
+  "@type": "TVEpisode"
+  name: string
+  description: string
+}

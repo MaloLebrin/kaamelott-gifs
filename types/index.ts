@@ -1,3 +1,5 @@
 export * from './Entities'
 export * from './Gif'
 export * from './Episode'
+export * from './Characters'
+export * from './Season'
