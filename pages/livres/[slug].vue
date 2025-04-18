@@ -33,6 +33,7 @@ const { data: seasonData } = await useFetch<{
 }>(`/api/seasons/${slug}`)
 
 const { $clientPosthog } = useNuxtApp()
+
 onMounted(() => {
   if ($clientPosthog) {
     $clientPosthog.capture('page_view', {
