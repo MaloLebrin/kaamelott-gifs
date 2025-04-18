@@ -17,7 +17,7 @@ const { $clientPosthog } = useNuxtApp()
 const searchQuery = ref(route.query.q?.toString() || '')
 const selectedCharacter = ref(route.query.character?.toString() || '')
 const currentPage = ref(Number(route.query.page) || 1)
-const itemsPerPage = 20
+const itemsPerPage = 21
 
 // Charger les données
 const { data: charactersData } = await useFetch<Character[]>('/api/characters')

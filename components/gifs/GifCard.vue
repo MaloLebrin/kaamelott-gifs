@@ -1,6 +1,6 @@
 <template>
   <article
-    class="group bg-white rounded-[32px] p-1 transition-colors duration-300 cursor-pointer max-w-[400px]"
+    class="group rounded-[32px] transition-colors duration-300 cursor-pointer max-w-[400px]"
     :v-posthog-capture="`click_gif_${gif.filename}`"
     @click="handleClick"
   >
