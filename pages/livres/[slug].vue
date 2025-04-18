@@ -17,7 +17,7 @@
       <p class="text-gray-500 dark:text-gray-400">Aucun GIF disponible pour cette saison.</p>
     </div>
   </div>
-</template> 
+</template>
 
 <script setup lang="ts">
 import type { Gif } from '~/types'
@@ -44,9 +44,19 @@ onMounted(() => {
 
 useSeoMeta({
   title: `${seasonData.value?.season.title} - Kaamelott GIFs`,
-  description: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
   ogTitle: `${seasonData.value?.season.title} - Kaamelott GIFs`,
+  description: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
   ogDescription: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
+  ogImage: '/fondKBg.webp',
+  keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
+  author: 'Kaamelott GIFs',
+  robots: 'index, follow',
+  ogUrl: `https://kaamelottgifs.com/livres/${seasonData.value?.season.slug}`,
+  ogType: 'website',
+  twitterImage: '/fondKBg.webp',
+  twitterCard: 'summary_large_image',
+  twitterTitle: `${seasonData.value?.season.title} - Kaamelott GIFs`,
+  twitterDescription: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
 })
 
 definePageMeta({

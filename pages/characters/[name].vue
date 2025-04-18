@@ -20,14 +20,21 @@ onMounted(() => {
   }
 })
 
-// SEO
 useSeoMeta({
-  title: character.value?.name || characterName,
+  title: `${character.value?.name || characterName} - Kaamelott GIFs`,
   ogTitle: `${character.value?.name || characterName} - Kaamelott GIFs`,
   description: `Découvrez tous les GIFs de ${character.value?.name || characterName} dans Kaamelott. ${gifs.value?.length || 0} GIFs disponibles.`,
   ogDescription: `Découvrez tous les GIFs de ${character.value?.name || characterName} dans Kaamelott. ${gifs.value?.length || 0} GIFs disponibles.`,
-  ogImage: character.value?.avatar || '/og-image.jpg',
+  ogImage: '/fondKBg.webp',
+  keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
+  author: 'Kaamelott GIFs',
+  robots: 'index, follow',
+  ogUrl: `https://kaamelottgifs.com/characters/${character.value?.name || characterName}`,
+  ogType: 'website',
+  twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
+  twitterTitle: `${character.value?.name || characterName} - Kaamelott GIFs`,
+  twitterDescription: `Découvrez tous les GIFs de ${character.value?.name || characterName} dans Kaamelott. ${gifs.value?.length || 0} GIFs disponibles.`,
 })
 
 // Structured Data pour le SEO

@@ -1,16 +1,21 @@
 <script setup lang="ts">
 const { $clientPosthog } = useNuxtApp()
-// Meta tags optimisés
+
 useSeoMeta({
   title: 'À propos - Kaamelott GIFs | Collection de GIFs de la série Kaamelott',
   ogTitle: 'À propos - Kaamelott GIFs | Collection de GIFs de la série Kaamelott',
   description: 'Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott. Créé par des fans pour des fans.',
   ogDescription: 'Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott. Créé par des fans pour des fans.',
-  ogImage: '/og-image.jpg',
-  twitterCard: 'summary_large_image',
+  ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
-  robots: 'index, follow'
+  robots: 'index, follow',
+  ogUrl: 'https://kaamelottgifs.com/about',
+  ogType: 'website',
+  twitterImage: '/fondKBg.webp',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
+  twitterDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
 })
 
 // Structured Data détaillés

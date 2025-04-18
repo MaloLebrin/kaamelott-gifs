@@ -35,19 +35,29 @@
 import type { Season } from '~/types/Season'
 
 const { data: seasons } = await useFetch<Season[]>('/api/seasons')
+const { $clientPosthog } = useNuxtApp()
 
 useSeoMeta({
   title: 'Les Livres de Kaamelott - Toutes les saisons',
-  description: 'Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
   ogTitle: 'Les Livres de Kaamelott - Toutes les saisons',
+  description: 'Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
   ogDescription: 'Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
+  ogImage: '/fondKBg.webp',
+  keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
+  author: 'Kaamelott GIFs',
+  robots: 'index, follow',
+  ogUrl: 'https://kaamelottgifs.com/livres',
+  ogType: 'website',
+  twitterImage: '/fondKBg.webp',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Les Livres de Kaamelott - Toutes les saisons',
+  twitterDescription: 'Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
 })
 
 definePageMeta({
   layout: 'default'
 })
 
-const { $clientPosthog } = useNuxtApp()
 onMounted(() => {
   if ($clientPosthog) {
     $clientPosthog.capture('page_view', {
