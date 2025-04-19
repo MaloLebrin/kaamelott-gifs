@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { CheckBadgeIcon } from '@heroicons/vue/24/outline';
 import { useToast } from '~/composables/useToast'
 
 const props = defineProps<{
@@ -8,6 +9,7 @@ const props = defineProps<{
 
 const { success, denied } = useToast()
 const currentUrl = ref('')
+const isLinkCopied = ref(false)
 
 onMounted(() => {
   currentUrl.value = window.location.href
@@ -29,6 +31,10 @@ const copyLink = async () => {
   try {
     await navigator.clipboard.writeText(`${props.gifUrl}`)
     success('Lien copié dans le presse-papier !')
+    isLinkCopied.value = true
+    setTimeout(() => {
+      isLinkCopied.value = false
+    }, 2000)
   } catch (err) {
     denied('Erreur lors de la copie du lien')
   }
@@ -40,6 +46,7 @@ const copyLink = async () => {
     <div class="flex items-center justify-between">
       <h3 class="text-sm font-medium text-gray-700">Partager ce GIF</h3>
       <button
+        v-if="!isLinkCopied"
         @click="copyLink"
         :v-posthog-capture="`copy_clipboard_${props.gifUrl}`"
         class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-gray-900 transition-colors"
@@ -48,6 +55,14 @@ const copyLink = async () => {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
         </svg>
         Copier le lien
+      </button>
+      <button
+        v-else
+        @click="copyLink"
+        class="flex items-center gap-2 px-3 py-1 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+      >
+        <CheckBadgeIcon class="w-4 h-4 text-green-500" />
+        Lien copié
       </button>
     </div>
     
