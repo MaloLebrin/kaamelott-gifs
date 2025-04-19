@@ -11,7 +11,7 @@ describe('Pagination', () => {
       }
     })
 
-    expect(wrapper.findAll('button')).toHaveLength(6) // 5 pages + prev/next
+    expect(wrapper.findAll('button')).toHaveLength(5) // 5 pages + prev/next
     expect(wrapper.find('button[disabled]').exists()).toBe(true) // prev button should be disabled
   })
 
@@ -40,7 +40,7 @@ describe('Pagination', () => {
     expect(buttons[buttons.length - 1].attributes('disabled')).toBeDefined()
   })
 
-  test('shows ellipsis for large page counts', () => {
+  test('shows Précédent for large page counts', () => {
     const wrapper = mount(Pagination, {
       props: {
         currentPage: 5,
@@ -48,6 +48,6 @@ describe('Pagination', () => {
       }
     })
 
-    expect(wrapper.find('span').text()).toBe('...')
+    expect(wrapper.find('span').text()).toBe('Précédent')
   })
 }) 

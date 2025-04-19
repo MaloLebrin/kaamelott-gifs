@@ -1,6 +1,6 @@
 <template>
   <header class="bg-white/90 backdrop-blur-sm shadow-sm">
-    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto py-4 px-4">
       <div class="flex justify-between items-center">
         <NuxtLink to="/" class="flex items-center space-x-3">
           <img src="/KaamelottLogo.webp" alt="Logo Kaamelott" class="h-12 w-auto" />

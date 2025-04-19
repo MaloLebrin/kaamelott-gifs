@@ -5,7 +5,8 @@
       @click="handlePageChange(currentPage - 1)"
       class="px-3 py-1 rounded-md bg-gray-100"
     >
-      Précédent
+      <span class="hidden md:block">Précédent</span>
+      <span class="block md:hidden">←</span>
     </button>
     
     <template v-for="page in totalPages" :key="page">
@@ -13,14 +14,14 @@
         v-if="
           page === 1 ||
           page === totalPages ||
-          (page >= currentPage - 2 && page <= currentPage + 2)
+          (page >= currentPage - 1 && page <= currentPage + 1)
         "
         @click="handlePageChange(page)"
         :class="[
           'px-3 py-1 rounded-md',
           currentPage === page
             ? 'bg-blue-500 text-white'
-            : 'bg-gray-100'
+            : 'bg-gray-100 dark:bg-gray-800'
         ]"
       >
         {{ page }}
@@ -41,7 +42,8 @@
       @click="handlePageChange(currentPage + 1)"
       class="px-3 py-1 rounded-md bg-gray-100 disabled:opacity-50"
     >
-      Suivant
+      <span class="hidden md:block">  Suivant</span>
+      <span class="block md:hidden">→</span>
     </button>
   </nav>
 </template> 
