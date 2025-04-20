@@ -11,8 +11,18 @@
     </div>
 
     <template v-if="seasonData && seasonData.gifs.length > 0">
-      <GifGrid :gifs="seasonData.gifs" />
+      <GifPagination
+        :gifs="seasonData.gifs"
+        :items-per-page="itemsPerPage"
+        :current-page="currentPage"
+        @page-change="handlePageChange"
+      >
+        <template #default="{ paginatedGifs }">
+          <GifGrid :gifs="paginatedGifs" />
+        </template>
+      </GifPagination>
     </template>
+
     <div v-else class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
       <p class="text-gray-500">Aucun GIF disponible pour cette saison.</p>
     </div>
@@ -29,7 +39,10 @@ import type { Gif } from '~/types'
 import type { Season } from '~/types/Season'
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import LivreGrid from '~/components/livres/LivreGrid.vue'
+import GifPagination from '~/components/gifs/GifPagination.vue'
+
 const route = useRoute()
+const router = useRouter()
 const slug = route.params.slug as string
 
 const { data: seasonData } = await useFetch<{
@@ -37,6 +50,18 @@ const { data: seasonData } = await useFetch<{
   season: Season
   otherSeasons: Season[]
 }>(`/api/seasons/${slug}`)
+
+const currentPage = ref(1)
+const itemsPerPage = 21
+
+function handlePageChange(page: number) {
+  currentPage.value = page
+  router.push({
+    query: {
+      page: page.toString()
+    }
+  })
+}
 
 const { $clientPosthog } = useNuxtApp()
 

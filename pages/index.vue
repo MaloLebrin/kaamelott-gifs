@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import SearchBar from '~/components/SearchBar.vue'
-import Pagination from '~/components/base/Pagination.vue'
+import GifPagination from '~/components/gifs/GifPagination.vue'
 import type { Gif } from '~/types'
 
 interface Character {
@@ -17,7 +17,6 @@ const { $clientPosthog } = useNuxtApp()
 const searchQuery = ref(route.query.q?.toString() || '')
 const selectedCharacter = ref(route.query.character?.toString() || '')
 const currentPage = ref(Number(route.query.page) || 1)
-const itemsPerPage = 21
 
 // Charger les données
 const { data: charactersData } = await useFetch<Character[]>('/api/characters')
@@ -32,14 +31,6 @@ const filteredGifs = computed(() => {
     const matchesCharacter = !selectedCharacter.value || gif.characters.includes(selectedCharacter.value)
     return matchesSearch && matchesCharacter
   })
-})
-
-// Pagination
-const totalPages = computed(() => Math.ceil(filteredGifs.value.length / itemsPerPage))
-const paginatedGifs = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage
-  const end = start + itemsPerPage
-  return filteredGifs.value.slice(start, end)
 })
 
 // Mettre à jour l'URL lors de la recherche ou du changement de page
@@ -100,13 +91,21 @@ onMounted(() => {
 
 <template>
   <div class="flex-1">
-    <SearchBar :characters="charactersData || []" :initial-query="searchQuery" :initial-character="selectedCharacter"
-      @search="handleSearch" />
-    <GifGrid :gifs="paginatedGifs" />
-
-    <!-- Pagination -->
-    <div v-if="totalPages > 1" class="mt-8 flex justify-center">
-      <Pagination :current-page="currentPage" :total-pages="totalPages" @page-change="handlePageChange" />
-    </div>
+    <SearchBar 
+      :characters="charactersData || []" 
+      :initial-query="searchQuery" 
+      :initial-character="selectedCharacter"
+      @search="handleSearch" 
+    />
+    
+    <GifPagination 
+      :gifs="filteredGifs" 
+      :current-page="currentPage"
+      @page-change="handlePageChange"
+    >
+      <template #default="{ paginatedGifs }">
+        <GifGrid :gifs="paginatedGifs" />
+      </template>
+    </GifPagination>
   </div>
 </template>
