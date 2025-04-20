@@ -25,8 +25,6 @@ const { data: gifs } = await useFetch<Gif[]>('/api/gifs')
 // Filtrer les GIFs
 const filteredGifs = computed(() => {
   if (!gifs.value) return []
-  console.log(searchQuery.value, 'searchQuery')
-  console.log(selectedCharacter.value, 'selectedCharacter')
 
   return gifs.value.filter(gif => {
     const matchesSearch = gif.quote.toLowerCase().includes(searchQuery.value.toLowerCase())
