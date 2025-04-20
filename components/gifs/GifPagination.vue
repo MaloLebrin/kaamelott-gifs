@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Gif } from '~/types'
 import Pagination from '~/components/base/Pagination.vue'
+import { usePagination } from '~/composables/usePagination'
 
 interface Props {
   gifs: Gif[]
@@ -18,16 +19,19 @@ const emit = defineEmits<{
   (e: 'update:currentPage', page: number): void
 }>()
 
-// Pagination logic
-const totalPages = computed(() => Math.ceil(props.gifs.length / props.itemsPerPage))
-const paginatedGifs = computed(() => {
-  const start = (props.currentPage - 1) * props.itemsPerPage
-  const end = start + props.itemsPerPage
-  return props.gifs.slice(start, end)
+const {
+  paginatedItems: paginatedGifs,
+  totalPages,
+  setPage
+} = usePagination({
+  items: props.gifs,
+  itemsPerPage: props.itemsPerPage,
+  initialPage: props.currentPage
 })
 
 // Handle page change
 const handlePageChange = (page: number) => {
+  setPage(page)
   emit('pageChange', page)
   emit('update:currentPage', page)
 }

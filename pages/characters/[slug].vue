@@ -17,9 +17,7 @@
       <!-- Grille de GIFs -->
       <GifPagination 
         v-if="data?.gifs && data.gifs.length > 0"
-        :gifs="data.gifs" 
-        :current-page="currentPage"
-        @page-change="handlePageChange"
+        :gifs="data.gifs"
       >
         <template #default="{ paginatedGifs }">
           <GifGrid :gifs="paginatedGifs" />
@@ -41,22 +39,8 @@ import GifGrid from '~/components/gifs/GifGrid.vue'
 import GifPagination from '~/components/gifs/GifPagination.vue'
 
 const route = useRoute()
-const router = useRouter()
 const characterSlug = route.params.slug as string
 const { $clientPosthog } = useNuxtApp()
-
-const currentPage = ref(1)
-
-
-
-const handlePageChange = (page: number) => {
-  currentPage.value = page
-  router.push({
-    query: {
-      page: page
-    }
-  })
-}
 
 // Récupérer les GIFs du personnage
 const { data } = await useFetch<{
