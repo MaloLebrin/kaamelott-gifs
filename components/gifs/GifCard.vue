@@ -1,16 +1,15 @@
 <template>
   <article
     class="group rounded-[32px] transition-colors duration-300 cursor-pointer max-w-[400px]"
-    :v-posthog-capture="`click_gif_${gif.filename}`"
+    :v-posthog-capture="`click_gif_${gif.slug}`"
     @click="handleClick"
   >
     <div class="relative aspect-video rounded-[32px] overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
-        <img 
-          :src="gif.url" 
+        <AppImage
+          :src="gif.url"
           :alt="gif.quote"
           class="w-full h-full object-cover transform transition-transform duration-500 ease-out"
-          loading="lazy" 
         />
       </div>
 
@@ -42,6 +41,7 @@
 
 <script lang="ts" setup>
 import type { Gif } from '~/types'
+import AppImage from '~/components/base/AppImage.vue'
 
 const props = defineProps<{
   gif: Gif

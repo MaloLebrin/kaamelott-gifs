@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Gif } from '~/types'
 import ShareButtons from './ShareButtons.vue'
+import AppImage from '~/components/base/AppImage.vue'
 
 const props = defineProps<{
   gif: Gif
@@ -36,10 +37,10 @@ const handleClose = () => {
         class="bg-white/95 backdrop-blur-sm rounded-lg max-w-2xl w-full overflow-hidden shadow-lg"
         @click.stop
       >
-        <img
+        <AppImage
           :src="gif.url"
           :alt="gif.quote"
-          class="w-full"
+          class="w-full transform transition-transform duration-500 ease-out"
         />
         <div class="p-4">
           <p class="text-xl font-medium text-gray-900">{{ gif.quote }}</p>
