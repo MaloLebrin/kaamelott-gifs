@@ -12,8 +12,8 @@ export function usePagination<T>(options: UsePaginationOptions<T>) {
     itemsPerPage = 21,
     initialPage = 1
   } = options
-  const router = useRouter()
 
+  const router = useRouter()
   const currentPage = ref(initialPage)
   const totalPages = computed(() => Math.ceil(items.length / itemsPerPage))
 
