@@ -39,7 +39,7 @@ export async function createManyGif({
 
   if (error) {
     console.error('error', error)
-    // throw createError({ statusMessage: error.message })
+    throw createError({ statusMessage: error.message })
   }
 
   console.log('data', data)

@@ -60,6 +60,7 @@ Tu peux me proposer des optimisations pour améliorer le SEO. Sans oublié le ma
 - Utiliser `test()` au lieu de `it()`
 - Tester les cas limites et les erreurs
 - Maintenir une bonne couverture de tests
+- Ecris les dans des fichiers `<nom-du-fichier>.nuxt.test.ts`
 
 ### 7. Git et PRs
 - Créer des commits atomiques avec des messages descriptifs
