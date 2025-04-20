@@ -16,6 +16,11 @@
     <div v-else class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
       <p class="text-gray-500">Aucun GIF disponible pour cette saison.</p>
     </div>
+
+    <div v-if="seasonData && seasonData.otherSeasons.length > 0">
+      <h2 class="text-2xl font-bold mb-4">Autres saisons</h2>
+      <LivreGrid v-if="seasonData.otherSeasons" :seasons="seasonData.otherSeasons" />
+    </div>
   </div>
 </template>
 
@@ -23,13 +28,14 @@
 import type { Gif } from '~/types'
 import type { Season } from '~/types/Season'
 import GifGrid from '~/components/gifs/GifGrid.vue'
-
+import LivreGrid from '~/components/livres/LivreGrid.vue'
 const route = useRoute()
 const slug = route.params.slug as string
 
 const { data: seasonData } = await useFetch<{
   gifs: Gif[]
   season: Season
+  otherSeasons: Season[]
 }>(`/api/seasons/${slug}`)
 
 const { $clientPosthog } = useNuxtApp()

@@ -14,8 +14,6 @@ export default defineEventHandler(async (event) => {
   const { data: seasonData, error } = await client
     .from(Entities.SEASON)
     .select('*')
-    .eq('slug', slug)
-    .single()
 
   if (error) {
     throw createError({ statusCode: 500, statusMessage: error.message })
@@ -25,7 +23,13 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: 'Season not found' })
   }
 
-  const season = seasonData as Season
+  const seasons = seasonData as Season[]
+
+  const season = seasons.find((season) => season.slug === slug)
+
+  if (!season) {
+    throw createError({ statusCode: 404, statusMessage: 'Season not found' })
+  }
 
   const { data: gifsData, error: gifsError } = await client
     .from(Entities.GIF)
@@ -38,6 +42,7 @@ export default defineEventHandler(async (event) => {
 
   return {
     season,
-    gifs: formatFromBackToFront(gifsData || [])
+    gifs: formatFromBackToFront(gifsData || []),
+    otherSeasons: seasons.filter((s) => s.id !== season.id)
   }
 })
