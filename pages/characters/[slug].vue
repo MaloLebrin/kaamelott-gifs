@@ -40,7 +40,6 @@ import GifPagination from '~/components/gifs/GifPagination.vue'
 
 const route = useRoute()
 const characterSlug = route.params.slug as string
-console.log(characterSlug)
 const { $clientPosthog } = useNuxtApp()
 
 // Récupérer les GIFs du personnage
