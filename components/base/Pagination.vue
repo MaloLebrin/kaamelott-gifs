@@ -21,7 +21,7 @@
           'px-3 py-1 rounded-md',
           currentPage === page
             ? 'bg-blue-500 text-white'
-            : 'bg-gray-100 dark:bg-gray-800'
+            : 'bg-gray-100'
         ]"
       >
         {{ page }}
@@ -55,6 +55,7 @@ interface Props {
 }
 
 defineProps<Props>()
+
 const emit = defineEmits<{
   (e: 'pageChange', page: number): void
 }>()
