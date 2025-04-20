@@ -44,7 +44,7 @@ withDefaults(defineProps<Props>(), {
     :fit="fit"
     :position="position"
     :background="background"
-    :custom="true"
+    custom
     v-slot="{ src: imgSrc, isLoaded, imgAttrs }"
   >
     <!-- Show the actual image when loaded -->
