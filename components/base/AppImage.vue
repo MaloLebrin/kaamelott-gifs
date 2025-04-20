@@ -59,7 +59,7 @@ withDefaults(defineProps<Props>(), {
     <!-- Show a placeholder while loading -->
     <div
       v-else
-      class="relative w-full h-full bg-gray-100 dark:bg-gray-800 animate-pulse"
+      class="relative w-full h-full bg-gray-100 dark:bg-gray-800"
       :class="className"
     >
       <div class="absolute inset-0 flex items-center justify-center">

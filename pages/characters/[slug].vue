@@ -40,6 +40,7 @@ import GifPagination from '~/components/gifs/GifPagination.vue'
 
 const route = useRoute()
 const characterSlug = route.params.slug as string
+console.log(characterSlug)
 const { $clientPosthog } = useNuxtApp()
 
 // Récupérer les GIFs du personnage
@@ -61,8 +62,8 @@ onMounted(() => {
 })
 
 useSeoMeta({
-    title: `${data.value?.character.name || characterSlug} - Kaamelott GIFs`,
-  ogTitle: `${data.value?.character.name || characterSlug} - Kaamelott GIFs`,
+    title: `${data.value?.character?.name || characterSlug} - Kaamelott GIFs`,
+  ogTitle: `${data.value?.character?.name || characterSlug} - Kaamelott GIFs`,
   description: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
   ogDescription: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
   ogImage: '/fondKBg.webp',
@@ -75,12 +76,5 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: `${data.value?.character.name || characterSlug} - Kaamelott GIFs`,
   twitterDescription: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
-})
-
-useHead({
-  title: `${data.value?.character.name} - Kaamelott GIFs`,
-  meta: [
-    { name: 'description', content: `Tous les GIFs de ${data.value?.character.name} dans Kaamelott` }
-  ]
 })
 </script>
