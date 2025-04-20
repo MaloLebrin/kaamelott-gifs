@@ -4,7 +4,7 @@ import ShareButtons from './ShareButtons.vue'
 import AppImage from '~/components/base/AppImage.vue'
 import { slugify } from '~/shared/utils/string'
 
-const props = defineProps<{
+ defineProps<{
   gif: Gif
   isOpen: boolean
 }>()
@@ -12,8 +12,6 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
-
-const gifUrl = computed(() => `${window.location.origin}/gifs/${props.gif.filename}`)
 
 const handleClose = () => {
   emit('close')
