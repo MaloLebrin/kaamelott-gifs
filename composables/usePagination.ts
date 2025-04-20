@@ -39,8 +39,8 @@ export function usePagination(options: UsePaginationOptions) {
       const matchesSearch = !searchQuery.value || 
         String(item[searchField]).toLowerCase().includes(searchQuery.value.toLowerCase())
       
-      const matchesCharacter = !selectedCharacter.value || 
-        item[characterField]?.includes(selectedCharacter.value)
+      const matchesCharacter = selectedCharacter.value === '' || 
+        (item[characterField] && item[characterField].includes(selectedCharacter.value))
 
       return matchesSearch && matchesCharacter
     })
@@ -104,12 +104,17 @@ export function usePagination(options: UsePaginationOptions) {
   watch(() => route.query, (newQuery) => {
     if (newQuery.page) {
       currentPage.value = Number(newQuery.page)
+    } else {
+      currentPage.value = 1
     }
+
     if (newQuery.q) {
       searchQuery.value = String(newQuery.q)
     }
     if (newQuery.character) {
       selectedCharacter.value = String(newQuery.character)
+    } else {
+      selectedCharacter.value = ''
     }
   })
 
