@@ -2,8 +2,40 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: {
-    '/about': { prerender: true },
-    '/characters/**': { swr: true },
+    // Page d'accueil - Prérendue à la build avec revalidation
+    '/': { 
+      prerender: true,
+      isr: 3600 // Revalidation toutes les heures
+    },
+    
+    // Page À propos - Prérendue
+    '/about': { 
+      prerender: true,
+    },
+    
+    // Pages des personnages - Prérendues avec revalidation quotidienne
+    '/characters/**': { 
+      prerender: true,
+      isr: 86400 // Revalidation quotidienne
+    },
+    
+    // Pages des GIFs - Générées à la demande avec cache
+    '/gifs/**': { 
+      swr: 3600, // Cache pendant 1 heure
+      headers: {
+        'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
+      }
+    },
+    
+    // Pages des livres - Prérendues avec revalidation quotidienne
+    '/livres': { 
+      prerender: true,
+      isr: 86400 // Revalidation quotidienne
+    },
+    '/livres/**': { 
+      prerender: true,
+      isr: 86400 // Revalidation quotidienne
+    },
   },
   modules: [
     '@nuxtjs/tailwindcss',
