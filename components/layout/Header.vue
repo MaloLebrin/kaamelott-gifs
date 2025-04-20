@@ -12,7 +12,9 @@
         <nav class="flex space-x-4">
           <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
             class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-900 hidden md:block"
-            active-class="bg-gray-100 text-gray-900">
+            active-class="bg-gray-100 text-gray-900"
+            :v-posthog-capture="`click_header_link_${item.name}`"
+          >
             {{ item.name }}
           </NuxtLink>
           <div class="flex md:hidden">
@@ -47,6 +49,7 @@
                     :key="item.name"
                     :to="item.href"
                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    :v-posthog-capture="`click_header_link_${item.name}`"
                   >
                     {{ item.name }}
                   </NuxtLink>

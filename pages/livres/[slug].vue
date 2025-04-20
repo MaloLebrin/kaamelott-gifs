@@ -37,7 +37,7 @@ const { $clientPosthog } = useNuxtApp()
 onMounted(() => {
   if ($clientPosthog) {
     $clientPosthog.capture('page_view', {
-      page: 'livres',
+      page: 'livre',
       season: seasonData.value?.season.title
     })
   }
