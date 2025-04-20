@@ -26,7 +26,6 @@ const {
 } = usePagination({
   items: props.gifs,
   itemsPerPage: props.itemsPerPage,
-  initialPage: props.currentPage
 })
 
 // Handle page change

@@ -4,12 +4,10 @@ import { usePagination } from './usePagination'
 vi.mock('#app', () => ({
   useRouter: () => ({
     push: vi.fn()
-  })
-}))
-
-vi.mock('vue-router', () => ({
-  useRouter: () => ({
-    push: vi.fn()
+  }),
+  useRoute: () => ({
+    query: {
+    }
   })
 }))
 
@@ -34,16 +32,6 @@ describe('usePagination', () => {
 
     expect(totalPages.value).toBe(5) // 50 items / 10 per page = 5 pages
     expect(paginatedItems.value.length).toBe(10)
-  })
-
-  test('should use custom initialPage', () => {
-    const { currentPage, paginatedItems } = usePagination({
-      items: mockItems,
-      initialPage: 2
-    })
-
-    expect(currentPage.value).toBe(2)
-    expect(paginatedItems.value[0].id).toBe(22) // First item of page 2
   })
 
   test('should handle setPage correctly', () => {
