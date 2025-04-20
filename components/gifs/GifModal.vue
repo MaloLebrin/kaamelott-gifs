@@ -2,6 +2,7 @@
 import type { Gif } from '~/types'
 import ShareButtons from './ShareButtons.vue'
 import AppImage from '~/components/base/AppImage.vue'
+import { slugify } from '~/shared/utils/string'
 
 const props = defineProps<{
   gif: Gif
@@ -47,25 +48,29 @@ const handleClose = () => {
           <div class="mt-4">
             <p class="text-sm text-gray-500">Personnages présents :</p>
             <div class="flex flex-wrap gap-2 mt-2">
-              <span
+              <NuxtLink
                 v-for="character in gif.characters"
                 :key="character"
+                :to="`/characters/${slugify(character)}`"
                 class="px-3 py-1 bg-gray-100/80 rounded-full text-sm text-gray-600"
+                :v-posthog-capture="`click_personnage_${character}`"
               >
                 {{ character }}
-              </span>
+              </NuxtLink>
             </div>
           </div>
           <div class="mt-4">
             <p class="text-sm text-gray-500">Personnages qui parlent :</p>
             <div class="flex flex-wrap gap-2 mt-2">
-              <span
+              <NuxtLink
                 v-for="character in gif.characters_speaking"
                 :key="character"
+                :to="`/characters/${slugify(character)}`"
                 class="px-3 py-1 bg-gray-200/80 rounded-full text-sm text-gray-700"
+                :v-posthog-capture="`click_personnage_${character}`"
               >
                 {{ character }}
-              </span>
+              </NuxtLink>
             </div>
           </div>
           <div class="mt-6 border-t pt-4">

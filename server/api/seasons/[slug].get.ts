@@ -1,5 +1,5 @@
 import { serverSupabaseClient } from '#supabase/server'
-import { Entities, Gif } from '~/types'
+import { Entities } from '~/types'
 import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront'
 import type { Season } from '~/types/Season'
 export default defineEventHandler(async (event) => {
