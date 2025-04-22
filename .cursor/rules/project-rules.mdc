@@ -111,3 +111,166 @@ export const useGifSearch = () => {
 ```
 
 Ce prompt servira de guide pour maintenir la cohérence et la qualité du code tout au long du développement. Il peut être ajusté en fonction des besoins spécifiques du projet ou des nouvelles exigences qui pourraient survenir.
+
+# Architecture Révisée pour Kaamelott GIFs
+
+## 1. Structure de Navigation Optimisée
+
+```
+/ (Accueil)
+├── /repliques (Page principale)
+│   ├── /repliques/cultes (Top 50 des répliques)
+│   ├── /repliques/[id] (Détails d'une réplique)
+│   └── /repliques/recherche (Recherche avancée)
+├── /personnages
+│   ├── /personnages/[slug] (Profil personnage)
+│   └── /personnages/[slug]/repliques (Répliques par personnage)
+├── /livres
+│   ├── /livres/[id] (Saison)
+│   └── /livres/[id]/episodes/[id] (Épisode)
+└── /a-propos
+```
+
+## 2. Optimisations SEO Spécifiques
+
+### Pour 1200 GIFs
+1. **Pagination Intelligente**
+   - 20 GIFs par page
+   - URLs sémantiques : `/repliques/page-2`
+   - Meta robots pour éviter le duplicate content
+
+2. **Structured Data**
+```typescript
+// types/seo.ts
+interface GifStructuredData {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": string,
+  "description": string,
+  "thumbnailUrl": string,
+  "contentUrl": string,
+  "embedUrl": string,
+  "uploadDate": string,
+  "duration": string,
+  "isFamilyFriendly": boolean,
+  "inLanguage": "fr",
+  "actor": {
+    "@type": "Person",
+    "name": string
+  }[],
+  "partOfSeries": {
+    "@type": "TVSeries",
+    "name": "Kaamelott"
+  }
+}
+```
+
+3. **Sitemap Dynamique**
+   - Génération automatique pour les 1200 GIFs
+   - Priorisation des pages importantes
+   - Mise à jour quotidienne
+
+## 3. Composants Optimisés
+
+### Nouveaux Composants Proposés
+1. `GifGrid.vue`
+   - Affichage optimisé des GIFs
+   - Lazy loading
+   - Pagination intégrée
+
+2. `AdvancedSearch.vue`
+   - Filtres par personnage
+   - Filtres par saison
+   - Filtres par thème
+   - Historique des recherches
+
+3. `CharacterProfile.vue`
+   - Biographie du personnage
+   - Statistiques (nombre de répliques)
+   - GIFs associés
+   - Liens vers épisodes marquants
+
+## 4. Améliorations de Contenu Proposées
+
+1. **Pages Thématiques**
+   - `/themes/absurde`
+   - `/themes/drame`
+   - `/themes/politique`
+   - `/themes/bouffe`
+
+2. **Contenu Additionnel**
+   - Citations textuelles des répliques
+   - Contexte des scènes
+   - Analyses des dialogues
+   - Liens vers les épisodes complets (si droits disponibles)
+
+## 5. Plan d'Implémentation Prioritaire
+
+### Phase 1 : Optimisation SEO (2 semaines)
+1. Implémenter les structured data
+2. Mettre en place le sitemap dynamique
+3. Optimiser les meta tags
+4. Améliorer le maillage interne
+
+### Phase 2 : Performance (2 semaines)
+1. Optimiser le chargement des GIFs
+2. Implémenter le lazy loading
+3. Mettre en place le caching
+4. Optimiser les images
+
+### Phase 3 : Fonctionnalités (3 semaines)
+1. Développer la recherche avancée
+2. Implémenter les filtres
+3. Créer les pages thématiques
+4. Ajouter le contenu additionnel
+
+## 6. Analyse des Tradeoffs Révisée
+
+### Performance vs. SEO
+Pour 1200 GIFs, nous devons :
+- Utiliser le lazy loading pour les images
+- Implémenter un système de cache efficace
+- Optimiser les meta descriptions uniques
+- Gérer la pagination de manière SEO-friendly
+
+### Structure vs. Navigation
+Proposition :
+- Navigation principale simplifiée
+- Focus sur les répliques
+- Accès rapide aux personnages populaires
+- Filtres avancés pour les fans
+
+### Contenu vs. Performance
+Stratégie :
+- Chargement progressif du contenu
+- Mise en cache des métadonnées
+- Optimisation des images
+- Préchargement stratégique
+
+## 7. Métriques de Suivi Proposées
+
+1. **SEO**
+   - Positionnement des mots-clés
+   - Taux de clic (CTR)
+   - Pages vues par session
+   - Temps moyen sur la page
+
+2. **Performance**
+   - Temps de chargement
+   - Score Core Web Vitals
+   - Taux de rebond
+   - Conversion (partages, favoris)
+
+3. **Engagement**
+   - Nombre de recherches
+   - Utilisation des filtres
+   - Partages sociaux
+   - Retour aux visites
+
+Cette architecture révisée se concentre sur :
+1. L'optimisation SEO pour 1200 GIFs
+2. Une expérience utilisateur fluide pour les fans
+3. Des fonctionnalités de recherche et filtrage efficaces
+4. Un contenu enrichi et contextuel
+
+Souhaitez-vous que nous commencions par une phase spécifique de cette architecture ? Ou avez-vous des questions sur certains aspects particuliers ?
