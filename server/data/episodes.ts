@@ -1403,909 +1403,443 @@ export const episodes = [
   },
   {
     "code": "S03E01",
-    "title": "Le Chevalier errant"
+    "title": "Le Chevalier errant",
+    "resume": "Arthur rentre à Kaamelott avec Calogrenant et une escorte de soldats. Alors qu'il traverse la forêt, il se sent épié... et pour cause : tapi derrière un buisson, Lancelot l'observe. Ce dernier finit par se montrer pour annoncer au roi qu'il prend ses distances vis-à-vis de Kaamelott : il reprend son activité de chevalier errant et ne participera plus aux réunions de la Table ronde."
   },
   {
     "code": "S03E02",
-    "title": "Morituri"
+    "title": "L'Aveu de Bohort",
+    "resume": "Pensant mourir dans l'immédiat des suites d'une blessures au combat, Bohort avoue à Arthur qu'il n'a jamais fait ses classes."
   },
   {
     "code": "S03E03",
-    "title": "L'Aveu de Bohort"
+    "title": "Le Magnanime",
+    "resume": "A la grande surprise de tous, Léodagan décide de lever le pied concernant les exécutions et les punitions. Non content de les organiser à Kaamelott, il assiste aussi à celles de son père, en Carmélide (qui, semble-t-il, sont d'un autre calibre)."
   },
   {
     "code": "S03E04",
-    "title": "Le Renfort magique"
+    "title": "Le Porte-bonheur",
+    "resume": "Karadoc apprend que Lancelot possède un porte-bonheur qu'il ne quitte jamais : un couteau. Pour imiter Lancelot, Karadoc décide d'emporter, pendant une quête, le compotier de sa grand-mère en guise de porte-bonheur. Inutile de dire que la furtivité de la mission est altérée."
   },
   {
     "code": "S03E05",
-    "title": "Le Porte-bonheur"
+    "title": "Séfriane d'Aquitaine",
+    "resume": "La nièce du duc d'Aquitaine a été conviée par Arthur pour assister à une réunion de la Table Ronde. Elle est enceinte, et elle n'est pas discrète : alors que Léodagan et Bohort se disputent une nouvelle fois à propos de la pertinence des dépenses militaires, elle ne cesse de mettre son grain de sel, pour le plus grand agacement d'Arthur."
   },
   {
     "code": "S03E06",
-    "title": "Le Magnanime"
+    "title": "Le Combat des chefs",
+    "resume": "Arthur reçoit une provocation de chef de clan en duel. Le Roi accepte cependant le combat, apprenant que son adversaire est âgé de plus de 80 ans. Or, le jour du duel ce n'est pas le vieillard attendu qui se présente mais un combattant arménien réputé pour écraser les crânes à mains nues."
   },
   {
     "code": "S03E07",
-    "title": "Le Combat des chefs"
+    "title": "Le Déserteur",
+    "resume": "Caius se présente à Kaamelott en pleine nuit. Il entretient Léodagan, Lancelot et Arthur du départ prochain des troupes Romaines de la terre bretonne. Il en profite pour voir s'il pourrait à cette occasion rester et devenir seigneur Breton. Sauf que le nom Caius en Breton, c'est Kay, comme le sonneur... Et ça fait clodo..."
   },
   {
     "code": "S03E08",
-    "title": "Le Sanglier de Cornouailles"
+    "title": "La Potion de vivacité",
+    "resume": "Arthur demande à Merlin de lui concocter une potion pour lui donner un coup de fouet. Merlin en avait achetée une. Mais il lit mal le druidique, et au lieu d'une seule goutte tel que prescrit, Arthur avale la fiole entière..."
   },
   {
     "code": "S03E09",
-    "title": "Le Professionnel"
+    "title": "Le Sanglier de Cornouailles",
+    "resume": "Arthur découvre qu'il est également appelé «le Sanglier de Cornouailles». Le fautif est Merlin qui avait décidé de lui donner ce surnom pour on ne sait quelle raison. Pour le «remercier», Arthur lui en trouve un aussi..."
   },
   {
     "code": "S03E10",
-    "title": "Le Fléau de Dieu II"
+    "title": "L'Ankou",
+    "resume": "Un serviteur meurt. L'Ankou apparaît. Il veut qu'Arthur l'aide à charrier le corps."
   },
   {
     "code": "S03E11",
-    "title": "Le Tournoi"
+    "title": "Ablutions",
+    "resume": "Arthur est endormi dans son bain. Mevanwi, la femme de Karadoc, veut se laver et le rejoint discrètement. Arthur se demande si..."
   },
   {
     "code": "S03E12",
-    "title": "La Potion de vivacité"
+    "title": "La Poétique 1re partie",
+    "resume": "Perceval essaie de raconter une histoire à la Table Ronde, mais personne ne comprend rien. Arthur essaie de lui apprendre comment raconter, et tente de lui enseigner la poétique."
   },
   {
     "code": "S03E13",
-    "title": "Les Derniers Outrages"
+    "title": "La Poétique 2e partie",
+    "resume": "Suite de l'épisode précédent. Perceval essaie toujours de raconter son histoire... Et Arthur essaie toujours désespérément de l'aider..."
   },
   {
     "code": "S03E14",
-    "title": "Unagi III"
+    "title": "Les Derniers Outrages",
+    "resume": "Forcé de se soumettre à une tradition graciant des prisonniers à Kaamelott, Léodagan décide de soumettre à son tour Arthur à une tradition de son pays lors d'une bataille en Carmélide. Arthur doit donc coucher avec la fille ainée du chef de clan vaincu, pour respecter la coutume. Cependant, 'il n'en a pas envie' ..."
   },
   {
     "code": "S03E15",
-    "title": "Ablutions"
+    "title": "Guenièvre et Euripide",
+    "resume": "Guenièvre va jouer Cassandre dans Les Troyennes d'Euripide, et elle a une nouvelle coiffure à la hurluberlu... Arthur lui donne une leçon de théâtre."
   },
   {
     "code": "S03E16",
-    "title": "Séfriane d'Aquitaine"
+    "title": "Unagi III",
+    "resume": "Encore les techniques d'entraînement de combat de Perceval et Karadoc. Arthur essaie d'aider..."
   },
   {
     "code": "S03E17",
-    "title": "Saponides et Détergents"
+    "title": "Le Fléau de Dieu II",
+    "resume": "Attila est aux portes de Kaamelott. Il exige les femmes de Kaamelott, les négociations s'entament ..."
   },
   {
     "code": "S03E18",
-    "title": "Perceval chante Sloubi"
+    "title": "Cryda de Tintagel",
+    "resume": "Ygerne vient annoncer la visite d'une personnalité importante de Tintagel : Cryda, la tante d'Arthur, qu'il hait cordialement. Et c'est réciproque."
   },
   {
     "code": "S03E19",
-    "title": "Les Affranchis"
+    "title": "L'Ivresse II",
+    "resume": "Arthur et Lancelot sont ivres. La tension monte... Excalibur revient toujours à l'élu. Mais est-ce Arthur ?"
   },
   {
     "code": "S03E20",
-    "title": "Le Dialogue de paix II"
+    "title": "Legenda",
+    "resume": "Arthur doit garder le petit neveu de Karadoc. Il lui raconte une histoire... qui révèle l'état d'esprit du roi."
   },
   {
     "code": "S03E21",
-    "title": "Silbury Hill II"
+    "title": "Le Renfort magique",
+    "resume": "À cause de l'incompétence de Merlin et des menaces saxonnes, Arthur demande à Elias De Kelliwic'h d'apporter son aide au Royaume. Les deux enchanteurs ont visiblement des problèmes d'entente."
   },
   {
     "code": "S03E22",
-    "title": "Le Repos du guerrier II"
+    "title": "Silbury Hill II",
+    "resume": "Encore les cercles de culture et les apparitions de boules orange à Silbury Hill. Arthur ne veut pas avoir à expliquer."
   },
   {
     "code": "S03E23",
-    "title": "La Poétique 1re partie"
+    "title": "Le Professionnel",
+    "resume": "Venec présente au roi un tueur professionnel 'légendaire', le pirate Urgan, dit l'Homme-Goujon, prêt à lui rendre service."
   },
   {
     "code": "S03E24",
-    "title": "La Poétique 2e partie"
+    "title": "Les Suppléants",
+    "resume": "Perceval remplace le maître d'armes pour donner un cours. Lorsque Arthur vient chercher le chevalier, c'est Kadoc qui prend le rôle de professeur."
   },
   {
     "code": "S03E25",
-    "title": "Cryda de Tintagel"
+    "title": "La Nuit du nomade",
+    "resume": "Arthur ne veut pas dormir avec sa nouvelle maîtresse Aélis (la fille du chef de clan de Carmélide vaincu). Il retourne chez Guenièvre, qui l'énerve. Il retourne chez Aélis, qui l'énerve... et il alterne indéfiniment entre l'une et l'autre."
   },
   {
     "code": "S03E26",
-    "title": "Le Déserteur"
+    "title": "L'Assemblée des rois 1re partie",
+    "resume": "C'est la réunion des chefs du Royaume de Logres. On attend longtemps leur arrivée pour l'Assemblée... Le maître d'armes et Grüdü sont seuls à surveiller la grande porte. Enfin assemblés, Arthur, roi de Bretagne préside et fait les présentations : Calogrenant, roi de Calédonie ; Loth, roi d'Orcanie ; Hoël, roi d'Armorique ; Ketchatar, roi d'Irlande. Il oublie de mentionner Léodagan, roi de Carmélide, et celui-ci est vexé. Ça commence bien..."
   },
   {
     "code": "S03E27",
-    "title": "Le Trouble"
+    "title": "L'Assemblée des rois 2e partie",
+    "resume": "Tandis que les rois de Bretagne se disputent sur la légitimité d'Arthur, le maître d'armes et Grüdü, en pleine discorde, laissent entrer malgré eux un commando de rebelles orcaniens. Arthur et ses alliés vont facilement s'en défaire en utilisant leurs objets et pouvoirs magiques. Mais cette attaque constitue un premier signe du futur complot d'Orcanie."
   },
   {
     "code": "S03E28",
-    "title": "Les Suppléants"
+    "title": "L'Arche de transport",
+    "resume": "Perceval montre à Arthur, Lancelot et l'incompétent Merlin, la structure qu'il a trouvée en forêt. Ils supposent qu'il s'agit d'une arche de transport. Inconsciemment, Perceval se propose de passer à travers."
   },
   {
     "code": "S03E29",
-    "title": "Le Petit Poucet"
+    "title": "Les Cousins",
+    "resume": "Bohort est fou de joie d'apprendre que lui et Lancelot sont cousins (le père de Bohort est le frère de Ban de Bénoïc, le père de Lancelot). Lancelot beaucoup moins : un chevalier errant avec une famille, ça n'est pas très sérieux."
   },
   {
     "code": "S03E30",
-    "title": "L'Ivresse II"
+    "title": "Le Trouble",
+    "resume": "Arthur et Mevanwi se font de beaux yeux... Et tous se troublent en les voyant se regarder. Et pendant ce temps-là, la Reine regarde ailleurs comme d'habitude..."
   },
   {
     "code": "S03E31",
-    "title": "La Pierre de Lune"
+    "title": "Le Repos du guerrier II",
+    "resume": "Karadoc a mis le feu à la tente de Perceval, il s'ensuit une dispute. Perceval veut dormir sous la tente du roi."
   },
   {
     "code": "S03E32",
-    "title": "Legenda"
+    "title": "La Poétique 1re partie"
   },
   {
     "code": "S03E33",
-    "title": "La Potion de vérité"
+    "title": "La Poétique 2e partie"
   },
   {
     "code": "S03E34",
-    "title": "Les Cousins"
+    "title": "Cryda de Tintagel"
   },
   {
     "code": "S03E35",
-    "title": "L'Ankou"
+    "title": "Le Déserteur"
   },
   {
     "code": "S03E36",
-    "title": "Les Clous de la Sainte Croix"
+    "title": "Le Trouble"
   },
   {
     "code": "S03E37",
-    "title": "Guenièvre et Euripide"
+    "title": "Les Suppléants"
   },
   {
     "code": "S03E38",
-    "title": "Dream On"
+    "title": "Le Petit Poucet"
   },
   {
     "code": "S03E39",
-    "title": "La Cassette II"
+    "title": "L'Ivresse II"
   },
   {
     "code": "S03E40",
-    "title": "Arthur sensei"
+    "title": "La Pierre de Lune"
   },
   {
     "code": "S03E41",
-    "title": "La Menace fantôme"
+    "title": "Legenda"
   },
   {
     "code": "S03E42",
-    "title": "La Nuit du nomade"
+    "title": "La Potion de vérité"
   },
   {
     "code": "S03E43",
-    "title": "Mission"
+    "title": "Les Cousins"
   },
   {
     "code": "S03E44",
-    "title": "La Révolte II"
+    "title": "L'Ankou"
   },
   {
     "code": "S03E45",
-    "title": "Les Paris II"
+    "title": "Les Clous de la Sainte Croix"
   },
   {
     "code": "S03E46",
-    "title": "Les Cheveux noirs"
+    "title": "Guenièvre et Euripide"
   },
   {
     "code": "S03E47",
-    "title": "La Pythie"
+    "title": "Dream On"
   },
   {
     "code": "S03E48",
-    "title": "Poltergeist"
+    "title": "La Cassette II"
   },
   {
     "code": "S03E49",
-    "title": "Le Solitaire"
+    "title": "Arthur sensei"
   },
   {
     "code": "S03E50",
-    "title": "Le Jour d'Alexandre"
+    "title": "La Menace fantôme"
   },
   {
     "code": "S03E51",
-    "title": "L'Abstinent"
+    "title": "La Nuit du nomade"
   },
   {
     "code": "S03E52",
-    "title": "La Corne d'abondance"
+    "title": "Mission"
   },
   {
     "code": "S03E53",
-    "title": "Feue la poule de Guethenoc"
+    "title": "La Révolte II"
   },
   {
     "code": "S03E54",
-    "title": "Les Festivités"
+    "title": "Les Paris II"
   },
   {
     "code": "S03E55",
-    "title": "Au Bonheur des Dames"
+    "title": "Les Cheveux noirs"
   },
   {
     "code": "S03E56",
-    "title": "Aux yeux de tous II"
+    "title": "La Pythie"
   },
   {
     "code": "S03E57",
-    "title": "Cuisine et Dépendances"
+    "title": "Poltergeist"
   },
   {
     "code": "S03E58",
-    "title": "La Coopération"
+    "title": "Le Solitaire"
   },
   {
     "code": "S03E59",
-    "title": "La Ronde II"
+    "title": "Le Jour d'Alexandre"
   },
   {
     "code": "S03E60",
-    "title": "L'Empressée"
+    "title": "L'Abstinent"
   },
   {
     "code": "S03E61",
-    "title": "Haunted II"
+    "title": "La Corne d'abondance"
   },
   {
     "code": "S03E62",
-    "title": "L'Arche de transport"
+    "title": "Feue la poule de Guethenoc"
   },
   {
     "code": "S03E63",
-    "title": "La Crypte maléfique"
+    "title": "Les Festivités"
   },
   {
     "code": "S03E64",
-    "title": "La Baliste"
+    "title": "Au Bonheur des Dames"
   },
   {
     "code": "S03E65",
-    "title": "Le Tourment III"
+    "title": "Aux yeux de tous II"
   },
   {
     "code": "S03E66",
-    "title": "Les Tourelles"
+    "title": "Cuisine et Dépendances"
   },
   {
     "code": "S03E67",
-    "title": "La Potion de fécondité II"
+    "title": "La Coopération"
   },
   {
     "code": "S03E68",
-    "title": "La Baraka"
+    "title": "La Ronde II"
   },
   {
     "code": "S03E69",
-    "title": "L'Attaque nocturne"
+    "title": "L'Empressée"
   },
   {
     "code": "S03E70",
-    "title": "La Restriction II"
+    "title": "Haunted II"
   },
   {
     "code": "S03E71",
-    "title": "Arthur in Love II"
+    "title": "L'Arche de transport"
   },
   {
     "code": "S03E72",
-    "title": "La Grande Bataille"
+    "title": "La Crypte maléfique"
   },
   {
     "code": "S03E73",
-    "title": "La Fête de l'hiver II"
+    "title": "La Baliste"
   },
   {
     "code": "S03E74",
-    "title": "Le Tribut"
+    "title": "Le Tourment III"
   },
   {
     "code": "S03E75",
-    "title": "Witness"
+    "title": "Les Tourelles"
   },
   {
     "code": "S03E76",
-    "title": "Les Auditeurs libres"
+    "title": "La Potion de fécondité II"
   },
   {
     "code": "S03E77",
-    "title": "Alone in the Dark"
+    "title": "La Baraka"
   },
   {
     "code": "S03E78",
-    "title": "Le Justicier"
+    "title": "L'Attaque nocturne"
   },
   {
     "code": "S03E79",
-    "title": "L'Espion"
+    "title": "La Restriction II"
   },
   {
     "code": "S03E80",
-    "title": "Stargate II"
+    "title": "Arthur in Love II"
   },
   {
     "code": "S03E81",
-    "title": "Raison d'argent II"
+    "title": "La Grande Bataille"
   },
   {
     "code": "S03E82",
-    "title": "Le Vulgarisateur"
+    "title": "La Fête de l'hiver II"
   },
   {
     "code": "S03E83",
-    "title": "Le Mangonneau"
+    "title": "Le Tribut"
   },
   {
     "code": "S03E84",
-    "title": "Sous les verrous II"
+    "title": "Witness"
   },
   {
     "code": "S03E85",
-    "title": "L'Insomniaque"
+    "title": "Les Auditeurs libres"
   },
   {
     "code": "S03E86",
-    "title": "La Chevalerie"
+    "title": "Alone in the Dark"
   },
   {
     "code": "S03E87",
-    "title": "La Veillée"
+    "title": "Le Justicier"
   },
   {
     "code": "S03E88",
-    "title": "L'Étudiant"
+    "title": "L'Espion"
   },
   {
     "code": "S03E89",
-    "title": "L'Assemblée des rois 1re partie"
+    "title": "Stargate II"
   },
   {
     "code": "S03E90",
-    "title": "L'Assemblée des rois 2e partie"
+    "title": "Raison d'argent II"
   },
   {
     "code": "S03E91",
-    "title": "Le Mauvais Augure"
+    "title": "L'Espion",
+    "resume": "La Table Ronde envoie un espion chez les paysans. Hervé de Rinel est désigné volontaire (parce qu'il n'écoutait pas...)."
   },
   {
     "code": "S03E92",
-    "title": "Le Culte secret"
+    "title": "Alone in the Dark",
+    "resume": "Karadoc a peur d'être seul dans le noir. Il a peur des spectres."
   },
   {
     "code": "S03E93",
-    "title": "Le Baiser romain"
+    "title": "Le Législateur",
+    "resume": "Mevanwi arrive aux cuisines pour rencontrer Arthur. Mais Guenièvre est déjà là... Mevanwi veut qu'Arthur abroge la loi qui dit que si un chevalier est éprise d'une femme d'un autre chevalier, il doit y avoir combat à mort entre les chevaliers. Arthur dit qu'il en déjà abrogé trop..."
   },
   {
     "code": "S03E94",
-    "title": "Le Médiateur"
+    "title": "L'Insomniaque",
+    "resume": "Guenièvre n'arrive pas à dormir sous la tente en forêt avec tous ces animaux qui font du bruit. Elle veut partager ses passions... mais c'est la guerre."
   },
   {
     "code": "S03E95",
-    "title": "Le Législateur"
+    "title": "L'Étudiant",
+    "resume": "Perceval décide d'assister au cours que donne Arthur aux jeunes chevaliers. Le cours porte sur les armes de siège (la catapulte)."
   },
   {
     "code": "S03E96",
-    "title": "Les Défis de Merlin II"
+    "title": "Le Médiateur",
+    "resume": "Le Père Blaise veut parler à Arthur et à Lancelot. Les gens s'inquiètent : ils ont l'air de ne plus s'entendre. Père Blaise s'offre comme médiateur."
   },
   {
     "code": "S03E97",
-    "title": "Le Trophée"
+    "title": "Le Trophée",
+    "resume": "Perceval réussit une mission ! Cependant la joie est de courte durée pour Arthur..."
   },
   {
     "code": "S03E98",
-    "title": "Hollow Man"
+    "title": "Hollow Man",
+    "resume": "La potion pour l'angine de Merlin rend Arthur invisible (mais l'angine est toujours là...). Lancelot confie un message à Bohort pour Guenièvre : il est amoureux d'elle. Bohort lui dit. Et il y a un courant d'air... Et la Dame du Lac semble également être au courant..."
   },
   {
     "code": "S03E99",
-    "title": "La Dispute 1re partie"
+    "title": "La Dispute 1re partie",
+    "resume": "Lancelot annonce qu'il part définitivement, et dit ses quatre vérités à Arthur."
   },
   {
     "code": "S03E100",
-    "title": "La Dispute 2e partie"
-  },
-  {
-    "code": "S04E01",
-    "title": "Tous les matins du monde 1re partie"
-  },
-  {
-    "code": "S04E02",
-    "title": "Tous les matins du monde 2e partie"
-  },
-  {
-    "code": "S04E03",
-    "title": "Raison et Sentiments"
-  },
-  {
-    "code": "S04E04",
-    "title": "Les Tartes aux fraises"
-  },
-  {
-    "code": "S04E05",
-    "title": "Le Dédale"
-  },
-  {
-    "code": "S04E06",
-    "title": "Les Pisteurs"
-  },
-  {
-    "code": "S04E07",
-    "title": "Le Traître"
-  },
-  {
-    "code": "S04E08",
-    "title": "La Faute 1re partie"
-  },
-  {
-    "code": "S04E09",
-    "title": "La Faute 2e partie"
-  },
-  {
-    "code": "S04E10",
-    "title": "L'Ascension du Lion"
-  },
-  {
-    "code": "S04E11",
-    "title": "Une vie simple"
-  },
-  {
-    "code": "S04E12",
-    "title": "Le Privilégié"
-  },
-  {
-    "code": "S04E13",
-    "title": "Le Bouleversé"
-  },
-  {
-    "code": "S04E14",
-    "title": "Dagonet et le Cadastre"
-  },
-  {
-    "code": "S04E15",
-    "title": "Les Liaisons dangereuses"
-  },
-  {
-    "code": "S04E16",
-    "title": "Les Exploités II"
-  },
-  {
-    "code": "S04E17",
-    "title": "Duel 1re partie"
-  },
-  {
-    "code": "S04E18",
-    "title": "Duel 2e partie"
-  },
-  {
-    "code": "S04E19",
-    "title": "La Foi bretonne"
-  },
-  {
-    "code": "S04E20",
-    "title": "Au service secret de Sa Majesté"
-  },
-  {
-    "code": "S04E21",
-    "title": "La Parade"
-  },
-  {
-    "code": "S04E22",
-    "title": "Seigneur Caius"
-  },
-  {
-    "code": "S04E23",
-    "title": "L'Échange 1re partie"
-  },
-  {
-    "code": "S04E24",
-    "title": "L'Échange 2e partie"
-  },
-  {
-    "code": "S04E25",
-    "title": "L'Échelle de Perceval"
-  },
-  {
-    "code": "S04E26",
-    "title": "La Chambre de la reine"
-  },
-  {
-    "code": "S04E27",
-    "title": "Les Émancipés"
-  },
-  {
-    "code": "S04E28",
-    "title": "La Révoquée"
-  },
-  {
-    "code": "S04E29",
-    "title": "La Baliste II"
-  },
-  {
-    "code": "S04E30",
-    "title": "Les Bonnes"
-  },
-  {
-    "code": "S04E31",
-    "title": "La Révolte III"
-  },
-  {
-    "code": "S04E32",
-    "title": "Le Rapport"
-  },
-  {
-    "code": "S04E33",
-    "title": "L'Art de la table"
-  },
-  {
-    "code": "S04E34",
-    "title": "Les Novices"
-  },
-  {
-    "code": "S04E35",
-    "title": "Les Refoulés"
-  },
-  {
-    "code": "S04E36",
-    "title": "Les Tuteurs II"
-  },
-  {
-    "code": "S04E37",
-    "title": "Le Tourment IV"
-  },
-  {
-    "code": "S04E38",
-    "title": "Le Rassemblement du corbeau II"
-  },
-  {
-    "code": "S04E39",
-    "title": "Le Grand Départ"
-  },
-  {
-    "code": "S04E40",
-    "title": "La Clandestine"
-  },
-  {
-    "code": "S04E41",
-    "title": "L'Auberge rouge"
-  },
-  {
-    "code": "S04E42",
-    "title": "Les Envahisseurs"
-  },
-  {
-    "code": "S04E43",
-    "title": "Les Curieux 1re partie"
-  },
-  {
-    "code": "S04E44",
-    "title": "Les Curieux 2e partie"
-  },
-  {
-    "code": "S04E45",
-    "title": "Les Tacticiens 1re partie"
-  },
-  {
-    "code": "S04E46",
-    "title": "Les Tacticiens 2e partie"
-  },
-  {
-    "code": "S04E47",
-    "title": "La vie est belle"
-  },
-  {
-    "code": "S04E48",
-    "title": "Unagi IV"
-  },
-  {
-    "code": "S04E49",
-    "title": "La Réponse"
-  },
-  {
-    "code": "S04E50",
-    "title": "Anges et Démons"
-  },
-  {
-    "code": "S04E51",
-    "title": "La Rémanence"
-  },
-  {
-    "code": "S04E52",
-    "title": "La Potion de vivacité II"
-  },
-  {
-    "code": "S04E53",
-    "title": "Vox populi III"
-  },
-  {
-    "code": "S04E54",
-    "title": "La Sonde"
-  },
-  {
-    "code": "S04E55",
-    "title": "La Relève"
-  },
-  {
-    "code": "S04E56",
-    "title": "Perceval fait ritournelle"
-  },
-  {
-    "code": "S04E57",
-    "title": "La Poétique II 1re partie"
-  },
-  {
-    "code": "S04E58",
-    "title": "La Poétique II 2e partie"
-  },
-  {
-    "code": "S04E59",
-    "title": "La Permission"
-  },
-  {
-    "code": "S04E60",
-    "title": "Le Dragon gris"
-  },
-  {
-    "code": "S04E61",
-    "title": "La Réaffectation"
-  },
-  {
-    "code": "S04E62",
-    "title": "Le Jeu de la guerre"
-  },
-  {
-    "code": "S04E63",
-    "title": "Le Rêve d'Ygerne"
-  },
-  {
-    "code": "S04E64",
-    "title": "Les Chaperons"
-  },
-  {
-    "code": "S04E65",
-    "title": "L'Habitué"
-  },
-  {
-    "code": "S04E66",
-    "title": "Le Camp romain"
-  },
-  {
-    "code": "S04E67",
-    "title": "Loth et le Graal"
-  },
-  {
-    "code": "S04E68",
-    "title": "La Répétition"
-  },
-  {
-    "code": "S04E69",
-    "title": "Le Refuge"
-  },
-  {
-    "code": "S04E70",
-    "title": "L'Ultimatum"
-  },
-  {
-    "code": "S04E71",
-    "title": "La Dame et le Lac"
-  },
-  {
-    "code": "S04E72",
-    "title": "Beaucoup de bruit pour rien"
-  },
-  {
-    "code": "S04E73",
-    "title": "Le Oud II"
-  },
-  {
-    "code": "S04E74",
-    "title": "Le Discours"
-  },
-  {
-    "code": "S04E75",
-    "title": "Le Paladin"
-  },
-  {
-    "code": "S04E76",
-    "title": "Le Choix de Gauvain"
-  },
-  {
-    "code": "S04E77",
-    "title": "Le Face-à-face 1re partie"
-  },
-  {
-    "code": "S04E78",
-    "title": "Le Face-à-face 2e partie"
-  },
-  {
-    "code": "S04E79",
-    "title": "L'Usurpateur"
-  },
-  {
-    "code": "S04E80",
-    "title": "Fluctuat nec mergitur"
-  },
-  {
-    "code": "S04E81",
-    "title": "La Blessure d'Yvain"
-  },
-  {
-    "code": "S04E82",
-    "title": "Corpore sano II"
-  },
-  {
-    "code": "S04E83",
-    "title": "L'Enchanteur"
-  },
-  {
-    "code": "S04E84",
-    "title": "Les Bien Nommés"
-  },
-  {
-    "code": "S04E85",
-    "title": "Drakkars !"
-  },
-  {
-    "code": "S04E86",
-    "title": "L'Approbation"
-  },
-  {
-    "code": "S04E87",
-    "title": "La Prisonnière"
-  },
-  {
-    "code": "S04E88",
-    "title": "Les Paris III"
-  },
-  {
-    "code": "S04E89",
-    "title": "Alone in the Dark II"
-  },
-  {
-    "code": "S04E90",
-    "title": "Les Plaques de dissimulation"
-  },
-  {
-    "code": "S04E91",
-    "title": "Le Vice de forme"
-  },
-  {
-    "code": "S04E92",
-    "title": "L'Inspiration"
-  },
-  {
-    "code": "S04E93",
-    "title": "Le Renoncement 1re partie"
-  },
-  {
-    "code": "S04E94",
-    "title": "Le Renoncement 2e partie"
-  },
-  {
-    "code": "S04E95",
-    "title": "L'Entente cordiale"
-  },
-  {
-    "code": "S04E96",
-    "title": "Les Endettés"
-  },
-  {
-    "code": "S04E97",
-    "title": "Double Dragon"
-  },
-  {
-    "code": "S04E98",
-    "title": "Le Sauvetage"
-  },
-  {
-    "code": "S04E99",
-    "title": "Le Désordre et la Nuit"
-  },
-  {
-    "code": "S05E01",
-    "title": "Corvus Corone"
-  },
-  {
-    "code": "S05E02",
-    "title": "La Roche et le Fer"
-  },
-  {
-    "code": "S05E03",
-    "title": "Vae Soli"
-  },
-  {
-    "code": "S05E04",
-    "title": "Le Dernier Jour"
-  },
-  {
-    "code": "S05E05",
-    "title": "Le Royaume Sans Tête"
-  },
-  {
-    "code": "S05E06",
-    "title": "Jizô"
-  },
-  {
-    "code": "S05E07",
-    "title": "Le Phare"
-  },
-  {
-    "code": "S05E08",
-    "title": "Le Garcon Qui Criait Au Loup"
-  },
-  {
-    "code": "S06E01",
-    "title": "Miles Ignotus"
-  },
-  {
-    "code": "S06E02",
-    "title": "Centurio"
-  },
-  {
-    "code": "S06E03",
-    "title": "Præceptores"
-  },
-  {
-    "code": "S06E04",
-    "title": "Arturi inquisito"
-  },
-  {
-    "code": "S06E05",
-    "title": "Dux bellorum"
-  },
-  {
-    "code": "S06E06",
-    "title": "Nuptiæ"
-  },
-  {
-    "code": "S06E07",
-    "title": "Arturus rex"
-  },
-  {
-    "code": "S06E08",
-    "title": "Lacrimosa"
-  },
-  {
-    "code": "S06E09",
-    "title": "Dies, iræ"
-  },
-  {
-    "code": "kv1",
-    "title": "Kaamelott premier volet"
-  },
-  {
-    "code": "kv2",
-    "title": "Kaamelott deuxième volet"
-  },
-  {
-    "code": "S02E71",
-    "title": "Le Rassemblement du corbeau",
-    "summary": "Un corbeau rassemble les chevaliers pour une mission mystérieuse, mais leurs interprétations erronées de ses signes mènent à des situations comiques."
-  },
-  {
-    "code": "S02E72",
-    "title": "La Cassette",
-    "summary": "Une cassette mystérieuse est découverte, contenant des informations qui pourraient changer le cours de l'histoire, mais les chevaliers ne savent pas comment l'utiliser."
-  },
-  {
-    "code": "S02E73",
-    "title": "Le Privilégié",
-    "summary": "Un chevalier reçoit un privilège spécial, ce qui provoque la jalousie des autres et mène à des situations comiques."
-  },
-  {
-    "code": "S02E74",
-    "title": "La Réponse",
-    "summary": "Les chevaliers attendent une réponse importante, mais leur impatience et leurs malentendus créent des situations comiques."
-  },
-  {
-    "code": "S02E75",
-    "title": "Le Dernier Souper",
-    "summary": "Un dernier souper est organisé, mais les préparatifs et les invités créent des situations comiques."
-  },
-  {
-    "code": "S02E76",
-    "title": "Le Retour de l'épée",
-    "summary": "L'épée Excalibur fait son retour, mais les chevaliers ne savent pas comment la gérer, ce qui mène à des situations comiques."
-  },
-  {
-    "code": "S02E77",
-    "title": "La Quête de l'épée",
-    "summary": "Les chevaliers partent en quête de l'épée Excalibur, mais leurs malentendus et leurs erreurs créent des situations comiques."
+    "title": "La Dispute 2e partie",
+    "resume": "Lancelot amorce un mouvement séparatiste. Bohort ne réussit pas à le raisonner, et l'abandonne. Guenièvre surprend Mevanwi et Arthur. Elle prend une grave décision..."
   }
 ]
