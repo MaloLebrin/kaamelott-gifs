@@ -94,7 +94,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['localhost'],
+    domains: ['localhost', 'res.cloudinary.com', 'kaamelottgifs.fr'],
     dir: 'public',
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/be-right/image/upload'
