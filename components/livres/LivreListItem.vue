@@ -27,8 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Season } from '~/types/Season';
-
+import type { Season } from '~/types/Season'
 
 defineProps<{
   season: Season
