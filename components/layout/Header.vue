@@ -30,7 +30,7 @@
           </div>
         </nav>
 
-        <Dialog class="md:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
+        <Dialog class="md:hidden" @close="closeMobileMenu" :open="mobileMenuOpen">
           <div class="fixed inset-0 z-10" />
           <DialogPanel
             class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -44,7 +44,7 @@
                 <img class="h-8 w-auto" src="/KaamelottLogo.webp" alt="Logo Kaamelott" />
               </NuxtLink>
 
-              <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
+              <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="closeMobileMenu">
                 <span class="sr-only">Close menu</span>
                 <XMarkIcon class="size-6" aria-hidden="true" />
               </button>
@@ -82,4 +82,8 @@ const navigation = [
   { name: 'À propos', href: '/about' },
 ]
 const mobileMenuOpen = ref(false)
+
+function closeMobileMenu() {
+  mobileMenuOpen.value = false
+}
 </script>
