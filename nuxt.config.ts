@@ -86,7 +86,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    // exclude all URLs that start with /secret
+    // DOC: https://nuxtseo.com/docs/sitemap/guides/filtering-urls
     exclude: [
       '/_nuxt/',
       '/confirm',
