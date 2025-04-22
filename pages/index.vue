@@ -77,7 +77,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
   twitterDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
-  twitterImage: '/fondKBg.webp'
+  twitterImage: '/fondKBg.webp',
 })
 
 onMounted(() => {
