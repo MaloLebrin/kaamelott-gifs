@@ -8,6 +8,15 @@
         <span>{{ seasonData.season.duration }}</span>
       </div>
       <p class="text-gray-700">{{ seasonData.season.resume }}</p>
+      <details class="sr-only">
+        <a
+          :href="seasonData.season.wikipediaLink"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Voir plus de détails
+        </a>
+      </details>
     </div>
 
     <template v-if="seasonData && seasonData.gifs.length > 0">
@@ -89,9 +98,5 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: `${seasonData.value?.season.title} - Kaamelott GIFs`,
   twitterDescription: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
-})
-
-definePageMeta({
-  layout: 'default'
 })
 </script>
