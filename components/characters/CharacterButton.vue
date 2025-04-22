@@ -28,6 +28,7 @@
       :to="`/characters/${slugify(character.name)}`"
       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-t-lg"
       :v-posthog-capture="`click_personnage_${character.name}`"
+      prefetch
     >
       Voir tous les GIFs
     </NuxtLink>

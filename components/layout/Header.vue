@@ -10,10 +10,14 @@
         </NuxtLink>
 
         <nav class="flex space-x-4">
-          <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+          <NuxtLink
+            v-for="item in navigation"
+            :key="item.name"
+            :to="item.href"
             class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-900 hidden md:block"
             active-class="bg-gray-100 text-gray-900"
             :v-posthog-capture="`click_header_link_${item.name}`"
+            prefetch
           >
             {{ item.name }}
           </NuxtLink>
@@ -31,7 +35,11 @@
           <DialogPanel
             class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div class="flex items-center justify-between">
-              <NuxtLink to="/" class="-m-1.5 p-1.5">
+              <NuxtLink
+                to="/"
+                class="-m-1.5 p-1.5"
+                prefetch
+              >
                 <span class="sr-only">Kaamelott GIFs</span>
                 <img class="h-8 w-auto" src="/KaamelottLogo.webp" alt="Logo Kaamelott" />
               </NuxtLink>
@@ -50,6 +58,7 @@
                     :to="item.href"
                     class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                     :v-posthog-capture="`click_header_link_${item.name}`"
+                    prefetch
                   >
                     {{ item.name }}
                   </NuxtLink>

@@ -52,6 +52,7 @@ const handleClose = () => {
                 :to="`/characters/${slugify(character)}`"
                 class="px-3 py-1 bg-gray-100/80 rounded-full text-sm text-gray-600"
                 :v-posthog-capture="`click_personnage_${character}`"
+                prefetch
               >
                 {{ character }}
               </NuxtLink>
@@ -66,6 +67,7 @@ const handleClose = () => {
                 :to="`/characters/${slugify(character)}`"
                 class="px-3 py-1 bg-gray-200/80 rounded-full text-sm text-gray-700"
                 :v-posthog-capture="`click_personnage_${character}`"
+                prefetch
               >
                 {{ character }}
               </NuxtLink>

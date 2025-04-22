@@ -3,6 +3,7 @@
     :to="`/livres/${season.slug}`"
     class="group"
     :v-posthog-capture="`click_livre_link_${season.slug}`"
+    prefetch
   >
     <div
       class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
