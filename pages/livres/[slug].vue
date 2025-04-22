@@ -83,7 +83,7 @@ useSeoMeta({
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
   robots: 'index, follow',
-  ogUrl: `https://kaamelottgifs.com/livres/${seasonData.value?.season.slug}`,
+  ogUrl: `https://kaamelottgifs.fr/livres/${seasonData.value?.season.slug}`,
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',

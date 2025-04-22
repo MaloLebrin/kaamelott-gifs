@@ -72,7 +72,7 @@ useSeoMeta({
   ogTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
   ogDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
   ogImage: '/fondKBg.webp',
-  ogUrl: 'https://kaamelottgifs.com',
+  ogUrl: 'https://kaamelottgifs.fr',
   ogType: 'website',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
