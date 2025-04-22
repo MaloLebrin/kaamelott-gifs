@@ -64,6 +64,7 @@ Tu peux me proposer des optimisations pour améliorer le SEO. Sans oublié le ma
 
 ### 7. Git et PRs
 - Créer des commits atomiques avec des messages descriptifs
+- Utiliser les emojis de Gitmoji
 - Suivre le format de PR standard
 - Inclure des descriptions détaillées des changements
 - Vérifier les changements avant de créer une PR
