@@ -73,13 +73,13 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'canonical', href: 'https://kaamelott-gifs.com' }
+        { rel: 'canonical', href: 'https://kaamelottgifs.fr' }
       ]
     },
   },
 
   site: {
-    url: 'https://kaamelottgifs.com',
+    url: 'https://kaamelottgifs.fr',
     name: 'Kaamelott GIFs',
     description: 'Collection de GIFs de la série Kaamelott',
     image: '/fondKBg.jpg',
@@ -114,7 +114,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://kaamelott-gifs.com'
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://kaamelottgifs.fr'
     }
   }
 })
