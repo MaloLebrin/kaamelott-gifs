@@ -19,6 +19,16 @@ import type { Gif } from '~/types'
 
 const route = useRoute()
 const slug = route.params.slug as string
+const { $clientPosthog } = useNuxtApp()
 
 const { data: gif } = await useFetch<Gif>(`/api/gifs/${slug}`)
+
+onMounted(() => {
+  if ($clientPosthog) {
+    $clientPosthog.capture('page_view', {
+      page: 'gif',
+      gif: gif.value?.slug
+    })
+  }
+})
 </script>
