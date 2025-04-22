@@ -85,6 +85,14 @@ export default defineNuxtConfig({
     image: '/fondKBg.jpg',
   },
 
+  sitemap: {
+    // exclude all URLs that start with /secret
+    exclude: [
+      '/_nuxt/',
+      '/confirm',
+    ],
+  },
+
   image: {
     domains: ['localhost'],
     dir: 'public',
