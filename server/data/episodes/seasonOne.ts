@@ -1,7 +1,12 @@
-export const seasonOne = [
+import { SeedEpisode } from "~/server/data/episodes/index";
+
+export const seasonOne: SeedEpisode[] = [
   {
     "code": "S00E01",
-    "title": "Pilotes"
+    "title": "Pilotes",
+    "resume": null,
+    "characters": null,
+    "image": null
   },
   {
     code: "S01E01",
@@ -14,6 +19,7 @@ export const seasonOne = [
     code: "S01E02",
     "title": "Les Tartes aux Myrtilles",
     "resume": "Séli a cuisiné une tarte aux myrtilles qui s’avère immangeable, mais Arthur, Guenièvre et Léodagan sont contraints de la manger. Ce dessert lance une discussion enlevée autour des traditions familiales et de l’absence d’héritier.",
+    "characters": "Arthur,Guenièvre,Léodagan,Séli,Gauvain",
     "image": "https://www.premiere.fr/sites/default/files/styles/scale_crop_1280x720/public/2021-01/Kaamelott%20-%20Les%20Tartes%20aux%20Myrtilles.jpg"
   },
   {
