@@ -1,4 +1,6 @@
-export const seasonThree = [
+import { SeedEpisode } from "~/server/data/episodes/index";
+
+export const seasonThree: SeedEpisode[] = [
   {
     "code": "S03E01",
     "title": "Le Chevalier errant",
