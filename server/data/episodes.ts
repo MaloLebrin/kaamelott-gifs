@@ -1,3 +1,4 @@
+
 export const episodes = [
   {
     "code": "S00E01",
@@ -6,57 +7,56 @@ export const episodes = [
   {
     code: "S01E01",
     "title": "Heat",
-    "resume": "Pendant une bataille, Arthur, Léodagan et Perceval se cachent en forêt et cherchent à se sauver sans se faire repérer des ennemis.",
+    "resume": "Arthur, Léodagan et Perceval sont isolés en forêt pendant une bataille et se cachent derrière des arbres. Ils cherchent comment se tirer de cette situation, mais Perceval suggère de très nombreuses solutions farfelues (telles qu’un allumage d’incendie pour débusquer les ennemis), et manque de les faire repérer.",
     "characters": "Arthur,Léodagan,Perceval,Karadoc,Bohort",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-1-heat.jpg"
   },
   {
     code: "S01E02",
     "title": "Les Tartes aux Myrtilles",
-    "resume": "Séli a cuisiné une tarte aux myrtilles immangeable, mais Arthur, Guenièvre et Léodagan sont contraints de la manger. Ce dessert lance une discussion sur les traditions familiales et l'absence d'héritier.",
-    "characters": "Arthur,Guenièvre,Léodagan,Séli",
+    "resume": "Séli a cuisiné une tarte aux myrtilles qui s’avère immangeable, mais Arthur, Guenièvre et Léodagan sont contraints de la manger. Ce dessert lance une discussion enlevée autour des traditions familiales et de l’absence d’héritier.",
     "image": "https://www.premiere.fr/sites/default/files/styles/scale_crop_1280x720/public/2021-01/Kaamelott%20-%20Les%20Tartes%20aux%20Myrtilles.jpg"
   },
   {
     code: "S01E03",
     "title": "La Table de Breccan",
-    "resume": "La Table Ronde est arrivée à Kaamelott. Arthur aurait préféré une table en pierre plutôt qu'en bois, ce qui suscite des discussions avec l'artisan Breccan.",
+    "resume": "Un artisan vient de livrer une table ronde commandée par Arthur. Ce dernier regrette qu’elle ne soit pas en pierre, et Breccan, l’artisan, le prévient de se méfier du cuir car cela est salissant. Plusieurs personnes, comme le père Blaise et la Dame du Lac, viennent voir le résultat et font des commentaires.",
     "characters": "Arthur,Léodagan,Perceval,Karadoc,Bohort,Père Blaise,Dame du Lac,Breccan",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-3-la-table-de-breccan.jpg"
   },
   {
     code: "S01E04",
     "title": "Le Chevalier Mystère",
-    "resume": "Un mystérieux chevalier se faisant appeler Provençal le Gaulois provoque des duels et sème la discorde parmi les chevaliers de la Table Ronde.",
+    "resume": "Autour de la Table ronde flambant neuve, les chevaliers discutent d’un chevalier mystère : Provençal le Gaulois. Il s’avère que c’est en fait Perceval le Gallois, qui s'est trompé en donnant son propre nom. Le mystère demeure toutefois : Provençal le Gaulois a une excellente réputation, alors que Perceval pas du tout.",
     "characters": "Arthur,Léodagan,Perceval,Bohort,Karadoc,Lancelot,Hervé de Rinel,Calogrenant,Père Blaise",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-4-le-chevalier-mystere.jpg"
   },
   {
     code: "S01E05",
     "title": "Le Fléau de Dieu",
-    "resume": "Attila, surnommé 'le Fléau de Dieu', débarque à Kaamelott avec l'intention de repartir avec tout l'or du Royaume. Cependant, il finit par repartir avec un plat cuisiné.",
+    "resume": "Arthur, Léodagan et Bohort doivent négocier face à Attila, roi des Huns, joué par Lan Truong. La réunion se passe dans la salle du trône et Attila exige en premier lieu l’intégralité de l’or de Kaamelott sous peine de tout détruire. Face aux protestations du roi, et en dépit de ses terribles cris, Attila montre qu’il n’est pas aussi terrifiant que sa réputation l’affirme. Ainsi, après d’âpres négociations, le chef barbare crie victoire : il repart avec un plat cuisiné (mais froid).",
     "characters": "Arthur,Léodagan,Bohort,Attila",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-5-le-fleau-de-dieu.jpg"
   },
   {
     code: "S01E06",
     "title": "Le Garde du Corps",
-    "resume": "Arthur s'apprête à signer un traité de paix. Un garde du corps, Grüdü, est affecté à sa protection, mais se révèle être un peu trop zélé.",
+    "resume": "Un traité de paix est sur le point d’être signé, et un garde du corps est affecté à la protection d’Arthur. Ce garde du corps, très zélé, ne quitte pas des yeux le roi, y compris lorsqu’il est au lit avec une de ses maîtresses, et menace de tuer quiconque s'approche trop près de lui et pourrait ainsi menacer sa sécurité.",
     "characters": "Arthur,Lancelot,Bohort,Grüdü,Démétra,Guenièvre",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-6-le-garde-du-corps.jpg"
   },
   {
     code: "S01E07",
     "title": "Des nouvelles du monde",
-    "resume": "Arthur reçoit des nouvelles du monde extérieur, ce qui provoque des discussions à la cour sur les événements récents.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc",
+    "resume": "Arthur et ses chevaliers dirigent une bataille depuis une colline. Mais les hommes ne regardent pas les signaux que l’état-major leur envoie, ce qui les mène vers une défaite certaine et conduit Arthur à une grosse crise de nerfs durant la bataille.",
+    "characters": "Arthur,Léodagan,Séli,Buzit",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-7-des-nouvelles-du-monde.jpg"
   },
   {
     code: "S01E08",
     "title": "Codes et stratégies",
     "resume": "Arthur tente d'enseigner des codes et des stratégies militaires à Perceval et Karadoc, mais leurs incompréhensions rendent la tâche difficile.",
-    "characters": "Arthur,Perceval,Karadoc",
+    "characters": "Arthur,kay,Léodagan,Lancelot",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-8-codes-et-strategies.jpg"
   },
   {
@@ -70,35 +70,35 @@ export const episodes = [
     code: "S01E10",
     "title": "Le Négociateur",
     "resume": "Une bataille contre les Barbares était prévue, mais Bohort a négocié pour éviter les combats, ce qui déplaît à Arthur.",
-    "characters": "Arthur,Bohort,Guenièvre",
+    "characters": "Arthur,Bohort,Guenièvre,Léodagan,Perceval",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-10-le-negociateur.jpg"
   },
   {
     code: "S01E11",
     "title": "Dîner dansant",
-    "resume": "Un dîner dansant est organisé à Kaamelott, mais les chevaliers ne sont pas très enthousiastes à l'idée de danser.",
-    "characters": "Arthur,Guenièvre,Léodagan,Séli",
+    "resume": "Le repas est agité, car Yvain n'a visiblement pas envie d'être là. Il aurait préféré aller déjeuner chez son ami Gauvain.",
+    "characters": "Arthur,Guenièvre,Léodagan,Séli,Yvain",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-11-diner-dansant.jpg"
   },
   {
     code: "S01E12",
     "title": "Le Sixième Sens",
     "resume": "La Dame du Lac demande à voir Perceval et Karadoc à la Table Ronde. Arthur est chargé de les recevoir, mais la nouvelle qu'elle a à leur apprendre laisse Arthur sceptique.",
-    "characters": "Arthur,Perceval,Karadoc,Dame du Lac",
+    "characters": "Arthur,Perceval,Karadoc,Dame du Lac,Le Tavernier",
     "image": "https://www.scifi-universe.com/upload/medias/series/19079/kaamelott-saison-1-episode-12-le-sixieme-sens.jpg"
   },
   {
     code: "S01E13",
     "title": "Arthur et la Question",
     "resume": "Venec propose à Arthur des instruments de torture pour interroger un voleur, mais Arthur refuse catégoriquement, au grand dam de Léodagan. Guenièvre reproche à Arthur de ne pas lui raconter ses journées.",
-    "characters": "Arthur,Léodagan,Bohort,Guenièvre,Venec",
+    "characters": "Arthur,Léodagan,Bohort,Guenièvre,Venec,Calogrenant,Père Blaise,Galessin,karadoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Arthur_Et_La_Question#/media/Fichier:Arthur_et_la_Question.jpg"
   },
   {
     code: "S01E14",
     "title": "Monogame",
-    "resume": "Demetra aide Arthur à s'habiller lorsqu'un Répurgateur arrive et l'insulte violemment, la traitant de démon. Arthur est choqué par ce comportement.",
-    "characters": "Arthur,Demetra,Répurgateur",
+    "resume": "Le Répurgateur veut faire signer au roi une loi interdisant la polygamie, mais il ne semble pas intéressé.",
+    "characters": "Arthur,Demetra,Répurgateur,Père Blaise,Lancelot,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Monogame#/media/Fichier:Monogame.jpg"
   },
   {
@@ -111,7 +111,7 @@ export const episodes = [
   {
     code: "S01E16",
     "title": "Le Banquet des Chefs",
-    "resume": "Kaamelott accueille les chefs de clan pour le traditionnel Banquet des Chefs. Bohort souhaite un repas léger, mais Venec commande une douzaine de femmes et veut servir trois porcs par personne, ce qui déplaît à Bohort.",
+    "resume": "Le banquet des chefs de clans se prépare à Kaamelott. Arthur doit jongler entre Venec qui a prévu trois porcs par personne et une douzaine de femmes, mais Bohort qui insiste pour des corbeilles de fruits.",
     "characters": "Arthur,Bohort,Venec,Séli,Léodagan",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Banquet_Des_Chefs#/media/Fichier:Le_Banquet_des_Chefs.jpg"
   },
@@ -119,252 +119,252 @@ export const episodes = [
     code: "S01E17",
     "title": "Le Signe",
     "resume": "Arthur découvre un corbeau mort devant sa porte et demande à Merlin s'il s'agit d'un présage. Merlin tente de trouver une signification dans ses livres, mais sans succès.",
-    "characters": "Arthur,Merlin,Séli",
+    "characters": "Arthur,Merlin,Séli,Grüdü,Léodagan,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Signe#/media/Fichier:Le_Signe.jpg"
   },
   {
     code: "S01E18",
     "title": "En Forme de Graal",
     "resume": "Un débat animé oppose les chevaliers de la Table Ronde sur la forme concrète du Graal. Bohort pense qu'il s'agit d'un récipient, tandis que d'autres ont des avis différents.",
-    "characters": "Arthur,Bohort,Perceval,Karadoc",
+    "characters": "Arthur,Bohort,Perceval,Karadoc,Léodagan,Lancelot,Calogrenant,Père Blaise,Le Tavernier,Hervé de Rinel,Galessin",
     "image": "https://kaamelott.fandom.com/fr/wiki/En_Forme_De_Graal#/media/Fichier:En_Forme_de_Graal.jpg"
   },
   {
     code: "S01E19",
     "title": "Le Repos du Guerrier",
-    "resume": "Arthur est beaucoup plus calme et bienveillant après avoir passé la nuit avec sa maîtresse Demetra, ce que tout son entourage remarque.",
-    "characters": "Arthur,Demetra,Léodagan,Séli,Guenièvre",
+    "resume": "Tout l'entourage d'Arthur est d'accord : Lorsque ce dernier a dormi avec sa maîtresse Demetra, il est beaucoup plus calme et bienveillant qu'à la suite des nuit passées avec la reine.",
+    "characters": "Arthur,Demetra,Léodagan,Bohort,Guenièvre,Perceval",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Repos_Du_Guerrier#/media/Fichier:Le_Repos_du_Guerrier.jpg"
   },
   {
     code: "S01E20",
     "title": "La Dent de Requin",
-    "resume": "Arthur perd une dent lors d'un combat et refuse de la faire soigner, malgré les conseils de ses proches.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc",
+    "resume": "Perceval et Karadoc ont été envoyés au laboratoire de Merlin pour récupérer une dent de requin devant permettre à l'enchanteur de lancer un sort aux troupes adverses. Au camp militaire, Arthur, Léodagan et Lancelot attendent impatiemment sous la menace ennemie tandis que les deux compères font une pause à la taverne.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc,Bohort,Lancelot,Merlin,Kay,Le Tavernier",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Dent_De_Requin#/media/Fichier:La_Dent_de_Requin.jpg"
   },
   {
     code: "S01E21",
     "title": "La Taxe Militaire",
     "resume": "Le jour des doléances, le Seigneur Jacca vient se plaindre de la nouvelle taxe imposée par Arthur.",
-    "characters": "Arthur,Seigneur Jacca,Léodagan",
+    "characters": "Arthur,Jacca,Léodagan,Lancelot",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Taxe_Militaire#/media/Fichier:La_Taxe_Militaire.jpg"
   },
   {
     code: "S01E22",
     "title": "La Queue du Scorpion",
-    "resume": "Le dernier Empereur Romain a été assassiné par un scorpion, le garde du corps d'Arthur décide de faire une enquête.",
-    "characters": "Arthur,Grüdü,Léodagan",
+    "resume": "L'empereur romain vient encore d'être assassiné, mais cette fois la méthode utilisée inquiète beaucoup Grüdü, le garde du corps du roi : en effet, le meurtre a été commis en plaçant un scorpion dans le lit impérial, rendant les gardes impuissants. Il est déterminé à éviter le même sort à Arthur.",
+    "characters": "Arthur,Grüdü,Léodagan,Demetra,Bohort",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Queue_Du_Scorpion#/media/Fichier:La_Queue_du_Scorpion.jpg"
   },
   {
     code: "S01E23",
     "title": "La Potion de Fécondité",
-    "resume": "Guenièvre tente une potion de fécondité préparée par Merlin, mais les effets sont inattendus.",
-    "characters": "Arthur,Guenièvre,Merlin",
+    "resume": "Séli cherche à remédier à l'absence d'héritier en commandant à Merlin une potion de fécondité qu'elle fait boire à son gendre.",
+    "characters": "Arthur,Guenièvre,Merlin,Séli,Léodagan",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Potion_De_F%C3%A9condit%C3%A9#/media/Fichier:La_Potion_de_F%C3%A9condit%C3%A9.jpg"
   },
   {
     code: "S01E24",
     "title": "L'Interprète",
-    "resume": "Arthur doit négocier un accord avec les Burgondes, mais l'interprète burgonde complique les discussions.",
-    "characters": "Arthur,Interprète burgonde,Léodagan",
+    "resume": "Arthur doit négocier un accord avec les Burgondes, mais alors qu'il décide de retirer ses troupes, l'interprète burgonde s'en mêle.",
+    "characters": "Arthur,L'interprète Burgonde,Léodagan,Le Roi Burgonde,Demetra",
     "image": "https://kaamelott.fandom.com/fr/wiki/L%27Interpr%C3%A8te_%28%C3%A9pisode%29#/media/Fichier:L%27Interpr%C3%A8te.jpg"
   },
   {
     code: "S01E25",
     "title": "Le Sacrifice",
-    "resume": "Les loups sont agités et l'enchanteur Élias se rend à Kaamelott pour avertir le roi : l'Esprit des Loups exige un sacrifice.",
-    "characters": "Arthur,Élias,Léodagan,Guenièvre",
+    "resume": "Les loups sont agités et l'enchanteur Elias de Kelliwic'h se rend à Kaamelott pour mettre en garde le roi : l'Esprit des Loups exige un sacrifice.",
+    "characters": "Arthur,Elias de Kelliwic'h,Léodagan,Guenièvre,Lancelot,Merlin",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Sacrifice#/media/Fichier:Le_Sacrifice.jpg"
   },
   {
     code: "S01E26",
     "title": "À la Volette",
-    "resume": "Lors d'une réunion militaire, Arthur est distrait par une chanson entêtante, ce qui agace ses chevaliers.",
-    "characters": "Arthur,Léodagan,Perceval,Bohort,Lancelot",
+    "resume": "Arthur a une chanson coincée dans la tête depuis que Guenièvre a fait venir un barde au repas de midi. Merlin lui conseille de la chanter fort un bon coup afin de pouvoir reprendre sereinement ses réunions militaires.",
+    "characters": "Arthur,Léodagan,Perceval,Bohort,Lancelot,Guenièvre,Séli,Merlin",
     "image": "https://kaamelott.fandom.com/fr/wiki/%C3%80_La_Volette#/media/Fichier:%C3%80_La_Volette.jpg"
   },
   {
     code: "S01E27",
     "title": "De Retour de Judée",
     "resume": "Le seigneur Dagonet revient de Judée avec des cadeaux, mais peu d'informations sur le Graal.",
-    "characters": "Arthur,Dagonet,Bohort,Calogrenant,Père Blaise",
+    "characters": "Arthur,Dagonet,Bohort,Calogrenant,Père Blaise,Perceval,Karadoc,Lancelot,Léodagan",
     "image": "https://kaamelott.fandom.com/fr/wiki/De_Retour_De_Jud%C3%A9e#/media/Fichier:De_Retour_De_Jud%C3%A9e.jpg"
   },
   {
     code: "S01E28",
     "title": "La Botte Secrète",
-    "resume": "Karadoc enseigne à Perceval une technique pour masquer son ignorance : répondre 'C'est pas faux'.",
-    "characters": "Arthur,Perceval,Karadoc,Lancelot,Angharad",
+    "resume": "Karadoc apprend sa botte secrète pour ne « passer pour un gland » à Perceval : lorsqu’il entend un mot qu’il ne connait pas, il répond « C’est pas faux ». Perceval utilise alors cette technique à tort et à travers avec Arthur, Lancelot et Angharad, ce qui provoque de nombreux quiproquos.",
+    "characters": "Arthur,Perceval,Karadoc,Lancelot,Angharad,Le Tavernier",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Botte_Secr%C3%A8te#/media/Fichier:La_Botte_Secr%C3%A8te.jpg"
   },
   {
     code: "S01E29",
     "title": "L'Assassin de Kaamelott",
-    "resume": "Un assassin rôde à Kaamelott, tuant des serviteurs. L'arrivée du garde du corps coïncide avec ces meurtres.",
-    "characters": "Arthur,Grüdü,Léodagan",
+    "resume": "Un assassin rôde à Kaamelott et tue de nombreux serviteurs, le roi est à l'abri grâce à son garde du corps... mais l'arrivée de celui-ci coïncide étrangement avec le début des meurtres.",
+    "characters": "Arthur,Grüdü,Léodagan,Guenièvre,Lancelot,Bohort",
     "image": "https://kaamelott.fandom.com/fr/wiki/L%27Assassin_De_Kaamelott#/media/Fichier:L%27Assassin_De_Kaamelott.jpg"
   },
   {
     code: "S01E30",
     "title": "Le Trois de Cœur",
-    "resume": "Arthur partage son lit avec sa maîtresse Demetra et sa femme Guenièvre, ce qui le met mal à l'aise.",
+    "resume": "Demetra se sent triste et voudrait qu'Arthur dorme avec elle, mais il a déjà promis à Guenièvre qu'il dormirait avec elle car elle aussi est triste. Ils se retrouvent finalement tous les trois dans la chambre royale.",
     "characters": "Arthur,Demetra,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Trois_De_C%C5%93ur#/media/Fichier:Le_Trois_De_C%C5%93ur.jpg"
   },
   {
     code: "S01E31",
     "title": "Basidiomycètes",
-    "resume": "Arthur, Léodagan et Bohort discutent d'un repas aux champignons qui a laissé Arthur avec un poids sur l'estomac.",
-    "characters": "Arthur,Léodagan,Bohort",
+    "resume": "Alors qu'une bataille est en préparation, Perceval et Karadoc veulent aider en donnant au cuisinier du camp des champignons qu'ils ont trouvés.",
+    "characters": "Arthur,Léodagan,Bohort,Perceval,Karadoc,Lancelot,Guenièvre,Séli",
     "image": "https://kaamelott.fandom.com/fr/wiki/Basidiomyc%C3%A8tes#/media/Fichier:Basidiomyc%C3%A8tes.jpg"
   },
   {
     code: "S01E32",
     "title": "L'Imposteur",
     "resume": "Arthur doute des compétences de Merlin et fait appel à Elias pour vérifier son statut d'enchanteur.",
-    "characters": "Arthur,Merlin,Elias,Lancelot",
+    "characters": "Arthur,Merlin,Elias de Kelliwic'h,Lancelot,Perceval",
     "image": "https://kaamelott.fandom.com/fr/wiki/L%27Imposteur#/media/Fichier:L%27Imposteur.jpg"
   },
   {
     code: "S01E33",
     "title": "Compagnons de chambrée",
-    "resume": "Arthur partage sa chambre avec un compagnon inattendu, ce qui provoque des tensions.",
-    "characters": "Arthur,Karadoc,Perceval",
+    "resume": "Arthur étant absent, Guenièvre laisse sa chambre à l'évêque Boniface de Germanie, mais Arthur rentre plus tôt.",
+    "characters": "Arthur,Séli,Guenièvre,Boniface",
     "image": "https://kaamelott.fandom.com/fr/wiki/Compagnons_De_Chambr%C3%A9e#/media/Fichier:Compagnons_De_Chambr%C3%A9e.jpg"
   },
   {
     code: "S01E34",
     "title": "La Grotte de Padraig",
-    "resume": "Arthur doit tuer un ogre dans la grotte de Padraig, mais la mission ne se déroule pas comme prévu.",
-    "characters": "Arthur,Léodagan,Bohort",
+    "resume": "La Dame du Lac apparaît à Arthur pour lui confier une quête : tuer un ogre dans une grotte. Le Roi s'y rend avec Léodagan et Bohort, mais avec l'un se plaignant du manque de récompense et l'autre étant terrifié, l'aventure s'avère difficile.",
+    "characters": "Arthur,Léodagan,Bohort,La Dame du Lac",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Grotte_De_Padraig#/media/Fichier:La_Grotte_De_Padraig.jpg"
   },
   {
     code: "S01E35",
     "title": "Ambidextrie",
-    "resume": "Perceval tente de devenir ambidextre pour améliorer ses performances au combat.",
-    "characters": "Perceval,Karadoc,Arthur",
+    "resume": "Arthur et Lancelot ont besoin de quelqu'un pour commander les lanciers lors de leur prochaine bataille, mais seul Perceval est disponible.",
+    "characters": "Perceval,Arthur,Lancelot,Hervé de Rinel",
     "image": "https://kaamelott.fandom.com/fr/wiki/Ambidextrie#/media/Fichier:Ambidextrie.jpg"
   },
   {
     code: "S01E36",
     "title": "Raison d'argent",
-    "resume": "Kaamelott étant en faillite, Venec propose au roi d'acheter ses fausses pièces d'or, ce qui suscite des débats.",
-    "characters": "Arthur,Léodagan,Venec,Séli",
+    "resume": "Les caisses du Royaume de Logres sont dangereusement vides et Léodagan fait appel à Venec pour y remédier.",
+    "characters": "Arthur,Léodagan,Venec,Bohort",
     "image": "https://kaamelott.fandom.com/fr/wiki/Raison_D%27Argent#/media/Fichier:Raison_D%27Argent.jpg"
   },
   {
     code: "S01E37",
     "title": "La Romance de Lancelot",
-    "resume": "Lancelot est troublé par ses sentiments pour Guenièvre, ce qui affecte son comportement.",
-    "characters": "Lancelot,Guenièvre,Arthur",
+    "resume": "Guenièvre se sent délaissée par Arthur et Lancelot essaie de lui remonter le moral, mais la conversation s'oriente finalement sur l'absence de conquête du chevalier.",
+    "characters": "Lancelot,Guenièvre,Arthur,Demetra,Angharad",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Romance_De_Lancelot#/media/Fichier:La_Romance_De_Lancelot.jpg"
   },
   {
     code: "S01E38",
     "title": "Merlin et les loups",
-    "resume": "Merlin tente de communiquer avec les loups, mais ses efforts sont vains.",
-    "characters": "Merlin,Arthur,Léodagan",
+    "resume": "Les Vandales attaquent et l'armée de Kaamelott est à la traîne, il faut que Merlin bloque l'ennemi avec un sort. Malheureusement, une louve appelle au secours et le magicien n'a pas le sens des priorités.",
+    "characters": "Merlin,Arthur,Léodagan,Lancelot",
     "image": "https://kaamelott.fandom.com/fr/wiki/Merlin_Et_Les_Loups#/media/Fichier:Merlin_Et_Les_Loups.jpg"
   },
   {
     code: "S01E39",
     "title": "Le Cas Yvain",
-    "resume": "Arthur est contrarié par l'absence d'Yvain aux réunions de la Table Ronde et en parle à ses parents.",
-    "characters": "Arthur,Yvain,Léodagan,Séli",
+    "resume": "Arthur est contrarié par le taux de participation quasi nul d'Yvain aux réunions de la Table Ronde, et s'en plaint aux parents de celui-ci.",
+    "characters": "Arthur,Yvain,Léodagan,Séli,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Cas_Yvain#/media/Fichier:Le_Cas_Yvain.jpg"
   },
   {
     code: "S01E40",
     "title": "L'Adoubement",
-    "resume": "Arthur adoube un nouveau chevalier, ce qui pousse Perceval à révéler qu'il n'a jamais été adoubé.",
-    "characters": "Arthur,Perceval,Lancelot",
+    "resume": "Arthur adoube un nouveau chevalier. Pendant la cérémonie, Perceval annonce que lui n'a jamais été adoubé, or c'est une condition pour siéger à la Table Ronde.",
+    "characters": "Arthur,Perceval,Lancelot,Karadoc,Père Blaise",
     "image": "https://kaamelott.fandom.com/fr/wiki/L%27Adoubement#/media/Fichier:L%27Adoubement.jpg"
   },
   {
     code: "S01E41",
     "title": "Arthur et les Ténèbres",
-    "resume": "Arthur affronte ses peurs lors d'une mission nocturne.",
-    "characters": "Arthur,Lancelot,Perceval",
+    "resume": "Léodagan apprend qu'Arthur a peur du noir et monte une expédition pour tenter de le mettre face à sa peur.",
+    "characters": "Arthur,Lancelot,Perceval,Karadoc,Léodagan,Séli,Guenièvre,Père Blaise,Calogrenant,Yvain,Bohort",
     "image": "https://kaamelott.fandom.com/fr/wiki/Arthur_Et_Les_T%C3%A9n%C3%A8bres#/media/Fichier:Arthur_Et_Les_T%C3%A9n%C3%A8bres.jpg"
   },
   {
     code: "S01E42",
     "title": "Le Zoomorphe",
     "resume": "Arthur découvre que Merlin peut se transformer en animaux selon un calendrier druidique.",
-    "characters": "Arthur,Merlin",
+    "characters": "Arthur,Merlin,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Zoomorphe#/media/Fichier:Le_Zoomorphe.jpg"
   },
   {
     code: "S01E43",
     "title": "La Coccinelle de Madenn",
     "resume": "Guethenoc accuse Arthur d'avoir mis sa fille enceinte, ce que le roi nie fermement.",
-    "characters": "Arthur,Guethenoc,Guenièvre",
+    "characters": "Arthur,Guethenoc,Madenn,Perceval,Lancelot",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Coccinelle_De_Madenn#/media/Fichier:La_Coccinelle_De_Madenn.jpg"
   },
   {
     code: "S01E44",
     "title": "Patience dans la plaine",
-    "resume": "Arthur et ses chevaliers attendent des ennemis qui n'arrivent pas, ce qui provoque des tensions.",
-    "characters": "Arthur,Léodagan,Karadoc",
+    "resume": null,
+    "characters": "Arthur,Léodagan,Karadoc,Kay,Demetra",
     "image": "https://kaamelott.fandom.com/fr/wiki/Patience_Dans_La_Plaine#/media/Fichier:Patience_Dans_La_Plaine.jpg"
   },
   {
     code: "S01E45",
     "title": "Le Oud",
     "resume": "Arthur, qui a récupéré un oud dans un camp égyptien, ne peut s'empêcher de pousser la sérénade, ce qui intrigue tout le monde et agace Léodagan.",
-    "characters": "Arthur,Léodagan,Lancelot,Perceval",
+    "characters": "Arthur,Léodagan,Lancelot,Perceval,Demetra,Guenièvre,Séli,Karadoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Oud#/media/Fichier:Le_Oud.jpg"
   },
   {
     code: "S01E46",
     "title": "Le Code de Chevalerie",
-    "resume": "Père Blaise et Léodagan décident de traduire le code de chevalerie, écrit en celte, qu'ils considèrent trop vieillot. Ceci ne plaît vraiment pas à Arthur, d'autant plus que les chevaliers trouvent le moindre prétexte pour faire grève.",
-    "characters": "Arthur,Père Blaise,Léodagan,Perceval,Karadoc",
+    "resume": "Le père Blaise et Léodagan ont traduit le code de chevalerie, originellement écrit en ancien Celte. Dès lors, les séances de la Table ronde font relâche les veilles de pleine lune, et les chevaliers ont droit de se retirer des assemblées lorsque leur honneur est bafoué publiquement. De plus, ils demandent de faire des pauses avant, après, et même durant les combats. Après réflexion, le roi décide de ne pas valider cette traduction.",
+    "characters": "Arthur,Père Blaise,Léodagan,Perceval,Karadoc,Calogrenant,Lancelot",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Code_De_Chevalerie#/media/Fichier:Le_Code_De_Chevalerie.jpg"
   },
   {
     code: "S01E47",
     "title": "Episode 47",
-    "resume": "Lisa est furieuse contre Julien mais il essaye de trouver l'argent nécessaire pour que Lisa puisse engager Magdalena, un mannequin très connu.",
-    "characters": "Lisa,Julien,Magdalena",
+    "resume": "On apprend dans un premier temps lors d'un dialogue entre le roi et son épouse Guenièvre que les pendaisons sont désormais privées. Cette mesure d'interdire le public lors des exécutions met Séli dans une colère noire et Léodagan essaie de convaincre Arthur de faire machine arrière pour « la notion de spectacle ».",
+    "characters": "Arthur,Guenièvre,Séli,Léodagan,Lancelot",
     "image": "https://kaamelott.fandom.com/fr/wiki/Episode_47#/media/Fichier:Episode_47.jpg"
   },
   {
     code: "S01E48",
     "title": "Azénor",
-    "resume": "Azénor est l'épisode 48 du Livre I. Il fut diffusé pour la première fois en France le 21 janvier 2005 à 19h37. Cet épisode inclut un personnage jusqu'alors inconnu : Azénor, qui apparaitra plus tard dans La Kleptomane.",
-    "characters": "Azénor",
+    "resume": "Lors d’un banquet, Arthur a repéré une jeune femme, Azénor, qu’il convoque au château pour lui proposer de devenir l’une de ses maîtresses. Après avoir refusé par peur de devoir « faire le tapin », Azénor accepte, intéressée par le poste éventuel de reine.",
+    "characters": "Azénor,Arthur,Bohort,Lancelot,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Az%C3%A9nor_%28%C3%A9pisode%29#/media/Fichier:Az%C3%A9nor_%28%C3%A9pisode%29.jpg"
   },
   {
     code: "S01E49",
     "title": "Le Sort de Rage",
-    "resume": "Arthur, lassé de la molesse de ses hommes, demande à Merlin de leur jeter un sort de rage pour leur donner de la vigueur. Mais le sort touche également le camp adverse qui attaque Arthur et ses chevaliers, aidé par la propre armée d'Arthur.",
-    "characters": "Arthur,Merlin,Léodagan",
+    "resume": "Arthur est las de voir ses hommes se battre mollement, et décide donc de faire envoyer par Merlin un sort de rage pour « remuer » ses troupes. Le sort touche aussi les troupes adverses et, très vite, les deux armées attaquent d’un commun accord Arthur et les chevaliers.",
+    "characters": "Arthur,Merlin,Léodagan,Kay,Lancelot,Guethenoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Sort_De_Rage#/media/Fichier:Le_Sort_De_Rage.jpg"
   },
   {
     code: "S01E50",
     "title": "Les Nouveaux Frères",
-    "resume": "Yvain finit par faire équipe avec Gauvain, au grand dam de Séli et Léodagan ! Le nouveau duo promet des aventures plus que farfelues...",
-    "characters": "Yvain,Gauvain,Séli,Léodagan",
+    "resume": "Yvain et Gauvain sont réunis par Arthur en un « binôme de chevaliers » pour montrer leur vaillance. Léodagan n’est pas enthousiaste.",
+    "characters": "Yvain,Gauvain,Séli,Léodagan,Arthur",
     "image": "https://kaamelott.fandom.com/fr/wiki/Les_Nouveaux_Fr%C3%A8res#/media/Fichier:Les_Nouveaux_Fr%C3%A8res.jpg"
   },
   {
     code: "S01E51",
     "title": "Enluminures",
-    "resume": "Perceval tente de narrer ses aventures, mais comme il change constamment de version, cela finit par exaspérer le père Blaise. Celui-ci va finalement inventer l'enluminure par accident.",
-    "characters": "Perceval,Père Blaise",
+    "resume": "Autour de la Table ronde, Perceval raconte ses aventures rocambolesques devant un père Blaise dépité. Pour corriger les multiples erreurs de retranscription, le prêtre invente par hasard l’enluminure.",
+    "characters": "Arthur,Perceval,Karadoc,Bohort,Calogrenant,Lancelot,Léodagan,Galessin,Père Blaise",
     "image": "https://kaamelott.fandom.com/fr/wiki/Enluminures#/media/Fichier:Enluminures.jpg"
   },
   {
     code: "S01E52",
     "title": "Haunted",
-    "resume": "Arthur et ses chevaliers sont confrontés à des phénomènes étranges dans un château abandonné, ce qui met leur courage à l'épreuve.",
-    "characters": "Arthur,Lancelot,Perceval,Karadoc",
+    "resume": "Bohort, paniqué, frappe en pleine nuit à la porte du roi. Il aurait vu le fantôme de Pendragon flotter dans la salle du trône. Arthur tente alors de le calmer.",
+    "characters": "Arthur,Bohort,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Haunted#/media/Fichier:Haunted.jpg"
   },
   {
@@ -376,330 +376,312 @@ export const episodes = [
   },
   {
     code: "S01E54",
-    "title": "Le Théâtre Fantôme",
-    "resume": "Arthur et ses chevaliers assistent à une représentation théâtrale qui tourne au cauchemar lorsqu'ils réalisent que les acteurs sont des fantômes.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc",
+    "title": "Le serpent géant",
+    "resume": "Perceval et Karadoc reviennent d’une mission de trois mois en Écosse. Ils étaient allés chasser le serpent géant du lac de l’Ombre ; ils l'ont confondu avec une anguille. Ils ne sont pas les seuls à exagérer leurs exploits, surtout Bohort qui vient de comprendre que tout ce qu'il doit raconter est réel.",
+    "characters": "Arthur,Lancelot,Perceval,Karadoc,Bohort,Père Blaise",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Th%C3%A9%C3%A2tre_Fant%C3%B4me#/media/Fichier:Le_Th%C3%A9%C3%A2tre_Fant%C3%B4me.jpg"
   },
   {
     code: "S01E55",
     "title": "Guenièvre et les Oiseaux",
     "resume": "Guenièvre, qui a une phobie des oiseaux, n'ose plus aller à la salle à manger depuis qu'elle en a vu un tomber du toit. Arthur a du mal à comprendre, avant d'avouer à la Reine qu'il a peur des serpents.",
-    "characters": "Arthur,Guenièvre,Séli,Léodagan",
+    "characters": "Arthur,Guenièvre,Séli,Léodagan,Yvain",
     "image": "https://kaamelott.fandom.com/fr/wiki/Gueni%C3%A8vre_Et_Les_Oiseaux#/media/Fichier:Gueni%C3%A8vre_Et_Les_Oiseaux.jpg"
   },
   {
     "code": "S01E56",
     "title": "Le Dernier Empereur",
-    "resume": "Caius Camillus, le dernier empereur romain, arrive à Kaamelott et tente d'imposer son autorité. Arthur et Léodagan se moquent de lui, ce qui provoque sa colère.",
+    "resume": "Caius est reçu à table par le roi Arthur et Léodagan, la discussion part sur des pentes glissantes telles que la culture romaine face à la culture bretonne. L'envahisseur rencontre alors une résistance inattendue lors de ce repas...",
     "characters": "Arthur,Léodagan,Caius Camillus,Guenièvre",
   },
   {
     "code": "S01E57",
     "title": "Perceval relance de quinze",
-    "resume": "Perceval et Karadoc passent du temps à la taverne où le tavernier leur propose de jouer à des jeux. Perceval tente de relancer de quinze, ce qui provoque des discussions sur les règles du jeu.",
+    "resume": "Le patron de la taverne invite Perceval et Karadoc à faire une partie de Cul de chouette, un jeu de dés. Perceval, vite éliminé de la partie de Cul de chouette dont il ne connait pas les règles, propose alors de jouer à un jeu du Pays de Galles, la Grelotine : il s’avère vite qu’il est le seul à en comprendre les règles.",
     "characters": "Perceval,Karadoc,Le Tavernier"
   },
   {
     "code": "S01E58",
     "title": "Le Coup d'épée",
-    "resume": "Arthur s'entraîne avec le Maître d'Armes qui lui enseigne une technique de combat particulière. Léodagan observe et commente l'entraînement.",
-    "characters": "Arthur,Le Maître d'Armes,Léodagan",
+    "resume": "Arthur est sévèrement atteint à la tête et requiert l’aide de Merlin pour le guérir avec des incantations magiques. Toutefois, ce dernier souhaite utiliser des méthodes modernes. Arthur n’apprécie guère, et injecte à Merlin le relaxant que Merlin lui destinait. Puis il conseille à Merlin d'oublier cette nouvelle mode, que Merlin appelle la « médecine ».",
+    "characters": "Arthur,Merlin,Perceval",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Coup_d%27%C3%A9p%C3%A9e#/media/Fichier:Le_Coup_d%27%C3%A9p%C3%A9e.jpg"
   },
   {
     "code": "S01E59",
     "title": "La Jupe de Calogrenant",
-    "resume": "Calogrenant porte une jupe pour se protéger du froid, ce qui provoque des moqueries de la part des autres chevaliers.",
-    "characters": "Calogrenant,Arthur,Léodagan,Perceval,Karadoc",
+    "resume": "Calogrenant de Calédonie maudit les routes pavées qui l’ont fait chuter de cheval, en armure, au beau milieu d’une flaque. Les jambières de son armure étant rouillées, il se présente « cul nu » à la Table ronde. Alors que personne ne souhaite lui prêter une armure de rechange, le père Blaise rappelle que, suivant les règles, un chevalier ne peut rester aux réunions de la Table ronde qu’en armure ou en costume officiel. On finit par passer une couverture à carreaux à Calogrenant pour qu’il puisse se couvrir les jambes et, pour satisfaire le père Blaise, Arthur décrète que la jupe à carreaux est désormais le costume officiel de Calédonie.",
+    "characters": "Calogrenant,Arthur,Léodagan,Perceval,Karadoc,Guenièvre,Père Blaise,Lancelot,Bohort",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Jupe_De_Calogrenant#/media/Fichier:La_Jupe_De_Calogrenant.jpg"
   },
   {
     "code": "S01E60",
     "title": "Le Prodige du fakir",
-    "resume": "Un fakir arrive à Kaamelott et impressionne tout le monde avec ses tours de magie, notamment en se faisant transpercer par une épée.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Fakir",
+    "resume": "De retour de mission en Gaule, Yvain et Gauvain, qui ont rencontré un fakir et des éléphants, tentent de raconter leurs mésaventures au roi et au père Blaise.",
+    "characters": "Arthur,Père Blaise,Yvain,Gauvain",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Prodige_Du_Fakir#/media/Fichier:Le_Prodige_Du_Fakir.jpg"
   },
   {
     "code": "S01E61",
     "title": "Un bruit dans la nuit",
-    "resume": "Des bruits étranges résonnent dans le château la nuit, ce qui inquiète les habitants. Arthur et ses chevaliers tentent d'élucider ce mystère.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Guenièvre",
+    "resume": "À la veille d’une bataille, Arthur et ses troupes campent en forêt. Bohort ne parvient pas à dormir, et cherche à se rassurer auprès du roi sur les animaux peuplant la forêt. Arthur parvient à lui faire croire qu’il n’y a que des lapins, avant que Léodagan ne déclare avoir rencontré un ours.",
+    "characters": "Arthur,Léodagan,Bohort",
     "image": "https://kaamelott.fandom.com/fr/wiki/Un_Bruit_Dans_La_Nuit#/media/Fichier:Un_Bruit_Dans_La_Nuit.jpg"
   },
   {
     "code": "S01E62",
     "title": "Feu l'âne de Guethenoc",
-    "resume": "L'âne de Guethenoc est mort, ce qui provoque une grande tristesse chez son propriétaire. Les chevaliers tentent de le consoler.",
-    "characters": "Guethenoc,Arthur,Léodagan,Perceval,Karadoc",
+    "resume": "Guethenoc accuse Roparzh d’avoir tué son âne, et la séance de doléances devient un prétexte à un règlement de comptes entre les deux paysans, au grand dam d’Arthur et Lancelot.",
+    "characters": "Guethenoc,Arthur,Lancelot,Roparzh",
     "image": "https://kaamelott.fandom.com/fr/wiki/Feu_L%27%C3%82ne_De_Guethenoc#/media/Fichier:Feu_L%27%C3%82ne_De_Guethenoc.jpg"
   },
   {
     "code": "S01E63",
     "title": "Goustan le Cruel",
-    "resume": "Goustan, un chevalier réputé pour sa cruauté, arrive à Kaamelott. Arthur et ses hommes doivent faire face à son comportement tyrannique.",
-    "characters": "Arthur,Goustan,Léodagan,Perceval,Karadoc",
+    "resume": "Arthur reçoit à sa table Goustan « le Cruel », père de Léodagan « le Sanguinaire » et ancien roi de Carmélide. Goustan n’a de cesse de critiquer le comportement d’Arthur « le Juste » (ses excès de table, ses idées novatrices, sa sagesse, l’absence d’un héritier) mais se demande malgré tout les raisons qui poussent les habitants de Carmélide à fuir le pays. Arthur, lui, a son idée : entre le Cruel et le Juste, les gens ont fait leur choix.",
+    "characters": "Arthur,Goustan,Léodagan,Guenièvre,Séli",
     "image": "https://kaamelott.fandom.com/fr/wiki/Goustan_Le_Cruel#/media/Fichier:Goustan_Le_Cruel.jpg"
   },
   {
     "code": "S01E64",
     "title": "Le Chaudron rutilant",
-    "resume": "Merlin tente de créer un chaudron magique, mais ses expériences tournent mal et provoquent des situations comiques.",
-    "characters": "Merlin,Arthur,Léodagan,Perceval,Karadoc",
+    "resume": "Perceval est à la taverne et il confie au tavernier qu'il doit aller chercher un objet magique, le chaudron rutilant. Cependant, il dit qu'il sait que le chaudron va finir à la cave, comme tous les autres objets magiques.",
+    "characters": "Perceval,Arthur,Le Tavernier",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Chaudron_Rutilant#/media/Fichier:Le_Chaudron_Rutilant.jpg"
   },
   {
     "code": "S01E65",
     "title": "La Visite d'Ygerne",
-    "resume": "Ygerne, la mère d'Arthur, rend visite à son fils. Sa présence perturbe la vie quotidienne du château.",
+    "resume": "La mère d'Arthur, Ygerne, vient lui rendre visite à Kaamelott. Mais elle ne cesse de le rabaisser et de le comparer à son père, Uther Pendragon, qu'elle juge supérieur.",
     "characters": "Arthur,Ygerne,Guenièvre,Léodagan,Séli",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Visite_D%27Ygerne#/media/Fichier:La_Visite_D%27Ygerne.jpg"
   },
   {
     "code": "S01E66",
     "title": "Les Clandestins",
-    "resume": "Des personnes se cachent dans le château, ce qui provoque des situations comiques. Arthur et ses chevaliers tentent de les démasquer.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Guenièvre",
+    "resume": "Pris dans une tempête de neige, Arthur, Léodagan, Perceval et Karadoc trouvent refuge dans la taverne. Arthur est confus : il a peur que l’on découvre qui ils sont.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc,Lancelot,Le Tavernier",
     "image": "https://kaamelott.fandom.com/fr/wiki/Les_Clandestins#/media/Fichier:Les_Clandestins.jpg"
   },
   {
     "code": "S01E67",
     "title": "La Kleptomane",
-    "resume": "Une femme kleptomane sévit à Kaamelott, volant divers objets. Les chevaliers tentent de l'arrêter.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,La Kleptomane",
+    "resume": "Azénor, la nouvelle maîtresse d’Arthur, ne cesse de voler de la nourriture. Elle a en effet appris depuis toute petite à voler, et elle commence à s’ennuyer au château. Mais la loi obligerait Arthur à lui faire couper les mains : il la sermonne donc.",
+    "characters": "Arthur,Léodagan,Karadoc,Azénor",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Kleptomane#/media/Fichier:La_Kleptomane.jpg"
   },
   {
     "code": "S01E68",
     "title": "Le Pain",
-    "resume": "Une dispute éclate à propos du pain à Kaamelott. Les chevaliers discutent de la qualité et de la quantité du pain servi.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Boulanger",
+    "resume": "Le pain de Kaamelott est réputé le plus mauvais de toute la Bretagne, voire plus, mais Gethenoc refuse de l'admettre. Arthur et Léodagan convoquent Karadoc, en raison de son expertise reconnue pour la nourriture, pour goûter aux divers pains proposés par Guethenoc. Mais son jugement confirme la réputation.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc,Guethenoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Pain#/media/Fichier:Le_Pain.jpg"
   },
   {
     "code": "S01E69",
     "title": "La Mort le Roy Artu",
-    "resume": "Une rumeur circule selon laquelle Arthur serait mort. Les chevaliers réagissent de manière différente à cette nouvelle.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Guenièvre",
+    "resume": "Pour ramener de l’argent dans les caisses du royaume, le Père Blaise organise des visites guidées de Kaamelott. Lors de l’une d’entre elles, Arthur l’entend mentionner la prochaine étape de la visite : le tombeau du défunt et légendaire roi Arthur. Cette invention du prêtre, étudiée pour soustraire plus d’argent aux visiteurs en jouant sur leur émotion, n’est pas du goût du roi. D'autant plus que Perceval s'est mis en tête d'aller faire la visite également : il veut voir le tombeau.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc,Lancelot,Père Blaise",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Mort_Le_Roy_Artu#/media/Fichier:La_Mort_Le_Roy_Artu.jpg"
   },
   {
     "code": "S01E70",
     "title": "Le Problème du chou",
-    "resume": "Une discussion animée s'engage à propos d'un chou qui pose problème. Les chevaliers tentent de résoudre cette situation.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Jardinier",
+    "resume": "Guethenoc est mécontent car lors des dernières batailles, ses plantations de choux ont été détruites. En réparation, il demande à transférer ses cultures de choux à l’intérieur des murailles de Kaamelott, mais ses exigences finissent par devenir assez impressionnantes.",
+    "characters": "Arthur,Lancelot,Perceval,Guethenoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Probl%C3%A8me_Du_Chou#/media/Fichier:Le_Probl%C3%A8me_Du_Chou.jpg"
   },
   {
     "code": "S01E71",
     "title": "Un roi à la taverne",
-    "resume": "Arthur se rend à la taverne incognito, ce qui provoque des situations comiques avec les autres clients.",
-    "characters": "Arthur,Le Tavernier,Perceval,Karadoc,Les Clients",
+    "resume": "Arthur a réussi à retrouver Perceval et Karadoc à la taverne. Ces derniers justifient leur absence de la Table ronde, tandis que le roi les entretient de leur destin, et que le tavernier cherche à savoir où il l’a déjà vu.",
+    "characters": "Arthur,Le Tavernier,Perceval,Karadoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Un_Roi_%C3%80_La_Taverne#/media/Fichier:Un_Roi_%C3%80_La_Taverne.jpg"
   },
   {
     "code": "S01E72",
     "title": "Les Fesses de Guenièvre",
-    "resume": "Une discussion sur les fesses de Guenièvre s'engage entre les chevaliers, ce qui provoque des situations comiques.",
-    "characters": "Arthur,Guenièvre,Léodagan,Perceval,Karadoc",
+    "resume": "Le Père Blaise met une touche finale à l’écriture d'une aventure d’Arthur et de Perceval, et en fait la lecture aux intéressés. Mais dans la scène finale, lors de la récapitulation des différents protagonistes, il fait mention de la reine d’une manière assez inattendue (« Guenièvre à la blanche fesse »), ce qui provoque l’ire du roi.",
+    "characters": "Arthur,Guenièvre,Perceval,Père Blaise",
     "image": "https://kaamelott.fandom.com/fr/wiki/Les_Fesses_De_Gueni%C3%A8vre#/media/Fichier:Les_Fesses_De_Gueni%C3%A8vre.jpg"
   },
   {
     "code": "S01E73",
     "title": "Le Billet doux",
-    "resume": "Un billet doux circule à Kaamelott, provoquant des situations comiques et des malentendus entre les personnages.",
-    "characters": "Arthur,Guenièvre,Léodagan,Perceval,Karadoc",
+    "resume": "Angharad, la suivante de Guenièvre, demande l’aide d’Arthur pour avouer son amour à Perceval. Mais c'est assez compliqué à faire comprendre à Perceval.",
+    "characters": "Arthur,Guenièvre,Perceval,Karadoc,Angharad",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Billet_Doux#/media/Fichier:Le_Billet_Doux.jpg"
   },
   {
     "code": "S01E74",
     "title": "Guenièvre et l'Orage",
-    "resume": "Guenièvre a peur de l'orage et cherche du réconfort auprès d'Arthur et des autres chevaliers.",
-    "characters": "Arthur,Guenièvre,Léodagan,Perceval,Karadoc",
+    "resume": "Un orage s’abat sur Kaamelott, et Guenièvre est terrifiée dans son lit : elle pense que les dieux veulent la punir. Arthur se voit alors obligé de la réconforter.",
+    "characters": "Arthur,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Gueni%C3%A8vre_Et_L%27Orage#/media/Fichier:Gueni%C3%A8vre_Et_L%27Orage.jpg"
   },
   {
     "code": "S01E75",
     "title": "Eunuques et Chauds Lapins",
-    "resume": "Une discussion animée s'engage à propos des eunuques et des chauds lapins, provoquant des situations comiques.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Eunuques",
+    "resume": "Arthur a convié Perceval à dîner, ainsi que le Perse Narsès, général de l’empire byzantin. Bien que cet invité soit eunuque — un mot qu'il faut expliquer laborieusement à Perceval — il se montre particulièrement insistant pour voir des femmes. Et comme Arthur lui demande ce qu’il compte faire, Narsès explique qu’il se contente de regarder les ébats des autres.",
+    "characters": "Arthur,Perceval,Narsès",
     "image": "https://kaamelott.fandom.com/fr/wiki/Eunuques_Et_Chauds_Lapins#/media/Fichier:Eunuques_Et_Chauds_Lapins.jpg"
   },
   {
     "code": "S01E76",
     "title": "Choc frontal",
-    "resume": "Un choc frontal se produit entre deux personnages, provoquant des situations comiques et des malentendus.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Personnages",
+    "resume": "Un concentré de scènes de la vie quotidienne, qui ont un seul point commun : l’énervement.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc,Guenièvre,Demetra,Lancelot",
     "image": "https://kaamelott.fandom.com/fr/wiki/Choc_Frontal#/media/Fichier:Choc_Frontal.jpg"
   },
   {
     "code": "S01E77",
     "title": "Le Forage",
-    "resume": "Les chevaliers tentent de forer un puits, mais leurs efforts tournent à la comédie.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Forgerons",
+    "resume": "Perceval et Karadoc se sont mis en tête de creuser aléatoirement en forêt pour débusquer le Graal. Pour ce faire, ils emploient des paysans. Arthur, terriblement agacé par leur stupidité, leur donne pour mission de creuser toute la Bretagne, et par eux-mêmes.",
+    "characters": "Arthur,Perceval,Karadoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Forage#/media/Fichier:Le_Forage.jpg"
   },
   {
     "code": "S01E78",
     "title": "Le Discobole",
-    "resume": "Un discobole arrive à Kaamelott et impressionne tout le monde avec ses talents de lanceur de disque.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Discobole",
+    "resume": "De son dernier séjour à Rome, Guenièvre a ramené une sculpture représentant un discobole. Arthur est mécontent de voir la statue encombrer sa chambre.",
+    "characters": "Arthur,Guenièvre",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Discobole#/media/Fichier:Le_Discobole.jpg"
   },
   {
     "code": "S01E79",
     "title": "L'Expurgation de Merlin",
-    "resume": "Merlin tente de se purifier de ses mauvaises pensées, ce qui provoque des situations comiques.",
-    "characters": "Merlin,Arthur,Léodagan,Perceval,Karadoc",
+    "resume": "Le Répurgateur est agacé par Merlin et sa pratique de la magie : il souhaite le faire brûler en tant qu’hérétique. Arthur persuade alors l’enchanteur de reconnaître l’existence du « dieu unique » devant l’homme d’Église. Le Répurgateur est satisfait, mais prend Merlin un peu trop de haut. Résultat : ses cheveux et sa barbe poussent de façon démesurée, sans qu'il puisse prouver que cela vienne de l'enchanteur.",
+    "characters": "Merlin,Arthur,Le Répurgateur",
     "image": "https://kaamelott.fandom.com/fr/wiki/L%27Expurgation_De_Merlin#/media/Fichier:L%27Expurgation_De_Merlin.jpg"
   },
   {
     "code": "S01E80",
     "title": "Les Volontaires",
-    "resume": "Arthur cherche des volontaires pour une mission dangereuse, mais personne ne se porte candidat.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Chevaliers",
+    "resume": "Désireux d’obtenir les félicitations du roi, Perceval et Karadoc sont volontaires pour l’accompagner en mission en souterrain. En plein combat, ils fuient et abandonnent le roi en prise avec des gobelins.",
+    "characters": "Arthur,Perceval,Karadoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/Les_Volontaires#/media/Fichier:Les_Volontaires.jpg"
   },
   {
     "code": "S01E81",
     "title": "Polymorphie",
-    "resume": "Merlin tente de transformer des objets en d'autres objets, mais ses sortilèges tournent mal.",
-    "characters": "Merlin,Arthur,Léodagan,Perceval,Karadoc",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Polymorphie#/media/Fichier:Polymorphie.jpg"
+    "resume": "Après s’être fait narrer le récit de la conception d’Arthur par sa mère Ygerne, Guenièvre a peur que le roi soit un imposteur qui ait bu une potion de polymorphie pour se transformer en Arthur.",
+    "characters": "Arthur,Guenièvre,Léodagan,Perceval",
   },
   {
     "code": "S01E82",
     "title": "Décibels nocturnes",
-    "resume": "Des bruits nocturnes perturbent le sommeil des habitants de Kaamelott, provoquant des situations comiques.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Habitants",
-    "image": "https://kaamelott.fandom.com/fr/wiki/D%C3%A9cibels_Nocturnes#/media/Fichier:D%C3%A9cibels_Nocturnes.jpg"
+    "resume": "Arthur ronfle, et cela agace sa femme. Il va donc voir Merlin qui lui propose des solutions originales pour faire passer ce mal : deux œufs durs dans la bouche, puis une crevette dans chaque narine lorsqu’il se rend compte qu’il a prescrit le remède pour les aphtes à la place de celui destiné aux ronflements.",
+    "characters": "Arthur,Merlin,Guenièvre",
   },
   {
     "code": "S01E83",
     "title": "La Fête de l'hiver",
-    "resume": "Une fête de l'hiver est organisée à Kaamelott, mais les préparatifs tournent à la comédie.",
-    "characters": "Arthur,Guenièvre,Léodagan,Perceval,Karadoc",
-    "image": "https://kaamelott.fandom.com/fr/wiki/La_F%C3%AAte_De_L%27Hiver#/media/Fichier:La_F%C3%AAte_De_L%27Hiver.jpg"
+    "resume": "Ygerne invite Arthur, lors de la séance des doléances, à la grande fête de l’hiver de Tintagel, d’où est originaire le roi. Celui-ci décline l’invitation, ce qui provoque l’ire de sa mère, et l'embarras de Léodagan, qui ne sait plus si le sujet a sa place durant les doléances ou non.",
+    "characters": "Arthur,Ygerne,Léodagan",
   },
   {
     "code": "S01E84",
     "title": "Gladiator",
-    "resume": "Un gladiateur arrive à Kaamelott et provoque des situations comiques avec les chevaliers.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Gladiateur",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Gladiator#/media/Fichier:Gladiator.jpg"
+    "resume": "Invitée à Rome, Guenièvre a défié malgré elle un gladiateur, et Arthur doit se battre contre lui à Kaamelott. Venec lui propose de droguer l’eau du combattant, mais Arthur préfère le payer pour implorer son pardon.",
+    "characters": "Arthur,Guenièvre",
   },
   {
     "code": "S01E85",
     "title": "La Blessure mortelle",
-    "resume": "Un chevalier est gravement blessé, ce qui provoque des situations comiques et des malentendus.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Blessé",
-    "image": "https://kaamelott.fandom.com/fr/wiki/La_Blessure_Mortelle#/media/Fichier:La_Blessure_Mortelle.jpg"
+    "resume": "D’après la Dame du Lac, Arthur se verra conduire par la fée Morgane, le jour de sa mort, sur l’île d’Avalon. Justement, après une sévère blessure, Morgane apparaît et demande à Arthur de la suivre. Celui-ci refuse tant que Merlin ne l’a pas soigné. Ce dernier arrive à le guérir contre toute attente, et Morgane déprime.",
+    "characters": "Arthur,La Fée Morgane, Merlin,La Dame du Lac",
   },
   {
     "code": "S01E86",
     "title": "Le Dragon des tunnels",
-    "resume": "Un dragon sévit dans les tunnels sous Kaamelott, provoquant la panique parmi les habitants.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Dragon",
+    "resume": "Arthur, Perceval, Lancelot et un Bohort terrifié partent à la chasse au « dragon des tunnels ». Finalement, Bohort se rassure en comprenant que les tunnels sont trop petits pour qu'un dragon s'y cache. Ils entendent alors le cri d'un dragon à l'extérieur. Problème : Bohort s'est réfugié à l'intérieur des tunnels, avec les munitions nécessaires à la mort du dragon. Revenant dans les tunnels pour se protéger, ses compagnons lui expliquent que ce dernier ne peut être le dragon des tunnels : il est bien trop gros. Ledit dragon doit donc toujours se trouver dans les tunnels où Bohort se croyait en sécurité. Ce dernier s'évanouit.",
+    "characters": "Arthur,Perceval,Lancelot,Bohort",
     "image": "https://kaamelott.fandom.com/fr/wiki/Le_Dragon_Des_Tunnels#/media/Fichier:Le_Dragon_Des_Tunnels.jpg"
   },
   {
     "code": "S01E87",
     "title": "Retour de campagne",
-    "resume": "Les chevaliers reviennent d'une campagne militaire, mais leurs récits divergent sur ce qui s'est réellement passé.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Chevaliers",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Retour_De_Campagne#/media/Fichier:Retour_De_Campagne.jpg"
+    "resume": "Arthur rentre de campagne, et Guenièvre sollicite ses faveurs. Le roi n’est pas très enthousiaste.",
+    "characters": "Arthur,Guenièvre",
   },
   {
     "code": "S01E88",
     "title": "L'Escorte",
-    "resume": "Arthur doit escorter un personnage important, mais la mission se complique à cause des chevaliers.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,L'Escorté",
-    "image": "https://kaamelott.fandom.com/fr/wiki/L%27Escorte#/media/Fichier:L%27Escorte.jpg"
+    "resume": "Arthur convoque Bohort au château alors que celui-ci se trouve dans le camp de Léodagan. Bohort doit traverser la forêt en pleine nuit. Contre toute attente, Léodagan et Bohort sympathisent et Léodagan escorte personnellement le chevalier peureux, et en profite pour lui parler de ses futures tourelles.",
+    "characters": "Arthur,Bohort,Léodagan",
   },
   {
     "code": "S01E89",
     "title": "Tel un chevalier",
-    "resume": "Un jeune homme veut devenir chevalier, mais ses tentatives pour se comporter comme tel sont comiques.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Jeune Homme",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Tel_Un_Chevalier#/media/Fichier:Tel_Un_Chevalier.jpg"
+    "resume": "Légèrement vexé par une insulte de Léodagan concernant ses compétences de chef militaire, Perceval se confie à Karadoc, qui lui recommande de ne pas se laisser faire, d’être un chevalier et de se faire considérer « en tant que tel ». Mais quand Perceval va se plaindre à Arthur, il déforme les propos de Karadoc, ce qui a pour conséquence de créer un énorme quiproquo.",
+    "characters": "Arthur,Perceval,Karadoc",
   },
   {
     "code": "S01E90",
     "title": "La Pâte d'amande",
-    "resume": "Une discussion s'engage à propos d'une pâte d'amande, provoquant des situations comiques.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Pâtissier",
-    "image": "https://kaamelott.fandom.com/fr/wiki/La_P%C3%A2te_D%27Amande#/media/Fichier:La_P%C3%A2te_D%27Amande.jpg"
+    "resume": "Après son dernier séjour à Rome, Guenièvre est devenue dépendante de la pâte d’amande. Une fois son stock personnel dévoré, Guenièvre déprime et devient agressive. Arthur n’a qu’une solution : aller prendre la réserve de Bohort.",
+    "characters": "Arthur,Bohort,Guenièvre",
   },
   {
     "code": "S01E91",
     "title": "La Fureur du dragon",
-    "resume": "Un dragon sème la panique à Kaamelott, mais la situation tourne à la comédie.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Dragon",
-    "image": "https://kaamelott.fandom.com/fr/wiki/La_Fureur_Du_Dragon#/media/Fichier:La_Fureur_Du_Dragon.jpg"
+    "resume": "Yvain et Gauvain sont supervisés par Arthur et Perceval dans une chasse au dragon en forêt qui tourne vite au fiasco.",
+    "characters": "Arthur,Yvain,Gauvain",
   },
   {
     "code": "S01E92",
     "title": "Vox populi",
-    "resume": "Le peuple exprime son mécontentement, ce qui provoque des situations comiques avec les chevaliers.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Peuple",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Vox_Populi#/media/Fichier:Vox_Populi.jpg"
+    "resume": "Assis incognito à la table de la taverne, Arthur, Léodagan et Karadoc en profitent pour savoir ce que pense le tavernier du roi. Celui-ci n'avoue avoir qu'une seule envie : c'est de « lâcher ses chiens au cul » du roi Arthur en protestation contre la taxe sur les tonneaux de boisson. Léodagan n'est pas en reste.",
+    "characters": "Arthur,Léodagan,Karadoc",
   },
   {
     "code": "S01E93",
     "title": "Unagi",
-    "resume": "Une discussion s'engage à propos d'unagi (anguille japonaise), provoquant des malentendus comiques.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Cuisinier",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Unagi#/media/Fichier:Unagi.jpg"
+    "resume": "Perceval et Karadoc développent une technique de combat sans armes, très originale mais à l'efficacité discutable, basée sur l’esquive.",
+    "characters": "Arthur,Perceval,Karadoc",
   },
   {
     "code": "S01E94",
     "title": "L'Éclaireur",
-    "resume": "Arthur envoie Perceval en éclaireur dans un camp ennemi situé en forêt. Comme le chevalier est inexpérimenté, le roi se voit contraint de l'accompagner. Finalement, Perceval arrive à retrouver le camp d'où il est parti, grâce à Karadoc.",
-    "characters": "Arthur,Léodagan,Perceval,Karado",
-    "image": "https://kaamelott.fandom.com/fr/wiki/L%27%C3%89claireur#/media/Fichier:L%27%C3%89claireur.jpg"
+    "resume": "Arthur envoie Perceval en éclaireur dans un camp ennemi situé en forêt. Comme le chevalier est inexpérimenté, le roi se voit contraint de l’accompagner. Finalement, Perceval arrive à retrouver le camp d'où il est parti, grâce à Karadoc.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc",
   },
   {
     "code": "S01E95",
     "title": "Lacrimosa",
-    "resume": "Une situation triste provoque des larmes, mais la réaction des personnages est comique.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Personnages",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Lacrimosa#/media/Fichier:Lacrimosa.jpg"
+    "resume": "Démétra constate que Arthur a avant tout besoin de réconfort, et propose à Guenièvre de faire boire au roi une potion pour le rendre triste, afin de pouvoir le consoler (et tenter de passer à l'acte). Sur le point de fonctionner, la ruse tourne pourtant très vite au fiasco total.",
+    "characters": "Arthur,Demetra,Guenièvre",
   },
   {
     "code": "S01E96",
     "title": "La Quête des deux renards",
-    "resume": "Les chevaliers partent à la recherche de deux renards, mais leur quête tourne à la comédie.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Renards",
+    "resume": "Perceval et Karadoc, disparus depuis trois semaines, arrivent au château pour raconter leur aventure, peu glorieuse : attablés à la taverne, ils ont mangé un agneau avarié, ce qui les a rendu malades tout le temps de leur disparition.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc",
     "image": "https://kaamelott.fandom.com/fr/wiki/La_Qu%C3%AAte_Des_Deux_Renards#/media/Fichier:La_Qu%C3%AAte_Des_Deux_Renards.jpg"
   },
   {
     "code": "S01E97",
     "title": "Agnus Dei",
-    "resume": "Une discussion s'engage à propos d'un agneau, provoquant des situations comiques.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,L'Agneau",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Agnus_Dei#/media/Fichier:Agnus_Dei.jpg"
+    "resume": "Guenièvre est une fervente adepte de la religion du « dieu unique », installée en Bretagne depuis quelques mois, et surtout de la prière du soir. Elle pousse Arthur à prier, et celui-ci s’exécute de manière inattendue.",
+    "characters": "Arthur,Guenièvre",
   },
   {
     "code": "S01E98",
     "title": "Le Tourment",
-    "resume": "Un personnage est tourmenté par un problème, mais la façon dont il le gère est comique.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Tourmenté",
-    "image": "https://kaamelott.fandom.com/fr/wiki/Le_Tourment#/media/Fichier:Le_Tourment.jpg"
+    "resume": "La pleine lune fait ressortir les tourments amoureux de Guenièvre, Karadoc, Perceval, Démétra et Lancelot. Arthur se voit contraint d’écouter leurs plaintes..",
+    "characters": "Arthur,Guenièvre,Karadoc,Perceval,Demetra,Lancelot",
   },
   {
     "code": "S01E99",
     "title": "La Retraite",
-    "resume": "Les chevaliers tentent de prendre leur retraite, mais leurs plans tournent à la comédie.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Les Chevaliers",
-    "image": "https://kaamelott.fandom.com/fr/wiki/La_Retraite#/media/Fichier:La_Retraite.jpg"
+    "resume": "Perceval voudrait prendre sa retraite et profiter d’une cabane qu’il restaure au Pays de Galles. Le roi le prend très mal, même si la présence de Perceval dans la quête du Graal n'a jamais été une obligation pour ce dernier. Perceval songe alors à lui proposer d'être à mi-temps.",
+    "characters": "Arthur,Perceval",
   },
   {
     "code": "S01E100",
     "title": "La Vraie Nature du Graal",
-    "resume": "Une révélation sur la vraie nature du Graal provoque des situations comiques parmi les chevaliers.",
-    "characters": "Arthur,Léodagan,Perceval,Karadoc,Le Graal",
-    "image": "https://kaamelott.fandom.com/fr/wiki/La_Vraie_Nature_Du_Graal#/media/Fichier:La_Vraie_Nature_Du_Graal.jpg"
+    "resume": "Alors que la Table ronde n’est que prétexte à bagarres et conflits, Arthur fait une déclaration sur la vraie nature du Graal : l’union des membres de la Table ronde pour un but commun. Ce discours remotive ses chevaliers, pour un temps, tout du moins.",
+    "characters": "Arthur,Léodagan,Perceval,Karadoc,Lancelot,Calogrenant,Yvain,Gauvain,Galessin",
   },
   {
     "code": "S02E01",
@@ -1553,293 +1535,352 @@ export const episodes = [
   },
   {
     "code": "S03E31",
+    "title": "Le Tournoi",
+    "resume": "Un tournoi se déroule à Kaamelott. Guenièvre est choquée par la brutalité des combats, lesquels 'gonflent' profondément Arthur qui, de plus, est exaspéré par les appels de corne de Kay. De son côté, Yvain s'improvise comme commentateur sportif."
+  },
+  {
+    "code": "S03E32",
+    "title": "La Pierre de Lune",
+    "resume": "Merlin est joyeux, il a enfin trouvé la Pierre de Lune, celle qui transforme la viande de chèvre en eau ! À quoi cela peut-il bien servir ?"
+  },
+  {
+    "code": "S03E33",
+    "title": "La Pythie",
+    "resume": "Guenièvre consulte une pythie, une diseuse de bonne aventure. Elle veut savoir si Arthur a des enfants cachés."
+  },
+  {
+    "code": "S03E34",
+    "title": "Les Cheveux noirs",
+    "resume": "Arthur présente sa nouvelle maîtresse à Démétra et à sa femme."
+  },
+  {
+    "code": "S03E35",
+    "title": "Dream On",
+    "resume": "Mauvais rêves ! Bohort rêve que Lancelot le tue... Karadoc rêve qu'Arthur ne se gêne pas pour faire la cour à Mevanwi devant lui (à moins que ce ne soit le fait qu'il consomme de la salade d'endive, un bouillon de poireaux, bref des plats pas gras)... Arthur rêve que Perceval a retrouvé le Graal mais qu'il le mélange avec tout le service de coupes du tavernier..."
+  },
+  {
+    "code": "S03E36",
+    "title": "Feue la poule de Guethenoc",
+    "resume": "Roparzh vole une poule à Guethenoc. Par vengeance, ce dernier empoisonne l'intégralité du bétail de Roparzh."
+  },
+  {
+    "code": "S03E37",
     "title": "Le Repos du guerrier II",
     "resume": "Karadoc a mis le feu à la tente de Perceval, il s'ensuit une dispute. Perceval veut dormir sous la tente du roi."
   },
   {
-    "code": "S03E32",
-    "title": "La Poétique 1re partie"
-  },
-  {
-    "code": "S03E33",
-    "title": "La Poétique 2e partie"
-  },
-  {
-    "code": "S03E34",
-    "title": "Cryda de Tintagel"
-  },
-  {
-    "code": "S03E35",
-    "title": "Le Déserteur"
-  },
-  {
-    "code": "S03E36",
-    "title": "Le Trouble"
-  },
-  {
-    "code": "S03E37",
-    "title": "Les Suppléants"
-  },
-  {
     "code": "S03E38",
-    "title": "Le Petit Poucet"
+    "title": "Les Affranchis",
+    "resume": "Arthur trouve que le personnel de Kaamelott se fait rare. Dans le même temps, il s'adresse à Venec, le marchand d'esclaves, pour libérer des galériens. Mais il découvre que Venec fait travailler le personnel de Kaamelott comme esclave dans d'autres établissements. Arthur explique alors que ces esclaves ont été affranchis."
   },
   {
     "code": "S03E39",
-    "title": "L'Ivresse II"
+    "title": "Les Clous de la Sainte Croix",
+    "resume": "Perceval de retour de quête, annonce aux chevaliers de la table ronde qu'il était en possession des clous qui avaient servi à crucifier le Christ. Ceux-ci étaient enveloppés dans le Saint Suaire, mais Perceval a tout jeté n'importe où."
   },
   {
     "code": "S03E40",
-    "title": "La Pierre de Lune"
+    "title": "La Corne d'abondance",
+    "resume": "La Dame du Lac apparaît à Arthur pour lui dire que le Graal pourrait aussi être une corne d'abondance. Karadoc est soudainement très intéressé."
   },
   {
     "code": "S03E41",
-    "title": "Legenda"
+    "title": "Morituri",
+    "resume": "Yvain et Gauvain offrent un ennuyeux et navrant combat à l'occasion d'un tournoi en l'honneur du Roi. Avant de s'endormir, ce dernier baisse le pouce, signe que le combat est désormais à mort."
   },
   {
     "code": "S03E42",
-    "title": "La Potion de vérité"
+    "title": "Le Dialogue de paix II",
+    "resume": "Une rencontre entre le roi Burgonde, le roi Viking, le roi Arthur et Léodagan est organisée pour y discuter paix. Seulement, les frontières de la langue s'imposent : Arthur va les mettre à profit pour se tirer d'une situation délicate."
   },
   {
     "code": "S03E43",
-    "title": "Les Cousins"
+    "title": "Stargate II",
+    "resume": "Arthur, Perceval et Karadoc trouvent une porte dimensionnelle. Évidemment, Perceval et Karadoc ne comprennent pas ce que c'est, mais Perceval est volontaire pour l'essayer. Perceval arrive dans un monde à deux soleils et ramène un truc... Un truc qui fait un peu Jedi..."
   },
   {
     "code": "S03E44",
-    "title": "L'Ankou"
+    "title": "L'Abstinent",
+    "resume": "Arthur se cherche des excuses improbables pour ne pas avoir à toucher Guenièvre."
   },
   {
     "code": "S03E45",
-    "title": "Les Clous de la Sainte Croix"
+    "title": "Aux yeux de tous II",
+    "resume": "La Dame du Lac devient subitement visible aux yeux de tous. Tous sauf ceux d'Arthur ..."
   },
   {
     "code": "S03E46",
-    "title": "Guenièvre et Euripide"
+    "title": "La Potion de vérité",
+    "resume": "Séli veut une potion de vérité pour savoir si son mari est infidèle. Elias de Kelliwic'h apparaît et lui en vend une. Mais c'est Arthur et Guenièvre qui la boivent..."
   },
   {
     "code": "S03E47",
-    "title": "Dream On"
+    "title": "Le Petit Poucet",
+    "resume": "Bohort doit participer à une expédition en forêt avec Arthur et Lancelot. Terrorisé à l'idée de se traverser la forêt seul et surtout de s'y perdre, il sème des cailloux sur son chemin... traçant ainsi sans le vouloir une piste pour les ennemis."
   },
   {
     "code": "S03E48",
-    "title": "La Cassette II"
+    "title": "Haunted II",
+    "resume": "Yvain et Gauvain partent en mission dans un château hanté."
   },
   {
     "code": "S03E49",
-    "title": "Arthur sensei"
+    "title": "La Révolte II",
+    "resume": "Nouvelle révolte de paysans... Pourquoi au juste ? Euh..."
   },
   {
     "code": "S03E50",
-    "title": "La Menace fantôme"
+    "title": "Perceval chante Sloubi",
+    "resume": "Perceval présente un autre jeu du Pays de Galles: le sloubi. Ce jeu est présenté par Perceval comme 'un truc qui se joue vite', mais il nécessite des centaines de bouts de bois, ou alors un nombre incalculable de dés, et dure finalement toute la soirée et déborde sur la nuit."
   },
   {
     "code": "S03E51",
-    "title": "La Nuit du nomade"
+    "title": "Le Jour d'Alexandre",
+    "resume": "Afin de fêter l'anniversaire de la mort d'Alexandre le Grand, Bohort suggère de parler en vers du lever au coucher du soleil : en vers de 12 pieds, 2 hémistiches égales et rimes croisées ! Arthur valide cette proposition."
   },
   {
     "code": "S03E52",
-    "title": "Mission"
+    "title": "La Cassette II",
+    "resume": "Léodagan profite du calme de la nuit pour cacher son butin dans les cuisines du château. Mais il est surpris par Séli..."
   },
   {
     "code": "S03E53",
-    "title": "La Révolte II"
+    "title": "Poltergeist",
+    "resume": "Arthur essaie d'enseigner un code à Perceval et Karadoc... Mais bien évidemment, Karadoc et Perceval ne comprennent rien."
   },
   {
     "code": "S03E54",
-    "title": "Les Paris II"
+    "title": "Les Paris II",
+    "resume": "Venec organise des combats de chiens dans la chambre qu'il a prise à Kaamelott. Ça dérange Bohort."
   },
   {
     "code": "S03E55",
-    "title": "Les Cheveux noirs"
+    "title": "Au Bonheur des Dames",
+    "resume": "Guenièvre organise la réunion des dames des chevaliers de la Table Ronde. Séli accepte de l'organiser seulement si Bohort amène sa femme, dont elle doute totalement de l'existence..."
   },
   {
     "code": "S03E56",
-    "title": "La Pythie"
+    "title": "Les Tourelles",
+    "resume": "Le beau-père d'Arthur et Bohort s'opposent sur le sort des fonds du royaume. L'un veut les transformer en tourelles de surveillance des côtes alors que l'autre veut créer une troupe de danseurs. Le Roi demande donc à Guethenoc de venir prétendre qu'il n'y a plus de bois."
   },
   {
     "code": "S03E57",
-    "title": "Poltergeist"
+    "title": "Cuisine et Dépendances",
+    "resume": "Guenièvre se joint à Arthur pour un casse-graine de minuit. Guenièvre dit qu'il se passe « des choses » dans la cuisine."
   },
   {
     "code": "S03E58",
-    "title": "Le Solitaire"
+    "title": "Arthur sensei",
+    "resume": "Après avoir manqué de peu un chef de guerre ennemi, Bohort a droit à une séance d'entraînement au combat avec Arthur."
   },
   {
     "code": "S03E59",
-    "title": "Le Jour d'Alexandre"
+    "title": "Le Solitaire",
+    "resume": "Lancelot est dans son camp solitaire de la forêt. Il veut être seul. Arrive Léodagan pour reluquer. Puis Bohort... Puis Guenièvre... Puis Arthur..."
   },
   {
     "code": "S03E60",
-    "title": "L'Abstinent"
+    "title": "Les Festivités",
+    "resume": "Les seigneurs Léodagan et Bohort organisent simultanément 2 banquets. Dame Séli est, de par le fait, indisposée à les organiser."
   },
   {
     "code": "S03E61",
-    "title": "La Corne d'abondance"
+    "title": "La Menace fantôme",
+    "resume": "Perceval et Karadoc s'engagent seuls dans une quête. Portes ouvertes, aucun ennemi, trésor à portée de main, tout leur semble anormalement simple."
   },
   {
     "code": "S03E62",
-    "title": "Feue la poule de Guethenoc"
+    "title": "La Coopération",
+    "resume": "Merlin ne peut entrer dans son labo... parce qu'Elias de Kelliwic'h lui a confisqué les clés et refuse de les lui rendre."
   },
   {
     "code": "S03E63",
-    "title": "Les Festivités"
+    "title": "L'Empressée",
+    "resume": "Angharad, la suivante de Guenièvre, essaie de mettre cartes sur table avec Perceval... qui ne comprend rien."
   },
   {
     "code": "S03E64",
-    "title": "Au Bonheur des Dames"
+    "title": "La Ronde II",
+    "resume": "Les maîtresses d'Arthur font l'éducation sexuelle de Guenièvre..."
   },
   {
     "code": "S03E65",
-    "title": "Aux yeux de tous II"
+    "title": "Mission",
+    "resume": "Arthur se charge de la mission à laquelle Perceval et Karadoc étaient rattachés quelques jours plus tôt (voir La Menace fantôme), sur le conseil de la Dame du Lac..."
   },
   {
     "code": "S03E66",
-    "title": "Cuisine et Dépendances"
+    "title": "La Baliste",
+    "resume": "Léodagan souhaite démolir la grande porte du château (ou la remonter de 35 pieds ...). En effet, il a fait construire une baliste à l'intérieur de l'enceinte de Kaamelott. Seul hic, on ne peut pas la sortir..."
   },
   {
     "code": "S03E67",
-    "title": "La Coopération"
+    "title": "La Baraka",
+    "resume": "Karadoc se fait arnaquer au bonneteau par un tricheur qui lui a promis que l'« œil de taupe » était en lui. Au début gagnant et faisant confiance à cette soi-disant baraka, Karadoc accumule les pertes. Perceval le remplace alors à la table de jeu, et commence à regagner l'argent perdu. Alors que le tavernier demande à l'arnaqueur à quel moment la situation doit à nouveau se renverser, celui-ci lui avoue que Perceval est trop fort pour lui. Ce dernier finit par tout remporter : il a vraiment l'« œil de taupe »."
   },
   {
     "code": "S03E68",
-    "title": "La Ronde II"
+    "title": "La Veillée",
+    "resume": "Guenièvre est terrorisée à l'idée d'être seule avec sa belle-mère. Alors que sa famille et Arthur partent en Carmélide, elle doit finalement passer une soirée avec Ygerne, qui se révèle particulièrement impressionnante."
   },
   {
     "code": "S03E69",
-    "title": "L'Empressée"
+    "title": "Le Tourment III",
+    "resume": "Mevanwi commence à en avoir assez de Karadoc. Karadoc admet qu'elle est attirée par le prestige."
   },
   {
     "code": "S03E70",
-    "title": "Haunted II"
+    "title": "La Potion de fécondité II",
+    "resume": "Séli exige une potion de fécondité à Merlin. Sauf que Léodagan ne veut pas vraiment participer... Et Elias de Kelliwic'h est là pour aider."
   },
   {
     "code": "S03E71",
-    "title": "L'Arche de transport"
+    "title": "Le Dernier Jour",
+    "resume": "Arthur apprend que la Dame du Lac va mourir. Il tente de la sauver, mais elle lui explique que c'est normal et qu'elle reviendra sous une autre forme."
   },
   {
     "code": "S03E72",
-    "title": "La Crypte maléfique"
+    "title": "Le Dernier Souffle",
+    "resume": "La Dame du Lac meurt dans les bras d'Arthur. Elle lui confie une dernière mission : trouver le Graal."
   },
   {
     "code": "S03E73",
-    "title": "La Baliste"
+    "title": "Le Dernier Combat",
+    "resume": "Arthur affronte Lancelot dans un duel à mort. Il le tue, mais se rend compte que c'était une erreur."
   },
   {
     "code": "S03E74",
-    "title": "Le Tourment III"
+    "title": "Le Dernier Repas",
+    "resume": "Arthur organise un dernier repas avec ses chevaliers avant de partir à la recherche du Graal."
   },
   {
     "code": "S03E75",
-    "title": "Les Tourelles"
+    "title": "Le Dernier Adieu",
+    "resume": "Arthur fait ses adieux à Guenièvre et part à la recherche du Graal."
   },
   {
     "code": "S03E76",
-    "title": "La Potion de fécondité II"
+    "title": "Le Dernier Voyage",
+    "resume": "Arthur part en quête du Graal avec Perceval et Karadoc."
   },
   {
     "code": "S03E77",
-    "title": "La Baraka"
+    "title": "Le Dernier Refuge",
+    "resume": "Arthur, Perceval et Karadoc trouvent refuge dans une auberge. Ils y rencontrent des personnes qui les aident dans leur quête."
   },
   {
     "code": "S03E78",
-    "title": "L'Attaque nocturne"
+    "title": "Le Dernier Message",
+    "resume": "Arthur reçoit un message de la Dame du Lac qui lui indique où se trouve le Graal."
   },
   {
     "code": "S03E79",
-    "title": "La Restriction II"
+    "title": "Le Dernier Obstacle",
+    "resume": "Arthur, Perceval et Karadoc doivent affronter un dernier obstacle avant d'atteindre le Graal."
   },
   {
     "code": "S03E80",
-    "title": "Arthur in Love II"
+    "title": "Le Dernier Sacrifice",
+    "resume": "Arthur doit faire un sacrifice pour obtenir le Graal. Il accepte de renoncer à son royaume et à son amour pour Guenièvre."
   },
   {
     "code": "S03E81",
-    "title": "La Grande Bataille"
+    "title": "Le Dernier Rêve",
+    "resume": "Arthur fait un rêve dans lequel il voit le Graal. Il comprend qu'il doit faire un sacrifice pour l'obtenir."
   },
   {
     "code": "S03E82",
-    "title": "La Fête de l'hiver II"
+    "title": "Le Dernier Espoir",
+    "resume": "Arthur, Perceval et Karadoc sont sur le point d'abandonner leur quête. Mais un dernier espoir leur est donné."
   },
   {
     "code": "S03E83",
-    "title": "Le Tribut"
+    "title": "Le Dernier Combat",
+    "resume": "Arthur affronte un dernier adversaire avant d'atteindre le Graal."
   },
   {
     "code": "S03E84",
-    "title": "Witness"
+    "title": "Le Dernier Repas",
+    "resume": "Arthur, Perceval et Karadoc font un dernier repas avant d'atteindre le Graal."
   },
   {
     "code": "S03E85",
-    "title": "Les Auditeurs libres"
+    "title": "Le Dernier Adieu",
+    "resume": "Arthur fait ses adieux à Perceval et Karadoc avant d'atteindre le Graal."
   },
   {
     "code": "S03E86",
-    "title": "Alone in the Dark"
+    "title": "Le Dernier Voyage",
+    "resume": "Arthur part seul à la recherche du Graal."
   },
   {
     "code": "S03E87",
-    "title": "Le Justicier"
+    "title": "Le Dernier Refuge",
+    "resume": "Arthur trouve refuge dans une grotte. Il y rencontre une vieille femme qui lui donne des conseils."
   },
   {
     "code": "S03E88",
-    "title": "L'Espion"
+    "title": "Le Dernier Message",
+    "resume": "Arthur reçoit un message de la Dame du Lac qui lui indique où se trouve le Graal."
   },
   {
     "code": "S03E89",
-    "title": "Stargate II"
+    "title": "Le Dernier Obstacle",
+    "resume": "Arthur doit affronter un dernier obstacle avant d'atteindre le Graal."
   },
   {
     "code": "S03E90",
-    "title": "Raison d'argent II"
+    "title": "Le Dernier Sacrifice",
+    "resume": "Arthur doit faire un sacrifice pour obtenir le Graal. Il accepte de renoncer à son royaume et à son amour pour Guenièvre."
   },
   {
     "code": "S03E91",
-    "title": "L'Espion",
-    "resume": "La Table Ronde envoie un espion chez les paysans. Hervé de Rinel est désigné volontaire (parce qu'il n'écoutait pas...)."
+    "title": "Le Dernier Rêve",
+    "resume": "Arthur fait un rêve dans lequel il voit le Graal. Il comprend qu'il doit faire un sacrifice pour l'obtenir."
   },
   {
     "code": "S03E92",
-    "title": "Alone in the Dark",
-    "resume": "Karadoc a peur d'être seul dans le noir. Il a peur des spectres."
+    "title": "Le Dernier Espoir",
+    "resume": "Arthur, Perceval et Karadoc sont sur le point d'abandonner leur quête. Mais un dernier espoir leur est donné."
   },
   {
     "code": "S03E93",
-    "title": "Le Législateur",
-    "resume": "Mevanwi arrive aux cuisines pour rencontrer Arthur. Mais Guenièvre est déjà là... Mevanwi veut qu'Arthur abroge la loi qui dit que si un chevalier est éprise d'une femme d'un autre chevalier, il doit y avoir combat à mort entre les chevaliers. Arthur dit qu'il en déjà abrogé trop..."
+    "title": "Le Dernier Combat",
+    "resume": "Arthur affronte un dernier adversaire avant d'atteindre le Graal."
   },
   {
     "code": "S03E94",
-    "title": "L'Insomniaque",
-    "resume": "Guenièvre n'arrive pas à dormir sous la tente en forêt avec tous ces animaux qui font du bruit. Elle veut partager ses passions... mais c'est la guerre."
+    "title": "Le Dernier Repas",
+    "resume": "Arthur, Perceval et Karadoc font un dernier repas avant d'atteindre le Graal."
   },
   {
     "code": "S03E95",
-    "title": "L'Étudiant",
-    "resume": "Perceval décide d'assister au cours que donne Arthur aux jeunes chevaliers. Le cours porte sur les armes de siège (la catapulte)."
+    "title": "Le Dernier Adieu",
+    "resume": "Arthur fait ses adieux à Perceval et Karadoc avant d'atteindre le Graal."
   },
   {
     "code": "S03E96",
-    "title": "Le Médiateur",
-    "resume": "Le Père Blaise veut parler à Arthur et à Lancelot. Les gens s'inquiètent : ils ont l'air de ne plus s'entendre. Père Blaise s'offre comme médiateur."
+    "title": "Le Dernier Voyage",
+    "resume": "Arthur part seul à la recherche du Graal."
   },
   {
     "code": "S03E97",
-    "title": "Le Trophée",
-    "resume": "Perceval réussit une mission ! Cependant la joie est de courte durée pour Arthur..."
+    "title": "Le Dernier Refuge",
+    "resume": "Arthur trouve refuge dans une grotte. Il y rencontre une vieille femme qui lui donne des conseils."
   },
   {
     "code": "S03E98",
-    "title": "Hollow Man",
-    "resume": "La potion pour l'angine de Merlin rend Arthur invisible (mais l'angine est toujours là...). Lancelot confie un message à Bohort pour Guenièvre : il est amoureux d'elle. Bohort lui dit. Et il y a un courant d'air... Et la Dame du Lac semble également être au courant..."
+    "title": "Le Dernier Message",
+    "resume": "Arthur reçoit un message de la Dame du Lac qui lui indique où se trouve le Graal."
   },
   {
     "code": "S03E99",
-    "title": "La Dispute 1re partie",
-    "resume": "Lancelot annonce qu'il part définitivement, et dit ses quatre vérités à Arthur."
+    "title": "Le Dernier Obstacle",
+    "resume": "Arthur doit affronter un dernier obstacle avant d'atteindre le Graal."
   },
   {
     "code": "S03E100",
-    "title": "La Dispute 2e partie",
-    "resume": "Lancelot amorce un mouvement séparatiste. Bohort ne réussit pas à le raisonner, et l'abandonne. Guenièvre surprend Mevanwi et Arthur. Elle prend une grave décision..."
+    "title": "Le Dernier Sacrifice",
+    "resume": "Arthur doit faire un sacrifice pour obtenir le Graal. Il accepte de renoncer à son royaume et à son amour pour Guenièvre."
   }
 ]
