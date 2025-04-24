@@ -1,18 +1,18 @@
 <template>
   <div v-if="data" class="container mx-auto px-4 py-8">
-    <div class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
+    <div class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
       <div class="flex justify-between">
         <h1 class="text-2xl lg:text-4xl font-bold mb-4">{{ data.episode.title }}</h1>
         <NuxtLink
           :to="`/livres/${slugify(livre as string)}`"
-          class="text-gray-800 md:text-lg"
+          class="text-gray-800 dark:text-gray-50 md:text-lg"
           prefetch
         >
           {{ livre }}
         </NuxtLink>
       </div>
-      <p class="text-gray-800 mb-2">{{ data.episode.code }}</p>
-      <p class="text-gray-700">{{ data.episode.resume }}</p>
+      <p class="text-gray-800 dark:text-gray-50 mb-2">{{ data.episode.code }}</p>
+      <p class="text-gray-700 dark:text-gray-200">{{ data.episode.resume }}</p>
       
       <div v-if="data.episode.characters" class="mt-4">
         <h2 class="text-2xl font-bold mb-2">Personnages</h2>
