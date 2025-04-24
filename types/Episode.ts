@@ -4,4 +4,5 @@ export interface Episode {
   slug: string
   characters: string | null
   resume: string | null
+  createdAt: string
 }
