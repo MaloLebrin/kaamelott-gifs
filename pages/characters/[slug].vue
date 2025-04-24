@@ -99,7 +99,7 @@ const { data } = await useFetch<{
   }
 }>(`/api/gifs/characters/${characterSlug}`)
 
-const { data: episodes } = await useFetch<Pick<Episode, 'code' | 'title' | 'slug'>[]>(`/api/characters/${characterSlug}/episodes`)
+const { data: episodes } = await useFetch<Pick<Episode, 'code' | 'title' | 'slug' | 'createdAt'>[]>(`/api/characters/${characterSlug}/episodes`)
 
 onMounted(() => {
   if ($clientPosthog) {
@@ -108,6 +108,25 @@ onMounted(() => {
       character:  data.value?.character.name
     })
   }
+})
+
+const structuredData = computed(() => {
+  if (data.value) {
+    return buildStructuredData('character', composeCharacterToStructuredData({
+      character: data.value.character,
+      episodes: episodes.value as Episode[],
+      seasons: []
+    }))
+  }
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      value: JSON.stringify(structuredData.value)
+    }
+  ]
 })
 
 useSeoMeta({

@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
 
   const { data, error } = await client
     .from(Entities.EPISODE)
-    .select('code, title, slug')
+    .select('code, title, slug, createdAt')
     .or(
       `characters.ilike.%${slug}%`,
       // Doc: https://supabase.com/docs/reference/javascript/v1/or
