@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="`/episodes/${episode.code}`"
+    :to="`/episodes/${episode.slug}`"
     class="group"
     :v-posthog-capture="`click_episode_link_${episode.code}`"
     prefetch

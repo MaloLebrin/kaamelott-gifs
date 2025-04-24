@@ -14,13 +14,16 @@ export function formatFromBackToFront<T extends {
   const formattedGifs = []
 
   for (const gif of gifs) {
-    const formattedGif = {
-      ...gif,
-      characters: gif.characters?.split(','),
-      characters_speaking: gif.characters_speaking?.split(','),
+
+    if (gif.characters) {
+      const formattedGif = {
+        ...gif,
+        characters: gif.characters?.split(','),
+        characters_speaking: gif.characters_speaking?.split(','),
     }
 
-    formattedGifs.push(formattedGif)
+      formattedGifs.push(formattedGif)
+    }
   }
 
   return formattedGifs
