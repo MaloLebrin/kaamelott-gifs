@@ -110,6 +110,13 @@ export default defineNuxtConfig({
     ],
   },
 
+  tailwindcss: {
+    cssPath: [`assets/css/tailwind.css`, { injectPosition: "first" }],
+    config: {},
+    viewer: true,
+    exposeConfig: false,
+  },
+
   compatibilityDate: '2025-04-11',
 
   runtimeConfig: {
