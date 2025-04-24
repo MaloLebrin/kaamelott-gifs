@@ -41,6 +41,11 @@ const handleClose = () => {
           :alt="gif.quote"
           class="w-full transform transition-transform duration-500 ease-out"
         />
+        <div class="absolute top-0 right-0 p-2">
+          <button @click="handleClose">
+            <Icon name="heroicons:x-mark" class="w-6 h-6 text-gray-900 dark:text-gray-200" />
+          </button>
+        </div>
         <div class="p-4">
           <p class="text-xl font-medium text-gray-900">{{ gif.quote }}</p>
           <div class="mt-4">
