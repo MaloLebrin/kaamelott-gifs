@@ -36,12 +36,18 @@ export default defineEventHandler(async (event) => {
     .select('*')
     .ilike('episode', `%S0${season.id}%`)
 
+  const { data: episodesData, error: episodesError } = await client
+    .from(Entities.EPISODE)
+    .select('*')
+    .ilike('code', `%S0${season.id}%`)
+
   if (gifsError) {
     throw createError({ statusCode: 500, statusMessage: gifsError.message })
   }
 
   return {
     season,
+    episodes: formatFromBackToFront(episodesData || []),
     gifs: formatFromBackToFront(gifsData || []),
     otherSeasons: seasons.filter((s) => s.id !== season.id)
   }

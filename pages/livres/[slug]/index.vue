@@ -36,6 +36,11 @@
       <p class="text-gray-500">Aucun GIF disponible pour cette saison.</p>
     </div>
 
+    <div v-if="seasonData && seasonData.episodes.length > 0">
+      <h2 class="text-2xl font-bold mb-4">Episodes</h2>
+      <EpisodeGrid :episodes="seasonData.episodes" />
+    </div>
+
     <div v-if="seasonData && seasonData.otherSeasons.length > 0">
       <h2 class="text-2xl font-bold mb-4">Autres saisons</h2>
       <LivreGrid v-if="seasonData.otherSeasons" :seasons="seasonData.otherSeasons" />
@@ -46,6 +51,7 @@
 <script setup lang="ts">
 import type { Gif } from '~/types'
 import type { Season } from '~/types/Season'
+import type { Episode } from '~/types/Episode'
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import LivreGrid from '~/components/livres/LivreGrid.vue'
 import GifPagination from '~/components/gifs/GifPagination.vue'
@@ -56,12 +62,15 @@ const slug = route.params.slug as string
 
 const { data: seasonData } = await useFetch<{
   gifs: Gif[]
+  episodes: Episode[]
   season: Season
   otherSeasons: Season[]
 }>(`/api/seasons/${slug}`)
 
 const currentPage = ref(1)
 const itemsPerPage = 21
+
+console.log(seasonData.value?.episodes)
 
 function handlePageChange(page: number) {
   currentPage.value = page

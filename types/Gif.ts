@@ -12,12 +12,12 @@ interface CommonGif extends BaseEntity {
 
 export interface GifBackend extends CommonGif {
   characters: string
-  characters_speaking: string;
+  characters_speaking?: string;
 }
 
 export interface Gif extends CommonGif {
   characters: string[]
-  characters_speaking: string[]
+  characters_speaking?: string[]
 }
 
 export interface GifWithEpisode extends Gif {
