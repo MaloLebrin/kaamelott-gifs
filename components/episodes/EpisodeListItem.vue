@@ -19,7 +19,7 @@
         </p>
 
         <ul class="flex flex-wrap gap-x-2 gap-y-1.5 mt-4">
-          <li v-for="character in episode.characters" :key="character">
+          <li v-for="character in episode.characters" :key="character" class="my-0.5">
             <BaseTag :label="character" />
           </li>
         </ul>
