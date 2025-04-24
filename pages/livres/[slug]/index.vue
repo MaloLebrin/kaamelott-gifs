@@ -20,16 +20,18 @@
     </div>
 
     <template v-if="seasonData && seasonData.gifs.length > 0">
-      <GifPagination
-        :gifs="seasonData.gifs"
-        :items-per-page="itemsPerPage"
-        :current-page="currentPage"
-        @page-change="handlePageChange"
-      >
-        <template #default="{ paginatedGifs }">
-          <GifGrid :gifs="paginatedGifs" />
-        </template>
-      </GifPagination>
+      <div class="mt-8">
+        <GifGrid :gifs="paginatedGifs" />
+        
+        <!-- Pagination -->
+        <div v-if="totalPages > 1" class="mt-8 flex justify-center">
+          <Pagination 
+            :current-page="currentPage" 
+            :total-pages="totalPages" 
+            @page-change="handlePageChange" 
+          />
+        </div>
+      </div>
     </template>
 
     <div v-else class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
@@ -54,11 +56,11 @@ import type { Season } from '~/types/Season'
 import type { Episode } from '~/types/Episode'
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import LivreGrid from '~/components/livres/LivreGrid.vue'
-import GifPagination from '~/components/gifs/GifPagination.vue'
+import Pagination from '~/components/base/Pagination.vue'
 import EpisodeGrid from '~/components/episodes/EpisodeGrid.vue'
+import { usePagination } from '~/composables/usePagination'
 
 const route = useRoute()
-const router = useRouter()
 const slug = route.params.slug as string
 
 const { data: seasonData } = await useFetch<{
@@ -68,19 +70,15 @@ const { data: seasonData } = await useFetch<{
   otherSeasons: Season[]
 }>(`/api/seasons/${slug}`)
 
-const currentPage = ref(1)
-const itemsPerPage = 21
-
-console.log(seasonData.value?.episodes)
-
-function handlePageChange(page: number) {
-  currentPage.value = page
-  router.push({
-    query: {
-      page: page.toString()
-    }
-  })
-}
+const {
+  currentPage,
+  totalPages,
+  paginatedItems: paginatedGifs,
+  handlePageChange
+} = usePagination({
+  items: seasonData.value?.gifs || [],
+  itemsPerPage: 21
+})
 
 const { $clientPosthog } = useNuxtApp()
 
@@ -96,7 +94,7 @@ onMounted(() => {
 const structuredData = computed(() => {
   if (seasonData.value) {
     return buildSeasonData(
-        composeSeasonToStructuredData({
+      composeSeasonToStructuredData({
         season: seasonData.value.season,
         episodes: seasonData.value.episodes,
         gifs: seasonData.value.gifs

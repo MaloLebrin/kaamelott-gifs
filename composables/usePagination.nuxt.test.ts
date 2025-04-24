@@ -1,18 +1,48 @@
-import { describe, test, expect, vi } from 'vitest'
+import { describe, test, expect, vi, beforeEach } from 'vitest'
 import { usePagination } from './usePagination'
 
+const mockRouter = {
+  push: vi.fn()
+}
+
+const mockRoute = {
+  query: {}
+}
+
 vi.mock('#app', () => ({
-  useRouter: () => ({
-    push: vi.fn()
-  }),
-  useRoute: () => ({
-    query: {
-    }
-  })
+  useRouter: () => mockRouter,
+  useRoute: () => mockRoute
 }))
 
 describe('usePagination', () => {
-  const mockItems = Array.from({ length: 50 }, (_, i) => ({ id: i + 1 }))
+  const mockItems = [
+    {
+      id: 1,
+      quote: 'C\'est pas faux !',
+      characters: ['Perceval'],
+      episode: 'Le donjon de naheulbeuk',
+      season: 1
+    },
+    {
+      id: 2,
+      quote: 'C\'est pas faux !',
+      characters: ['Perceval'],
+      episode: 'Le donjon de naheulbeuk',
+      season: 1
+    },
+    {
+      id: 3,
+      quote: 'C\'est pas faux !',
+      characters: ['Perceval'],
+      episode: 'Le donjon de naheulbeuk',
+      season: 1
+    }
+  ]
+
+  beforeEach(() => {
+    mockRoute.query = {}
+    mockRouter.push.mockClear()
+  })
 
   test('should initialize with default values', () => {
     const { currentPage, totalPages, paginatedItems } = usePagination({
@@ -20,89 +50,128 @@ describe('usePagination', () => {
     })
 
     expect(currentPage.value).toBe(1)
-    expect(totalPages.value).toBe(3) // 50 items / 21 per page = 3 pages
-    expect(paginatedItems.value.length).toBe(21)
+    expect(totalPages.value).toBe(1)
+    expect(paginatedItems.value.length).toBe(3)
   })
 
   test('should use custom itemsPerPage', () => {
     const { totalPages, paginatedItems } = usePagination({
       items: mockItems,
-      itemsPerPage: 10
+      itemsPerPage: 2
     })
 
-    expect(totalPages.value).toBe(5) // 50 items / 10 per page = 5 pages
-    expect(paginatedItems.value.length).toBe(10)
+    expect(totalPages.value).toBe(2)
+    expect(paginatedItems.value.length).toBe(2)
   })
 
-  test('should handle setPage correctly', () => {
-    const { currentPage, setPage } = usePagination({
-      items: mockItems
+  test('should handle page change correctly', () => {
+    const { currentPage, handlePageChange } = usePagination({
+      items: mockItems,
+      itemsPerPage: 2
     })
 
-    setPage(2)
+    handlePageChange(2)
     expect(currentPage.value).toBe(2)
 
     // Should not set page if out of bounds
-    setPage(0)
+    handlePageChange(0)
     expect(currentPage.value).toBe(2)
-    setPage(4)
+    handlePageChange(3)
     expect(currentPage.value).toBe(2)
   })
 
-  test('should handle nextPage correctly', () => {
-    const { currentPage, nextPage } = usePagination({
+  test('should filter items by search query', () => {
+    const { paginatedItems, handleSearch } = usePagination({
       items: mockItems
     })
 
-    nextPage()
-    expect(currentPage.value).toBe(2)
+    handleSearch('faux', '')
+    expect(paginatedItems.value.length).toBe(3)
 
-    // Should not go beyond total pages
-    nextPage()
-    nextPage()
-    expect(currentPage.value).toBe(3)
-  })
-
-  test('should handle previousPage correctly', () => {
-    const { currentPage, previousPage, setPage } = usePagination({
-      items: mockItems
-    })
-
-    setPage(3)
-    previousPage()
-    expect(currentPage.value).toBe(2)
-
-    // Should not go below page 1
-    previousPage()
-    previousPage()
-    expect(currentPage.value).toBe(1)
-  })
-
-  test('should return correct paginated items', () => {
-    const { paginatedItems, setPage } = usePagination({
-      items: mockItems,
-      itemsPerPage: 10
-    })
-
-    // First page
-    expect(paginatedItems.value.length).toBe(10)
-    expect(paginatedItems.value[0].id).toBe(1)
-    expect(paginatedItems.value[9].id).toBe(10)
-
-    // Second page
-    setPage(2)
-    expect(paginatedItems.value.length).toBe(10)
-    expect(paginatedItems.value[0].id).toBe(11)
-    expect(paginatedItems.value[9].id).toBe(20)
-  })
-
-  test('should handle empty items array', () => {
-    const { currentPage, totalPages, paginatedItems } = usePagination({
-      items: []
-    })
-
-    expect(currentPage.value).toBe(1)
-    expect(totalPages.value).toBe(0)
+    handleSearch('autre', '')
     expect(paginatedItems.value.length).toBe(0)
+  })
+
+  test('should filter items by character', () => {
+    const { paginatedItems, handleSearch } = usePagination({
+      items: mockItems
+    })
+
+    handleSearch('', 'Perceval')
+    expect(paginatedItems.value.length).toBe(3)
+
+    handleSearch('', 'Arthur')
+    expect(paginatedItems.value.length).toBe(0)
+  })
+
+  test('should filter items by both search and character', () => {
+    const { paginatedItems, handleSearch } = usePagination({
+      items: mockItems
+    })
+
+    handleSearch('faux', 'Perceval')
+    expect(paginatedItems.value.length).toBe(3)
+
+    handleSearch('faux', 'Arthur')
+    expect(paginatedItems.value.length).toBe(0)
+  })
+
+  test('should reset to first page on new search', () => {
+    const { currentPage, handleSearch, handlePageChange } = usePagination({
+      items: mockItems,
+      itemsPerPage: 2
+    })
+
+    handlePageChange(2)
+    expect(currentPage.value).toBe(2)
+
+    handleSearch('faux', '')
+    expect(currentPage.value).toBe(1)
+  })
+
+  test('should use custom search and character fields', () => {
+    const customItems = [
+      {
+        id: 1,
+        text: 'C\'est pas faux !',
+        actors: ['Perceval'],
+        episode: 'Le donjon de naheulbeuk',
+        season: 1
+      }
+    ]
+
+    const { paginatedItems, handleSearch } = usePagination({
+      items: customItems,
+      searchField: 'text',
+      characterField: 'actors'
+    })
+
+    handleSearch('faux', 'Perceval')
+    expect(paginatedItems.value.length).toBe(1)
+  })
+
+  test('should handle empty search', () => {
+    const { paginatedItems, handleSearch } = usePagination({
+      items: mockItems
+    })
+
+    handleSearch('', '')
+    expect(paginatedItems.value.length).toBe(3)
+  })
+
+  test('should handle URL query parameters', () => {
+    mockRoute.query = {
+      page: '2',
+      q: 'faux',
+      character: 'Perceval'
+    }
+
+    const { currentPage, searchQuery, selectedCharacter } = usePagination({
+      items: mockItems
+    })
+
+    expect(currentPage.value).toBe(2)
+    expect(searchQuery.value).toBe('faux')
+    expect(selectedCharacter.value).toBe('Perceval')
   })
 }) 

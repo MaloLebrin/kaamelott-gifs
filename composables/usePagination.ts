@@ -79,23 +79,9 @@ export function usePagination(options: UsePaginationOptions) {
     updateUrl()
   }
 
-  const setPage = (page: number) => {
+  const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages.value) {
       currentPage.value = page
-      updateUrl()
-    }
-  }
-
-  const nextPage = () => {
-    if (currentPage.value < totalPages.value) {
-      currentPage.value++
-      updateUrl()
-    }
-  }
-
-  const previousPage = () => {
-    if (currentPage.value > 1) {
-      currentPage.value--
       updateUrl()
     }
   }
@@ -125,8 +111,6 @@ export function usePagination(options: UsePaginationOptions) {
     searchQuery,
     selectedCharacter,
     handleSearch,
-    setPage,
-    nextPage,
-    previousPage
+    handlePageChange
   }
 } 

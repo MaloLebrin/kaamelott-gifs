@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import SearchBar from '~/components/SearchBar.vue'
-import GifPagination from '~/components/gifs/GifPagination.vue'
+import Pagination from '~/components/base/Pagination.vue'
 import type { Gif } from '~/types'
+import { usePagination } from '~/composables/usePagination'
 
 interface Character {
   name: string
@@ -21,6 +22,14 @@ const currentPage = ref(Number(route.query.page) || 1)
 // Charger les données
 const { data: charactersData } = await useFetch<Character[]>('/api/characters')
 const { data: gifs } = await useFetch<Gif[]>('/api/gifs')
+
+const {
+  totalPages,
+  paginatedItems: paginatedGifs,
+} = usePagination({
+  items: gifs.value || [],
+  itemsPerPage: 21
+})
 
 // Filtrer les GIFs
 const filteredGifs = computed(() => {
@@ -98,14 +107,17 @@ onMounted(() => {
       @search="handleSearch" 
     />
     
-    <GifPagination 
-      :gifs="filteredGifs" 
-      :current-page="currentPage"
-      @page-change="handlePageChange"
-    >
-      <template #default="{ paginatedGifs }">
-        <GifGrid :gifs="paginatedGifs" />
-      </template>
-    </GifPagination>
+    <div class="mt-8">
+      <GifGrid :gifs="paginatedGifs" />
+      
+      <!-- Pagination -->
+      <div v-if="totalPages > 1" class="mt-8 flex justify-center">
+        <Pagination 
+          :current-page="currentPage" 
+          :total-pages="totalPages" 
+          @page-change="handlePageChange" 
+        />
+      </div>
+    </div>
   </div>
 </template>

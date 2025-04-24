@@ -1,41 +1,52 @@
 <template>
   <nav class="flex items-center space-x-2">
-    <button
-      :disabled="currentPage === 1"
-      @click="handlePageChange(currentPage - 1)"
-      class="px-3 py-1 rounded-md bg-gray-100"
+    <NuxtLink
+      :disabled="currentPage - 1 === 0"
+      class="px-3 py-1 rounded-md bg-gray-100 disabled:opacity-50"
       :title="`Page ${currentPage - 1}`"
       :aria-label="`Page ${currentPage - 1}`"
-      :aria-current="currentPage === currentPage - 1 ? 'page' : undefined"
-      :aria-disabled="currentPage === 1"
+      :aria-disabled="currentPage - 1 === 0"
       :aria-controls="`pagination-${currentPage - 1}`"
+      :to="{
+        query: {
+          ...route.query,
+          page: currentPage - 1
+        }
+      }"
+      @click="handlePageChange(currentPage - 1)"
     >
       <span class="hidden md:block">Précédent</span>
       <span class="block md:hidden">←</span>
-    </button>
+    </NuxtLink>
     
     <template v-for="page in totalPages" :key="page">
-      <button
+      <NuxtLink
         v-if="
           page === 1 ||
           page === totalPages ||
           (page >= currentPage - 1 && page <= currentPage + 1)
         "
-        @click="handlePageChange(page)"
         :class="[
           'px-3 py-1 rounded-md',
           currentPage === page
-            ? 'bg-blue-500 text-white'
-            : 'bg-gray-100'
+          ? 'bg-blue-500 text-white'
+          : 'bg-gray-100'
         ]"
         :title="`Page ${page}`"
         :aria-label="`Page ${page}`"
         :aria-current="currentPage === page ? 'page' : undefined"
         :aria-disabled="currentPage === page"
         :aria-controls="`pagination-${page}`"
+        :to="{
+          query: {
+            ...route.query,
+            page: page
+          }
+        }"
+        @click="handlePageChange(page)"
       >
         {{ page }}
-      </button>
+      </NuxtLink>
       <span
         v-else-if="
           page === currentPage - 3 ||
@@ -47,20 +58,26 @@
       </span>
     </template>
     
-    <button
+    <NuxtLink
       :disabled="currentPage === totalPages"
-      @click="handlePageChange(currentPage + 1)"
       class="px-3 py-1 rounded-md bg-gray-100 disabled:opacity-50"
       aria-label="Suivant"
       :aria-disabled="currentPage === totalPages"
       :aria-controls="`pagination-${currentPage + 1}`"
       title="Suivant"
+      :to="{
+        query: {
+          ...route.query,
+          page: currentPage + 1
+        }
+      }"
+      @click="handlePageChange(currentPage + 1)"
     >
-      <span class="hidden md:block">  Suivant</span>
+      <span class="hidden md:block">Suivant</span>
       <span class="block md:hidden">→</span>
-    </button>
+    </NuxtLink>
   </nav>
-</template> 
+</template>
 
 <script setup lang="ts">
 interface Props {
@@ -68,13 +85,16 @@ interface Props {
   totalPages: number
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+const route = useRoute()
 
 const emit = defineEmits<{
   (e: 'pageChange', page: number): void
 }>()
 
 const handlePageChange = (page: number) => {
-  emit('pageChange', page)
+  if (page >= 1 && page <= props.totalPages) {
+    emit('pageChange', page)
+  }
 }
 </script>
