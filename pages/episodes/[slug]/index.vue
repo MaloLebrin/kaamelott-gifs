@@ -56,6 +56,7 @@ import GifPagination from '~/components/gifs/GifPagination.vue'
 import { slugify } from '~/shared/utils/string'
 import { getLivreFromCode } from '~/shared/utils/episodes/code'
 import { getTomeFromCode } from '~/shared/utils/livres/tome'
+import { composeEpisodeToStructuredData } from '~/shared/utils/episodes/structuredData'
 
 const route = useRoute()
 const router = useRouter()

@@ -12,3 +12,16 @@ export function getLivreFromCode(code: string) {
 
   return livre.replace('S0', '')
 }
+
+/**
+ * Get the episode id from the episode code
+ * @param episode - The episode to get the id from
+ * @returns The episode id
+ */
+export function getEpisodeId<T extends { code: string }>(episode: T): string {
+  if (!episode.code) {
+    throw new Error('Episode code is required')
+  }
+  const [_, episodeId] = episode.code.split('E')
+  return episodeId
+}
