@@ -93,6 +93,28 @@ onMounted(() => {
   }
 })
 
+const structuredData = computed(() => {
+  if (seasonData.value) {
+    return buildSeasonData(
+        composeSeasonToStructuredData({
+        season: seasonData.value.season,
+        episodes: seasonData.value.episodes,
+        gifs: seasonData.value.gifs
+      })
+    )
+  }
+  return null
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      value: JSON.stringify(structuredData.value)
+    }
+  ]
+})
+
 useSeoMeta({
   title: `${seasonData.value?.season.title} - Kaamelott GIFs`,
   ogTitle: `${seasonData.value?.season.title} - Kaamelott GIFs`,
