@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div v-if="episodes && episodes.length > 0" class="space-y-4">
+      <section v-if="episodes && episodes.length > 0" class="space-y-4">
         <h2 class="text-2xl font-bold text-gray-900">Épisodes ({{ episodes.length }})</h2>
 
         <BaseSlider :items="episodes">
@@ -27,23 +27,7 @@
             </NuxtLink>
           </template>
         </BaseSlider>
-
-        <!-- <ul
-            :class="[
-              'flex gap-2 -mx-[2000px] md:h-full items-stretch py-1 no-scrollbar',
-              episodes.length > 1 && 'overflow-x-scroll space-x-1.5',
-            ]"
-          >
-            <li v-for="episode in episodes" :key="episode.code" class="flex-shrink-0">
-              <NuxtLink
-                :to="`/episodes/${episode.slug}`"
-                prefetch
-              >
-                <BaseTag :label="`${episode.code} - ${episode.title}`" />
-              </NuxtLink>
-            </li>
-          </ul> -->
-      </div>
+      </section>
 
       <!-- Grille de GIFs -->
       <GifPagination 
