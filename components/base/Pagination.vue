@@ -1,12 +1,11 @@
 <template>
-  <nav class="flex items-center space-x-2">
+  <nav class="flex items-center space-x-2" aria-label="Pagination">
     <NuxtLink
       :disabled="currentPage - 1 === 0"
       class="px-3 py-1 rounded-md bg-gray-100 disabled:opacity-50"
       :title="`Page ${currentPage - 1}`"
-      :aria-label="`Page ${currentPage - 1}`"
+      :aria-label="`Page précédente`"
       :aria-disabled="currentPage - 1 === 0"
-      :aria-controls="`pagination-${currentPage - 1}`"
       :to="{
         query: {
           ...route.query,
@@ -35,8 +34,6 @@
         :title="`Page ${page}`"
         :aria-label="`Page ${page}`"
         :aria-current="currentPage === page ? 'page' : undefined"
-        :aria-disabled="currentPage === page"
-        :aria-controls="`pagination-${page}`"
         :to="{
           query: {
             ...route.query,
@@ -53,6 +50,7 @@
           page === currentPage + 3
         "
         class="px-2"
+        aria-hidden="true"
       >
         ...
       </span>
@@ -61,10 +59,9 @@
     <NuxtLink
       :disabled="currentPage === totalPages"
       class="px-3 py-1 rounded-md bg-gray-100 disabled:opacity-50"
-      aria-label="Suivant"
+      :aria-label="`Page suivante`"
       :aria-disabled="currentPage === totalPages"
-      :aria-controls="`pagination-${currentPage + 1}`"
-      title="Suivant"
+      :title="`Page ${currentPage + 1}`"
       :to="{
         query: {
           ...route.query,
