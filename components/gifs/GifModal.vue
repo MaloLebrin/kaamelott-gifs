@@ -33,7 +33,7 @@ const handleClose = () => {
       @click="handleClose"
     >
       <div
-        class="bg-white/95 backdrop-blur-sm rounded-lg max-w-2xl w-full overflow-hidden shadow-lg"
+        class="bg-white/95 backdrop-blur-sm rounded-lg max-w-2xl w-full overflow-hidden shadow-lg relative"
         @click.stop
       >
         <AppImage

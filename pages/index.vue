@@ -100,6 +100,7 @@ onMounted(() => {
 
 <template>
   <div class="flex-1">
+    <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
     <SearchBar 
       :characters="charactersData || []" 
       :initial-query="searchQuery" 
@@ -108,6 +109,7 @@ onMounted(() => {
     />
     
     <div class="mt-8">
+      <h2 class="sr-only">Gifs de Kaamelott</h2>
       <GifGrid :gifs="paginatedGifs" />
       
       <!-- Pagination -->
