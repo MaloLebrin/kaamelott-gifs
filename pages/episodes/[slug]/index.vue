@@ -1,7 +1,16 @@
 <template>
   <div v-if="data" class="container mx-auto px-4 py-8">
     <div class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
-      <h1 class="text-4xl font-bold mb-4">{{ data.episode.title }}</h1>
+      <div class="flex justify-between">
+        <h1 class="text-4xl font-bold mb-4">{{ data.episode.title }}</h1>
+        <NuxtLink
+          :to="`/livres/${slugify(livre as string)}`"
+          class="text-gray-800 md:text-lg"
+          prefetch
+        >
+          {{ livre }}
+        </NuxtLink>
+      </div>
       <p class="text-gray-600 mb-2">{{ data.episode.code }}</p>
       <p class="text-gray-700">{{ data.episode.resume }}</p>
       
@@ -45,6 +54,8 @@ import type { Episode } from '~/types/Episode'
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import GifPagination from '~/components/gifs/GifPagination.vue'
 import { slugify } from '~/shared/utils/string'
+import { getLivreFromCode } from '~/shared/utils/episodes/code'
+import { getTomeFromCode } from '~/shared/utils/livres/tome'
 
 const route = useRoute()
 const router = useRouter()
@@ -58,6 +69,8 @@ const { data } = await useFetch<{
 
 const currentPage = ref(1)
 const itemsPerPage = 21
+
+const livre = computed(() => data.value?.episode.code ? getTomeFromCode(Number(getLivreFromCode(data.value?.episode.code))) : null)
 
 function handlePageChange(page: number) {
   currentPage.value = page
