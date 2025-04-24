@@ -55,6 +55,7 @@ import type { Episode } from '~/types/Episode'
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import LivreGrid from '~/components/livres/LivreGrid.vue'
 import GifPagination from '~/components/gifs/GifPagination.vue'
+import EpisodeGrid from '~/components/episodes/EpisodeGrid.vue'
 
 const route = useRoute()
 const router = useRouter()

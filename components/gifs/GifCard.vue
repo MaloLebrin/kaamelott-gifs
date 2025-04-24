@@ -1,16 +1,10 @@
 <template>
-  <article
-    class="group rounded-[32px] transition-colors duration-300 cursor-pointer max-w-[400px]"
-    :v-posthog-capture="`click_gif_${gif.slug}`"
-    @click="handleClick"
-  >
+  <article class="group rounded-[32px] transition-colors duration-300 cursor-pointer max-w-[400px]"
+    :v-posthog-capture="`click_gif_${gif.slug}`" @click="handleClick">
     <div class="relative aspect-video rounded-[32px] overflow-hidden">
       <div class="absolute inset-0 overflow-hidden">
-        <AppImage
-          :src="gif.url"
-          :alt="gif.quote"
-          class="w-full h-full object-cover transform transition-transform duration-500 ease-out"
-        />
+        <AppImage :src="gif.url" :alt="gif.quote"
+          class="w-full h-full object-cover transform transition-transform duration-500 ease-out" />
       </div>
 
       <!-- Informations -->
@@ -23,15 +17,10 @@
         </div>
 
         <!-- Bouton -->
-        <div class="mt-4 transform transition-all duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pt-2">
+        <div
+          class="mt-4 transform transition-all duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pt-2">
           <div class="flex flex-wrap justify-end gap-2">
-            <span
-              v-for="character in gif.characters"
-              :key="character"
-              class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
-            >
-              {{ character }}
-            </span>
+            <BaseTag v-for="character in gif.characters" :key="character" :label="character" />
           </div>
         </div>
       </div>
