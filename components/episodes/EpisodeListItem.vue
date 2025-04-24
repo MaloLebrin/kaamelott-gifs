@@ -7,10 +7,13 @@
   >
     <div
       class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-      <div class="p-6">
-        <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
+      <div class="p-6 space-y-2">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
           {{ episode.title }}
         </h2>
+        <span class="text-gray-500 dark:text-gray-400 text-xs">
+          {{ episode.code }}
+        </span>
         <p class="text-gray-700 dark:text-gray-300 line-clamp-3">
           {{ episode.resume }}
         </p>
