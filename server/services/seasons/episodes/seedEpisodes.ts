@@ -1,5 +1,6 @@
 import { episodes } from "~/server/data/episodes";
 import { Entities, Episode } from "~/types";
+import { slugify } from "~/shared/utils/string";
 
 /**
  * Seed episodes
@@ -18,6 +19,7 @@ export const seedEpisodes = async (client: any) => {
       title: episode.title,
       characters: characters,
       resume: episode.resume,
+      slug: slugify(`${episode.code}-${episode.title}`),
     }
   })
   const { data, error } = await client.from(Entities.EPISODE).insert(episodesData)
