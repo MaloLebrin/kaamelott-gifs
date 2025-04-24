@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <section v-if="episodes && episodes.length > 0" class="space-y-4">
+      <section v-if="episodes && episodes.length > 0" class="space-y-4 md:hidden">
         <h2 class="text-2xl font-bold text-gray-900">Épisodes ({{ episodes.length }})</h2>
 
         <BaseSlider :items="episodes">
@@ -44,6 +44,35 @@
         <p class="text-xl text-gray-600">Aucun GIF trouvé pour ce personnage.</p>
       </div>
     </div>
+
+    <section v-if="episodes && episodes.length > 0" class="space-y-4 md:block hidden">
+      <h2 class="text-2xl font-bold text-gray-900">Épisodes ({{ episodes.length }})</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <NuxtLink
+          v-for="episode in episodes"
+          :key="episode.slug"
+          :to="`/episodes/${episode.slug}`"
+          class="group"
+          prefetch
+        >
+          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+            <div class="p-4">
+              <div class="flex items-end space-x-2">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
+                  {{ episode.code }}
+                </h3>
+                <span class="text-gray-500 dark:text-gray-400 text-xs pb-1">
+                  {{ getTomeFromCode(Number(getLivreFromCode(episode.code))) }}
+                </span>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 line-clamp-2 mt-1">
+                {{ episode.title }}
+              </p>
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
+    </section>
   </main>
 </template> 
 
@@ -54,6 +83,8 @@ import GifGrid from '~/components/gifs/GifGrid.vue'
 import GifPagination from '~/components/gifs/GifPagination.vue'
 import type { Episode } from '~/types/Episode'
 import BaseSlider from '~/components/base/BaseSlider.vue'
+import { getLivreFromCode } from '~/shared/utils/episodes/code'
+import { getTomeFromCode } from '~/shared/utils/livres/tome'
 
 const route = useRoute()
 const characterSlug = route.params.slug as string
