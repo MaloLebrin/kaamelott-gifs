@@ -14,6 +14,37 @@
         </div>
       </div>
 
+      <div v-if="episodes && episodes.length > 0" class="space-y-4">
+        <h2 class="text-2xl font-bold text-gray-900">Épisodes ({{ episodes.length }})</h2>
+
+        <BaseSlider :items="episodes">
+          <template #default="{ item }">
+            <NuxtLink
+              :to="`/episodes/${item.slug}`"
+              prefetch
+            >
+              <BaseTag :label="`${item.code} - ${item.title}`" />
+            </NuxtLink>
+          </template>
+        </BaseSlider>
+
+        <!-- <ul
+            :class="[
+              'flex gap-2 -mx-[2000px] md:h-full items-stretch py-1 no-scrollbar',
+              episodes.length > 1 && 'overflow-x-scroll space-x-1.5',
+            ]"
+          >
+            <li v-for="episode in episodes" :key="episode.code" class="flex-shrink-0">
+              <NuxtLink
+                :to="`/episodes/${episode.slug}`"
+                prefetch
+              >
+                <BaseTag :label="`${episode.code} - ${episode.title}`" />
+              </NuxtLink>
+            </li>
+          </ul> -->
+      </div>
+
       <!-- Grille de GIFs -->
       <GifPagination 
         v-if="data?.gifs && data.gifs.length > 0"
@@ -37,6 +68,8 @@ import type { Gif } from '~/types'
 import { slugify } from '~/shared/utils/string'
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import GifPagination from '~/components/gifs/GifPagination.vue'
+import type { Episode } from '~/types/Episode'
+import BaseSlider from '~/components/base/BaseSlider.vue'
 
 const route = useRoute()
 const characterSlug = route.params.slug as string
@@ -51,6 +84,8 @@ const { data } = await useFetch<{
   }
 }>(`/api/gifs/characters/${characterSlug}`)
 
+const { data: episodes } = await useFetch<Pick<Episode, 'code' | 'title' | 'slug'>[]>(`/api/characters/${characterSlug}/episodes`)
+
 onMounted(() => {
   if ($clientPosthog) {
     $clientPosthog.capture('page_view', {
@@ -61,7 +96,7 @@ onMounted(() => {
 })
 
 useSeoMeta({
-    title: `${data.value?.character?.name || characterSlug} - Kaamelott GIFs`,
+  title: `${data.value?.character?.name || characterSlug} - Kaamelott GIFs`,
   ogTitle: `${data.value?.character?.name || characterSlug} - Kaamelott GIFs`,
   description: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
   ogDescription: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
