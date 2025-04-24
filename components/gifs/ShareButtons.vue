@@ -74,7 +74,7 @@ const copyLink = async () => {
         :v-posthog-capture="`share_${platform}_${props.gifUrl}`"
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors border-[0.25px] border-gray-800/50"
         :title="`Partager sur ${platform}`"
       >
         <Icon

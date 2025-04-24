@@ -50,7 +50,7 @@ const handleClose = () => {
                 v-for="character in gif.characters"
                 :key="character"
                 :to="`/characters/${slugify(character)}`"
-                class="px-3 py-1 bg-gray-100/80 rounded-full text-sm text-gray-600"
+                class="px-3 py-1 bg-gray-200/80 rounded-full text-sm text-gray-600"
                 :v-posthog-capture="`click_personnage_${character}`"
                 prefetch
               >
@@ -65,7 +65,7 @@ const handleClose = () => {
                 v-for="character in gif.characters_speaking"
                 :key="character"
                 :to="`/characters/${slugify(character)}`"
-                class="px-3 py-1 bg-gray-200/80 rounded-full text-sm text-gray-700"
+                class="px-3 py-1 bg-gray-200/80 rounded-full text-sm text-gray-700 border-[0.25px] border-gray-800/50 dark:bg-gray-800 dark:text-gray-200"
                 :v-posthog-capture="`click_personnage_${character}`"
                 prefetch
               >
