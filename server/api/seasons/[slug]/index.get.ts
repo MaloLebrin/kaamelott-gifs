@@ -40,6 +40,7 @@ export default defineEventHandler(async (event) => {
     .from(Entities.EPISODE)
     .select('*')
     .ilike('code', `%S0${season.id}%`)
+    .order('code', { ascending: true })
 
   if (gifsError) {
     throw createError({ statusCode: 500, statusMessage: gifsError.message })

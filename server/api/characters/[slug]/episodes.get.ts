@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
       `characters.ilike.%${slug}%`,
       // Doc: https://supabase.com/docs/reference/javascript/v1/or
     )
+    .order('code', { ascending: true })
 
   if (error) {
     throw createError({ statusCode: 500, statusMessage: error.message })
