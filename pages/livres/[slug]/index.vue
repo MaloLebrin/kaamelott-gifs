@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="container mx-auto px-4 py-8 space-y-2">
     <div v-if="seasonData" class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
       <h1 class="text-4xl font-bold mb-4">{{ seasonData.season.title }}</h1>
       <p class="text-gray-600 mb-2">{{ seasonData.season.airDate }}</p>

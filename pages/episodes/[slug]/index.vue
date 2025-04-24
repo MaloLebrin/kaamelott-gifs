@@ -2,7 +2,7 @@
   <div v-if="data" class="container mx-auto px-4 py-8">
     <div class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
       <div class="flex justify-between">
-        <h1 class="text-4xl font-bold mb-4">{{ data.episode.title }}</h1>
+        <h1 class="text-2xl lg:text-4xl font-bold mb-4">{{ data.episode.title }}</h1>
         <NuxtLink
           :to="`/livres/${slugify(livre as string)}`"
           class="text-gray-800 md:text-lg"
@@ -11,13 +11,13 @@
           {{ livre }}
         </NuxtLink>
       </div>
-      <p class="text-gray-600 mb-2">{{ data.episode.code }}</p>
+      <p class="text-gray-800 mb-2">{{ data.episode.code }}</p>
       <p class="text-gray-700">{{ data.episode.resume }}</p>
       
       <div v-if="data.episode.characters" class="mt-4">
         <h2 class="text-2xl font-bold mb-2">Personnages</h2>
         <ul class="flex flex-wrap gap-x-2 gap-y-1.5">
-          <li v-for="character in data.episode.characters" :key="character">
+          <li v-for="character in data.episode.characters" :key="character" class="my-0.5">
             <NuxtLink
               :to="`/characters/${slugify(character)}`"
               prefetch
