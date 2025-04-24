@@ -34,7 +34,7 @@ export function composeEpisodeToStructuredData({
   const episodeId = getEpisodeId(episode)
 
   return {
-    gifs: gifs.map(gif => gif.id.toString()),
+    gifs: gifs.map(gif => gif.quote.toString()),
     characters: unique(gifs.map(gif => gif.characters).flat()),
     season: Number(getLivreFromCode(episode.code)),
     number: parseInt(episodeId),
