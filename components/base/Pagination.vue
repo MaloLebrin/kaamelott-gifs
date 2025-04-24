@@ -4,6 +4,11 @@
       :disabled="currentPage === 1"
       @click="handlePageChange(currentPage - 1)"
       class="px-3 py-1 rounded-md bg-gray-100"
+      :title="`Page ${currentPage - 1}`"
+      :aria-label="`Page ${currentPage - 1}`"
+      :aria-current="currentPage === currentPage - 1 ? 'page' : undefined"
+      :aria-disabled="currentPage === 1"
+      :aria-controls="`pagination-${currentPage - 1}`"
     >
       <span class="hidden md:block">Précédent</span>
       <span class="block md:hidden">←</span>
@@ -23,6 +28,11 @@
             ? 'bg-blue-500 text-white'
             : 'bg-gray-100'
         ]"
+        :title="`Page ${page}`"
+        :aria-label="`Page ${page}`"
+        :aria-current="currentPage === page ? 'page' : undefined"
+        :aria-disabled="currentPage === page"
+        :aria-controls="`pagination-${page}`"
       >
         {{ page }}
       </button>
@@ -41,6 +51,10 @@
       :disabled="currentPage === totalPages"
       @click="handlePageChange(currentPage + 1)"
       class="px-3 py-1 rounded-md bg-gray-100 disabled:opacity-50"
+      aria-label="Suivant"
+      :aria-disabled="currentPage === totalPages"
+      :aria-controls="`pagination-${currentPage + 1}`"
+      title="Suivant"
     >
       <span class="hidden md:block">  Suivant</span>
       <span class="block md:hidden">→</span>
