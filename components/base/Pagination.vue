@@ -1,11 +1,11 @@
 <template>
   <nav class="flex items-center space-x-2" aria-label="Pagination">
     <NuxtLink
-      :disabled="currentPage - 1 === 0"
+      :disabled="currentPage === 1"
       class="px-3 py-1 rounded-md bg-gray-100 disabled:opacity-50"
       :title="`Page ${currentPage - 1}`"
       :aria-label="`Page précédente`"
-      :aria-disabled="currentPage - 1 === 0"
+      :aria-disabled="currentPage === 1"
       :to="{
         query: {
           ...route.query,
