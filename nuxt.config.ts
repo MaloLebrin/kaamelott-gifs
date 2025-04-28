@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     // Page d'accueil - Prérendue à la build avec revalidation
     '/': { 
       prerender: true,
-      isr: 3600 // Revalidation toutes les heures
+      isr: true // Revalidation toutes les heures
     },
     
     // Page À propos - Prérendue
@@ -13,14 +13,14 @@ export default defineNuxtConfig({
       prerender: true,
     },
     
-    // Pages des personnages - Prérendues avec revalidation quotidienne
     '/characters/**': { 
       prerender: true,
-      isr: 86400 // Revalidation quotidienne
+      isr: true
     },
     
     // Pages des GIFs - Générées à la demande avec cache
     '/gifs/**': { 
+      prerender: true,
       swr: 3600, // Cache pendant 1 heure
       headers: {
         'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
@@ -30,11 +30,9 @@ export default defineNuxtConfig({
     // Pages des livres - Prérendues avec revalidation quotidienne
     '/livres': { 
       prerender: true,
-      isr: 86400 // Revalidation quotidienne
     },
     '/livres/**': { 
       prerender: true,
-      isr: 86400 // Revalidation quotidienne
     },
   },
   modules: [
@@ -105,6 +103,7 @@ export default defineNuxtConfig({
     dir: 'public',
     cloudinary: {
       baseURL: 'https://res.cloudinary.com/be-right/image/upload'
+      // https://res.cloudinary.com/be-right/image/upload/f_auto,q_auto/v1/kaamelott-gifs/vous-vous-prenez-pour-un-enseignant
     }
   },
 
