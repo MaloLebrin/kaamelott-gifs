@@ -74,6 +74,13 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'canonical', href: 'https://kaamelottgifs.fr' }
+      ],
+      script: [
+        {
+          src: 'https://analytics.ahrefs.com/analytics.js',
+          'data-key': 't7SBq6P4f3KcxRlwO/J3DQ',
+          async: true
+        }
       ]
     },
   },
