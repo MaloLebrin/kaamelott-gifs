@@ -2,6 +2,7 @@
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import SearchBar from '~/components/SearchBar.vue'
 import Pagination from '~/components/base/Pagination.vue'
+import JsonLd from '~/components/JsonLd.vue'
 import type { Gif } from '~/types'
 import { usePagination } from '~/composables/usePagination'
 
@@ -75,6 +76,20 @@ watch(() => route.query, (newQuery) => {
   currentPage.value = Number(newQuery.page) || 1
 }, { immediate: true })
 
+// Données JSON-LD pour le SEO
+const jsonLdData = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Kaamelott GIFs',
+  url: 'https://kaamelottgifs.fr',
+  description: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://kaamelottgifs.fr?q={search_term_string}',
+    'query-input': 'required name=search_term_string'
+  }
+}))
+
 useSeoMeta({
   title: 'Accueil',
   description: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
@@ -124,5 +139,7 @@ onMounted(() => {
         />
       </nav>
     </section>
+
+    <JsonLd :data="jsonLdData" />
   </div>
 </template>
