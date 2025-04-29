@@ -1,23 +1,29 @@
 <template>
-  <div class="flex flex-col gap-4 p-4">
+  <div class="flex flex-col gap-4 p-4" role="search">
     <div class="flex gap-2">
+      <label for="search-input" class="sr-only">Rechercher une réplique</label>
       <input
+        id="search-input"
         v-model="searchQuery"
         type="search"
         placeholder="Rechercher une réplique..."
-        class="flex-1 px-4 py-2 border rounded-lg focus:outline-none bg-white/80 border-gray-800/50"
+        class="flex-1 px-4 py-2 border rounded-lg focus:outline-none  bg-white/80 border-gray-800/50"
         @input="handleSearch"
+        aria-label="Rechercher une réplique"
       />
       <button
         @click="isMobileMenuOpen = !isMobileMenuOpen"
-        class="md:hidden px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+        class="md:hidden px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors focus:outline-none "
+        :aria-expanded="isMobileMenuOpen"
+        aria-controls="character-menu"
+        aria-label="Sélectionner un personnage"
       >
         {{ selectedCharacter || 'Personnages' }}
       </button>
     </div>
     
     <!-- Desktop view -->
-    <div class="hidden md:flex flex-wrap gap-2">
+    <div class="hidden md:flex flex-wrap gap-2" role="group" aria-label="Filtrer par personnage">
       <CharacterButton
         v-for="character in characters"
         :key="character.name"
@@ -30,14 +36,20 @@
     <!-- Mobile view -->
     <div
       v-if="isMobileMenuOpen"
-      class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50"
+      class="md:hidden fixed inset-0 bg-black/50 bg-opacity-50 z-50"
       @click="isMobileMenuOpen = false"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu de sélection des personnages"
     >
       <div
+        id="character-menu"
         class="absolute bottom-0 left-0 right-0 bg-white p-4 rounded-t-lg max-h-[80vh] overflow-y-auto"
         @click.stop
+        role="dialog"
+        aria-label="Liste des personnages"
       >
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrer par personnage">
           <CharacterButton
             v-for="character in characters"
             :key="character.name"
@@ -95,4 +107,17 @@ const handleCharacterSelect = (character: string) => {
   isMobileMenuOpen.value = false
   handleSearch()
 }
+
+// Gérer la fermeture du menu mobile avec la touche Escape
+onMounted(() => {
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isMobileMenuOpen.value) {
+      isMobileMenuOpen.value = false
+    }
+  }
+  window.addEventListener('keydown', handleEscape)
+  onUnmounted(() => {
+    window.removeEventListener('keydown', handleEscape)
+  })
+})
 </script>

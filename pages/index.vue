@@ -101,25 +101,28 @@ onMounted(() => {
 <template>
   <div class="flex-1">
     <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
-    <SearchBar 
-      :characters="charactersData || []" 
-      :initial-query="searchQuery" 
-      :initial-character="selectedCharacter"
-      @search="handleSearch" 
-    />
+    <section aria-labelledby="search-heading">
+      <h2 id="search-heading" class="sr-only">Recherche de GIFs</h2>
+      <SearchBar 
+        :characters="charactersData || []" 
+        :initial-query="searchQuery" 
+        :initial-character="selectedCharacter"
+        @search="handleSearch" 
+      />
+    </section>
     
-    <div class="mt-8">
-      <h2 class="sr-only">Gifs de Kaamelott</h2>
+    <section aria-labelledby="gifs-heading" class="mt-8">
+      <h2 id="gifs-heading" class="sr-only">Gifs de Kaamelott</h2>
       <GifGrid :gifs="paginatedGifs" />
       
       <!-- Pagination -->
-      <div v-if="totalPages > 1" class="mt-8 flex justify-center">
+      <nav v-if="totalPages > 1" class="mt-8 flex justify-center" aria-label="Navigation des pages">
         <Pagination 
           :current-page="currentPage" 
           :total-pages="totalPages" 
           @page-change="handlePageChange" 
         />
-      </div>
-    </div>
+      </nav>
+    </section>
   </div>
 </template>

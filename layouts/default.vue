@@ -14,7 +14,7 @@ const { toasts, removeToast } = useToast()
 
     <div class="relative z-10 flex flex-col min-h-screen">
       <Header />
-      <main class="flex-1 mx-auto w-full md:max-w-6xl">
+      <main role="main" class="flex-1 mx-auto w-full md:max-w-6xl">
         <slot />
       </main>
       <Footer />
