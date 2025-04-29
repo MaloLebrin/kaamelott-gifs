@@ -2,8 +2,8 @@
 const { $clientPosthog } = useNuxtApp()
 
 useSeoMeta({
-  title: 'À propos - Kaamelott GIFs | Collection de GIFs de la série Kaamelott',
-  ogTitle: 'À propos - Kaamelott GIFs | Collection de GIFs de la série Kaamelott',
+  title: 'À propos',
+  ogTitle: 'À propos',
   description: 'Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott. Créé par des fans pour des fans.',
   ogDescription: 'Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott. Créé par des fans pour des fans.',
   ogImage: '/fondKBg.webp',

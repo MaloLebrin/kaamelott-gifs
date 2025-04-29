@@ -34,8 +34,14 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: 'Page Non Trouvée | Kaamelott GIFs',
+  title: 'Page Non Trouvée',
   description: 'Cette page est aussi introuvable que le Graal. Retournez à Kaamelott pour continuer votre quête !',
   ogDescription: 'Cette page est aussi introuvable que le Graal. Retournez à Kaamelott pour continuer votre quête !',
+  ogImage: '/fondKBg.webp',
+  keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
+  author: 'Kaamelott GIFs',
+  robots: 'index, follow',
+  ogUrl: 'https://kaamelottgifs.fr/404',
+  ogType: 'website',
 })
 </script>

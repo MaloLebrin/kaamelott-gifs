@@ -128,8 +128,8 @@ useHead({
 })
 
 useSeoMeta({
-  title: `${seasonData.value?.season.title} - Kaamelott GIFs`,
-  ogTitle: `${seasonData.value?.season.title} - Kaamelott GIFs`,
+  title: `${seasonData.value?.season.title}`,
+  ogTitle: `${seasonData.value?.season.title}`,
   description: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
   ogDescription: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
   ogImage: '/fondKBg.webp',
@@ -140,7 +140,7 @@ useSeoMeta({
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
-  twitterTitle: `${seasonData.value?.season.title} - Kaamelott GIFs`,
+  twitterTitle: `${seasonData.value?.season.title}`,
   twitterDescription: `Découvrez les meilleurs GIFs de ${seasonData.value?.season.title} de la série Kaamelott. ${seasonData.value?.season.resume}`,
 })
 </script>

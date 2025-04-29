@@ -145,8 +145,8 @@ useHead({
 })
 
 useSeoMeta({
-  title: `${data.value?.character?.name || characterSlug} - Kaamelott GIFs`,
-  ogTitle: `${data.value?.character?.name || characterSlug} - Kaamelott GIFs`,
+  title: `${data.value?.character?.name || characterSlug}`,
+  ogTitle: `${data.value?.character?.name || characterSlug}`,
   description: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
   ogDescription: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
   ogImage: '/fondKBg.webp',

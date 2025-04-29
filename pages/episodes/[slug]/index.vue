@@ -129,8 +129,8 @@ useHead({
 })
 
 useSeoMeta({
-  title: `${data.value?.episode.title} - Kaamelott GIFs`,
-  ogTitle: `${data.value?.episode.title} - Kaamelott GIFs`,
+  title: `${data.value?.episode.title}`,
+  ogTitle: `${data.value?.episode.title}`,
   description: `Découvrez les meilleurs GIFs de l'épisode ${data.value?.episode.title} de la série Kaamelott. ${data.value?.episode.resume}`,
   ogDescription: `Découvrez les meilleurs GIFs de l'épisode ${data.value?.episode.title} de la série Kaamelott. ${data.value?.episode.resume}`,
   ogImage: '/fondKBg.webp',
