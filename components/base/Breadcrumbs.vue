@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="items.length > 0" aria-label="Fil d'Ariane" class="py-3 px-4">
+  <nav v-if="items.length > 0" aria-label="Fil d'Ariane" class="py-3 px-4 bg-white/90 dark:bg-gray-800/70 dark:text-gray-50 rounded-lg">
     <ol class="flex flex-wrap items-center space-x-2 text-sm text-gray-500">
       <li>
         <NuxtLink 

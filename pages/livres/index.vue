@@ -1,6 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold mb-8 text-center">Les Livres de Kaamelott</h1>
+    <Breadcrumbs :items="breadcrumbItems" />
     <LivreGrid v-if="seasons" :seasons="seasons" />
   </div>
 </template>
@@ -8,8 +9,18 @@
 <script setup lang="ts">
 import type { Season } from '~/types/Season'
 import LivreGrid from '~/components/livres/LivreGrid.vue'
+import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
+
 const { data: seasons } = await useFetch<Season[]>('/api/seasons')
 const { $clientPosthog } = useNuxtApp()
+
+// Données pour les breadcrumbs
+const breadcrumbItems = [
+  {
+    label: 'Livres',
+    to: '/livres'
+  }
+]
 
 useSeoMeta({
   title: 'Les Livres de Kaamelott - Toutes les saisons',

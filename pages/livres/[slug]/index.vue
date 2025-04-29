@@ -1,5 +1,6 @@
 <template>
   <div class="container mx-auto px-4 py-8 space-y-2">
+    <Breadcrumbs :items="breadcrumbItems" />
     <div v-if="seasonData" class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
       <h1 class="text-4xl font-bold mb-4">{{ seasonData.season.title }}</h1>
       <p class="text-gray-600 dark:text-gray-500 mb-2">{{ seasonData.season.airDate }}</p>
@@ -58,6 +59,7 @@ import GifGrid from '~/components/gifs/GifGrid.vue'
 import LivreGrid from '~/components/livres/LivreGrid.vue'
 import Pagination from '~/components/base/Pagination.vue'
 import EpisodeGrid from '~/components/episodes/EpisodeGrid.vue'
+import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import { usePagination } from '~/composables/usePagination'
 
 const route = useRoute()
@@ -90,6 +92,18 @@ onMounted(() => {
     })
   }
 })
+
+// Données pour les breadcrumbs
+const breadcrumbItems = computed(() => [
+    {
+      label: 'Livres',
+      to: '/livres'
+    },
+    {
+      label: seasonData.value?.season.title || '',
+      to: `/livres/${seasonData.value?.season.slug}`
+    }
+  ])
 
 const structuredData = computed(() => {
   if (seasonData.value) {
