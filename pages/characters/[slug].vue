@@ -1,6 +1,7 @@
 <template>
-  <main class="flex-1">
-    <div v-if="data && data.character.name" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="flex-1">
+    <div v-if="data && data.character.name" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+      <Breadcrumbs :items="breadcrumbItems" />
       <!-- En-tête du personnage -->
       <div class="flex items-center gap-6 mb-8">
         <img
@@ -74,7 +75,7 @@
         </NuxtLink>
       </div>
     </section>
-  </main>
+  </div>
 </template> 
 
 <script setup lang="ts">
@@ -86,6 +87,7 @@ import type { Episode } from '~/types/Episode'
 import BaseSlider from '~/components/base/BaseSlider.vue'
 import { getLivreFromCode } from '~/shared/utils/episodes/code'
 import { getTomeFromCode } from '~/shared/utils/livres/tome'
+import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 
 const route = useRoute()
 const characterSlug = route.params.slug as string
@@ -102,6 +104,17 @@ const { data } = await useFetch<{
 }>(`/api/gifs/characters/${characterSlug}`)
 
 const { data: episodes } = await useFetch<Pick<Episode, 'code' | 'title' | 'slug' | 'createdAt'>[]>(`/api/characters/${characterSlug}/episodes`)
+
+const breadcrumbItems = computed(() => [
+  {
+    label: 'Personnages',
+    to: '/characters'
+  },
+  {
+    label: data.value?.character.name || '',
+    to: `/characters/${data.value?.character.slug}`
+  }
+])
 
 onMounted(() => {
   if ($clientPosthog) {

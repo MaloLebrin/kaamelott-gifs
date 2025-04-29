@@ -1,5 +1,6 @@
 <template>
-  <div v-if="data" class="container mx-auto px-4 py-8">
+  <div v-if="data" class="container mx-auto px-4 py-8 space-y-2">
+    <Breadcrumbs :items="breadcrumbItems" />
     <div class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
       <div class="flex justify-between">
         <h1 class="text-2xl lg:text-4xl font-bold mb-4">{{ data.episode.title }}</h1>
@@ -57,6 +58,7 @@ import { slugify } from '~/shared/utils/string'
 import { getLivreFromCode } from '~/shared/utils/episodes/code'
 import { getTomeFromCode } from '~/shared/utils/livres/tome'
 import { composeEpisodeToStructuredData } from '~/shared/utils/episodes/structuredData'
+import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -82,6 +84,20 @@ function handlePageChange(page: number) {
   })
 }
 
+const breadcrumbItems = computed(() => [
+  {
+    label: 'Livres',
+    to: '/livres'
+  },
+  {
+    label: livre.value || '',
+    to: `/livres/${slugify(livre.value as string)}`
+  },
+  {
+    label: data.value?.episode.title || '',
+    to: `/livres/${slugify(livre.value as string)}/episodes/${episodeSlug}`
+  }
+])
 const { $clientPosthog } = useNuxtApp()
 
 onMounted(() => {

@@ -10,11 +10,13 @@
         <ShareButtons :gif-url="gif.url" :quote="gif.quote" />
       </div>
     </div>
+    <Breadcrumbs :items="breadcrumbItems" />
   </div>
 </template>
 
 <script setup lang="ts">
 import ShareButtons from '~/components/gifs/ShareButtons.vue'
+import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import type { Gif } from '~/types'
 
 const route = useRoute()
@@ -22,6 +24,17 @@ const slug = route.params.slug as string
 const { $clientPosthog } = useNuxtApp()
 
 const { data: gif } = await useFetch<Gif>(`/api/gifs/${slug}`)
+
+const breadcrumbItems = computed(() => [
+  {
+    label: 'Gifs',
+    to: '/gifs'
+  },
+  {
+    label: gif.value?.quote || '',
+    to: `/gifs/${gif.value?.slug}`
+  }
+])
 
 onMounted(() => {
   if ($clientPosthog) {
