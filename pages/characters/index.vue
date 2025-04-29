@@ -15,7 +15,6 @@ const { data: characters } = await useFetch<{
   avatar: string
   nbGifs: number
 }[]>('/api/characters')
-console.log(characters.value, 'characters')
 
 const { $clientPosthog } = useNuxtApp()
 
