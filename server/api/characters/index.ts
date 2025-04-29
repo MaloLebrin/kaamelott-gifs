@@ -18,7 +18,8 @@ export default defineEventHandler(async () => {
     // Créer la liste des personnages avec leurs avatars
     return sortedCharacters.map(character => ({
       name: character,
-      avatar: `/characters/${slugify(character)}.jpg`
+      avatar: `/characters/${slugify(character)}.jpg`,
+      nbGifs: gifs.filter(gif => gif.characters.includes(character)).length
     }))
   } catch (error) {
     console.error('Error reading gifs data:', error)

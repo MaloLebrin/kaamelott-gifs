@@ -28,6 +28,13 @@ export default defineNuxtConfig({
         'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
       }
     },
+    '/characters': { 
+      prerender: true,
+      isr: true,
+      headers: {
+        'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
+      }
+    },
     
     // Pages des GIFs - Générées à la demande avec cache
     '/gifs/**': { 
