@@ -2,7 +2,7 @@
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import SearchBar from '~/components/SearchBar.vue'
 import Pagination from '~/components/base/Pagination.vue'
-import JsonLd from '~/components/JsonLd.vue'
+import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import type { Gif } from '~/types'
 import { usePagination } from '~/composables/usePagination'
 
@@ -76,19 +76,33 @@ watch(() => route.query, (newQuery) => {
   currentPage.value = Number(newQuery.page) || 1
 }, { immediate: true })
 
-// Données JSON-LD pour le SEO
-const jsonLdData = computed(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Kaamelott GIFs',
-  url: 'https://kaamelottgifs.fr',
-  description: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://kaamelottgifs.fr?q={search_term_string}',
-    'query-input': 'required name=search_term_string'
+// Données pour les breadcrumbs
+const breadcrumbItems = computed(() => {
+  const items = []
+  
+  if (searchQuery.value) {
+    items.push({
+      label: `Recherche : ${searchQuery.value}`,
+      to: `/search?q=${encodeURIComponent(searchQuery.value)}`
+    })
   }
-}))
+  
+  if (selectedCharacter.value) {
+    items.push({
+      label: selectedCharacter.value,
+      to: `/characters/${encodeURIComponent(selectedCharacter.value)}`
+    })
+  }
+  
+  if (currentPage.value > 1) {
+    items.push({
+      label: `Page ${currentPage.value}`,
+      to: `?page=${currentPage.value}`
+    })
+  }
+  
+  return items
+})
 
 useSeoMeta({
   title: 'Accueil',
@@ -116,6 +130,7 @@ onMounted(() => {
 <template>
   <div class="flex-1">
     <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
+    <Breadcrumbs :items="breadcrumbItems" />
     <section aria-labelledby="search-heading">
       <h2 id="search-heading" class="sr-only">Recherche de GIFs</h2>
       <SearchBar 
@@ -139,7 +154,5 @@ onMounted(() => {
         />
       </nav>
     </section>
-
-    <JsonLd :data="jsonLdData" />
   </div>
 </template>
