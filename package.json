@@ -2,7 +2,7 @@
   "name": "kaamelott-gifs",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.10.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -19,21 +19,22 @@
     "@nuxt/icon": "1.12.0",
     "@nuxt/image": "1.10.0",
     "@nuxtjs/cloudinary": "^4.0.0",
-    "@nuxtjs/seo": "^3.0.2",
-    "@nuxtjs/tailwindcss": "6.13.2",
+    "@nuxtjs/seo": "^3.0.3",
+    "@tailwindcss/vite": "^4.1.4",
     "cloudinary": "^2.6.0",
-    "eslint": "^9.0.0",
-    "nuxt": "^3.16.2",
-    "nuxt-posthog": "1.6.3"
+    "eslint": "^9.25.1",
+    "nuxt": "^3.17.1",
+    "nuxt-posthog": "1.6.3",
+    "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
     "@nuxt/test-utils": "3.17.2",
-    "@nuxtjs/robots": "^5.2.9",
+    "@nuxtjs/robots": "^5.2.10",
     "@nuxtjs/supabase": "^1.5.0",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^17.4.4",
     "playwright-core": "^1.52.0",
-    "typescript": "^5.3.3",
-    "vitest": "^3.1.1"
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
   }
 }
