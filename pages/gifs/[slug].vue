@@ -44,4 +44,21 @@ onMounted(() => {
     })
   }
 })
+
+useSeoMeta({
+  title: `${gif.value?.quote}`,
+  ogTitle: `${gif.value?.quote}`,
+  description: `${gif.value?.quote}`,
+  ogDescription: `${gif.value?.quote}`,
+  ogImage: '/fondKBg.webp',
+  keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
+  author: 'Kaamelott GIFs',
+  robots: 'index, follow',
+  ogUrl: `https://kaamelottgifs.fr/gifs/${gif.value?.slug}`,
+  ogType: 'website',
+  twitterImage: '/fondKBg.webp',
+  twitterCard: 'summary_large_image',
+  twitterTitle: `${gif.value?.quote} - Kaamelott GIFs`,
+  twitterDescription: `${gif.value?.quote}`,
+})
 </script>
