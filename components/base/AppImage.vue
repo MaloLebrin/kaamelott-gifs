@@ -1,36 +1,3 @@
-<script setup lang="ts">
-interface Props {
-  src: string
-  alt: string
-  width?: number
-  height?: number
-  provider?: 'cloudinary' | 'ipx'
-  loading?: 'lazy' | 'eager'
-  className?: string
-  placeholder?: string
-  quality?: number
-  format?: 'webp' | 'jpg' | 'png' | 'gif'
-  fit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside'
-  position?: string
-  background?: string
-}
-
-withDefaults(defineProps<Props>(), {
-  width: 400,
-  height: 400,
-  provider: 'cloudinary',
-  loading: 'lazy',
-  className: '',
-  placeholder: '/fondKBg.webp',
-  quality: 80,
-  format: 'webp',
-  fit: 'cover',
-  position: 'center',
-  background: 'transparent',
-  alt: 'Image'
-})
-</script>
-
 <template>
   <NuxtImg
     :provider="provider"
@@ -68,4 +35,37 @@ withDefaults(defineProps<Props>(), {
       </div>
     </div>
   </NuxtImg>
-</template> 
+</template>
+
+<script setup lang="ts">
+interface Props {
+  src: string
+  alt: string
+  width?: number
+  height?: number
+  provider?: 'cloudinary' | 'ipx'
+  loading?: 'lazy' | 'eager'
+  className?: string
+  placeholder?: string
+  quality?: number
+  format?: 'webp' | 'jpg' | 'png' | 'gif'
+  fit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside'
+  position?: string
+  background?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  width: 400,
+  height: 400,
+  provider: 'cloudinary',
+  loading: 'lazy',
+  className: '',
+  placeholder: '/fondKBg.webp',
+  quality: 80,
+  format: 'webp',
+  fit: 'cover',
+  position: 'center',
+  background: 'transparent',
+  alt: 'Image'
+})
+</script>
