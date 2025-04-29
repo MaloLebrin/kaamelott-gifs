@@ -26,7 +26,8 @@ withDefaults(defineProps<Props>(), {
   format: 'webp',
   fit: 'cover',
   position: 'center',
-  background: 'transparent'
+  background: 'transparent',
+  alt: 'Image'
 })
 </script>
 
