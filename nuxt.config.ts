@@ -79,7 +79,6 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: '%s - Kaamelott GIFs',
       htmlAttrs: {
         lang: 'fr'
       },
