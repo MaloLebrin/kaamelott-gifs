@@ -4,9 +4,10 @@
       <!-- En-tête du personnage -->
       <div class="flex items-center gap-6 mb-8">
         <img
-          :src="`/characters/${slugify(data?.character.name)}.jpg`"
+          :src="imageError ? '/characters/character-placeholder.webp' : `/characters/${slugify(data?.character.name)}.jpg`"
           :alt="data?.character.name"
           class="w-24 h-24 rounded-full object-cover ring-4 ring-blue-500 ring-offset-4"
+          @error="imageError = true"
         />
         <div>
           <h1 class="text-4xl font-bold text-gray-900">{{ data?.character.name }}</h1>
@@ -89,6 +90,7 @@ import { getTomeFromCode } from '~/shared/utils/livres/tome'
 const route = useRoute()
 const characterSlug = route.params.slug as string
 const { $clientPosthog } = useNuxtApp()
+const imageError = ref(false)
 
 // Récupérer les GIFs du personnage
 const { data } = await useFetch<{
