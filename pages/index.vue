@@ -130,7 +130,7 @@ onMounted(() => {
 <template>
   <div class="flex-1">
     <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
-    <Breadcrumbs :items="breadcrumbItems" />
+
     <section aria-labelledby="search-heading">
       <h2 id="search-heading" class="sr-only">Recherche de GIFs</h2>
       <SearchBar 

@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-8 space-y-2">
     <Breadcrumbs :items="breadcrumbItems" />
-    <div v-if="seasonData" class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
+    <div v-if="seasonData" class="my-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
       <h1 class="text-4xl font-bold mb-4">{{ seasonData.season.title }}</h1>
       <p class="text-gray-600 dark:text-gray-500 mb-2">{{ seasonData.season.airDate }}</p>
       <div class="flex items-center text-sm text-gray-500 dark:text-gray-200  mb-4">
