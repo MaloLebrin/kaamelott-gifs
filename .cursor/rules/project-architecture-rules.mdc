@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 Je vais créer un prompt détaillé basé sur notre expérience de développement du projet Kaamelott GIFs. Ce prompt servira de guide pour nos futures interactions de développement.
 
@@ -55,9 +55,11 @@ Tu peux me proposer des optimisations pour améliorer le SEO. Sans oublié le ma
 - Utiliser `test()` au lieu de `it()`
 - Tester les cas limites et les erreurs
 - Maintenir une bonne couverture de tests
+- Ecris les dans des fichiers `<nom-du-fichier>.nuxt.test.ts`
 
 ### 7. Git et PRs
 - Créer des commits atomiques avec des messages descriptifs
+- Utiliser les emojis de Gitmoji
 - Suivre le format de PR standard
 - Inclure des descriptions détaillées des changements
 - Vérifier les changements avant de créer une PR
@@ -266,11 +268,3 @@ Stratégie :
    - Utilisation des filtres
    - Partages sociaux
    - Retour aux visites
-
-Cette architecture révisée se concentre sur :
-1. L'optimisation SEO pour 1200 GIFs
-2. Une expérience utilisateur fluide pour les fans
-3. Des fonctionnalités de recherche et filtrage efficaces
-4. Un contenu enrichi et contextuel
-
-Souhaitez-vous que nous commencions par une phase spécifique de cette architecture ? Ou avez-vous des questions sur certains aspects particuliers ?
