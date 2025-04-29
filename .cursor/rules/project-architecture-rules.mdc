@@ -51,11 +51,7 @@ Tu peux me proposer des optimisations pour améliorer le SEO. Sans oublié le ma
 - Implémenter le dark mode quand approprié
 
 ### 6. Tests
-- Écrire des tests unitaires pour les composants
-- Utiliser `test()` au lieu de `it()`
-- Tester les cas limites et les erreurs
-- Maintenir une bonne couverture de tests
-- Ecris les dans des fichiers `<nom-du-fichier>.nuxt.test.ts`
+Réfère toi au fichier project-tests.mdc
 
 ### 7. Git et PRs
 - Créer des commits atomiques avec des messages descriptifs
