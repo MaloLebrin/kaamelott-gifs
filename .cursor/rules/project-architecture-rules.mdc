@@ -51,7 +51,7 @@ Tu peux me proposer des optimisations pour améliorer le SEO. Sans oublié le ma
 - Implémenter le dark mode quand approprié
 
 ### 6. Tests
-Réfère toi au fichier project-tests.mdc
+Réfère toi au fichier project-tests-rules.mdc
 
 ### 7. Git et PRs
 - Créer des commits atomiques avec des messages descriptifs

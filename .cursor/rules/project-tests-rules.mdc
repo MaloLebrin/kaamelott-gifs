@@ -1,0 +1,243 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Règles de Tests pour Kaamelott GIFs
+
+## Contexte
+Vous êtes un assistant IA spécialisé dans l'écriture de tests pour une application Nuxt.js/TypeScript. Le projet Kaamelott GIFs nécessite une couverture de tests robuste pour garantir la qualité et la fiabilité de l'application.
+
+## Règles Générales
+
+### 1. Structure des Tests
+- Utiliser `test()` au lieu de `it()`
+- Nommer les fichiers de test avec le suffixe `.nuxt.test.ts`
+- Placer les fichiers de test à côté des fichiers qu'ils testent
+- Organiser les tests en sections logiques avec `describe()`
+
+### 2. Nommage et Organisation
+```typescript
+// Bonne pratique
+describe('GifGrid', () => {
+  describe('Rendu', () => {
+    test('affiche correctement la grille de GIFs', () => {
+      // test
+    })
+  })
+
+  describe('Interactions', () => {
+    test('gère le clic sur un GIF', () => {
+      // test
+    })
+  })
+})
+```
+
+### 3. Assertions
+- Utiliser des assertions claires et descriptives
+- Éviter les assertions multiples dans un même test
+- Préférer les assertions spécifiques aux assertions génériques
+
+```typescript
+// Bonne pratique
+test('filtre les GIFs par personnage', () => {
+  const { result } = renderComponent(GifGrid, {
+    props: {
+      gifs: mockGifs,
+      filter: 'Perceval'
+    }
+  })
+  
+  expect(result.findAll('.gif-item')).toHaveLength(3)
+  expect(result.text()).toContain('Perceval')
+})
+```
+
+## Types de Tests
+
+### 1. Tests Unitaires
+- Tester les composables de manière isolée
+- Mocker les dépendances externes
+- Tester les cas limites et les erreurs
+
+```typescript
+// Exemple de test de composable
+describe('useGifSearch', () => {
+  test('retourne les résultats de recherche', async () => {
+    const { search, results } = useGifSearch()
+    await search('Perceval')
+    expect(results.value).toHaveLength(5)
+  })
+
+  test('gère les erreurs de recherche', async () => {
+    const { search, error } = useGifSearch()
+    await search('')
+    expect(error.value).toBe('La recherche ne peut pas être vide')
+  })
+})
+```
+
+### 2. Tests de Composants
+- Tester le rendu des composants
+- Vérifier les props et les événements
+- Tester les interactions utilisateur
+
+```typescript
+// Exemple de test de composant
+describe('GifCard', () => {
+  test('affiche les informations du GIF', () => {
+    const { getByText, getByAltText } = renderComponent(GifCard, {
+      props: {
+        gif: mockGif
+      }
+    })
+
+    expect(getByText(mockGif.title)).toBeInTheDocument()
+    expect(getByAltText(mockGif.description)).toBeInTheDocument()
+  })
+
+  test('émet l\'événement de clic', async () => {
+    const { emitted, getByRole } = renderComponent(GifCard, {
+      props: {
+        gif: mockGif
+      }
+    })
+
+    await fireEvent.click(getByRole('button'))
+    expect(emitted('click')).toBeTruthy()
+  })
+})
+```
+
+### 3. Tests d'Intégration
+- Tester les interactions entre composants
+- Vérifier le flux de données
+- Tester les appels API
+
+```typescript
+// Exemple de test d'intégration
+describe('GifSearch', () => {
+  test('filtre et affiche les résultats', async () => {
+    const { getByRole, findAllByTestId } = renderComponent(GifSearch)
+    
+    await fireEvent.input(getByRole('searchbox'), 'Perceval')
+    await fireEvent.click(getByRole('button', { name: 'Rechercher' }))
+    
+    const results = await findAllByTestId('gif-item')
+    expect(results).toHaveLength(5)
+  })
+})
+```
+
+## Bonnes Pratiques
+
+### 1. Mocks et Stubs
+- Utiliser des mocks pour les appels API
+- Créer des factories pour les données de test
+- Isoler les tests des dépendances externes
+
+```typescript
+// Exemple de factory
+const createMockGif = (overrides = {}) => ({
+  id: '1',
+  title: 'Test GIF',
+  description: 'Description test',
+  url: 'https://example.com/gif.gif',
+  ...overrides
+})
+
+// Exemple de mock d'API
+vi.mock('~/composables/useApi', () => ({
+  useApi: () => ({
+    searchGifs: vi.fn().mockResolvedValue([createMockGif()])
+  })
+}))
+```
+
+### 2. Couverture de Tests
+- Viser une couverture de tests > 80%
+- Tester les cas d'erreur
+- Tester les cas limites
+
+### 3. Performance des Tests
+- Éviter les tests lents
+- Utiliser des mocks pour les opérations coûteuses
+- Paralléliser les tests quand possible
+
+## Exemples de Tests Spécifiques
+
+### 1. Tests de Navigation
+```typescript
+describe('Navigation', () => {
+  test('redirige vers la page de détail', async () => {
+    const { getByRole } = renderComponent(GifGrid)
+    await fireEvent.click(getByRole('link', { name: /Voir le détail/ }))
+    expect(useRouter().push).toHaveBeenCalledWith('/repliques/1')
+  })
+})
+```
+
+### 2. Tests de Formulaires
+```typescript
+describe('SearchForm', () => {
+  test('valide les entrées utilisateur', async () => {
+    const { getByRole, getByText } = renderComponent(SearchForm)
+    
+    await fireEvent.input(getByRole('searchbox'), '')
+    await fireEvent.submit(getByRole('form'))
+    
+    expect(getByText('La recherche est requise')).toBeInTheDocument()
+  })
+})
+```
+
+### 3. Tests de Performance
+```typescript
+describe('GifGrid Performance', () => {
+  test('charge les GIFs de manière optimisée', async () => {
+    const { findAllByTestId } = renderComponent(GifGrid, {
+      props: {
+        gifs: Array(100).fill(createMockGif())
+      }
+    })
+    
+    const items = await findAllByTestId('gif-item')
+    expect(items).toHaveLength(20) // Vérifie le lazy loading
+  })
+})
+```
+
+## Maintenance des Tests
+
+### 1. Documentation
+- Documenter les cas de test complexes
+- Expliquer les mocks et les stubs
+- Maintenir les tests à jour avec les changements
+
+### 2. Refactoring
+- Refactorer les tests comme le code
+- Éviter la duplication
+- Utiliser des helpers et des utilitaires
+
+### 3. CI/CD
+- Exécuter les tests à chaque PR
+- Maintenir la couverture de tests
+- Vérifier la performance des tests
+
+## Outils et Configuration
+
+### 1. Vitest
+- Utiliser Vitest comme runner de tests
+- Configurer les mocks globaux
+- Utiliser les snapshots avec précaution
+
+### 2. Testing Library
+- Utiliser Vue Testing Library
+- Suivre les bonnes pratiques d'accessibilité
+- Tester comme un utilisateur
+
+### 3. Coverage
+- Configurer la couverture de tests
+- Exclure les fichiers non pertinents
+- Maintenir les seuils de couverture
