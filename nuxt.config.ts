@@ -1,3 +1,5 @@
+import tailwindcss from "@tailwindcss/vite"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -35,8 +37,8 @@ export default defineNuxtConfig({
       prerender: true,
     },
   },
+
   modules: [
-    '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@nuxt/icon',
     '@nuxt/test-utils/module',
@@ -91,6 +93,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
+    debug: true,
     // DOC: https://nuxtseo.com/docs/sitemap/guides/filtering-urls
     exclude: [
       '/_nuxt/',
@@ -116,12 +119,15 @@ export default defineNuxtConfig({
     ],
   },
 
-  tailwindcss: {
-    cssPath: [`assets/css/tailwind.css`, { injectPosition: "first" }],
-    config: {},
-    viewer: true,
-    exposeConfig: false,
+
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   },
+  css: [
+    'assets/css/main.css',
+  ],
 
   compatibilityDate: '2025-04-11',
 

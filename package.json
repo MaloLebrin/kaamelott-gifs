@@ -20,11 +20,12 @@
     "@nuxt/image": "1.10.0",
     "@nuxtjs/cloudinary": "^4.0.0",
     "@nuxtjs/seo": "^3.0.3",
-    "@nuxtjs/tailwindcss": "6.13.2",
+    "@tailwindcss/vite": "^4.1.4",
     "cloudinary": "^2.6.0",
     "eslint": "^9.25.1",
     "nuxt": "^3.17.1",
-    "nuxt-posthog": "1.6.3"
+    "nuxt-posthog": "1.6.3",
+    "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
     "@nuxt/test-utils": "3.17.2",
