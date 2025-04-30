@@ -22,11 +22,15 @@ describe('SEO Utils', () => {
     })
 
     test('should return the description with the site name if the description is more than 155 characters', () => {
-      expect(composeSeoDescription('Hello world this is a long description from a gif with a long quote')).toBe('Hello world this is a long description from a gif with a long quote...')
+      expect(composeSeoDescription('Hello world this is a long description from a gif with a long quote...')).toBe('Hello world this is a long description from a gif with a long quote...')
     })
 
     test('should return the site name if the description is empty', () => {
       expect(composeSeoDescription('')).toBe('Kaamelott GIFs')
+    })
+
+    test('should return the description with the site name if the description is more than 155 characters', () => {
+      expect(composeSeoDescription("Découvrez les meilleurs GIFs de Livre II de la série Kaamelott. Le Livre II, à la manière du Livre I, ne possède pas d'histoire de fond qui lui est propre, mais commence à initier un mouvement chronologique à la série en faisant référence à des épisodes du premier livre. Le Livre II marque une introduction au Livre III, en cela que les premiers désaccords et les premières tensions se font sentir entre Arthur et Lancelot.")).toBe("Découvrez les meilleurs GIFs de Livre II de la série Kaamelott. Le Livre II, à la manière du Livre I, ne possède pas d'histoire de fond qui lui est propre,...")
     })
   })
 })
