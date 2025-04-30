@@ -1,7 +1,7 @@
 ---
 description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 Je vais créer un prompt détaillé basé sur notre expérience de développement du projet Kaamelott GIFs. Ce prompt servira de guide pour nos futures interactions de développement.
 
