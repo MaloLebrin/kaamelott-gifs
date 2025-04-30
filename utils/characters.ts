@@ -17,7 +17,7 @@ export function composeCharacterToStructuredData({
 
   return {
     name: character.name,
-    description: character.description,
+    description: 'Page du personnage',
     createdAt,
     updatedAt: createdAt,
     role: 'Personnage',
