@@ -40,7 +40,6 @@ describe('Breadcrumbs', () => {
       },
       ...mountOptions
     })
-    console.log(wrapper.html(), 'wrapper.html()')
 
     // Vérifie que le composant est rendu
     const nav = wrapper.find('nav')
