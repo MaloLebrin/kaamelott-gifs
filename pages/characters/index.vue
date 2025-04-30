@@ -26,11 +26,14 @@ const breadcrumbItems = [
   }
 ]
 
+const seoTitle = composeSeoTitle('Les Personnages de Kaamelott - Tous les personnages')
+const seoDescription = composeSeoDescription('Découvrez l\'ensemble des personnages de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.')
+
 useSeoMeta({
-  title: 'Les Personnages de Kaamelott - Tous les personnages',
-  ogTitle: 'Les Personnages de Kaamelott - Tous les personnages',
-  description: 'Découvrez l\'ensemble des personnages de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
-  ogDescription: 'Découvrez l\'ensemble des personnages de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
@@ -39,12 +42,8 @@ useSeoMeta({
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Les Personnages de Kaamelott - Tous les personnages',
-  twitterDescription: 'Découvrez l\'ensemble des personnages de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
-})
-
-definePageMeta({
-  layout: 'default'
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
 })
 
 onMounted(() => {

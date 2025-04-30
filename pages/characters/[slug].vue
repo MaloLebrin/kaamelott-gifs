@@ -144,11 +144,14 @@ useHead({
   ]
 })
 
+const seoTitle = composeSeoTitle(`${data.value?.character?.name || characterSlug}`)
+const seoDescription = composeSeoDescription(`Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`)
+
 useSeoMeta({
-  title: `${data.value?.character?.name || characterSlug}`,
-  ogTitle: `${data.value?.character?.name || characterSlug}`,
-  description: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
-  ogDescription: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
@@ -157,7 +160,7 @@ useSeoMeta({
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
-  twitterTitle: `${data.value?.character.name || characterSlug} - Kaamelott GIFs`,
-  twitterDescription: `Découvrez tous les GIFs de ${data.value?.character.name || characterSlug} dans Kaamelott. ${data.value?.gifs.length || 0} GIFs disponibles.`,
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
 })
 </script>

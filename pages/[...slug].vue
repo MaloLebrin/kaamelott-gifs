@@ -33,10 +33,13 @@ definePageMeta({
   layout: 'default'
 })
 
+const seoTitle = composeSeoTitle('Page Non Trouvée')
+const seoDescription = composeSeoDescription('Cette page est aussi introuvable que le Graal. Retournez à Kaamelott pour continuer votre quête !')
+
 useSeoMeta({
-  title: 'Page Non Trouvée',
-  description: 'Cette page est aussi introuvable que le Graal. Retournez à Kaamelott pour continuer votre quête !',
-  ogDescription: 'Cette page est aussi introuvable que le Graal. Retournez à Kaamelott pour continuer votre quête !',
+  title: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',

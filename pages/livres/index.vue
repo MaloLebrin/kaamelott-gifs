@@ -22,11 +22,14 @@ const breadcrumbItems = [
   }
 ]
 
+const seoTitle = composeSeoTitle('Les Livres de Kaamelott - Toutes les saisons')
+const seoDescription = composeSeoDescription('Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.')
+
 useSeoMeta({
-  title: 'Les Livres de Kaamelott - Toutes les saisons',
-  ogTitle: 'Les Livres de Kaamelott - Toutes les saisons',
-  description: 'Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
-  ogDescription: 'Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
@@ -35,8 +38,8 @@ useSeoMeta({
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Les Livres de Kaamelott - Toutes les saisons',
-  twitterDescription: 'Découvrez l\'ensemble des livres (saisons) de la série culte Kaamelott, créée par Alexandre Astier. De la Table Ronde aux quêtes du Graal, plongez dans l\'univers médiéval-fantastique de la série.',
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
 })
 
 definePageMeta({

@@ -128,11 +128,14 @@ useHead({
   ]
 })
 
+const seoTitle = composeSeoTitle(`${data.value?.episode.title}`)  
+const seoDescription = composeSeoDescription(`Découvrez les meilleurs GIFs de l'épisode ${data.value?.episode.title} de la série Kaamelott. ${data.value?.episode.resume}`)
+
 useSeoMeta({
-  title: `${data.value?.episode.title}`,
-  ogTitle: `${data.value?.episode.title}`,
-  description: `Découvrez les meilleurs GIFs de l'épisode ${data.value?.episode.title} de la série Kaamelott. ${data.value?.episode.resume}`,
-  ogDescription: `Découvrez les meilleurs GIFs de l'épisode ${data.value?.episode.title} de la série Kaamelott. ${data.value?.episode.resume}`,
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
@@ -141,7 +144,7 @@ useSeoMeta({
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
-  twitterTitle: `${data.value?.episode.title} - Kaamelott GIFs`,
-  twitterDescription: `Découvrez les meilleurs GIFs de l'épisode ${data.value?.episode.title} de la série Kaamelott. ${data.value?.episode.resume}`,
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
 })
 </script>

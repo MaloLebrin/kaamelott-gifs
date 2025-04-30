@@ -1,11 +1,14 @@
 <script setup lang="ts">
 const { $clientPosthog } = useNuxtApp()
 
+const seoDescription = composeSeoDescription('Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott. Créé par des fans pour des fans.')
+const seoTitle = composeSeoTitle('À propos')
+
 useSeoMeta({
-  title: 'À propos',
-  ogTitle: 'À propos',
-  description: 'Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott. Créé par des fans pour des fans.',
-  ogDescription: 'Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott. Créé par des fans pour des fans.',
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
@@ -14,19 +17,8 @@ useSeoMeta({
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
-  twitterDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
-})
-
-// Structured Data détaillés
-useHead({
-  title: 'À propos - Kaamelott GIFs',
-  meta: [
-    { name: 'description', content: 'Découvrez l\'histoire du projet Kaamelott GIFs, une collection de GIFs issus de la série culte Kaamelott.' },
-    { name: 'keywords', content: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection' },
-    { name: 'author', content: 'Kaamelott GIFs' },
-    { name: 'robots', content: 'index, follow' }
-  ]
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
 })
 
 onMounted(() => {

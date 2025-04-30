@@ -1,8 +1,37 @@
+<template>
+  <div class="flex-1">
+    <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
+
+    <section aria-labelledby="search-heading">
+      <h2 id="search-heading" class="sr-only">Recherche de GIFs</h2>
+      <SearchBar 
+        :characters="charactersData || []" 
+        :initial-query="searchQuery" 
+        :initial-character="selectedCharacter"
+        @search="handleSearch" 
+      />
+    </section>
+    
+    <section aria-labelledby="gifs-heading" class="mt-8">
+      <h2 id="gifs-heading" class="sr-only">Gifs de Kaamelott</h2>
+      <GifGrid :gifs="paginatedGifs" />
+      
+      <!-- Pagination -->
+      <nav v-if="totalPages > 1" class="mt-8 flex justify-center" aria-label="Navigation des pages">
+        <Pagination 
+          :current-page="currentPage" 
+          :total-pages="totalPages" 
+          @page-change="handlePageChange" 
+        />
+      </nav>
+    </section>
+  </div>
+</template>
+
 <script setup lang="ts">
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import SearchBar from '~/components/SearchBar.vue'
 import Pagination from '~/components/base/Pagination.vue'
-import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import type { Gif } from '~/types'
 import { usePagination } from '~/composables/usePagination'
 
@@ -105,16 +134,16 @@ const breadcrumbItems = computed(() => {
 })
 
 useSeoMeta({
-  title: 'Accueil',
-  description: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
-  ogTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
-  ogDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
+  title: composeSeoTitle('Collection de GIFs de la série Kaamelott'),
+  description: composeSeoDescription('Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.'),
+  ogTitle: composeSeoTitle('Collection de GIFs de la série Kaamelott'),
+  ogDescription: composeSeoDescription('Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.'),
   ogImage: '/fondKBg.webp',
   ogUrl: 'https://kaamelottgifs.fr',
   ogType: 'website',
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Kaamelott GIFs - Collection de GIFs de la série Kaamelott',
-  twitterDescription: 'Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.',
+  twitterTitle: composeSeoTitle('Collection de GIFs de la série Kaamelott'),
+  twitterDescription: composeSeoDescription('Découvrez et partagez les meilleurs GIFs de Kaamelott. Une collection complète des moments cultes de la série.'),
   twitterImage: '/fondKBg.webp',
 })
 
@@ -126,33 +155,3 @@ onMounted(() => {
   }
 })
 </script>
-
-<template>
-  <div class="flex-1">
-    <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
-
-    <section aria-labelledby="search-heading">
-      <h2 id="search-heading" class="sr-only">Recherche de GIFs</h2>
-      <SearchBar 
-        :characters="charactersData || []" 
-        :initial-query="searchQuery" 
-        :initial-character="selectedCharacter"
-        @search="handleSearch" 
-      />
-    </section>
-    
-    <section aria-labelledby="gifs-heading" class="mt-8">
-      <h2 id="gifs-heading" class="sr-only">Gifs de Kaamelott</h2>
-      <GifGrid :gifs="paginatedGifs" />
-      
-      <!-- Pagination -->
-      <nav v-if="totalPages > 1" class="mt-8 flex justify-center" aria-label="Navigation des pages">
-        <Pagination 
-          :current-page="currentPage" 
-          :total-pages="totalPages" 
-          @page-change="handlePageChange" 
-        />
-      </nav>
-    </section>
-  </div>
-</template>

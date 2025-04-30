@@ -45,11 +45,14 @@ onMounted(() => {
   }
 })
 
+const seoTitle = composeSeoTitle(`${gif.value?.quote}`)
+const seoDescription = composeSeoDescription(`${gif.value?.quote}`)
+
 useSeoMeta({
-  title: `${gif.value?.quote}`,
-  ogTitle: `${gif.value?.quote}`,
-  description: `${gif.value?.quote}`,
-  ogDescription: `${gif.value?.quote}`,
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
@@ -58,7 +61,7 @@ useSeoMeta({
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',
-  twitterTitle: `${gif.value?.quote} - Kaamelott GIFs`,
-  twitterDescription: `${gif.value?.quote}`,
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
 })
 </script>
