@@ -44,3 +44,19 @@ export const uploadGifToCloudinary = async (gif: Omit<Gif, 'filePath' | 'url' | 
     public_id: result.public_id
   }
 }
+
+/**
+ * Get the optimized image url
+ * @param url - The url of the image
+ * @returns The optimized image url
+ */
+export function getOptimizedImageUrl(url: string) {
+  if (!url) {
+    return null
+  }
+  // Remove the version number and file extension
+  const urlWithoutVersion = url.replace(/\/v\d+\//, '/v1/')
+  const urlWithoutExtension = urlWithoutVersion.replace(/\.(gif|jpg|jpeg|png)$/, '')
+  // Add optimization parameters
+  return urlWithoutExtension.replace('upload', 'upload/f_auto,q_auto')
+}
