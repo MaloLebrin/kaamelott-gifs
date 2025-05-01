@@ -17,7 +17,6 @@ export const uploadGifToCloudinary = async (gif: Omit<Gif, 'filePath' | 'url' | 
   if (!cloudinary) {
     throw new Error('Cloudinary is not configured')
   }
-  // const filePath = path.join(process.cwd(), 'public', 'gifs', `${gif.filename}`)
 
   const result = await cloudinary.uploader.upload(filePath, {
     resource_type: 'auto',
@@ -29,8 +28,8 @@ export const uploadGifToCloudinary = async (gif: Omit<Gif, 'filePath' | 'url' | 
       { fetch_format: 'auto' },
       { dpr: 'auto' },
       { width: 'auto' },
-      { crop: 'scale' },
-      { flags: 'lossy' }
+      { crop: 'scale', with: 1000 },
+      { flags: 'lossy' },
     ]
   })
 
