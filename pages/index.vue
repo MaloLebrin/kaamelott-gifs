@@ -61,17 +61,6 @@ const {
   itemsPerPage: 21
 })
 
-// Filtrer les GIFs
-const filteredGifs = computed(() => {
-  if (!gifs.value) return []
-
-  return gifs.value.filter(gif => {
-    const matchesSearch = gif.quote.toLowerCase().includes(searchQuery.value.toLowerCase())
-    const matchesCharacter = !selectedCharacter.value || gif.characters.includes(selectedCharacter.value)
-    return matchesSearch && matchesCharacter
-  })
-})
-
 // Mettre à jour l'URL lors de la recherche ou du changement de page
 const updateUrl = () => {
   router.push({
@@ -104,34 +93,6 @@ watch(() => route.query, (newQuery) => {
   selectedCharacter.value = newQuery.character?.toString() || ''
   currentPage.value = Number(newQuery.page) || 1
 }, { immediate: true })
-
-// Données pour les breadcrumbs
-const breadcrumbItems = computed(() => {
-  const items = []
-  
-  if (searchQuery.value) {
-    items.push({
-      label: `Recherche : ${searchQuery.value}`,
-      to: `/search?q=${encodeURIComponent(searchQuery.value)}`
-    })
-  }
-  
-  if (selectedCharacter.value) {
-    items.push({
-      label: selectedCharacter.value,
-      to: `/characters/${encodeURIComponent(selectedCharacter.value)}`
-    })
-  }
-  
-  if (currentPage.value > 1) {
-    items.push({
-      label: `Page ${currentPage.value}`,
-      to: `?page=${currentPage.value}`
-    })
-  }
-  
-  return items
-})
 
 useSeoMeta({
   title: composeSeoTitle('Collection de GIFs de la série Kaamelott'),
