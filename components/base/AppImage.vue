@@ -13,8 +13,9 @@
     :position="position"
     :background="background"
     custom
-    v-slot="{ src: imgSrc, isLoaded, imgAttrs }"
+    v-slot="{ src: imgSrc, isLoaded, imgAttrs, error }"
   >
+    <span v-if="error" class="hidden">Error</span>
     <!-- Show the actual image when loaded -->
     <img
       v-if="isLoaded"
