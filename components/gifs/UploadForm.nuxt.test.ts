@@ -33,11 +33,11 @@ describe('UploadForm', () => {
     const file = new File(['test'], 'test.gif', { type: 'image/gif' })
     const input = wrapper.find('input[type="file"]')
 
-    await input.trigger('change', {
-      target: {
-        files: [file]
-      }
+    // Simuler le changement de fichier
+    Object.defineProperty(input.element, 'files', {
+      value: [file]
     })
+    await input.trigger('change')
 
     expect(wrapper.find('img').exists()).toBe(true)
     expect(wrapper.find('button[type="submit"]').attributes('disabled')).toBeUndefined()
@@ -47,11 +47,11 @@ describe('UploadForm', () => {
     const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' })
     const input = wrapper.find('input[type="file"]')
 
-    await input.trigger('change', {
-      target: {
-        files: [file]
-      }
+    // Simuler le changement de fichier
+    Object.defineProperty(input.element, 'files', {
+      value: [file]
     })
+    await input.trigger('change')
 
     expect(wrapper.find('img').exists()).toBe(false)
   })
@@ -66,11 +66,10 @@ describe('UploadForm', () => {
     expect(dropZone.classes()).toContain('bg-amber-50')
 
     // Simuler le drop
-    await dropZone.trigger('drop', {
-      dataTransfer: {
-        files: [file]
-      }
-    })
+    const dataTransfer = {
+      files: [file]
+    }
+    await dropZone.trigger('drop', { dataTransfer })
 
     expect(wrapper.find('img').exists()).toBe(true)
     expect(dropZone.classes()).not.toContain('border-amber-500')
@@ -81,11 +80,12 @@ describe('UploadForm', () => {
     // D'abord, sélectionner un fichier
     const file = new File(['test'], 'test.gif', { type: 'image/gif' })
     const input = wrapper.find('input[type="file"]')
-    await input.trigger('change', {
-      target: {
-        files: [file]
-      }
+
+    // Simuler le changement de fichier
+    Object.defineProperty(input.element, 'files', {
+      value: [file]
     })
+    await input.trigger('change')
 
     // Vérifier que l'image est affichée
     expect(wrapper.find('img').exists()).toBe(true)
@@ -108,11 +108,12 @@ describe('UploadForm', () => {
     // Sélectionner un fichier
     const file = new File(['test'], 'test.gif', { type: 'image/gif' })
     const input = wrapper.find('input[type="file"]')
-    await input.trigger('change', {
-      target: {
-        files: [file]
-      }
+
+    // Simuler le changement de fichier
+    Object.defineProperty(input.element, 'files', {
+      value: [file]
     })
+    await input.trigger('change')
 
     // Soumettre le formulaire
     await wrapper.find('form').trigger('submit')
@@ -130,11 +131,12 @@ describe('UploadForm', () => {
     // Sélectionner un fichier
     const file = new File(['test'], 'test.gif', { type: 'image/gif' })
     const input = wrapper.find('input[type="file"]')
-    await input.trigger('change', {
-      target: {
-        files: [file]
-      }
+
+    // Simuler le changement de fichier
+    Object.defineProperty(input.element, 'files', {
+      value: [file]
     })
+    await input.trigger('change')
 
     // Soumettre le formulaire
     await wrapper.find('form').trigger('submit')
