@@ -136,7 +136,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['localhost', 'kaamelottgifs.fr', 's3.eu-west-3.amazonaws.com'],
+    domains: ['localhost', 'kaamelottgifs.fr', 's3.eu-west-3.amazonaws.com', 'kv1gbucket.s3.eu-west-3.amazonaws.com'],
     dir: 'public',
   },
 
