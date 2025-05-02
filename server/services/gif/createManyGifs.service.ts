@@ -1,5 +1,5 @@
+import { transformUrl } from "~/shared/utils/gifs/transformUrl"
 import { Entities, Gif } from "~/types"
-import { uploadGifToCloudinary } from "~/shared/utils/cloudinary"
 
 /**
  * Create many gifs
@@ -14,10 +14,16 @@ export async function createManyGif({
   gifs: (Omit<Gif, 'filePath' | 'url' | 'public_id'> & { filePath: string })[],
   client: any
 }) {
+  // return
   console.log('uploading gifs...')
   const uploadedGifs = await Promise.all(gifs.map(async (gif) => {
     console.log(gif.filename, 'uploading gif...')
-    return uploadGifToCloudinary(gif, gif.filePath)
+    return {
+      ...gif,
+      url: transformUrl({
+        fileName: gif.filename,
+      }),
+    }
   }))
   console.log('gifs uploaded')
 
@@ -26,13 +32,12 @@ export async function createManyGif({
     .from(Entities.GIF)
     .insert(uploadedGifs.map((gif) => ({
       characters: gif.characters.join(','),
-      characters_speaking: gif.characters_speaking.join(','),
+      characters_speaking: gif.characters_speaking?.join(','),
       episode: gif.episode,
       filename: gif.filename,
       quote: gif.quote,
       slug: gif.slug,
       url: gif.url,
-      public_id: gif.public_id,
     })))
     .select()
   console.log('gifs inserted')

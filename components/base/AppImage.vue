@@ -1,6 +1,6 @@
 <template>
+  <!-- :provider="provider" -->
   <NuxtImg
-    :provider="provider"
     :src="src"
     :alt="alt"
     :width="width"
@@ -43,7 +43,7 @@ interface Props {
   alt: string
   width?: number
   height?: number
-  provider?: 'cloudinary' | 'ipx'
+  // provider?: 'ipx'
   loading?: 'lazy' | 'eager'
   className?: string
   placeholder?: string
@@ -57,7 +57,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   width: 400,
   height: 400,
-  provider: 'cloudinary',
+  // provider: 'ipx',
   loading: 'lazy',
   className: '',
   placeholder: '/fondKBg.webp',

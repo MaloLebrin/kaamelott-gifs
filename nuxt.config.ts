@@ -67,7 +67,6 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     'nuxt-posthog',
     '@nuxtjs/supabase',
-    '@nuxtjs/cloudinary',
   ],
 
   supabase: {
@@ -137,12 +136,8 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['localhost', 'res.cloudinary.com', 'kaamelottgifs.fr'],
+    domains: ['localhost', 'kaamelottgifs.fr', 's3.eu-west-3.amazonaws.com'],
     dir: 'public',
-    cloudinary: {
-      baseURL: 'https://res.cloudinary.com/be-right/image/upload'
-      // https://res.cloudinary.com/be-right/image/upload/f_auto,q_auto/v1/kaamelott-gifs/vous-vous-prenez-pour-un-enseignant
-    }
   },
 
   icon: {
