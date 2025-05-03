@@ -31,6 +31,7 @@
 <script setup lang="ts">
 import BaseInput from '~/components/base/BaseInput.vue'
 import BaseLoader from '~/components/base/BaseLoader.vue'
+
 const supabase = useSupabaseClient()
 const email = ref('')
 const loading = ref(false)
