@@ -6,7 +6,6 @@ interface CommonGif extends BaseEntity {
   filename: string;
   slug: string;
   url: string;
-  public_id: string;
   episode: string | null;
 }
 
@@ -22,4 +21,15 @@ export interface Gif extends CommonGif {
 
 export interface GifWithEpisode extends Gif {
   episodeData?: Episode;
-} 
+}
+
+export interface GifUpload {
+  file?: File;
+  quote: string;
+  characters: { id: string; name: string }[];
+  speakingCharacters: { id: string; name: string }[];
+  episode: null | string
+  filename: string;
+  slug: string;
+  url: string;
+}

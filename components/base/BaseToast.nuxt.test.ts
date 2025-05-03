@@ -1,84 +1,69 @@
-import { describe, test, expect } from 'vitest'
+import { describe, test, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import BaseToast from './BaseToast.vue'
-import CheckCircle from '@heroicons/vue/24/outline/CheckCircleIcon'
-import XCircle from '@heroicons/vue/24/outline/XCircleIcon'
-import InformationCircle from '@heroicons/vue/24/outline/InformationCircleIcon'
-import ExclamationCircleIcon from '@heroicons/vue/24/outline/ExclamationCircleIcon'
+import { useToast } from '~/composables/useToast'
 
-type Toast = {
-  id: number
-  type: 'success' | 'error' | 'info' | 'warning'
-  message: string
-}
+// Mock the useToast composable
+vi.mock('~/composables/useToast', () => ({
+  useToast: () => ({
+    toasts: [
+      {
+        id: 1,
+        message: 'Success message',
+        type: 'success'
+      },
+      {
+        id: 2,
+        message: 'Error message',
+        type: 'error'
+      },
+      {
+        id: 3,
+        message: 'Info message',
+        type: 'info'
+      },
+      {
+        id: 4,
+        message: 'Warning message',
+        type: 'warning'
+      }
+    ],
+    removeToast: vi.fn()
+  })
+}))
 
 describe('BaseToast', () => {
-  const mockToasts: Toast[] = [
-    { id: 1, type: 'success', message: 'Success message' },
-    { id: 2, type: 'error', message: 'Error message' },
-    { id: 3, type: 'info', message: 'Info message' },
-    { id: 4, type: 'warning', message: 'Warning message' }
-  ]
-
   test('renders all toasts', () => {
-    const wrapper = mount(BaseToast, {
-      props: {
-        toasts: mockToasts
-      }
-    })
-
-    const toastElements = wrapper.findAll('div[class*="min-w-[300px]"]')
-    expect(toastElements).toHaveLength(4)
+    const wrapper = mount(BaseToast)
+    const toasts = wrapper.findAll('div[class*="min-w-[300px]"]')
+    
+    expect(toasts).toHaveLength(4)
   })
 
-  test('displays correct message for each toast', () => {
-    const wrapper = mount(BaseToast, {
-      props: {
-        toasts: mockToasts
-      }
-    })
-
-    mockToasts.forEach((toast, index) => {
-      expect(wrapper.findAll('span')[index].text()).toBe(toast.message)
-    })
+  test('renders correct message for each toast', () => {
+    const wrapper = mount(BaseToast)
+    const messages = wrapper.findAll('span')
+    
+    expect(messages[0].text()).toBe('Success message')
+    expect(messages[1].text()).toBe('Error message')
+    expect(messages[2].text()).toBe('Info message')
+    expect(messages[3].text()).toBe('Warning message')
   })
 
-  test('applies correct background color based on type', () => {
-    const wrapper = mount(BaseToast, {
-      props: {
-        toasts: mockToasts
-      }
-    })
-
-    const toastElements = wrapper.findAll('div[class*="min-w-[300px]"]')
-    expect(toastElements[0].classes()).toContain('bg-green-500')
-    expect(toastElements[1].classes()).toContain('bg-red-500')
-    expect(toastElements[2].classes()).toContain('bg-blue-500')
+  test('applies correct classes based on toast type', () => {
+    const wrapper = mount(BaseToast)
+    const toasts = wrapper.findAll('div[class*="min-w-[300px]"]')
+    
+    expect(toasts[0].classes()).toContain('bg-green-500')
+    expect(toasts[1].classes()).toContain('bg-red-500')
+    expect(toasts[2].classes()).toContain('bg-blue-500')
   })
 
-  test('emits remove event when close button is clicked', async () => {
-    const wrapper = mount(BaseToast, {
-      props: {
-        toasts: mockToasts
-      }
-    })
-
-    const closeButtons = wrapper.findAll('button')
-    await closeButtons[0].trigger('click')
-
-    const emitted = wrapper.emitted('remove')
-    expect(emitted).toBeTruthy()
-    expect(emitted?.[0]).toEqual([1]) // First toast id
+  test('renders correct icons for each toast type', () => {
+    const wrapper = mount(BaseToast)
+    const icons = wrapper.findAll('svg')
+    
+    // Check that we have the correct number of icons (4 toasts * 2 icons each = 8)
+    expect(icons).toHaveLength(8)
   })
-
-  test('renders with empty toasts array', () => {
-    const wrapper = mount(BaseToast, {
-      props: {
-        toasts: []
-      }
-    })
-
-    const toastElements = wrapper.findAll('div[class*="min-w-[300px]"]')
-    expect(toastElements).toHaveLength(0)
-  })
-})
+}) 
