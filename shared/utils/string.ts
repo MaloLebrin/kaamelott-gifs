@@ -19,6 +19,7 @@ export function slugify(str: string) {
   return str
     .toLowerCase()
     .replace(/[àáâãäåèéêëìíîïòóôõöøùúûüýÿñç]/g, char => accents[char] || char)
+    .replace(/ç/g, 'c')
     .replace(/\s+/g, '-')
     .replace(/'/g, '-')
     .replace(/--/g, '-')

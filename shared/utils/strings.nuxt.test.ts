@@ -15,6 +15,10 @@ describe('slugify', () => {
     expect(slugify('éèêëàáâäåìíîïòóôõöøùúûüýÿñç')).toBe('eeeeaaaaaiiiioooooouuuuyync')
   })
 
+  test('should replace ç with c', () => {
+    expect(slugify('ççç')).toBe('ccc')
+  })
+
   test('should handle multiple spaces', () => {
     expect(slugify('hello   world')).toBe('hello-world')
   })
