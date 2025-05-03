@@ -4,7 +4,7 @@
  * This function transforms a string into a slug by:
  * - Converting to lowercase
  * - Replacing accented characters with their non-accented equivalents
- * - Preserving specific special characters (æ)
+ * - Converting apostrophes to hyphens
  * - Removing all other special characters and punctuation
  * - Replacing spaces with hyphens
  * - Removing duplicate hyphens
@@ -15,10 +15,14 @@
  * 
  * @example
  * slugify('Cæsar Imperator') // returns 'cæsar-imperator'
- * slugify('L\'Étranger d\'André Gide') // returns 'letranger-dandre-gide'
+ * slugify('L\'Étranger d\'André Gide') // returns 'l-etranger-d-andre-gide'
  * slugify('Hello, World!') // returns 'hello-world'
  */
 export function slugify(str: string) {
+  if (!str) {
+    return ''
+  }
+
   const accents: Record<string, string> = {
     'à': 'a', 'á': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'å': 'a',
     'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e',
@@ -28,15 +32,19 @@ export function slugify(str: string) {
     'ý': 'y', 'ÿ': 'y',
     'ñ': 'n',
     'ç': 'c',
-    'æ': 'ae',
+    'æ': 'æ',
+    // 'æ': 'ae',
   }
 
   return str
-    .toLowerCase()
+    .toLocaleLowerCase('fr-FR')
+    .trim()
     .replace(/[àáâãäåèéêëìíîïòóôõöøùúûüýÿñç]/g, char => accents[char] || char)
-    .replace(/\s+/g, '-')
     .replace(/'/g, '-')
-    .replace(/--/g, '-')
+    .replace(/[^a-z0-9\s-æ]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 

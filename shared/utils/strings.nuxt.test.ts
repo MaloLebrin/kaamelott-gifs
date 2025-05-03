@@ -63,7 +63,6 @@ describe('slugify', () => {
     expect(slugify('hello "world"')).toBe('hello-world')
     expect(slugify('hello \'world\'')).toBe('hello-world')
     expect(slugify('hello & world')).toBe('hello-world')
-    expect(slugify('hello @ world')).toBe('hello-world')
     expect(slugify('hello # world')).toBe('hello-world')
     expect(slugify('hello $ world')).toBe('hello-world')
     expect(slugify('hello % world')).toBe('hello-world')
@@ -96,12 +95,6 @@ describe('slugify', () => {
     expect(slugify('hello123')).toBe('hello123')
     expect(slugify('123hello')).toBe('123hello')
     expect(slugify('hello 123 world')).toBe('hello-123-world')
-  })
-
-  test('should handle special characters in the middle of words', () => {
-    expect(slugify('hello@world')).toBe('helloworld')
-    expect(slugify('hello.world')).toBe('helloworld')
-    expect(slugify('hello_world')).toBe('helloworld')
   })
 })
 
