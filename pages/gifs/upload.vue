@@ -4,7 +4,7 @@
     <UploadForm
       @upload-success="handleUploadSuccess"
       :characters="characters?.map(char => char.name) ?? []"
-      :episodes="episodes ?? []"
+      :episodes="episodes?.map(episode => episode.code) ?? []"
     />
   </div>
 </template>
