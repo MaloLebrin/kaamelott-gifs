@@ -19,7 +19,7 @@
         @after-leave="query = ''"
       >
         <ComboboxOptions
-          class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+          class="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
         >
           <div
             v-if="filteredItems.length === 0 && query !== ''"
@@ -37,7 +37,7 @@
             v-slot="{ selected, active }"
           >
             <li
-              class="relative cursor-pointer select-none py-2 pl-8 pr-4"
+              class="relative cursor-pointer select-none py-2 pl-10 pr-4"
               :class="{
                 'bg-amber-600 text-white': selected || active,
                 'text-gray-900': !selected,
@@ -51,11 +51,11 @@
                 {{ item.name }}
               </span>
               <span
-                v-if="selected"
+                v-if="isSelected(item)"
                 class="absolute inset-y-0 left-0 flex items-center pl-3"
                 :class="{ 'text-amber-600': selected }"
               >
-                <CheckIcon class="h-5 w-5 text-white"  />
+                <CheckCircleIcon class="h-5 w-5 text-amber-600"  />
               </span>
             </li>
           </ComboboxOption>
@@ -74,7 +74,7 @@ import {
   ComboboxOption,
   TransitionRoot,
 } from '@headlessui/vue'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
+import { CheckCircleIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
 
 interface Item {
   id: number | string
