@@ -38,17 +38,7 @@ import InformationCircle from '@heroicons/vue/24/outline/InformationCircleIcon'
 import XMarkIcon from '@heroicons/vue/24/outline/XMarkIcon'
 import ExclamationCircleIcon from '@heroicons/vue/24/outline/ExclamationCircleIcon'
 
-defineProps<{
-  toasts: Toast[]
-}>()
-
-const emit = defineEmits<{
-  (e: 'remove', id: number): void
-}>()
-
-const removeToast = (id: number) => {
-  emit('remove', id)
-}
+const { toasts, removeToast } = useToast()
 
 const getIcon = (type: Toast['type']) => {
   switch (type) {

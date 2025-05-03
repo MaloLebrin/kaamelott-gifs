@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import Header from '~/components/layout/Header.vue'
 import Footer from '~/components/layout/Footer.vue'
-
-const { toasts, removeToast } = useToast()
 </script>
 
 <template>
@@ -18,7 +16,7 @@ const { toasts, removeToast } = useToast()
         <slot />
       </main>
       <Footer />
-      <BaseToast :toasts="toasts" @remove="removeToast" />
+      <BaseToast />
     </div>
   </div>
 </template>
