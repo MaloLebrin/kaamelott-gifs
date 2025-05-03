@@ -17,7 +17,7 @@ const redirectInfo = useSupabaseCookieRedirect()
 watch(user, () => {
   if (user.value) {
     const path = redirectInfo.pluck()
-    return navigateTo(path || '/')
+    return navigateTo(path || '/gifs/creer')
   }
 }, { immediate: true })
 </script>

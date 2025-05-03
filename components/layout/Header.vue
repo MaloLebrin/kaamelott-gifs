@@ -104,6 +104,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
   { name: 'Accueil', href: '/' },
+  { name: 'Ajouter un GIF', href: '/gifs/creer', isAuth: true },
   { name: 'Livres', href: '/livres' },
   { name: 'Personnages', href: '/characters' },
   { name: 'À propos', href: '/about' },
@@ -113,6 +114,10 @@ const mobileMenuOpen = ref(false)
 function closeMobileMenu() {
   mobileMenuOpen.value = false
 }
+
+const isAuthenticated = computed(() => {
+  return useSupabaseUser().value !== null
+})
 
 // Gérer l'état aria-expanded du bouton mobile
 watch(mobileMenuOpen, (newValue) => {

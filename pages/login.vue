@@ -46,16 +46,23 @@ const signInWithOtp = async () => {
     clearTimeout(successTimeout)
     successTimeout = null
   }
+
   loading.value = true
+
   const { error: supaError } = await supabase.auth.signInWithOtp({
     email: email.value,
     options: {
       emailRedirectTo: 'http://localhost:3000/confirm',
     }
   })
+
   loading.value = false
   if (supaError) {
-    error.value = supaError.message || 'Erreur inconnue, même Merlin ne comprend pas.'
+    if (supaError.message === 'Signups not allowed for this instance') {
+      error.value = 'Les inscriptions sont temporairement fermées. Veuillez réessayer plus tard.'
+    } else {
+      error.value = supaError.message || 'Erreur inconnue, même Merlin ne comprend pas.'
+    }
   } else {
     success.value = true
     successTimeout = setTimeout(() => {
