@@ -36,7 +36,7 @@
         <!-- Épisode -->
         <BaseCombobox
           v-model="selectedEpisode"
-          :items="episodes"
+          :items="episodes.map(episode => ({ id: episode.code, name: `${episode.code} - ${episode.title}` }))"
           placeholder="Sélectionnez l'épisode"
           :multiple="false"
         />
@@ -69,7 +69,10 @@ import BaseCombobox from '~/components/base/BaseCombobox.vue';
 
 interface Props {
   characters: string[];
-  episodes: string[];
+  episodes: {
+    code: string;
+    title: string;
+  }[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -81,7 +84,7 @@ const file = ref<File | null>(null);
 const { success, denied } = useToast();
 
 const characters = props.characters;
-const episodes = props.episodes.map(episode => ({ id: episode, name: episode }));
+const episodes = props.episodes ?? [];
 
 const selectedEpisode = ref<{ id: string; name: string }[]>([]);
 
@@ -98,17 +101,17 @@ const formData = ref<GifUpload>({
 // Mettre à jour formData.episode quand selectedEpisode change
 watch(selectedEpisode, (newValue) => {
   if (newValue.length > 0) {
-    formData.value.episode = newValue[0].name;
+    formData.value.episode = newValue[0].name
   } else {
     formData.value.episode = null;
   }
 });
 
 const isFormValid = computed(() => {
-  return file.value && 
+  return Boolean(file.value && 
          formData.value.quote && 
          formData.value.characters.length > 0 && 
-         formData.value.episode;
+         formData.value.episode);
 });
 
 const emit = defineEmits(['upload-success']);

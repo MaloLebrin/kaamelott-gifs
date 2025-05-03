@@ -5,7 +5,7 @@
       v-if="characters && episodes && characters.length > 0 && episodes.length > 0"
       @upload-success="handleUploadSuccess"
       :characters="characters?.map(char => char.name) ?? []"
-      :episodes="episodes?.map(episode => episode.code) ?? []"
+      :episodes="episodes ?? []"
     />
     <div v-else>
       <p>Chargement des personnages et des épisodes...</p>
