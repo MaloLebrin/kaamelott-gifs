@@ -48,7 +48,7 @@
             id="quote"
             v-model="formData.quote"
             rows="3"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            class="mt-1 block w-full px-1.5 py-0.5  rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
             placeholder="Entrez la citation du GIF"
             required
           />
@@ -61,7 +61,7 @@
             id="characters"
             v-model="charactersInput"
             type="text"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            class="mt-1 block w-full px-1.5 py-0.5 rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
             placeholder="Entrez les personnages séparés par des virgules"
             @input="updateCharacters"
             required
@@ -75,7 +75,7 @@
             id="characters_speaking"
             v-model="charactersSpeakingInput"
             type="text"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 px-1.5 py-0.5"
             placeholder="Entrez les personnages qui parlent séparés par des virgules"
             @input="updateCharactersSpeaking"
           />
@@ -88,7 +88,7 @@
             id="episode"
             v-model="formData.episode"
             type="text"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 px-1.5 py-0.5"
             placeholder="Entrez l'épisode"
             required
           />
