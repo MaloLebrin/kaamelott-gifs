@@ -15,7 +15,7 @@
           label="Citation"
           id="quote"
           :rows="3"
-          placeholder="Entrez la citation du GIF"
+          placeholder="ex: 'Kadoc il peut mettre 35 mirabelles dans ses fesses'"
           required
         />
 
