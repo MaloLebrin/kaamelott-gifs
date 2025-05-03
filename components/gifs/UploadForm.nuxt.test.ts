@@ -4,10 +4,11 @@ import UploadForm from './UploadForm.vue'
 import { ArrowUpTrayIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 // Mock de useToast
+const mockDenied = vi.fn()
 vi.mock('~/composables/useToast', () => ({
   useToast: () => ({
     success: vi.fn(),
-    denied: vi.fn()
+    denied: mockDenied
   })
 }))
 
@@ -16,6 +17,7 @@ describe('UploadForm', () => {
 
   beforeEach(() => {
     wrapper = mount(UploadForm)
+    mockDenied.mockClear()
   })
 
   test('renders correctly', () => {
@@ -40,7 +42,8 @@ describe('UploadForm', () => {
     await input.trigger('change')
 
     expect(wrapper.find('img').exists()).toBe(true)
-    expect(wrapper.find('button[type="submit"]').attributes('disabled')).toBeUndefined()
+    // Le bouton reste désactivé car le formulaire n'est pas valide
+    expect(wrapper.find('button[type="submit"]').attributes('disabled')).toBeDefined()
   })
 
   test('shows error for non-GIF files', async () => {
@@ -54,6 +57,8 @@ describe('UploadForm', () => {
     await input.trigger('change')
 
     expect(wrapper.find('img').exists()).toBe(false)
+    // Vérifier que le message d'erreur est affiché via useToast
+    expect(mockDenied).toHaveBeenCalledWith('Veuillez sélectionner un fichier GIF valide.')
   })
 
   test('handles drag and drop correctly', async () => {
@@ -115,6 +120,11 @@ describe('UploadForm', () => {
     })
     await input.trigger('change')
 
+    // Remplir les champs requis
+    await wrapper.find('#quote').setValue('Test quote')
+    await wrapper.find('#characters').setValue('Arthur')
+    await wrapper.find('#episode').setValue('S01E01')
+
     // Soumettre le formulaire
     await wrapper.find('form').trigger('submit')
 
@@ -137,6 +147,11 @@ describe('UploadForm', () => {
       value: [file]
     })
     await input.trigger('change')
+
+    // Remplir les champs requis
+    await wrapper.find('#quote').setValue('Test quote')
+    await wrapper.find('#characters').setValue('Arthur')
+    await wrapper.find('#episode').setValue('S01E01')
 
     // Soumettre le formulaire
     await wrapper.find('form').trigger('submit')

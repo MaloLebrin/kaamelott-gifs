@@ -39,12 +39,68 @@
         </div>
       </div>
 
+      <!-- Champs du formulaire -->
+      <div class="space-y-4">
+        <!-- Citation -->
+        <div>
+          <label for="quote" class="block text-sm font-medium text-gray-700">Citation</label>
+          <textarea
+            id="quote"
+            v-model="formData.quote"
+            rows="3"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            placeholder="Entrez la citation du GIF"
+            required
+          />
+        </div>
+
+        <!-- Personnages -->
+        <div>
+          <label for="characters" class="block text-sm font-medium text-gray-700">Personnages</label>
+          <input
+            id="characters"
+            v-model="charactersInput"
+            type="text"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            placeholder="Entrez les personnages séparés par des virgules"
+            @input="updateCharacters"
+            required
+          />
+        </div>
+
+        <!-- Personnages qui parlent -->
+        <div>
+          <label for="characters_speaking" class="block text-sm font-medium text-gray-700">Personnages qui parlent</label>
+          <input
+            id="characters_speaking"
+            v-model="charactersSpeakingInput"
+            type="text"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            placeholder="Entrez les personnages qui parlent séparés par des virgules"
+            @input="updateCharactersSpeaking"
+          />
+        </div>
+
+        <!-- Épisode -->
+        <div>
+          <label for="episode" class="block text-sm font-medium text-gray-700">Épisode</label>
+          <input
+            id="episode"
+            v-model="formData.episode"
+            type="text"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
+            placeholder="Entrez l'épisode"
+            required
+          />
+        </div>
+      </div>
+
       <!-- Bouton de soumission -->
       <div class="flex justify-end">
         <button 
           type="submit"
           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 cursor-pointer"
-          :disabled="!file"
+          :disabled="!file || !isFormValid"
         >
           <ArrowUpTrayIcon class="h-5 w-5 mr-2" />
           Télécharger
@@ -54,30 +110,69 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { ref, computed } from 'vue';
 import { ArrowUpTrayIcon, XMarkIcon } from '@heroicons/vue/24/outline';
 import { useToast } from '~/composables/useToast';
+import type { GifUpload } from '~/types/Gif';
+import { slugify } from '~/shared/utils/string';
 
-const file = ref(null);
-const previewUrl = ref(null);
+const file = ref<File | null>(null);
+const previewUrl = ref<string | null>(null);
 const isDragging = ref(false);
 const { success, denied } = useToast();
 
+const charactersInput = ref('');
+const charactersSpeakingInput = ref('');
+
+const formData = ref<Partial<GifUpload>>({
+  quote: '',
+  characters: [],
+  characters_speaking: [],
+  episode: '',
+  filename: '',
+  slug: '',
+  url: ''
+});
+
+const isFormValid = computed(() => {
+  return file.value && 
+         formData.value.quote && 
+         (formData.value.characters?.length ?? 0) > 0 && 
+         formData.value.episode;
+});
+
 const emit = defineEmits(['upload-success']);
 
-const onFileChange = (event) => {
-  const selectedFile = event.target.files[0];
-  handleFile(selectedFile);
+const updateCharacters = () => {
+  formData.value.characters = charactersInput.value
+    .split(',')
+    .map(char => char.trim())
+    .filter(char => char.length > 0);
 };
 
-const handleDrop = (event) => {
+const updateCharactersSpeaking = () => {
+  formData.value.characters_speaking = charactersSpeakingInput.value
+    .split(',')
+    .map(char => char.trim())
+    .filter(char => char.length > 0);
+};
+
+const onFileChange = (event: Event) => {
+  const input = event.target as HTMLInputElement;
+  if (input.files?.length) {
+    handleFile(input.files[0]);
+  }
+};
+
+const handleDrop = (event: DragEvent) => {
   isDragging.value = false;
-  const droppedFile = event.dataTransfer.files[0];
-  handleFile(droppedFile);
+  if (event.dataTransfer?.files.length) {
+    handleFile(event.dataTransfer.files[0]);
+  }
 };
 
-const handleFile = (selectedFile) => {
+const handleFile = (selectedFile: File) => {
   if (!selectedFile) return;
   
   if (selectedFile.type !== 'image/gif') {
@@ -87,6 +182,12 @@ const handleFile = (selectedFile) => {
 
   file.value = selectedFile;
   previewUrl.value = URL.createObjectURL(selectedFile);
+  
+  // Générer le nom de fichier et le slug
+  const timestamp = new Date().getTime();
+  const filename = `${timestamp}-${selectedFile.name}`;
+  formData.value.filename = filename;
+  formData.value.slug = slugify(filename);
 };
 
 const clearFile = () => {
@@ -95,21 +196,24 @@ const clearFile = () => {
     URL.revokeObjectURL(previewUrl.value);
     previewUrl.value = null;
   }
+  formData.value.filename = '';
+  formData.value.slug = '';
 };
 
 const uploadFile = async () => {
-  if (!file.value) {
-    denied('Veuillez sélectionner un fichier.');
+  if (!file.value || !isFormValid.value) {
+    denied('Veuillez remplir tous les champs requis.');
     return;
   }
 
-  const formData = new FormData();
-  formData.append('file', file.value);
+  const uploadData = new FormData();
+  uploadData.append('file', file.value);
+  uploadData.append('data', JSON.stringify(formData.value));
 
   try {
     const response = await fetch('/api/upload', {
       method: 'POST',
-      body: formData,
+      body: uploadData,
     });
 
     if (response.ok) {
