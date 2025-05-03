@@ -4,6 +4,7 @@
     <UploadForm
       @upload-success="handleUploadSuccess"
       :characters="characters?.map(char => char.name) ?? []"
+      :episodes="episodes ?? []"
     />
   </div>
 </template>
@@ -16,6 +17,11 @@ const { data: characters } = await useFetch < {
   avatar: string
   nbGifs: number
 }[]> ('/api/characters')
+
+const { data: episodes } = await useFetch < {
+  code: string
+  title: string
+}[]> ('/api/episodes')
 
 const handleUploadSuccess = () => {
   // Vous pouvez ajouter ici une logique supplémentaire après un upload réussi

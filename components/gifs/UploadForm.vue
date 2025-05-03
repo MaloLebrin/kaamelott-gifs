@@ -71,9 +71,16 @@ import BaseCombobox from '~/components/base/BaseCombobox.vue';
 
 interface Props {
   characters: string[];
+  episodes: {
+    code: string;
+    title: string;
+  }[];
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  characters: () =>[],
+  episodes: () =>[]
+});
 
 const file = ref<File | null>(null);
 const { success, denied } = useToast();
