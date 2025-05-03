@@ -83,7 +83,7 @@ const { success, denied } = useToast();
 const characters = props.characters;
 const episodes = props.episodes.map(episode => ({ id: episode, name: episode }));
 
-const selectedEpisode = ref<string| null>();
+const selectedEpisode = ref<{ id: string; name: string }[]>([]);
 
 const formData = ref<GifUpload>({
   quote: '',
@@ -97,10 +97,10 @@ const formData = ref<GifUpload>({
 
 // Mettre à jour formData.episode quand selectedEpisode change
 watch(selectedEpisode, (newValue) => {
-  if (newValue) {
-    formData.value.episode = newValue
+  if (newValue.length > 0) {
+    formData.value.episode = newValue[0].name;
   } else {
-    formData.value.episode = null
+    formData.value.episode = null;
   }
 });
 
@@ -166,7 +166,7 @@ const uploadFile = async () => {
         slug: '',
         url: ''
       };
-      selectedEpisode.value = null;
+      selectedEpisode.value = [];
       emit('upload-success');
     } else {
       denied('Erreur lors du téléchargement.');
