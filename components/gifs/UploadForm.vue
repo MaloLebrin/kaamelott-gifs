@@ -22,14 +22,14 @@
         <!-- Personnages -->
         <BaseCombobox
           v-model="formData.characters"
-          :items="characters"
+          :items="characters.map(char => ({ id: char, name: char }))"
           placeholder="Sélectionnez les personnages"
         />
 
         <!-- Personnages qui parlent -->
         <BaseCombobox
           v-model="formData.speakingCharacters"
-          :items="characters"
+          :items="characters.map(char => ({ id: char, name: char }))"
           placeholder="Sélectionnez les personnages qui parlent"
         />
 
