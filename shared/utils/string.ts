@@ -19,10 +19,6 @@
  * slugify('Hello, World!') // returns 'hello-world'
  */
 export function slugify(str: string) {
-  if (!str) {
-    return ''
-  }
-
   const accents: Record<string, string> = {
     'à': 'a', 'á': 'a', 'â': 'a', 'ã': 'a', 'ä': 'a', 'å': 'a',
     'è': 'e', 'é': 'e', 'ê': 'e', 'ë': 'e',
@@ -38,7 +34,6 @@ export function slugify(str: string) {
   return str
     .toLowerCase()
     .replace(/[àáâãäåèéêëìíîïòóôõöøùúûüýÿñç]/g, char => accents[char] || char)
-    .replace(/'/g, '-')
     .replace(/\s+/g, '-')
     .replace(/'/g, '-')
     .replace(/--/g, '-')

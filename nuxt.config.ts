@@ -60,14 +60,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: [
-    '@nuxt/image',
-    '@nuxt/icon',
-    '@nuxt/test-utils/module',
-    '@nuxtjs/seo',
-    'nuxt-posthog',
-    '@nuxtjs/supabase',
-  ],
+  modules: ['@nuxt/image', '@nuxt/icon', '@nuxt/test-utils/module', '@nuxtjs/seo', 'nuxt-posthog', '@nuxtjs/supabase', '@vueuse/nuxt'],
 
   supabase: {
     redirect: false,
@@ -136,7 +129,12 @@ export default defineNuxtConfig({
   },
 
   image: {
-    domains: ['localhost', 'kaamelottgifs.fr', 's3.eu-west-3.amazonaws.com', 'kv1gbucket.s3.eu-west-3.amazonaws.com'],
+    domains: [
+      // 'localhost',
+      'kaamelottgifs.fr',
+      // 's3.eu-west-3.amazonaws.com',
+      'https://kv1gbucket.s3.eu-west-3.amazonaws.com',
+    ],
     dir: 'public',
   },
 

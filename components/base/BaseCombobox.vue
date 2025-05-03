@@ -40,7 +40,6 @@
             v-for="item in filteredItems"
             :key="item.id"
             :value="item"
-            :disabled="isSelected(item)"
             as="template"
             v-slot="{ selected, active }"
           >
@@ -49,7 +48,6 @@
               :class="{
                 'bg-amber-600 text-white': selected || active,
                 'text-gray-900': !selected,
-                'cursor-not-allowed': isSelected(item)
               }"
             >
               <span
@@ -105,7 +103,14 @@ const emit = defineEmits<{
 const query = ref('')
 const selectedItems = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: (value) => {
+    if (isSelected(value[value.length - 1])) {
+      const newValue = props.modelValue.filter(item => item.id !== value[value.length - 1].id)
+      emit('update:modelValue', newValue)
+    } else {
+      emit('update:modelValue', value)
+    }
+  }
 })
 
 const isSelected = (item: Item) => selectedItems.value.some(i => i.id === item.id)
