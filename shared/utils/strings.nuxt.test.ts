@@ -35,7 +35,7 @@ describe('slugify', () => {
   })
 
   test('should handle apostrophes', () => {
-    expect(slugify("l'apostrophe")).toBe('lapostrophe')
+    expect(slugify("l'apostrophe")).toBe('l-apostrophe')
   })
 
   test('should handle multiple hyphens', () => {
@@ -47,7 +47,7 @@ describe('slugify', () => {
   })
 
   test('should handle complex strings', () => {
-    expect(slugify("L'Étranger d'André Gide")).toBe('letranger-dandre-gide')
+    expect(slugify("L'Étranger d'André Gide")).toBe('l-etranger-d-andre-gide')
   })
 
   test('should remove all punctuation', () => {

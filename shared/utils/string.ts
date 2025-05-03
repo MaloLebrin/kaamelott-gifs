@@ -42,6 +42,7 @@ export function slugify(str: string) {
     .toLowerCase()
     .trim()
     .replace(/[àáâãäåèéêëìíîïòóôõöøùúûüýÿñç]/g, char => accents[char] || char)
+    .replace(/'/g, '-')
     .replace(new RegExp(`[^${allowedChars}]`, 'g'), '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
