@@ -23,6 +23,8 @@ const { data: episodes } = await useFetch < {
   title: string
 }[]> ('/api/episodes')
 
+console.log('episodes', episodes.value)
+
 const handleUploadSuccess = () => {
   // Vous pouvez ajouter ici une logique supplémentaire après un upload réussi
   // Par exemple, rediriger vers la page des GIFs ou rafraîchir la liste

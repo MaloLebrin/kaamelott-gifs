@@ -34,12 +34,11 @@
         />
 
         <!-- Épisode -->
-        <BaseInput
-          v-model="formData.episode"
-          label="Épisode"
-          id="episode"
-          placeholder="Entrez l'épisode"
-          required
+        <BaseCombobox
+          v-model="selectedEpisode"
+          :items="episodes"
+          placeholder="Sélectionnez l'épisode"
+          :multiple="false"
         />
       </div>
 
@@ -59,42 +58,50 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { ArrowUpTrayIcon } from '@heroicons/vue/24/outline';
 import { useToast } from '~/composables/useToast';
 import type { GifUpload } from '~/types/Gif';
 import { slugify } from '~/shared/utils/string';
 import FileUpload from './FileUpload.vue';
-import BaseInput from '~/components/base/BaseInput.vue';
 import BaseTextarea from '~/components/base/BaseTextarea.vue';
 import BaseCombobox from '~/components/base/BaseCombobox.vue';
 
 interface Props {
   characters: string[];
-  episodes: {
-    code: string;
-    title: string;
-  }[];
+  episodes: string[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  characters: () =>[],
-  episodes: () =>[]
+  characters: () => [],
+  episodes: () => []
 });
 
 const file = ref<File | null>(null);
 const { success, denied } = useToast();
 
 const characters = props.characters;
+const episodes = props.episodes.map(episode => ({ id: episode, name: episode }));
+
+const selectedEpisode = ref<string| null>();
 
 const formData = ref<GifUpload>({
   quote: '',
   characters: [],
   speakingCharacters: [],
-  episode: '',
+  episode: null,
   filename: '',
   slug: '',
   url: ''
+});
+
+// Mettre à jour formData.episode quand selectedEpisode change
+watch(selectedEpisode, (newValue) => {
+  if (newValue) {
+    formData.value.episode = newValue
+  } else {
+    formData.value.episode = null
+  }
 });
 
 const isFormValid = computed(() => {
@@ -135,7 +142,8 @@ const uploadFile = async () => {
   const backendData = {
     ...formData.value,
     characters: formData.value.characters.map(char => char.name).join(','),
-    characters_speaking: formData.value.speakingCharacters.map(char => char.name).join(',')
+    characters_speaking: formData.value.speakingCharacters.map(char => char.name).join(','),
+    episode: formData.value.episode
   };
 
   uploadData.append('data', JSON.stringify(backendData));
@@ -153,11 +161,12 @@ const uploadFile = async () => {
         quote: '',
         characters: [],
         speakingCharacters: [],
-        episode: '',
+        episode: null,
         filename: '',
         slug: '',
         url: ''
       };
+      selectedEpisode.value = null;
       emit('upload-success');
     } else {
       denied('Erreur lors du téléchargement.');

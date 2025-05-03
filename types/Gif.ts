@@ -21,14 +21,14 @@ export interface Gif extends CommonGif {
 
 export interface GifWithEpisode extends Gif {
   episodeData?: Episode;
-} 
+}
 
 export interface GifUpload {
   file?: File;
   quote: string;
-  characters: { id: number; name: string }[];
-  speakingCharacters: { id: number; name: string }[];
-  episode: string;
+  characters: { id: string; name: string }[];
+  speakingCharacters: { id: string; name: string }[];
+  episode: null | string
   filename: string;
   slug: string;
   url: string;
