@@ -24,10 +24,10 @@ export interface GifWithEpisode extends Gif {
 } 
 
 export interface GifUpload {
-  file: File;
+  file?: File;
   quote: string;
-  characters: string[];
-  characters_speaking?: string[];
+  characters: { id: number; name: string }[];
+  speakingCharacters: { id: number; name: string }[];
   episode: string;
   filename: string;
   slug: string;
