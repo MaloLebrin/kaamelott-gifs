@@ -115,9 +115,9 @@ const filteredItems = computed(() =>
     ? props.items
     : props.items.filter((item) =>
         item.name
-          .toLowerCase()
+          .toLocaleLowerCase()
           .replace(/\s+/gi, '')
-          .includes(query.value.toLowerCase().replace(/\s+/gi, ''))
+          .includes(query.value.toLocaleLowerCase().replace(/\s+/gi, ''))
       )
 )
 

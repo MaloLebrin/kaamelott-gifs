@@ -52,7 +52,10 @@
           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 cursor-pointer"
           :disabled="!file || !isFormValid"
         >
-          <ArrowUpTrayIcon class="h-5 w-5 mr-2" />
+          <template v-if="isLoading">
+            <BaseLoader />
+          </template>
+          <ArrowUpTrayIcon v-else class="h-5 w-5 mr-2" />
           Télécharger
         </button>
       </div>
@@ -68,6 +71,7 @@ import { removeExtensionFile, slugify } from '~/shared/utils/string';
 import FileUpload from './FileUpload.vue';
 import BaseTextarea from '~/components/base/BaseTextarea.vue';
 import BaseCombobox from '~/components/base/BaseCombobox.vue';
+import BaseLoader from '~/components/base/BaseLoader.vue';
 import { transformUrl } from '~/shared/utils/gifs/transformUrl';
 
 interface Props {
@@ -83,6 +87,7 @@ const props = withDefaults(defineProps<Props>(), {
   episodes: () => []
 });
 
+const isLoading = ref(false);
 const file = ref<File | null>(null);
 const { success, denied } = useToast();
 
@@ -136,8 +141,10 @@ const handleFileCleared = () => {
 };
 
 const uploadFile = async () => {
+  isLoading.value = true;
   if (!file.value || !isFormValid.value) {
     denied('Veuillez remplir tous les champs requis.');
+    isLoading.value = false;
     return;
   }
 
@@ -183,6 +190,8 @@ const uploadFile = async () => {
   } catch (error) {
     console.error(error, 'error');
     denied('Erreur lors du téléchargement.');
+  } finally {
+    isLoading.value = false;
   }
 };
 </script> 
