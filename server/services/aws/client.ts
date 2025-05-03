@@ -16,7 +16,7 @@ export const awsClient = new S3Client({
  * @param file - The file to upload
  * @returns The result of the upload
  */
-export async function uploadGifToS3(file: any) {
+export async function uploadGifToS3(file: any, fileName: string) {
   try {
     if (!process.env.AWS_BUCKET_NAME) {
       throw new Error('AWS_BUCKET_NAME is not set')
@@ -28,7 +28,7 @@ export async function uploadGifToS3(file: any) {
   
     const params = {
       Bucket: process.env.AWS_BUCKET_NAME || '',
-      Key: 'gifs',
+      Key: `gifs/${fileName}`,
       ContentType: file.type,
       Body: file.data, 
     }
@@ -36,7 +36,7 @@ export async function uploadGifToS3(file: any) {
     const command = new PutObjectCommand(params)
     return awsClient.send(command)
   } catch (error) {
-    console.error(error)
+    console.error(error, 'error uploadGifToS3')
     throw error
   }
 }

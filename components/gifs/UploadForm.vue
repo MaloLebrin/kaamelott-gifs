@@ -130,8 +130,7 @@ const handleFileSelected = (selectedFile: File) => {
   // Générer le nom de fichier et le slug
 
   const filename = `${selectedFile.name}`;
-  formData.value.filename = filename;
-  formData.value.slug = slugify(removeExtensionFile(filename));
+  formData.value.filename = filename
 };
 
 const handleFileCleared = () => {
