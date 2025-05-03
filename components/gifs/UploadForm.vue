@@ -24,6 +24,7 @@
           v-model="formData.characters"
           :items="characters.map(char => ({ id: char, name: char }))"
           placeholder="Sélectionnez les personnages"
+          label="Personnages"
         />
 
         <!-- Personnages qui parlent -->
@@ -31,6 +32,7 @@
           v-model="formData.speakingCharacters"
           :items="characters.map(char => ({ id: char, name: char }))"
           placeholder="Sélectionnez les personnages qui parlent"
+          label="Personnages qui parlent"
         />
 
         <!-- Épisode -->
@@ -39,6 +41,7 @@
           :items="episodes.map(episode => ({ id: episode.code, name: `${episode.code} - ${episode.title}` }))"
           placeholder="Sélectionnez l'épisode"
           :multiple="false"
+          label="Épisode"
         />
       </div>
 
