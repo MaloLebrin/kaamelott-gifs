@@ -10,57 +10,42 @@
       <!-- Champs du formulaire -->
       <div class="space-y-4">
         <!-- Citation -->
-        <div>
-          <label for="quote" class="block text-sm font-medium text-gray-700">Citation</label>
-          <textarea
-            id="quote"
-            v-model="formData.quote"
-            rows="3"
-            class="mt-1 block w-full px-1.5 py-0.5  rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
-            placeholder="Entrez la citation du GIF"
-            required
-          />
-        </div>
+        <BaseTextarea
+          v-model="formData.quote"
+          label="Citation"
+          id="quote"
+          rows="3"
+          placeholder="Entrez la citation du GIF"
+          required
+        />
 
         <!-- Personnages -->
-        <div>
-          <label for="characters" class="block text-sm font-medium text-gray-700">Personnages</label>
-          <input
-            id="characters"
-            v-model="charactersInput"
-            type="text"
-            class="mt-1 block w-full px-1.5 py-0.5 rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500"
-            placeholder="Entrez les personnages séparés par des virgules"
-            @input="updateCharacters"
-            required
-          />
-        </div>
+        <BaseInput
+          v-model="charactersInput"
+          label="Personnages"
+          id="characters"
+          placeholder="Entrez les personnages séparés par des virgules"
+          required
+          @input="updateCharacters"
+        />
 
         <!-- Personnages qui parlent -->
-        <div>
-          <label for="characters_speaking" class="block text-sm font-medium text-gray-700">Personnages qui parlent</label>
-          <input
-            id="characters_speaking"
-            v-model="charactersSpeakingInput"
-            type="text"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 px-1.5 py-0.5"
-            placeholder="Entrez les personnages qui parlent séparés par des virgules"
-            @input="updateCharactersSpeaking"
-          />
-        </div>
+        <BaseInput
+          v-model="charactersSpeakingInput"
+          label="Personnages qui parlent"
+          id="characters_speaking"
+          placeholder="Entrez les personnages qui parlent séparés par des virgules"
+          @input="updateCharactersSpeaking"
+        />
 
         <!-- Épisode -->
-        <div>
-          <label for="episode" class="block text-sm font-medium text-gray-700">Épisode</label>
-          <input
-            id="episode"
-            v-model="formData.episode"
-            type="text"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 px-1.5 py-0.5"
-            placeholder="Entrez l'épisode"
-            required
-          />
-        </div>
+        <BaseInput
+          v-model="formData.episode"
+          label="Épisode"
+          id="episode"
+          placeholder="Entrez l'épisode"
+          required
+        />
       </div>
 
       <!-- Bouton de soumission -->
@@ -85,6 +70,8 @@ import { useToast } from '~/composables/useToast';
 import type { GifUpload } from '~/types/Gif';
 import { slugify } from '~/shared/utils/string';
 import FileUpload from './FileUpload.vue';
+import BaseInput from '~/components/base/BaseInput.vue';
+import BaseTextarea from '~/components/base/BaseTextarea.vue';
 
 const file = ref<File | null>(null);
 const { success, denied } = useToast();
