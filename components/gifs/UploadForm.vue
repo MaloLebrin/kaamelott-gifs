@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white/90 backdrop-blur-sm rounded-lg shadow-sm p-6">
+  <div class="bg-white/70 backdrop-blur-sm rounded-lg shadow-sm p-6">
     <form @submit.prevent="uploadFile" class="space-y-6">
       <!-- Zone de drop -->
       <div 
