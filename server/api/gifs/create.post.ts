@@ -3,7 +3,7 @@ import { uploadGifToS3 } from '~/server/services/aws/client'
 import { formatCharactersToBack } from '~/shared/utils/gifs/formatCharacters'
 import { transformUrl } from '~/shared/utils/gifs/transformUrl'
 import { validateNewGif } from '~/shared/utils/gifs/validateNewGif'
-import { slugify } from '~/shared/utils/string'
+import { newSlugify } from '~/shared/utils/string'
 import { Entities } from '~/types/Entities'
 import { Gif } from '~/types/Gif'
 
@@ -54,7 +54,7 @@ export default defineEventHandler(async (event) => {
         episode: gifData.episode,
         filename: gifData.filename,
         quote: gifData.quote?.trim(),
-        slug: slugify(gifData.quote?.trim()),
+        slug: newSlugify(gifData.quote?.trim()),
         url: transformUrl({ fileName: gifData.filename }),
       }] as never)
       .select('slug')
