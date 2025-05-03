@@ -61,14 +61,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
 import { ArrowUpTrayIcon } from '@heroicons/vue/24/outline';
 import { useToast } from '~/composables/useToast';
 import type { GifUpload } from '~/types/Gif';
-import { slugify } from '~/shared/utils/string';
+import { removeExtensionFile, slugify } from '~/shared/utils/string';
 import FileUpload from './FileUpload.vue';
 import BaseTextarea from '~/components/base/BaseTextarea.vue';
 import BaseCombobox from '~/components/base/BaseCombobox.vue';
+import { transformUrl } from '~/shared/utils/gifs/transformUrl';
 
 interface Props {
   characters: string[];
@@ -92,7 +92,7 @@ const episodes = props.episodes ?? [];
 const selectedEpisode = ref<{ id: string; name: string }[]>([]);
 
 const formData = ref<GifUpload>({
-  quote: '',
+  quote: 'Pardon mais, si vous fêtez pas ça, je ne sais pas ce que vous fêterez ! ',
   characters: [],
   speakingCharacters: [],
   episode: null,
@@ -120,13 +120,13 @@ const isFormValid = computed(() => {
 const emit = defineEmits(['upload-success']);
 
 const handleFileSelected = (selectedFile: File) => {
-  file.value = selectedFile;
+  file.value = selectedFile
   
   // Générer le nom de fichier et le slug
-  const timestamp = new Date().getTime();
-  const filename = `${timestamp}-${selectedFile.name}`;
+
+  const filename = `${selectedFile.name}`;
   formData.value.filename = filename;
-  formData.value.slug = slugify(filename);
+  formData.value.slug = slugify(removeExtensionFile(filename));
 };
 
 const handleFileCleared = () => {
@@ -149,11 +149,12 @@ const uploadFile = async () => {
     ...formData.value,
     characters: formData.value.characters.map(char => char.name).join(','),
     characters_speaking: formData.value.speakingCharacters.map(char => char.name).join(','),
-    episode: formData.value.episode
+    episode: formData.value.episode,
+    url: transformUrl({ fileName: formData.value.filename })
   };
 
   uploadData.append('data', JSON.stringify(backendData));
-
+  console.info(backendData);
   try {
     const response = await fetch('/api/upload', {
       method: 'POST',

@@ -1,6 +1,6 @@
 // @vitest-environment nuxt
 import { describe, test, expect } from 'vitest'
-import { slugify } from './string'
+import { removeExtensionFile, slugify } from './string'
 
 describe('slugify', () => {
   test('should convert string to lowercase', () => {
@@ -35,3 +35,17 @@ describe('slugify', () => {
     expect(slugify("L'Étranger d'André Gide")).toBe('l-etranger-d-andre-gide')
   })
 }) 
+
+describe('removeExtensionFile', () => {
+  test('should remove the extension of a file', () => {
+    expect(removeExtensionFile('test.gif')).toBe('test');
+  });
+  
+  test('should return an empty string if the file has no extension', () => {
+    expect(removeExtensionFile('test')).toBe('test');
+  });
+  
+  test('should return an empty string if the file is null', () => {
+    expect(removeExtensionFile(null as unknown as string)).toBe('');
+  });
+})  

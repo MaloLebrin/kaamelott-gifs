@@ -23,3 +23,17 @@ export function slugify(str: string) {
     .replace(/'/g, '-')
     .replace(/--/g, '-')
 }
+
+
+/**
+ * remove the extension of a file
+ * @param str - The string to remove the extension
+ * @returns The string without the extension
+ */
+export function removeExtensionFile(str: string) {
+  if (!str) {
+    return '';
+  }
+  const filename = str.split('.')[0];
+  return filename;
+}
