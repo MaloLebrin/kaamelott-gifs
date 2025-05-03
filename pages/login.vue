@@ -14,27 +14,44 @@
         />
         <button
           type="submit"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 cursor-pointer w-full justify-center"
+          :disabled="loading"
+          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 cursor-pointer w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Recevoir le lien magique
+          <BaseLoader v-if="loading" class="mr-2" />
+          <span v-if="!loading">Recevoir le lien magique</span>
+          <span v-else>Envoi...</span>
         </button>
       </form>
+      <div v-if="error" class="mt-4 text-red-600 text-sm">{{ error }}</div>
+      <div v-if="success" class="mt-4 text-green-700 text-sm">Lien envoyé ! Vérifiez votre boîte mail (ou vos spams, on ne sait jamais avec Merlin).</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import BaseInput from '~/components/base/BaseInput.vue'
+import BaseLoader from '~/components/base/BaseLoader.vue'
 const supabase = useSupabaseClient()
 const email = ref('')
+const loading = ref(false)
+const error = ref('')
+const success = ref(false)
 
 const signInWithOtp = async () => {
-  const { error } = await supabase.auth.signInWithOtp({
+  error.value = ''
+  success.value = false
+  loading.value = true
+  const { error: supaError } = await supabase.auth.signInWithOtp({
     email: email.value,
     options: {
       emailRedirectTo: 'http://localhost:3000/confirm',
     }
   })
-  if (error) console.log(error)
+  loading.value = false
+  if (supaError) {
+    error.value = supaError.message || 'Erreur inconnue, même Merlin ne comprend pas.'
+  } else {
+    success.value = true
+  }
 }
 </script>
