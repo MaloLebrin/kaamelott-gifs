@@ -9,6 +9,15 @@
     </div>
   </div>
   <img
+    v-else-if="error"
+    src="/fondKBg.webp"
+    alt="Image"
+    :width="width"
+    :height="height"
+    :loading="loading"
+    :class="className"
+  >
+  <img
     v-else
     :src="src"
     :alt="alt"
@@ -50,5 +59,5 @@ const props = withDefaults(defineProps<Props>(), {
   alt: 'Image'
 })
 
-const { isLoading } = useImage({ src: props.src })
+const { isLoading, error } = useImage({ src: props.src })
 </script>
