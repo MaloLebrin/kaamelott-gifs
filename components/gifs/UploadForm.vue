@@ -14,28 +14,23 @@
           v-model="formData.quote"
           label="Citation"
           id="quote"
-          rows="3"
+          :rows="3"
           placeholder="Entrez la citation du GIF"
           required
         />
 
         <!-- Personnages -->
-        <BaseInput
-          v-model="charactersInput"
-          label="Personnages"
-          id="characters"
-          placeholder="Entrez les personnages séparés par des virgules"
-          required
-          @input="updateCharacters"
+        <BaseCombobox
+          v-model="formData.characters"
+          :items="characters"
+          placeholder="Sélectionnez les personnages"
         />
 
         <!-- Personnages qui parlent -->
-        <BaseInput
-          v-model="charactersSpeakingInput"
-          label="Personnages qui parlent"
-          id="characters_speaking"
-          placeholder="Entrez les personnages qui parlent séparés par des virgules"
-          @input="updateCharactersSpeaking"
+        <BaseCombobox
+          v-model="formData.speakingCharacters"
+          :items="characters"
+          placeholder="Sélectionnez les personnages qui parlent"
         />
 
         <!-- Épisode -->
@@ -72,17 +67,23 @@ import { slugify } from '~/shared/utils/string';
 import FileUpload from './FileUpload.vue';
 import BaseInput from '~/components/base/BaseInput.vue';
 import BaseTextarea from '~/components/base/BaseTextarea.vue';
+import BaseCombobox from '~/components/base/BaseCombobox.vue';
+
+interface Props {
+  characters: string[];
+}
+
+const props = defineProps<Props>();
 
 const file = ref<File | null>(null);
 const { success, denied } = useToast();
 
-const charactersInput = ref('');
-const charactersSpeakingInput = ref('');
+const characters = props.characters;
 
-const formData = ref<Partial<GifUpload>>({
+const formData = ref<GifUpload>({
   quote: '',
   characters: [],
-  characters_speaking: [],
+  speakingCharacters: [],
   episode: '',
   filename: '',
   slug: '',
@@ -92,25 +93,11 @@ const formData = ref<Partial<GifUpload>>({
 const isFormValid = computed(() => {
   return file.value && 
          formData.value.quote && 
-         (formData.value.characters?.length ?? 0) > 0 && 
+         formData.value.characters.length > 0 && 
          formData.value.episode;
 });
 
 const emit = defineEmits(['upload-success']);
-
-const updateCharacters = () => {
-  formData.value.characters = charactersInput.value
-    .split(',')
-    .map(char => char.trim())
-    .filter(char => char.length > 0);
-};
-
-const updateCharactersSpeaking = () => {
-  formData.value.characters_speaking = charactersSpeakingInput.value
-    .split(',')
-    .map(char => char.trim())
-    .filter(char => char.length > 0);
-};
 
 const handleFileSelected = (selectedFile: File) => {
   file.value = selectedFile;
@@ -136,7 +123,15 @@ const uploadFile = async () => {
 
   const uploadData = new FormData();
   uploadData.append('file', file.value);
-  uploadData.append('data', JSON.stringify(formData.value));
+
+  // Transformer les données pour le format attendu par le backend
+  const backendData = {
+    ...formData.value,
+    characters: formData.value.characters.map(char => char.name).join(','),
+    characters_speaking: formData.value.speakingCharacters.map(char => char.name).join(',')
+  };
+
+  uploadData.append('data', JSON.stringify(backendData));
 
   try {
     const response = await fetch('/api/upload', {
@@ -150,14 +145,12 @@ const uploadFile = async () => {
       formData.value = {
         quote: '',
         characters: [],
-        characters_speaking: [],
+        speakingCharacters: [],
         episode: '',
         filename: '',
         slug: '',
         url: ''
       };
-      charactersInput.value = '';
-      charactersSpeakingInput.value = '';
       emit('upload-success');
     } else {
       denied('Erreur lors du téléchargement.');
