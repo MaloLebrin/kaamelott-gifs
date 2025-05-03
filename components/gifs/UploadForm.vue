@@ -154,9 +154,8 @@ const uploadFile = async () => {
   };
 
   uploadData.append('data', JSON.stringify(backendData));
-  console.info(backendData);
   try {
-    const response = await fetch('/api/upload', {
+    const response = await fetch('/api/gifs/create', {
       method: 'POST',
       body: uploadData,
     });
@@ -164,21 +163,25 @@ const uploadFile = async () => {
     if (response.ok) {
       success('GIF téléchargé avec succès !');
       file.value = null;
-      formData.value = {
-        quote: '',
-        characters: [],
-        speakingCharacters: [],
-        episode: null,
-        filename: '',
-        slug: '',
-        url: ''
-      };
+      // formData.value = {
+      //   quote: '',
+      //   characters: [],
+      //   speakingCharacters: [],
+      //   episode: null,
+      //   filename: '',
+      //   slug: '',
+      //   url: ''
+      // };
       selectedEpisode.value = [];
+
+      const { slug } = await response.json()
+      navigateTo(`/gifs/${slug}`)
       emit('upload-success');
     } else {
       denied('Erreur lors du téléchargement.');
     }
   } catch (error) {
+    console.error(error, 'error');
     denied('Erreur lors du téléchargement.');
   }
 };
