@@ -36,10 +36,15 @@ const email = ref('')
 const loading = ref(false)
 const error = ref('')
 const success = ref(false)
+let successTimeout: ReturnType<typeof setTimeout> | null = null
 
 const signInWithOtp = async () => {
   error.value = ''
   success.value = false
+  if (successTimeout) {
+    clearTimeout(successTimeout)
+    successTimeout = null
+  }
   loading.value = true
   const { error: supaError } = await supabase.auth.signInWithOtp({
     email: email.value,
@@ -52,6 +57,10 @@ const signInWithOtp = async () => {
     error.value = supaError.message || 'Erreur inconnue, même Merlin ne comprend pas.'
   } else {
     success.value = true
+    successTimeout = setTimeout(() => {
+      success.value = false
+      successTimeout = null
+    }, 5000)
   }
 }
 </script>
