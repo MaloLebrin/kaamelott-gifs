@@ -14,6 +14,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: 'auth'
+})
+
 import UploadForm from '~/components/gifs/UploadForm.vue';
 
 const { data: characters, pending: charactersPending } = await useFetch < {
