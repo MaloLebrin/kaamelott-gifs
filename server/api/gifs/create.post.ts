@@ -1,6 +1,7 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
 import { uploadGifToS3 } from '~/server/services/aws/client'
 import { formatCharactersToBack } from '~/shared/utils/gifs/formatCharacters'
+import { formatEpisode } from '~/shared/utils/gifs/formatEpisode'
 import { transformUrl } from '~/shared/utils/gifs/transformUrl'
 import { validateNewGif } from '~/shared/utils/gifs/validateNewGif'
 import { newSlugify } from '~/shared/utils/string'
@@ -44,6 +45,8 @@ export default defineEventHandler(async (event) => {
     const { gifFile, gifData } = validateNewGif(formData)
   
     await uploadGifToS3(gifFile, gifData.filename)
+
+    const episode = formatEpisode(gifData.episode)
   
     const { data, error } = await client
       .from(Entities.GIF)
@@ -51,7 +54,7 @@ export default defineEventHandler(async (event) => {
         userId: user.id,
         characters: formatCharactersToBack(gifData.characters),
         characters_speaking: formatCharactersToBack(gifData.characters_speaking),
-        episode: gifData.episode,
+        episode: episode?.toLowerCase(),
         filename: gifData.filename,
         quote: gifData.quote?.trim(),
         slug: newSlugify(gifData.quote?.trim()),

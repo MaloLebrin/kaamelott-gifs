@@ -1,9 +1,11 @@
+import type { EpisodeCode } from '~/types'
+
 /**
  * Get the livre from the code
  * @param code - The code of the episode
  * @returns The livre of the episode
  */
-export function getLivreFromCode(code: string) {
+export function getLivreFromCode(code: EpisodeCode) {
   if (!code) {
     return null
   }
@@ -18,7 +20,7 @@ export function getLivreFromCode(code: string) {
  * @param episode - The episode to get the id from
  * @returns The episode id
  */
-export function getEpisodeId<T extends { code: string }>(episode: T): string {
+export function getEpisodeId<T extends { code: EpisodeCode }>(episode: T): string {
   if (!episode.code) {
     throw new Error('Episode code is required')
   }

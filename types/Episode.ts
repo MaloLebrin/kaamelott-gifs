@@ -6,3 +6,5 @@ export interface Episode {
   resume: string | null
   createdAt: string
 }
+
+export type EpisodeCode = `S${string}E${string}`
