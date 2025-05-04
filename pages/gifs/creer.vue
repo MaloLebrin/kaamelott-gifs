@@ -1,16 +1,16 @@
 <template>
-  <div class="max-w-2xl mx-auto py-4 min-h-screen">
-    <h1 class="text-3xl font-bold text-gray-900 mb-8">Télécharger un GIF</h1>
-    <UploadForm
-      v-if="characters && episodes && characters.length > 0 && episodes.length > 0 && !isLoading"
-      @upload-success="handleUploadSuccess"
-      :characters="characters?.map(char => char.name) ?? []"
-      :episodes="episodes ?? []"
-    />
-    <div v-else>
-      <p>Chargement des personnages et des épisodes...</p>
-    </div>
+<div class="max-w-2xl mx-auto py-4 min-h-screen">
+  <h1 class="text-3xl font-bold text-gray-900 mb-8">Télécharger un GIF</h1>
+  <UploadForm
+    v-if="characters && episodes && characters.length > 0 && episodes.length > 0 && !isLoading"
+    :characters="characters?.map(char => char.name) ?? []"
+    :episodes="episodes ?? []"
+    @upload-success="handleUploadSuccess"
+  />
+  <div v-else>
+    <p>Chargement des personnages et des épisodes...</p>
   </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -34,8 +34,6 @@ const { data: episodes, pending: episodesPending } = await useFetch < {
 const isLoading = computed(() => {
   return charactersPending.value || episodesPending.value
 })
-
-console.log('episodes', episodes.value)
 
 const handleUploadSuccess = () => {
   // Vous pouvez ajouter ici une logique supplémentaire après un upload réussi

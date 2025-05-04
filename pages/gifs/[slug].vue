@@ -1,17 +1,22 @@
 <template>
-  <div
-    v-if="gif"
-    class="container mx-auto px-4 pt-2"
-  >
-    <h1 class="sr-only">{{ gif.quote }}</h1>
-    <div class=" rounded-lg bg-white">
-      <img :src="gif.url" :alt="gif.quote" class="w-full h-full object-cover rounded-lg" />
-      <div class="p-4">
-        <ShareButtons :gif-url="gif.url" :quote="gif.quote" />
-      </div>
+<div
+  v-if="gif"
+  class="container mx-auto px-4 pt-2"
+>
+  <h1 class="sr-only">{{ gif.quote }}</h1>
+  <div class=" rounded-lg bg-white">
+    <img
+      :src="gif.url"
+      :alt="gif.quote"
+      class="w-full h-full object-cover rounded-lg" >
+    <div class="p-4">
+      <ShareButtons
+        :gif-url="gif.url"
+        :quote="gif.quote" />
     </div>
-    <Breadcrumbs :items="breadcrumbItems" />
   </div>
+  <Breadcrumbs :items="breadcrumbItems" />
+</div>
 </template>
 
 <script setup lang="ts">

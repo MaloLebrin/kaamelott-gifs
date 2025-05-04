@@ -1,54 +1,62 @@
 <template>
-  <div class="container mx-auto px-4 py-8 space-y-2">
-    <Breadcrumbs :items="breadcrumbItems" />
-    <div v-if="seasonData" class="my-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
-      <h1 class="text-4xl font-bold mb-4">{{ seasonData.season.title }}</h1>
-      <p class="text-gray-600 dark:text-gray-500 mb-2">{{ seasonData.season.airDate }}</p>
-      <div class="flex items-center text-sm text-gray-500 dark:text-gray-200  mb-4">
-        <span class="mr-4">{{ seasonData.season.episodesCount }} épisodes</span>
-        <span>{{ seasonData.season.duration }}</span>
-      </div>
-      <p class="text-gray-700 dark:text-gray-200">{{ seasonData.season.resume }}</p>
-      <details class="sr-only">
-        <a
-          :href="seasonData.season.wikipediaLink"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Voir plus de détails
-        </a>
-      </details>
+<div class="container mx-auto px-4 py-8 space-y-2">
+  <Breadcrumbs :items="breadcrumbItems" />
+  <div
+    v-if="seasonData"
+    class="my-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
+    <h1 class="text-4xl font-bold mb-4">{{ seasonData.season.title }}</h1>
+    <p class="text-gray-600 dark:text-gray-500 mb-2">{{ seasonData.season.airDate }}</p>
+    <div class="flex items-center text-sm text-gray-500 dark:text-gray-200  mb-4">
+      <span class="mr-4">{{ seasonData.season.episodesCount }} épisodes</span>
+      <span>{{ seasonData.season.duration }}</span>
     </div>
-
-    <template v-if="seasonData && seasonData.gifs.length > 0">
-      <div class="mt-8">
-        <GifGrid :gifs="paginatedGifs" />
-        
-        <!-- Pagination -->
-        <div v-if="totalPages > 1" class="mt-8 flex justify-center">
-          <Pagination 
-            :current-page="currentPage" 
-            :total-pages="totalPages" 
-            @page-change="handlePageChange" 
-          />
-        </div>
-      </div>
-    </template>
-
-    <div v-else class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
-      <p class="text-gray-500">Aucun GIF disponible pour cette saison.</p>
-    </div>
-
-    <div v-if="seasonData && seasonData.episodes.length > 0">
-      <h2 class="text-2xl font-bold mb-4">Episodes</h2>
-      <EpisodeGrid :episodes="seasonData.episodes" />
-    </div>
-
-    <div v-if="seasonData && seasonData.otherSeasons.length > 0">
-      <h2 class="text-2xl font-bold mb-4">Autres saisons</h2>
-      <LivreGrid v-if="seasonData.otherSeasons" :seasons="seasonData.otherSeasons" />
-    </div>
+    <p class="text-gray-700 dark:text-gray-200">{{ seasonData.season.resume }}</p>
+    <details class="sr-only">
+      <a
+        :href="seasonData.season.wikipediaLink"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Voir plus de détails
+      </a>
+    </details>
   </div>
+
+  <template v-if="seasonData && seasonData.gifs.length > 0">
+    <div class="mt-8">
+      <GifGrid :gifs="paginatedGifs" />
+        
+      <!-- Pagination -->
+      <div
+        v-if="totalPages > 1"
+        class="mt-8 flex justify-center">
+        <Pagination 
+          :current-page="currentPage" 
+          :total-pages="totalPages" 
+          @page-change="handlePageChange" 
+        />
+      </div>
+    </div>
+  </template>
+
+  <div
+    v-else
+    class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
+    <p class="text-gray-500">Aucun GIF disponible pour cette saison.</p>
+  </div>
+
+  <div v-if="seasonData && seasonData.episodes.length > 0">
+    <h2 class="text-2xl font-bold mb-4">Episodes</h2>
+    <EpisodeGrid :episodes="seasonData.episodes" />
+  </div>
+
+  <div v-if="seasonData && seasonData.otherSeasons.length > 0">
+    <h2 class="text-2xl font-bold mb-4">Autres saisons</h2>
+    <LivreGrid
+      v-if="seasonData.otherSeasons"
+      :seasons="seasonData.otherSeasons" />
+  </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -95,15 +103,15 @@ onMounted(() => {
 
 // Données pour les breadcrumbs
 const breadcrumbItems = computed(() => [
-    {
-      label: 'Livres',
-      to: '/livres'
-    },
-    {
-      label: seasonData.value?.season.title || '',
-      to: `/livres/${seasonData.value?.season.slug}`
-    }
-  ])
+  {
+    label: 'Livres',
+    to: '/livres'
+  },
+  {
+    label: seasonData.value?.season.title || '',
+    to: `/livres/${seasonData.value?.season.slug}`
+  }
+])
 
 const structuredData = computed(() => {
   if (seasonData.value) {

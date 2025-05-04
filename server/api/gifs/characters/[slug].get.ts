@@ -4,7 +4,7 @@ import { Entities } from '~/types'
 import { slugify } from '~/shared/utils/string'
 import { characters } from '~/server/data/characters' 
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string
 
   if (!slug) {
@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const character = characters.find((character) => slugify(character.personnage) === slug)
+  const character = characters.find(character => slugify(character.personnage) === slug)
   const name = character?.personnage || slug
 
   const client = await serverSupabaseClient(event)

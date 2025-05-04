@@ -5,7 +5,10 @@
     items.length > 1 && 'overflow-x-scroll space-x-1.5',
   ]"
 >
-  <li v-for="(item, index) in items" :key="index" class="flex-shrink-0">
+  <li
+    v-for="(item, index) in items"
+    :key="index"
+    class="flex-shrink-0">
     <slot :item="item" />
   </li>
 </ul>

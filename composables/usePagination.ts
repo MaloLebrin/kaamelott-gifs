@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ref, computed, watch } from 'vue'
 import { useRouter, useRoute } from '#app'
 
-interface UsePaginationOptions {
-  items: any[]
+interface UsePaginationOptions<T> {
+  items: T[]
   itemsPerPage?: number
   searchField?: string
   characterField?: string
 }
 
-export function usePagination(options: UsePaginationOptions) {
+export function usePagination<T>(options: UsePaginationOptions<T>) {
   const router = useRouter()
   const route = useRoute()
   
@@ -37,10 +38,11 @@ export function usePagination(options: UsePaginationOptions) {
   const filteredItems = computed(() => {
     return items.filter(item => {
       const matchesSearch = !searchQuery.value || 
-        String(item[searchField]).toLowerCase().includes(searchQuery.value.toLowerCase())
+        String((item as Record<string, any>)[searchField]).toLowerCase().includes(searchQuery.value.toLowerCase())
       
       const matchesCharacter = selectedCharacter.value === '' || 
-        (item[characterField] && item[characterField].includes(selectedCharacter.value))
+        ((item as Record<string, any>)[characterField] && 
+        (item as Record<string, any>)[characterField].includes(selectedCharacter.value))
 
       return matchesSearch && matchesCharacter
     })
@@ -87,7 +89,7 @@ export function usePagination(options: UsePaginationOptions) {
   }
 
   // Watch for URL changes
-  watch(() => route.query, (newQuery) => {
+  watch(() => route.query, newQuery => {
     if (newQuery.page) {
       currentPage.value = Number(newQuery.page)
     } else {

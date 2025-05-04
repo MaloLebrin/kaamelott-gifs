@@ -1,31 +1,40 @@
 <template>
-  <div class="flex-1">
-    <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
+<div class="flex-1">
+  <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
 
-    <section aria-labelledby="search-heading">
-      <h2 id="search-heading" class="sr-only">Recherche de GIFs</h2>
-      <SearchBar 
-        :characters="charactersData || []" 
-        :initial-query="searchQuery" 
-        :initial-character="selectedCharacter"
-        @search="handleSearch" 
-      />
-    </section>
+  <section aria-labelledby="search-heading">
+    <h2
+      id="search-heading"
+      class="sr-only">Recherche de GIFs</h2>
+    <SearchBar 
+      :characters="charactersData || []" 
+      :initial-query="searchQuery" 
+      :initial-character="selectedCharacter"
+      @search="handleSearch" 
+    />
+  </section>
     
-    <section aria-labelledby="gifs-heading" class="mt-8">
-      <h2 id="gifs-heading" class="sr-only">Gifs de Kaamelott</h2>
-      <GifGrid :gifs="paginatedGifs" />
+  <section
+    aria-labelledby="gifs-heading"
+    class="mt-8">
+    <h2
+      id="gifs-heading"
+      class="sr-only">Gifs de Kaamelott</h2>
+    <GifGrid :gifs="paginatedGifs" />
       
-      <!-- Pagination -->
-      <nav v-if="totalPages > 1" class="mt-8 flex justify-center" aria-label="Navigation des pages">
-        <Pagination 
-          :current-page="currentPage" 
-          :total-pages="totalPages" 
-          @page-change="handlePageChange" 
-        />
-      </nav>
-    </section>
-  </div>
+    <!-- Pagination -->
+    <nav
+      v-if="totalPages > 1"
+      class="mt-8 flex justify-center"
+      aria-label="Navigation des pages">
+      <Pagination 
+        :current-page="currentPage" 
+        :total-pages="totalPages" 
+        @page-change="handlePageChange" 
+      />
+    </nav>
+  </section>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -88,7 +97,7 @@ const handlePageChange = (page: number) => {
 }
 
 // Réagir aux changements d'URL
-watch(() => route.query, (newQuery) => {
+watch(() => route.query, newQuery => {
   searchQuery.value = newQuery.q?.toString() || ''
   selectedCharacter.value = newQuery.character?.toString() || ''
   currentPage.value = Number(newQuery.page) || 1

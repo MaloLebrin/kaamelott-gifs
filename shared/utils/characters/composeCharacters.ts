@@ -15,14 +15,14 @@ export function composeCharacters(
   // Créer un Set pour avoir des personnages uniques
   const characters = new Set<string>()
   
-  objects.forEach((gif) => {
+  objects.forEach(gif => {
     // Ajouter les personnages
-    formatCharactersToFront(gif.characters).forEach((character) => {
+    formatCharactersToFront(gif.characters).forEach(character => {
       characters.add(character)
     })
     
     // Ajouter les personnages qui parlent
-    formatCharactersToFront(gif.characters_speaking).forEach((character) => {
+    formatCharactersToFront(gif.characters_speaking).forEach(character => {
       characters.add(character)
     })
   })

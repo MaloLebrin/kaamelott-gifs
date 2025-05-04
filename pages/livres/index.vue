@@ -1,9 +1,11 @@
 <template>
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold mb-8 text-center">Les Livres de Kaamelott</h1>
-    <Breadcrumbs :items="breadcrumbItems" />
-    <LivreGrid v-if="seasons" :seasons="seasons" />
-  </div>
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold mb-8 text-center">Les Livres de Kaamelott</h1>
+  <Breadcrumbs :items="breadcrumbItems" />
+  <LivreGrid
+    v-if="seasons"
+    :seasons="seasons" />
+</div>
 </template>
 
 <script setup lang="ts">

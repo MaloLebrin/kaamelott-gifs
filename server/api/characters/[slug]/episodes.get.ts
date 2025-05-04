@@ -1,7 +1,7 @@
 import { serverSupabaseClient } from '#supabase/server'
 import { Entities } from '~/types'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string
   const client = await serverSupabaseClient(event)
 

@@ -1,7 +1,6 @@
 <template>
 <div class="relative group">
   <button
-    @click="handleCharacterSelect"
     class="flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 relative group/btn focus:outline-none "
     :class="{
       'bg-gradient-to-r from-blue-300 to-blue-900 text-white shadow-lg shadow-blue-500/25 scale-105': isSelected,
@@ -9,6 +8,7 @@
     }"
     :aria-pressed="isSelected"
     :aria-label="`Filtrer par ${character.name}`"
+    @click="handleCharacterSelect"
   >
     <div class="relative">
       <img
@@ -19,7 +19,7 @@
           'ring-2 ring-white ring-offset-2 ring-offset-blue-500': isSelected,
           'group-hover/btn:scale-110': !isSelected
         }"
-      />
+      >
     </div>
     <span class="font-medium">{{ character.name }}</span>
   </button>

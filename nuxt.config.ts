@@ -60,7 +60,16 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/image', '@nuxt/icon', '@nuxt/test-utils/module', '@nuxtjs/seo', 'nuxt-posthog', '@nuxtjs/supabase', '@vueuse/nuxt'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/icon',
+    '@nuxt/test-utils/module',
+    '@nuxtjs/seo',
+    'nuxt-posthog',
+    '@nuxtjs/supabase',
+    '@vueuse/nuxt',
+    '@nuxt/eslint',
+  ],
 
   supabase: {
     redirect: false,
