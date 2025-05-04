@@ -7,6 +7,12 @@
   >
     <div
       class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img
+        v-if="episode.imgUrl"
+        :src="episode.imgUrl"
+        :alt="episode.title"
+        class="w-full h-48 object-cover"
+      />
       <div class="p-6 space-y-2">
         <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
           {{ episode.title }}
@@ -31,7 +37,10 @@
 <script setup lang="ts">
 import type { Episode } from '~/types/Episode';
 
-defineProps<{
+withDefaults(defineProps<{
   episode: Episode
-}>()
+  type: 'episode' | 'movie'
+}>(), {
+  type: 'episode'
+})
 </script>

@@ -4,6 +4,7 @@
       v-for="episode in episodes"
       :key="episode.code"
       :episode="episode"
+      :type="type"
     />
   </div>
 </template>
@@ -14,7 +15,9 @@ import type { Episode } from '~/types/Episode';
 
 withDefaults(defineProps<{
   episodes: Episode[]
+  type?: 'episode' | 'movie'
 }>(), {
-  episodes: () =>[]
+  episodes: () =>[],
+  type: 'episode'
 })
 </script>
