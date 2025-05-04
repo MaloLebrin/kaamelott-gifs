@@ -16,6 +16,7 @@ export const awsClient = new S3Client({
  * @param file - The file to upload
  * @returns The result of the upload
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function uploadGifToS3(file: any, fileName: string) {
   try {
     if (!process.env.AWS_S3_BUCKET_NAME) {

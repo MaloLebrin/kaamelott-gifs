@@ -28,8 +28,9 @@ withDefaults(defineProps<{
   type: 'text',
   id: '',
   placeholder: '',
-  required: false
-});
+  required: false,
+  label: undefined
+})
 
 defineEmits<{
   (e: 'update:modelValue', value: string): void;

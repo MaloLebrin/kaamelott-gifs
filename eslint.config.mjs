@@ -15,7 +15,8 @@ export default withNuxt({
       multiline: {
         max: 1
       }
-    }]
+    }],
+    "vue/no-required-prop-with-default": "off",
   }
 }).override('nuxt/typescript/rules', {
   rules: {
@@ -47,7 +48,7 @@ export default withNuxt({
     "vue/no-template-shadow": "off",
     "vue/v-on-event-hyphenation": "off",
     "vue/return-in-computed-property": "off",
-
+    "vue/no-required-prop-with-default": "off",
     "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd"] }],
     "curly": [0, "all"],
     "brace-style": [0, "stroustrup", { "allowSingleLine": false }],

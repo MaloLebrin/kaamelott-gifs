@@ -100,6 +100,7 @@ const props = withDefaults(defineProps<{
   label?: string
 }>(), {
   placeholder: 'Sélectionnez des éléments...',
+  label: undefined
 })
 
 const emit = defineEmits<{

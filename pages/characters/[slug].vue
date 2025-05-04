@@ -141,6 +141,7 @@ const structuredData = computed(() => {
       seasons: []
     }))
   }
+  return null
 })
 
 useHead({

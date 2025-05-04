@@ -40,7 +40,7 @@ interface Props {
   className?: string
   placeholder?: string
   quality?: number
-  format?: 'webp' | 'jpg' | 'png' | 'gif'
+  format: 'webp' | 'jpg' | 'png' | 'gif'
   fit?: 'cover' | 'contain' | 'fill' | 'inside' | 'outside'
   position?: string
   background?: string

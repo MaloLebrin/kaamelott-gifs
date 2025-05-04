@@ -16,6 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (e: 'pageChange', page: number): void
+  // eslint-disable-next-line @typescript-eslint/unified-signatures
   (e: 'update:currentPage', page: number): void
 }>()
 

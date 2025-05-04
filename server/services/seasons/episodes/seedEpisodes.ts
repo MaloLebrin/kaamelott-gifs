@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { episodes } from "~/server/data/episodes";
 import type { Episode } from "~/types";
 import { Entities } from "~/types";
@@ -13,7 +14,6 @@ export const seedEpisodes = async (client: any) => {
     const characters = [
       ...new Set(episode.characters?.split(',') || []),
     ].join(',')
-    console.info(episode.code, 'episode.code')
 
     return {
       code: episode.code,
@@ -21,6 +21,9 @@ export const seedEpisodes = async (client: any) => {
       characters: characters,
       resume: episode.resume,
       slug: slugify(`${episode.code}-${episode.title}`),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      imgUrl: episode.imgUrl || null,
     }
   })
   const { data, error } = await client.from(Entities.EPISODE).insert(episodesData)

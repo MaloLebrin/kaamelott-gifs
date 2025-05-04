@@ -28,7 +28,8 @@ withDefaults(defineProps<{
   rows: 3,
   id: '',
   placeholder: '',
-  required: false
+  required: false,
+  label: undefined,
 });
 
 defineEmits<{
