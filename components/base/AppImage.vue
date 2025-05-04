@@ -1,31 +1,31 @@
 <template>
-  <div
-    v-if="isLoading"
-    class="relative w-full h-full bg-gray-100 dark:bg-gray-800"
-    :class="className"
-  >
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-    </div>
+<div
+  v-if="isLoading"
+  class="relative w-full h-full bg-gray-100 dark:bg-gray-800"
+  :class="className"
+>
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"/>
   </div>
-  <img
-    v-else-if="error"
-    src="/fondKBg.webp"
-    alt="Image"
-    :width="width"
-    :height="height"
-    :loading="loading"
-    :class="className"
-  >
-  <img
-    v-else
-    :src="src"
-    :alt="alt"
-    :width="width"
-    :height="height"
-    :loading="loading"
-    :class="className"
-  >
+</div>
+<img
+  v-else-if="error"
+  src="/fondKBg.webp"
+  alt="Image"
+  :width="width"
+  :height="height"
+  :loading="loading"
+  :class="className"
+>
+<img
+  v-else
+  :src="src"
+  :alt="alt"
+  :width="width"
+  :height="height"
+  :loading="loading"
+  :class="className"
+>
 </template>
 
 <script setup lang="ts">

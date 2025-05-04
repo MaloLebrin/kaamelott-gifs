@@ -1,81 +1,89 @@
 <template>
-  <div class="flex-1">
-    <div v-if="data && data.character.name" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
-      <Breadcrumbs :items="breadcrumbItems" />
-      <!-- En-tête du personnage -->
-      <div class="flex items-center gap-6 mb-8">
-        <img
-          :src="imageError ? '/characters/character-placeholder.webp' : `/characters/${slugify(data?.character.name)}.jpg`"
-          :alt="data?.character.name"
-          class="w-24 h-24 rounded-full object-cover ring-4 ring-blue-500 ring-offset-4"
-          @error="imageError = true"
-        />
-        <div>
-          <h1 class="text-4xl font-bold text-gray-900">{{ data?.character.name }}</h1>
-          <p class="text-lg text-gray-600 mt-2">{{ data?.gifs.length || 0 }} GIFs</p>
-        </div>
-      </div>
-
-      <section v-if="episodes && episodes.length > 0" class="space-y-4 md:hidden">
-        <h2 class="text-2xl font-bold text-gray-900">Épisodes ({{ episodes.length }})</h2>
-
-        <BaseSlider :items="episodes">
-          <template #default="{ item }">
-            <NuxtLink
-              :to="`/episodes/${item.slug}`"
-              prefetch
-            >
-              <BaseTag :label="`${item.code} - ${item.title}`" />
-            </NuxtLink>
-          </template>
-        </BaseSlider>
-      </section>
-
-      <!-- Grille de GIFs -->
-      <GifPagination 
-        v-if="data?.gifs && data.gifs.length > 0"
-        :gifs="data.gifs"
+<div class="flex-1">
+  <div
+    v-if="data && data.character.name"
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
+    <Breadcrumbs :items="breadcrumbItems" />
+    <!-- En-tête du personnage -->
+    <div class="flex items-center gap-6 mb-8">
+      <img
+        :src="imageError ? '/characters/character-placeholder.webp' : `/characters/${slugify(data?.character.name)}.jpg`"
+        :alt="data?.character.name"
+        class="w-24 h-24 rounded-full object-cover ring-4 ring-blue-500 ring-offset-4"
+        @error="imageError = true"
       >
-        <template #default="{ paginatedGifs }">
-          <GifGrid :gifs="paginatedGifs" />
-        </template>
-      </GifPagination>
-
-      <!-- Message si aucun GIF -->
-      <div v-else class="text-center py-12">
-        <p class="text-xl text-gray-600">Aucun GIF trouvé pour ce personnage.</p>
+      <div>
+        <h1 class="text-4xl font-bold text-gray-900">{{ data?.character.name }}</h1>
+        <p class="text-lg text-gray-600 mt-2">{{ data?.gifs.length || 0 }} GIFs</p>
       </div>
     </div>
 
-    <section v-if="episodes && episodes.length > 0" class="space-y-4 md:block hidden">
+    <section
+      v-if="episodes && episodes.length > 0"
+      class="space-y-4 md:hidden">
       <h2 class="text-2xl font-bold text-gray-900">Épisodes ({{ episodes.length }})</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <NuxtLink
-          v-for="episode in episodes"
-          :key="episode.slug"
-          :to="`/episodes/${episode.slug}`"
-          class="group"
-          prefetch
-        >
-          <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
-            <div class="p-4">
-              <div class="flex items-end space-x-2">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
-                  {{ episode.code }}
-                </h3>
-                <span class="text-gray-500 dark:text-gray-400 text-xs pb-1">
-                  {{ getTomeFromCode(Number(getLivreFromCode(episode.code))) }}
-                </span>
-              </div>
-              <p class="text-gray-700 dark:text-gray-300 line-clamp-2 mt-1">
-                {{ episode.title }}
-              </p>
-            </div>
-          </div>
-        </NuxtLink>
-      </div>
+
+      <BaseSlider :items="episodes">
+        <template #default="{ item }">
+          <NuxtLink
+            :to="`/episodes/${item.slug}`"
+            prefetch
+          >
+            <BaseTag :label="`${item.code} - ${item.title}`" />
+          </NuxtLink>
+        </template>
+      </BaseSlider>
     </section>
+
+    <!-- Grille de GIFs -->
+    <GifPagination 
+      v-if="data?.gifs && data.gifs.length > 0"
+      :gifs="data.gifs"
+    >
+      <template #default="{ paginatedGifs }">
+        <GifGrid :gifs="paginatedGifs" />
+      </template>
+    </GifPagination>
+
+    <!-- Message si aucun GIF -->
+    <div
+      v-else
+      class="text-center py-12">
+      <p class="text-xl text-gray-600">Aucun GIF trouvé pour ce personnage.</p>
+    </div>
   </div>
+
+  <section
+    v-if="episodes && episodes.length > 0"
+    class="space-y-4 md:block hidden">
+    <h2 class="text-2xl font-bold text-gray-900">Épisodes ({{ episodes.length }})</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <NuxtLink
+        v-for="episode in episodes"
+        :key="episode.slug"
+        :to="`/episodes/${episode.slug}`"
+        class="group"
+        prefetch
+      >
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+          <div class="p-4">
+            <div class="flex items-end space-x-2">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
+                {{ episode.code }}
+              </h3>
+              <span class="text-gray-500 dark:text-gray-400 text-xs pb-1">
+                {{ getTomeFromCode(Number(getLivreFromCode(episode.code))) }}
+              </span>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 line-clamp-2 mt-1">
+              {{ episode.title }}
+            </p>
+          </div>
+        </div>
+      </NuxtLink>
+    </div>
+  </section>
+</div>
 </template> 
 
 <script setup lang="ts">

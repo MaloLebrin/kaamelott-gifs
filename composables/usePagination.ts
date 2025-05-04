@@ -87,7 +87,7 @@ export function usePagination(options: UsePaginationOptions) {
   }
 
   // Watch for URL changes
-  watch(() => route.query, (newQuery) => {
+  watch(() => route.query, newQuery => {
     if (newQuery.page) {
       currentPage.value = Number(newQuery.page)
     } else {

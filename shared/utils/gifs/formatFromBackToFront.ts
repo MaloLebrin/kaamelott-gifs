@@ -20,7 +20,7 @@ export function formatFromBackToFront<T extends {
         ...gif,
         characters: gif.characters?.split(','),
         characters_speaking: gif.characters_speaking?.split(','),
-    }
+      }
 
       formattedGifs.push(formattedGif)
     }

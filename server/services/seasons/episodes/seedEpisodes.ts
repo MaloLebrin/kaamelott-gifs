@@ -1,5 +1,6 @@
 import { episodes } from "~/server/data/episodes";
-import { Entities, Episode } from "~/types";
+import type { Episode } from "~/types";
+import { Entities } from "~/types";
 import { slugify } from "~/shared/utils/string";
 
 /**
@@ -8,7 +9,7 @@ import { slugify } from "~/shared/utils/string";
  * @returns - Episodes data
  */
 export const seedEpisodes = async (client: any) => {
-  const episodesData: Episode[] = episodes.map((episode) => {
+  const episodesData: Episode[] = episodes.map(episode => {
     const characters = [
       ...new Set(episode.characters?.split(',') || []),
     ].join(',')

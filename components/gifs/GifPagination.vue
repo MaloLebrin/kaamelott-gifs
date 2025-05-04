@@ -37,16 +37,18 @@ const handlePageChange = (page: number) => {
 </script>
 
 <template>
-  <div>
-    <slot :paginated-gifs="paginatedGifs" />
+<div>
+  <slot :paginated-gifs="paginatedGifs" />
     
-    <!-- Pagination -->
-    <div v-if="totalPages > 1" class="mt-8 flex justify-center">
-      <Pagination 
-        :current-page="currentPage" 
-        :total-pages="totalPages" 
-        @page-change="handlePageChange" 
-      />
-    </div>
+  <!-- Pagination -->
+  <div
+    v-if="totalPages > 1"
+    class="mt-8 flex justify-center">
+    <Pagination 
+      :current-page="currentPage" 
+      :total-pages="totalPages" 
+      @page-change="handlePageChange" 
+    />
   </div>
+</div>
 </template> 

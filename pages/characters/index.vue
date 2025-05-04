@@ -1,9 +1,11 @@
 <template>
-  <div class="container mx-auto px-4 py-8 space-y-8">
-    <h1 class="text-4xl font-bold mb-8 text-center">Les Personnages de Kaamelott</h1>
-    <Breadcrumbs :items="breadcrumbItems" />
-    <CharacterGrid v-if="characters" :characters="characters" />
-  </div>
+<div class="container mx-auto px-4 py-8 space-y-8">
+  <h1 class="text-4xl font-bold mb-8 text-center">Les Personnages de Kaamelott</h1>
+  <Breadcrumbs :items="breadcrumbItems" />
+  <CharacterGrid
+    v-if="characters"
+    :characters="characters" />
+</div>
 </template>
 
 <script setup lang="ts">

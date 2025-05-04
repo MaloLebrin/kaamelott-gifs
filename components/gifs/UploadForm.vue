@@ -1,66 +1,70 @@
 <template>
-  <div class="bg-white/70 backdrop-blur-sm rounded-lg shadow-sm p-6">
-    <form @submit.prevent="uploadFile" class="space-y-6">
-      <!-- Zone de drop -->
-      <FileUpload
-        @file-selected="handleFileSelected"
-        @file-cleared="handleFileCleared"
+<div class="bg-white/70 backdrop-blur-sm rounded-lg shadow-sm p-6">
+  <form
+    class="space-y-6"
+    @submit.prevent="uploadFile">
+    <!-- Zone de drop -->
+    <FileUpload
+      @file-selected="handleFileSelected"
+      @file-cleared="handleFileCleared"
+    />
+
+    <!-- Champs du formulaire -->
+    <div class="space-y-4">
+      <!-- Citation -->
+      <BaseTextarea
+        id="quote"
+        v-model="formData.quote"
+        label="Citation"
+        :rows="3"
+        placeholder="ex: 'Kadoc il peut mettre 35 mirabelles dans ses fesses'"
+        required
       />
 
-      <!-- Champs du formulaire -->
-      <div class="space-y-4">
-        <!-- Citation -->
-        <BaseTextarea
-          v-model="formData.quote"
-          label="Citation"
-          id="quote"
-          :rows="3"
-          placeholder="ex: 'Kadoc il peut mettre 35 mirabelles dans ses fesses'"
-          required
-        />
+      <!-- Personnages -->
+      <BaseCombobox
+        v-model="formData.characters"
+        :items="characters.map(char => ({ id: char, name: char }))"
+        placeholder="Sélectionnez les personnages"
+        label="Personnages"
+      />
 
-        <!-- Personnages -->
-        <BaseCombobox
-          v-model="formData.characters"
-          :items="characters.map(char => ({ id: char, name: char }))"
-          placeholder="Sélectionnez les personnages"
-          label="Personnages"
-        />
+      <!-- Personnages qui parlent -->
+      <BaseCombobox
+        v-model="formData.speakingCharacters"
+        :items="characters.map(char => ({ id: char, name: char }))"
+        placeholder="Sélectionnez les personnages qui parlent"
+        label="Personnages qui parlent"
+      />
 
-        <!-- Personnages qui parlent -->
-        <BaseCombobox
-          v-model="formData.speakingCharacters"
-          :items="characters.map(char => ({ id: char, name: char }))"
-          placeholder="Sélectionnez les personnages qui parlent"
-          label="Personnages qui parlent"
-        />
+      <!-- Épisode -->
+      <BaseCombobox
+        v-model="selectedEpisode"
+        :items="episodes.map(episode => ({ id: episode.code, name: `${episode.code} - ${episode.title}` }))"
+        placeholder="Sélectionnez l'épisode"
+        :multiple="false"
+        label="Épisode"
+      />
+    </div>
 
-        <!-- Épisode -->
-        <BaseCombobox
-          v-model="selectedEpisode"
-          :items="episodes.map(episode => ({ id: episode.code, name: `${episode.code} - ${episode.title}` }))"
-          placeholder="Sélectionnez l'épisode"
-          :multiple="false"
-          label="Épisode"
-        />
-      </div>
-
-      <!-- Bouton de soumission -->
-      <div class="flex justify-end">
-        <button 
-          type="submit"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 cursor-pointer"
-          :disabled="!file || !isFormValid"
-        >
-          <template v-if="isLoading">
-            <BaseLoader />
-          </template>
-          <ArrowUpTrayIcon v-else class="h-5 w-5 mr-2" />
-          Télécharger
-        </button>
-      </div>
-    </form>
-  </div>
+    <!-- Bouton de soumission -->
+    <div class="flex justify-end">
+      <button 
+        type="submit"
+        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-colors duration-200 cursor-pointer"
+        :disabled="!file || !isFormValid"
+      >
+        <template v-if="isLoading">
+          <BaseLoader />
+        </template>
+        <ArrowUpTrayIcon
+          v-else
+          class="h-5 w-5 mr-2" />
+        Télécharger
+      </button>
+    </div>
+  </form>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -107,7 +111,7 @@ const formData = ref<GifUpload>({
 });
 
 // Mettre à jour formData.episode quand selectedEpisode change
-watch(selectedEpisode, (newValue) => {
+watch(selectedEpisode, newValue => {
   if (newValue.length > 0) {
     formData.value.episode = newValue[0].name
   } else {

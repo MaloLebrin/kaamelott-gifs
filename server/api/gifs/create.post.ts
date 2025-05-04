@@ -6,9 +6,9 @@ import { transformUrl } from '~/shared/utils/gifs/transformUrl'
 import { validateNewGif } from '~/shared/utils/gifs/validateNewGif'
 import { newSlugify } from '~/shared/utils/string'
 import { Entities } from '~/types/Entities'
-import { Gif } from '~/types/Gif'
+import type { Gif } from '~/types/Gif'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   try {
     const AWS_S3_ACCESS_KEY = process.env.AWS_S3_ACCESS_KEY
     const AWS_S3_SECRET_KEY = process.env.AWS_S3_SECRET_KEY

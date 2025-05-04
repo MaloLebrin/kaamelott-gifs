@@ -3,7 +3,7 @@ import { seasonOne } from "~/server/data/episodes/seasonOne"
 import { seasonTwo } from "~/server/data/episodes/seasonTwo";
 import { seasonThree } from "~/server/data/episodes/seasonThree";
 import { seasonFour } from "~/server/data/episodes/seasonFour";
-import { SeedEpisode } from "~/server/data/episodes/index";
+import type { SeedEpisode } from "~/server/data/episodes/index";
 import { seasonFive } from "~/server/data/episodes/seasonFive";
 import { seasonSix } from "~/server/data/episodes/seasonSix";
 

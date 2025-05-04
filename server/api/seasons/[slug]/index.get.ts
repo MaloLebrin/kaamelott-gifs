@@ -2,7 +2,7 @@ import { serverSupabaseClient } from '#supabase/server'
 import { Entities } from '~/types'
 import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront'
 import type { Season } from '~/types/Season'
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string
 
   if (!slug) {
@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
 
   const seasons = seasonData as Season[]
 
-  const season = seasons.find((season) => season.slug === slug)
+  const season = seasons.find(season => season.slug === slug)
 
   if (!season) {
     throw createError({ statusCode: 404, statusMessage: 'Season not found' })
@@ -50,6 +50,6 @@ export default defineEventHandler(async (event) => {
     season,
     episodes: formatFromBackToFront(episodesData || []),
     gifs: formatFromBackToFront(gifsData || []),
-    otherSeasons: seasons.filter((s) => s.id !== season.id)
+    otherSeasons: seasons.filter(s => s.id !== season.id)
   }
 })

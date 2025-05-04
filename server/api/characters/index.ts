@@ -1,9 +1,10 @@
 import { serverSupabaseClient } from '#supabase/server'
 import { composeCharacters } from '~/shared/utils/characters/composeCharacters'
 import { slugify } from '~/shared/utils/string'
-import { Entities, Gif } from '~/types'
+import type { Gif } from '~/types';
+import { Entities } from '~/types'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   try {
     const client = await serverSupabaseClient(event)
     const { data = [], error } = await client.from(Entities.GIF).select('characters, characters_speaking')
@@ -29,7 +30,7 @@ export default defineEventHandler(async (event) => {
       avatar: `/characters/${slugify(character)}.jpg`,
       nbGifs: gifs
         .filter(gif =>
-            gif.characters?.includes(character) ||
+          gif.characters?.includes(character) ||
             gif.characters_speaking?.includes(character)
         ).length
     }))

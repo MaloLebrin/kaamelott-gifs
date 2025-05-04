@@ -1,4 +1,4 @@
-import { SeedEpisode } from "~/server/data/episodes/index";
+import type { SeedEpisode } from "~/server/data/episodes/index";
 
 export const seasonTwo: SeedEpisode[] = [
   {

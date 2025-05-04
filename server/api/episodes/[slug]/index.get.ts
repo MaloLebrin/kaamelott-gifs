@@ -3,7 +3,7 @@ import { Entities } from '~/types'
 import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront'
 import type { Episode } from '~/types/Episode'
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string
 
   if (!slug) {
