@@ -59,7 +59,7 @@ useSeoMeta({
   description: seoDescription,
   ogDescription: seoDescription,
   ogImage: '/fondKBg.webp',
-  keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
+  keywords: `${gif.value?.quote}, kaamelott, gifs, alexandre astier, série française, moments cultes, collection`,
   author: 'Kaamelott GIFs',
   robots: 'index, follow',
   ogUrl: `https://kaamelottgifs.fr/gifs/${gif.value?.slug}`,
