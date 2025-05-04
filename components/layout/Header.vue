@@ -106,6 +106,7 @@ const navigation = [
   { name: 'Accueil', href: '/' },
   { name: 'Ajouter un GIF', href: '/gifs/creer', isAuth: true },
   { name: 'Livres', href: '/livres' },
+  { name: 'Films', href: '/films' },
   { name: 'Personnages', href: '/characters' },
   { name: 'À propos', href: '/about' },
 ]
