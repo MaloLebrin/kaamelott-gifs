@@ -27,7 +27,11 @@ export default defineEventHandler(async (event) => {
     return sortedCharacters.map(character => ({
       name: character,
       avatar: `/characters/${slugify(character)}.jpg`,
-      nbGifs: gifs.filter(gif => gif.characters.includes(character) || gif.characters_speaking?.includes(character)).length
+      nbGifs: gifs
+        .filter(gif =>
+            gif.characters?.includes(character) ||
+            gif.characters_speaking?.includes(character)
+        ).length
     }))
   } catch (error) {
     console.error('Error reading gifs data:', error)
