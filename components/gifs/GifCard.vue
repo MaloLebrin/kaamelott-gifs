@@ -8,6 +8,7 @@
       <AppImage
         :src="gif.url"
         :alt="gif.quote"
+        format="gif"
         class="w-full h-full object-cover transform transition-transform duration-500 ease-out" />
     </div>
 

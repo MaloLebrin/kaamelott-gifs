@@ -39,6 +39,7 @@ const handleClose = () => {
       <AppImage
         :src="gif.url"
         :alt="gif.quote"
+        format="gif"
         class="w-full transform transition-transform duration-500 ease-out"
       />
       <div class="absolute top-0 right-0 p-2">
