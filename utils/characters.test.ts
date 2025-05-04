@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { composeCharacterToStructuredData } from './characters'
+import { composeCharacterToStructuredData, composeKeywordsForCharacter } from './characters'
 
 describe('composeCharacterToStructuredData', () => {
   const mockCharacter = {
@@ -154,4 +154,27 @@ describe('composeCharacterToStructuredData', () => {
     expect(result.name).toBe('Arthur Pendragon')
     expect(result.id).toBe('Arthur Pendragon')
   })
-}) 
+})
+
+describe('composeKeywordsForCharacter', () => {
+  test('returns an array of keywords for a character', () => {
+    const character = {
+      name: 'Arthur'
+    }
+
+    const result = composeKeywordsForCharacter(character)
+
+    expect(result).toEqual('arthur, kaamelott, gifs, alexandre astier, série française, moments cultes, collection')
+  })
+
+  test('returns an array of keywords for a character with a special character in name', () => {
+    const character = {
+      name: 'Arthur Pendragon'
+    }
+
+    const result = composeKeywordsForCharacter(character)
+
+    expect(result).toEqual('arthur pendragon, kaamelott, gifs, alexandre astier, série française, moments cultes, collection')
+  })
+})
+
