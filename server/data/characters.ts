@@ -1,3 +1,8 @@
+import { formatCharactersToBack } from "~/shared/utils/gifs/formatCharacters"
+import { newSlugify, slugify } from "~/shared/utils/string"
+import type { Character, CharacterInput } from "~/types/Characters"
+import type { Episode } from "~/types/Episode"
+
 export const characters = [
   {
     "actor": "Vanessa Guedj",
@@ -270,3 +275,37 @@ export const characters = [
     "isMainCharacter": true
   }
 ]
+
+/**
+ * Compose a character from a character object
+ * @param character - The character object
+ * @returns The composed character
+ */
+export function composeCharacter({
+  actor,
+  name,
+  isMainCharacter,
+  episodes,
+  description,
+  history,
+}: {
+  actor: string
+  name: string
+  isMainCharacter: boolean
+  episodes: Episode[]
+  description?: string
+  history?: string
+}): CharacterInput {
+  const episodesCodes = episodes ? formatCharactersToBack(episodes.map(episode => episode.code)) : ''
+
+  return {
+    actor: actor || null,
+    name,
+    isMainCharacter: isMainCharacter || false,
+    slug: newSlugify(name),
+    episodesCodes,
+    imgUrl: `/characters/${slugify(name)}.jpg`,
+    description: description || null,
+    history: history || null,
+  }
+}
