@@ -101,7 +101,7 @@ const episodes = props.episodes ?? [];
 const selectedEpisode = ref<{ id: string; name: string }[]>([]);
 
 const formData = ref<GifUpload>({
-  quote: 'Pardon mais, si vous fêtez pas ça, je ne sais pas ce que vous fêterez ! ',
+  quote: '',
   characters: [],
   speakingCharacters: [],
   episode: null,
@@ -173,15 +173,15 @@ const uploadFile = async () => {
     if (response.ok) {
       success('GIF téléchargé avec succès !');
       file.value = null;
-      // formData.value = {
-      //   quote: '',
-      //   characters: [],
-      //   speakingCharacters: [],
-      //   episode: null,
-      //   filename: '',
-      //   slug: '',
-      //   url: ''
-      // };
+      formData.value = {
+        quote: '',
+        characters: [],
+        speakingCharacters: [],
+        episode: null,
+        filename: '',
+        slug: '',
+        url: ''
+      };
       selectedEpisode.value = [];
 
       const { slug } = await response.json()
