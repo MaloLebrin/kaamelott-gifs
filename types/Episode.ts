@@ -1,5 +1,5 @@
 export interface Episode {
-  code: string
+  code: EpisodeCode
   title: string
   slug: string
   characters: string | null

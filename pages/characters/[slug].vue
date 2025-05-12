@@ -5,7 +5,7 @@
     class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
     <Breadcrumbs :items="breadcrumbItems" />
     <!-- En-tête du personnage -->
-    <div class="flex items-center gap-6 mb-8">
+    <div class="flex items-center gap-6 mb-8 mt-2">
       <img
         :src="imageError ? '/characters/character-placeholder.webp' : `/characters/${slugify(data?.character.name)}.jpg`"
         :alt="data?.character.name"

@@ -16,7 +16,7 @@ export function composeCharacterToStructuredData({
   episodes,
   seasons,
 }: {
-  character: Character
+  character: Pick<Character, 'name'>
   episodes: Episode[]
   seasons: Season[]
 }): CharacterItem {
@@ -39,7 +39,7 @@ export function composeCharacterToStructuredData({
  * @param character - The character to compose the keywords for
  * @returns The keywords for the character
  */
-export function composeKeywordsForCharacter(character: Character): string {
+export function composeKeywordsForCharacter(character: Pick<Character, 'name'>): string {
   if (!character.name) {
     return [
       'kaamelott',
