@@ -11,15 +11,10 @@
     @click="handleCharacterSelect"
   >
     <div class="relative">
-      <img
-        :src="character.avatar || '/characters/unknown.jpg'"
-        :alt="`Avatar de ${character.name}`"
-        class="w-7 h-7 rounded-full object-cover transition-transform duration-300"
-        :class="{
-          'ring-2 ring-white ring-offset-2 ring-offset-blue-500': isSelected,
-          'group-hover/btn:scale-110': !isSelected
-        }"
-      >
+      <CharacterAvatar
+        :character="character"
+        :is-selected="isSelected"
+      />
     </div>
     <span class="font-medium">{{ character.name }}</span>
   </button>
@@ -45,6 +40,7 @@
 </template>
 
 <script setup lang="ts">
+import CharacterAvatar from './CharacterAvatar.vue'
 import { slugify } from '~/shared/utils/string'
 
 interface Character {

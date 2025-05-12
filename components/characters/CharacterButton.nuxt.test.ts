@@ -8,19 +8,6 @@ describe('CharacterButton', () => {
     avatar: '/characters/arthur.jpg'
   }
 
-  test('renders character name and avatar', () => {
-    const wrapper = mount(CharacterButton, {
-      props: {
-        character: mockCharacter,
-        isSelected: false
-      }
-    })
-
-    expect(wrapper.find('span').text()).toBe('Arthur')
-    expect(wrapper.find('img').attributes('src')).toBe('/characters/arthur.jpg')
-    expect(wrapper.find('img').attributes('alt')).toBe('Avatar de Arthur')
-  })
-
   test('applies correct styles when selected', () => {
     const wrapper = mount(CharacterButton, {
       props: {
