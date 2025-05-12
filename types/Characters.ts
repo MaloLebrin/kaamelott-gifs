@@ -12,9 +12,9 @@ interface CharacterBase  extends BaseEntity {
 }
 
 export interface Character extends CharacterBase {
-  episodesCodes: EpisodeCode[]
+  episodeCodes: EpisodeCode[]
 }
 
 export interface CharacterInput extends Omit<CharacterBase, 'id' | 'createdAt' | 'updatedAt'> {
-  episodesCodes: string
+  episodeCodes: string
 }

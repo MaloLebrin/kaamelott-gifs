@@ -2,7 +2,7 @@ import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront
 import { serverSupabaseClient } from '#supabase/server'
 import { Entities } from '~/types'
 import { slugify } from '~/shared/utils/string'
-import { characters } from '~/server/data/characters' 
+import { charactersData } from '~/server/data/characters'
 
 export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string
@@ -14,8 +14,8 @@ export default defineEventHandler(async event => {
     })
   }
 
-  const character = characters.find(character => slugify(character.personnage) === slug)
-  const name = character?.personnage || slug
+  const character = charactersData.find(character => slugify(character.name) === slug)
+  const name = character?.name || slug
 
   const client = await serverSupabaseClient(event)
 

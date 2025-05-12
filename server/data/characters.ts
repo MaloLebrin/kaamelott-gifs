@@ -1,9 +1,9 @@
 import { formatCharactersToBack } from "~/shared/utils/gifs/formatCharacters"
 import { newSlugify, slugify } from "~/shared/utils/string"
-import type { Character, CharacterInput } from "~/types/Characters"
+import type { CharacterInput } from "~/types/Characters"
 import type { Episode } from "~/types/Episode"
 
-export const characters = [
+export const charactersData = [
   {
     "actor": "Vanessa Guedj",
     "name": "Guenièvre",
@@ -296,14 +296,14 @@ export function composeCharacter({
   description?: string
   history?: string
 }): CharacterInput {
-  const episodesCodes = episodes ? formatCharactersToBack(episodes.map(episode => episode.code)) : ''
+  const episodeCodes = episodes ? formatCharactersToBack(episodes.map(episode => episode.code)) : ''
 
   return {
     actor: actor || null,
     name,
     isMainCharacter: isMainCharacter || false,
     slug: newSlugify(name),
-    episodesCodes,
+    episodeCodes,
     imgUrl: `/characters/${slugify(name)}.jpg`,
     description: description || null,
     history: history || null,
