@@ -1,13 +1,20 @@
 import type { BaseEntity } from "~/types/Entities";
 import type { EpisodeCode } from "~/types/Episode";
 
-export interface Character extends BaseEntity {
+interface CharacterBase  extends BaseEntity {
   name: string
   slug: string
-  actor: string
-  episodesCodes: EpisodeCode[]
+  actor: string | null
   imgUrl: string
-  description: string
-  history: string
+  description: string | null
+  history: string | null
   isMainCharacter: boolean
+}
+
+export interface Character extends CharacterBase {
+  episodesCodes: EpisodeCode[]
+}
+
+export interface CharacterInput extends Omit<CharacterBase, 'id' | 'createdAt' | 'updatedAt'> {
+  episodesCodes: string
 }
