@@ -85,4 +85,45 @@ describe('CharacterAvatar', () => {
     const img = wrapper.find('img')
     expect(img.classes()).toContain('group-hover/btn:scale-110')
   })
+
+  test('applies common classes regardless of state', () => {
+    vi.mock('@vueuse/core', () => ({
+      useImage: vi.fn().mockReturnValue({ isLoading: false, error: false })
+    }))
+
+    const wrapper = mount(CharacterAvatar, {
+      props: {
+        character: {
+          avatar: 'https://example.com/avatar.jpg',
+          name: 'Arthur'
+        }
+      }
+    })
+
+    const img = wrapper.find('img')
+    expect(img.classes()).toContain('w-7')
+    expect(img.classes()).toContain('h-7')
+    expect(img.classes()).toContain('rounded-full')
+    expect(img.classes()).toContain('object-cover')
+    expect(img.classes()).toContain('transition-transform')
+    expect(img.classes()).toContain('duration-300')
+  })
+
+  test('handles missing character name gracefully', () => {
+    vi.mock('@vueuse/core', () => ({
+      useImage: vi.fn().mockReturnValue({ isLoading: false, error: false })
+    }))
+
+    const wrapper = mount(CharacterAvatar, {
+      props: {
+        character: {
+          avatar: 'https://example.com/avatar.jpg',
+          name: ''
+        }
+      }
+    })
+
+    const img = wrapper.find('img')
+    expect(img.attributes('alt')).toBe('Avatar de ')
+  })
 })
