@@ -1,218 +1,311 @@
-export const characters = [
+import { formatCharactersToBack } from "~/shared/utils/gifs/formatCharacters"
+import { newSlugify, slugify } from "~/shared/utils/string"
+import type { CharacterInput } from "~/types/Characters"
+import type { Episode } from "~/types/Episode"
+
+export const charactersData = [
   {
-    "acteur": "Vanessa Guedj",
-    "personnage": "Gueni\u00e8vre"
+    "actor": "Vanessa Guedj",
+    "name": "Guenièvre",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Anouk Grinberg",
-    "personnage": "Anna"
+    "actor": "Anouk Grinberg",
+    "name": "Anna",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Emmanuel Meirieu",
-    "personnage": "Appius Manilius"
+    "actor": "Emmanuel Meirieu",
+    "name": "Appius Manilius",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Alexandre Astier",
-    "personnage": "Arthur"
+    "actor": "Alexandre Astier",
+    "name": "Arthur",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Lan Truong",
-    "personnage": "Attila"
+    "actor": "Lan Truong",
+    "name": "Attila",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Fran\u00e7ois Morel",
-    "personnage": "Belt"
+    "actor": "François Morel",
+    "name": "Belt",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Jean-Robert Lombard",
-    "personnage": "P\u00e8re Blaise"
+    "actor": "Jean-Robert Lombard",
+    "name": "Père Blaise",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Nicolas Gabion",
-    "personnage": "Bohort"
+    "actor": "Nicolas Gabion",
+    "name": "Bohort",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Yvan le Bolloc'h",
-    "personnage": "Breccan"
+    "actor": "Yvan le Bolloc'h",
+    "name": "Breccan",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Guillaume Briat",
-    "personnage": "Le Roi Burgonde"
+    "actor": "Guillaume Briat",
+    "name": "Le Roi Burgonde",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Bruno Salomone",
-    "personnage": "Caius Camillus"
+    "actor": "Bruno Salomone",
+    "name": "Caius Camillus",
+    "isMainCharacter": false
   },
   {
-    "acteur": "St\u00e9phane Margot",
-    "personnage": "Calogrenant"
+    "actor": "Stéphane Margot",
+    "name": "Calogrenant",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Fran\u00e7ois Levantal",
-    "personnage": "Capito"
+    "actor": "François Levantal",
+    "name": "Capito",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Pierre Mondy",
-    "personnage": "C\u00e9sar"
+    "actor": "Pierre Mondy",
+    "name": "César",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Claire Nadeau",
-    "personnage": "Cryda de Tintagel"
+    "actor": "Claire Nadeau",
+    "name": "Cryda de Tintagel",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Antoine de Caunes",
-    "personnage": "Dagonet"
+    "actor": "Antoine de Caunes",
+    "name": "Dagonet",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Audrey Fleurot",
-    "personnage": "La Dame du Lac"
+    "actor": "Audrey Fleurot",
+    "name": "La Dame du Lac",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Caroline Pascal",
-    "personnage": "Demetra"
+    "actor": "Caroline Pascal",
+    "name": "Demetra",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Anne Beno\u00eet",
-    "personnage": "Drusilla"
+    "actor": "Anne Benoît",
+    "name": "Drusilla",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Alain Chabat",
-    "personnage": "Le Duc d'Aquitaine"
+    "actor": "Alain Chabat",
+    "name": "Le Duc d'Aquitaine",
+    "isMainCharacter": true
   },
   {
-    "acteur": "\u00c9milie Dequenne",
-    "personnage": "Edern"
+    "actor": "\u00c9milie Dequenne",
+    "name": "Edern",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Bruno Fontaine",
-    "personnage": "Elias de Kelliwic'h"
+    "actor": "Bruno Fontaine",
+    "name": "Elias de Kelliwic'h",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Alexis H\u00e9non",
-    "personnage": "Galessin"
+    "actor": "Alexis Hénon",
+    "name": "Galessin",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Aur\u00e9lien Portehaut",
-    "personnage": "Gauvain"
+    "actor": "Aurélien Portehaut",
+    "name": "Gauvain",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Philippe Nahon",
-    "personnage": "Goustan"
+    "actor": "Philippe Nahon",
+    "name": "Goustan",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Thibault Roux",
-    "personnage": "Gr\u00fcd\u00fc"
+    "actor": "Thibault Roux",
+    "name": "Grüdü",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Serge Papagalli",
-    "personnage": "Guethenoc"
+    "actor": "Serge Papagalli",
+    "name": "Guethenoc",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Tony Saba",
-    "personnage": "Herv\u00e9 de Rinel"
+    "actor": "Tony Saba",
+    "name": "Hervé de Rinel",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Lor\u00e1nt Deutsch",
-    "personnage": "L'interpr\u00e8te burgonde"
+    "actor": "Loránt Deutsch",
+    "name": "L'interprète burgonde",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Georges Beller",
-    "personnage": "Le Seigneur Jacca"
+    "actor": "Georges Beller",
+    "name": "Le Seigneur Jacca",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Alexandra Saadoun et Magali Saadoun",
-    "personnage": "Les Jumelles du p\u00eacheur"
+    "actor": "Alexandra Saadoun et Magali Saadoun",
+    "name": "Les Jumelles du pêcheur",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Christian Clavier",
-    "personnage": "Le Jurisconsulte"
+    "actor": "Christian Clavier",
+    "name": "Le Jurisconsulte",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Brice Fournier",
-    "personnage": "Kadoc"
+    "actor": "Brice Fournier",
+    "name": "Kadoc",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Jean-Christophe Hembert",
-    "personnage": "Karadoc"
+    "actor": "Jean-Christophe Hembert",
+    "name": "Karadoc",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Thomas Cousseau",
-    "personnage": "Lancelot"
+    "actor": "Thomas Cousseau",
+    "name": "Lancelot",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Lionnel Astier",
-    "personnage": "L\u00e9odagan"
+    "actor": "Lionnel Astier",
+    "name": "Léodagan",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Fran\u00e7ois Rollin",
-    "personnage": "Loth"
+    "actor": "François Rollin",
+    "name": "Loth",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Christian Bujeau",
-    "personnage": "Le Ma\u00eetre d'Armes"
+    "actor": "Christian Bujeau",
+    "name": "Le Maître d'Armes",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Carlo Brandt",
-    "personnage": "M\u00e9l\u00e9agant"
+    "actor": "Carlo Brandt",
+    "name": "Méléagant",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Tcheky Karyo",
-    "personnage": "Manius Macrinus Firmus"
+    "actor": "Tcheky Karyo",
+    "name": "Manius Macrinus Firmus",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Jacques Chambon",
-    "personnage": "Merlin"
+    "actor": "Jacques Chambon",
+    "name": "Merlin",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Caroline Ferrus",
-    "personnage": "Mevanwi"
+    "actor": "Caroline Ferrus",
+    "name": "Mevanwi",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Franck Pitiot",
-    "personnage": "Perceval"
+    "actor": "Franck Pitiot",
+    "name": "Perceval",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Gilles Graveleau",
-    "personnage": "Roparzh"
+    "actor": "Gilles Graveleau",
+    "name": "Roparzh",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Patrick Chesnais",
-    "personnage": "Lucius Sillius Sallustius"
+    "actor": "Patrick Chesnais",
+    "name": "Lucius Sillius Sallustius",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Axelle Laffont",
-    "personnage": "S\u00e9friane d'Aquitaine"
+    "actor": "Axelle Laffont",
+    "name": "Séfriane d'Aquitaine",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Jo\u00eblle Sevilla",
-    "personnage": "S\u00e9li"
+    "actor": "Joëlle Sevilla",
+    "name": "Séli",
+    "isMainCharacter": true
   },
   {
-    "acteur": "Pascal Demolon",
-    "personnage": "Spurius Cordius Frontinius"
+    "actor": "Pascal Demolon",
+    "name": "Spurius Cordius Frontinius",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Alain Chapuis",
-    "personnage": "Le Tavernier"
+    "actor": "Alain Chapuis",
+    "name": "Le Tavernier",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Pascal Vincent",
-    "personnage": "Urgan"
+    "actor": "Pascal Vincent",
+    "name": "Urgan",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Manu Payet",
-    "personnage": "V\u00e9rinus"
+    "actor": "Manu Payet",
+    "name": "Vérinus",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Lo\u00efc Varraut",
-    "personnage": "Venec"
+    "actor": "Loïc Varraut",
+    "name": "Venec",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Jos\u00e9e Drevon",
-    "personnage": "Ygerne"
+    "actor": "Josée Drevon",
+    "name": "Ygerne",
+    "isMainCharacter": false
   },
   {
-    "acteur": "Simon Astier",
-    "personnage": "Yvain"
+    "actor": "Simon Astier",
+    "name": "Yvain",
+    "isMainCharacter": true
   }
 ]
+
+/**
+ * Compose a character from a character object
+ * @param character - The character object
+ * @returns The composed character
+ */
+export function composeCharacter({
+  actor,
+  name,
+  isMainCharacter,
+  episodes,
+  description,
+  history,
+}: {
+  actor: string
+  name: string
+  isMainCharacter: boolean
+  episodes: Episode[]
+  description?: string
+  history?: string
+}): CharacterInput {
+  const episodeCodes = episodes ? formatCharactersToBack(episodes.map(episode => episode.code)) : ''
+
+  return {
+    actor: actor || null,
+    name,
+    isMainCharacter: isMainCharacter || false,
+    slug: newSlugify(name),
+    episodeCodes,
+    imgUrl: `/characters/${slugify(name)}.jpg`,
+    description: description || null,
+    history: history || null,
+  }
+}

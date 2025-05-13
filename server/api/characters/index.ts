@@ -7,16 +7,32 @@ import { Entities } from '~/types'
 export default defineEventHandler(async event => {
   try {
     const client = await serverSupabaseClient(event)
-    const { data = [], error } = await client.from(Entities.GIF).select('characters, characters_speaking')
+    const [
+      { data, error },
+      { data: charactersData, error: charactersError }
+    ] = await Promise.all([
+      client.from(Entities.GIF).select('characters, characters_speaking'),
+      client.from(Entities.CHARACTER).select('*')
+    ])
 
     if (error) {
+      console.error('Error reading gifs data:', error)
+      throw createError({
+        statusCode: 500,
+        message: 'Error fetching gifs'
+      })
+    }
+
+    if (charactersError) {
+      console.error('Error reading characters data:', charactersError)
+      console.error('Error reading characters data:', charactersError)
       throw createError({
         statusCode: 500,
         message: 'Error fetching characters'
       })
     }
 
-    if (!data) {
+    if (!charactersData) {
       return []
     }
 

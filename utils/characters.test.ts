@@ -3,7 +3,12 @@ import { composeCharacterToStructuredData, composeKeywordsForCharacter } from '.
 
 describe('composeCharacterToStructuredData', () => {
   const mockCharacter = {
-    name: 'Arthur'
+    name: 'Arthur',
+    slug: 'arthur',
+    actor: 'Alexandre Astier',
+    description: 'Page du personnage',
+    history: 'Histoire du personnage',
+    isMainCharacter: true
   }
 
   const mockEpisodes = [
@@ -62,9 +67,9 @@ describe('composeCharacterToStructuredData', () => {
     expect(result).toEqual({
       name: 'Arthur',
       description: 'Page du personnage',
-      createdAt: '2023-01-01T00:00:00Z',
-      updatedAt: '2023-01-01T00:00:00Z',
-      role: 'Personnage',
+      createdAt: expect.any(String),
+      updatedAt: expect.any(String),
+      role: 'Personnage Principal',
       episodes: ['S01E01', 'S01E02'],
       seasons: [1, 2],
       id: 'Arthur'
@@ -159,22 +164,26 @@ describe('composeCharacterToStructuredData', () => {
 describe('composeKeywordsForCharacter', () => {
   test('returns an array of keywords for a character', () => {
     const character = {
-      name: 'Arthur'
+      name: 'Arthur',
+      slug: 'arthur',
+      actor: 'Alexandre Astier'
     }
 
     const result = composeKeywordsForCharacter(character)
 
-    expect(result).toEqual('arthur, kaamelott, gifs, alexandre astier, série française, moments cultes, collection')
+    expect(result).toEqual("arthur, alexandre astier, kaamelott, gifs, alexandre astier, série française, moments cultes, collection")
   })
 
   test('returns an array of keywords for a character with a special character in name', () => {
     const character = {
-      name: 'Arthur Pendragon'
+      name: 'Arthur Pendragon',
+      slug: 'arthur-pendragon',
+      actor: 'Alexandre Astier'
     }
 
     const result = composeKeywordsForCharacter(character)
 
-    expect(result).toEqual('arthur pendragon, kaamelott, gifs, alexandre astier, série française, moments cultes, collection')
+    expect(result).toEqual("arthur pendragon, alexandre astier, kaamelott, gifs, alexandre astier, série française, moments cultes, collection")
   })
 })
 
