@@ -25,6 +25,7 @@ export default defineEventHandler(async event => {
 
     if (charactersError) {
       console.error('Error reading characters data:', charactersError)
+      console.error('Error reading characters data:', charactersError)
       throw createError({
         statusCode: 500,
         message: 'Error fetching characters'
