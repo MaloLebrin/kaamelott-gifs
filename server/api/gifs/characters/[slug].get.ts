@@ -19,24 +19,27 @@ export default defineEventHandler(async event => {
 
   const client = await serverSupabaseClient(event)
 
-  const { data, error } = await client
-    .from(Entities.GIF)
-    .select('*')
-    .or(
-      `characters.ilike.%${name}%,characters_speaking.ilike.%${name}%`,
+  const [{ data, error }, { data: characterData, error: characterError }] = await Promise.all([
+    client
+      .from(Entities.GIF)
+      .select('*')
+      .or(
+        `characters.ilike.%${name}%,characters_speaking.ilike.%${name}%`,
       // Doc: https://supabase.com/docs/reference/javascript/v1/or
-    )
+      ),
+    client.from(Entities.CHARACTER).select('*').eq('slug', slug).single()
+  ])
 
   if (error) {
     throw createError({ statusCode: 500, statusMessage: error.message })
   }
 
+  if (characterError) {
+    throw createError({ statusCode: 500, statusMessage: characterError.message })
+  }
+
   return {
     gifs: formatFromBackToFront(data),
-    character: {
-      ...character,
-      name,
-      slug: slugify(name)
-    }
+    character: characterData
   }
 })

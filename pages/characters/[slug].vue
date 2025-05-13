@@ -51,6 +51,32 @@
       class="text-center py-12">
       <p class="text-xl text-gray-600">Aucun GIF trouvé pour ce personnage.</p>
     </div>
+
+    <!-- Informations du personnage -->
+    <div
+      v-if="data?.character.description || data?.character.history"
+      class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+      <div
+        v-if="data?.character.actor"
+        class="mb-4">
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Acteur</h2>
+        <p class="text-gray-600 dark:text-gray-300">{{ data.character.actor }}</p>
+      </div>
+
+      <div
+        v-if="data?.character.description"
+        class="mb-4">
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Description</h2>
+        <p class="text-gray-600 dark:text-gray-300 whitespace-pre-line">{{ data.character.description }}</p>
+      </div>
+
+      <div
+        v-if="data?.character.history"
+        class="mb-4">
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Histoire</h2>
+        <p class="text-gray-600 dark:text-gray-300 whitespace-pre-line">{{ data.character.history }}</p>
+      </div>
+    </div>
   </div>
 
   <section
@@ -87,7 +113,7 @@
 </template> 
 
 <script setup lang="ts">
-import type { Gif } from '~/types'
+import type { Character, Gif } from '~/types'
 import { slugify } from '~/shared/utils/string'
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import GifPagination from '~/components/gifs/GifPagination.vue'
@@ -105,11 +131,10 @@ const imageError = ref(false)
 // Récupérer les GIFs du personnage
 const { data } = await useFetch<{
   gifs: Gif[],
-  character: {
-    name: string,
-    slug: string
-  }
+  character: Character
 }>(`/api/gifs/characters/${characterSlug}`)
+
+console.log(data.value)
 
 const { data: episodes } = await useFetch<Pick<Episode, 'code' | 'title' | 'slug' | 'createdAt'>[]>(`/api/characters/${characterSlug}/episodes`)
 

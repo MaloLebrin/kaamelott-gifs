@@ -16,7 +16,7 @@ export function composeCharacterToStructuredData({
   episodes,
   seasons,
 }: {
-  character: Pick<Character, 'name'>
+  character: Pick<Character, 'name' | 'description' | 'history' | 'actor' | 'isMainCharacter'>
   episodes: Episode[]
   seasons: Season[]
 }): CharacterItem {
@@ -24,10 +24,10 @@ export function composeCharacterToStructuredData({
 
   return {
     name: character.name,
-    description: 'Page du personnage',
+    description: character.description || 'Page du personnage',
     createdAt,
     updatedAt: createdAt,
-    role: 'Personnage',
+    role: character.isMainCharacter ? 'Personnage Principal' : 'Personnage Secondaire',
     episodes: unique(episodes.map(episode => episode.code)),
     seasons: unique(seasons.map(season => season.id)),
     id: character.name,
@@ -39,8 +39,8 @@ export function composeCharacterToStructuredData({
  * @param character - The character to compose the keywords for
  * @returns The keywords for the character
  */
-export function composeKeywordsForCharacter(character: Pick<Character, 'name'>): string {
-  if (!character.name) {
+export function composeKeywordsForCharacter(character?: Pick<Character, 'name' | 'slug' | 'actor'>): string {
+  if (!character?.name) {
     return [
       'kaamelott',
       'gifs',
@@ -53,6 +53,7 @@ export function composeKeywordsForCharacter(character: Pick<Character, 'name'>):
 
   const keywords = [
     character.name?.toLocaleLowerCase('fr-FR'),
+    character.actor?.toLocaleLowerCase('fr-FR'),
     'kaamelott',
     'gifs',
     'alexandre astier',
