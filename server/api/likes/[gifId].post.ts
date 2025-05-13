@@ -45,6 +45,7 @@ export default defineEventHandler(async event => {
     }] as never)
 
   if (error) {
+    console.error('Erreur lors de l\'ajout du like:', error)
     throw createError({
       statusCode: 500,
       message: 'Erreur lors de l\'ajout du like'
