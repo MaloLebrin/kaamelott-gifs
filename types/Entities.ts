@@ -8,4 +8,5 @@ export enum Entities {
   CHARACTER = 'characters',
   EPISODE = 'episodes',
   SEASON = 'seasons',
+  LIKE = 'likes',
 }
