@@ -54,7 +54,7 @@
 
     <!-- Informations du personnage -->
     <div
-      v-if="data?.character.description || data?.character.history"
+      v-if="data?.character.actor || data?.character.description || data?.character.history"
       class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
       <div
         v-if="data?.character.actor"
