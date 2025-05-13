@@ -134,8 +134,6 @@ const { data } = await useFetch<{
   character: Character
 }>(`/api/gifs/characters/${characterSlug}`)
 
-console.log(data.value)
-
 const { data: episodes } = await useFetch<Pick<Episode, 'code' | 'title' | 'slug' | 'createdAt'>[]>(`/api/characters/${characterSlug}/episodes`)
 
 const breadcrumbItems = computed(() => [
