@@ -1,5 +1,6 @@
 <template>
 <button
+  v-if="user"
   :class="[
     'inline-flex items-center gap-2 rounded-full px-3 py-1.5 cursor-pointer',
     'transition-all duration-200 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed',
@@ -40,4 +41,5 @@ const props = withDefaults(defineProps<{
 })
 
 const { isLoading, isLiked, likesCount, toggleLike } = useLike(props.entityId, props.entityType)
+const user = useSupabaseUser()
 </script>
