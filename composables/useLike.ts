@@ -16,7 +16,7 @@ export const useLike = (gifId: number) => {
   // Vérifier l'état initial
   const checkInitialState = async () => {
     try {
-      const { data } = await useFetch<LikeState>(`/api/likes/${gifId}`)
+      const { data } = await useFetch<LikeState>(`/api/likes/gifs/${gifId}`)
       if (data.value) {
         isLiked.value = data.value.isLiked
         likesCount.value = data.value.likesCount
@@ -40,7 +40,7 @@ export const useLike = (gifId: number) => {
 
       if (isLiked.value) {
         // Ajouter le like
-        const { error } = await useFetch(`/api/likes/${gifId}`, {
+        const { error } = await useFetch(`/api/likes/gifs/${gifId}`, {
           method: 'POST'
         })
 
@@ -48,7 +48,7 @@ export const useLike = (gifId: number) => {
         success('GIF liké !')
       } else {
         // Retirer le like
-        const { error } = await useFetch(`/api/likes/${gifId}`, {
+        const { error } = await useFetch(`/api/likes/gifs/${gifId}`, {
           method: 'DELETE'
         })
 
