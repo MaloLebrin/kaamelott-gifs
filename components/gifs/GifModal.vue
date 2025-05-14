@@ -2,6 +2,7 @@
 import type { Gif } from '~/types'
 import ShareButtons from './ShareButtons.vue'
 import AppImage from '~/components/base/AppImage.vue'
+import LikeButton from '~/components/base/LikeButton.vue'
 import { slugify } from '~/shared/utils/string'
 
 defineProps<{
@@ -46,7 +47,8 @@ const handleClose = () => {
         <button @click="handleClose">
           <Icon
             name="heroicons:x-mark"
-            class="w-6 h-6 text-gray-900 dark:text-gray-200" />
+            class="w-6 h-6 text-gray-900 dark:text-gray-200"
+          />
         </button>
       </div>
       <div class="p-4">
@@ -82,10 +84,13 @@ const handleClose = () => {
           </div>
         </div>
         <div class="mt-6 border-t pt-4">
-          <ShareButtons
-            :gif-url="gif.url"
-            :quote="gif.quote"
-          />
+          <div class="flex items-center justify-between">
+            <LikeButton :gif-id="gif.id" />
+            <ShareButtons
+              :gif-url="gif.url"
+              :quote="gif.quote"
+            />
+          </div>
         </div>
       </div>
     </div>

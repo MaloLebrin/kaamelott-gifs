@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import { useLike } from '~/composables/useLike'
-
-const props = defineProps<{
-  gifId: number
-  size?: 'sm' | 'md' | 'lg'
-}>()
-
-const { isLoading, isLiked, likesCount, toggleLike } = useLike(props.gifId)
-
-// Animation du compteur
-const likesCountDisplay = computed(() => {
-  return likesCount.value.toLocaleString()
-})
-</script>
 
 <template>
 <button
@@ -36,6 +21,17 @@ const likesCountDisplay = computed(() => {
       :class="{ 'text-red-500 scale-110': isLiked }"
     />
   </div>
-  <span class="font-medium tabular-nums">{{ likesCountDisplay }}</span>
+  <span class="font-medium tabular-nums">{{ likesCount?.toLocaleString() }}</span>
 </button>
 </template>
+
+<script setup lang="ts">
+import { useLike } from '~/composables/useLike'
+
+const props = defineProps<{
+  gifId: number
+  size?: 'sm' | 'md' | 'lg'
+}>()
+
+const { isLoading, isLiked, likesCount, toggleLike } = useLike(props.gifId)
+</script>
