@@ -13,7 +13,13 @@
         @error="imageError = true"
       >
       <div>
-        <h1 class="text-4xl font-bold text-gray-900">{{ data?.character.name }}</h1>
+        <div class="flex mb-4 space-x-2.5">
+          <h1 class="text-2xl lg:text-4xl font-bold">{{ data.character.name }}</h1>
+          <LikeButton
+            :entity-id="data.character.id"
+            :entity-type="Entities.CHARACTER"
+          />
+        </div>
         <p class="text-lg text-gray-600 mt-2">{{ data?.gifs.length || 0 }} GIFs</p>
       </div>
     </div>
@@ -122,6 +128,8 @@ import BaseSlider from '~/components/base/BaseSlider.vue'
 import { getLivreFromCode } from '~/shared/utils/episodes/code'
 import { getTomeFromCode } from '~/shared/utils/livres/tome'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
+import LikeButton from '~/components/base/LikeButton.vue'
+import { Entities } from '~/types'
 
 const route = useRoute()
 const characterSlug = route.params.slug as string

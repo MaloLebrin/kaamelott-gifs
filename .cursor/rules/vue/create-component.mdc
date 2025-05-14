@@ -1,0 +1,296 @@
+---
+description: Crée un composant Vue.js
+globs: *.vue
+alwaysApply: false
+---
+# Règles de Création de Composants Nuxt
+
+Ce document définit les règles et bonnes pratiques pour la création de composants dans notre application Nuxt.
+
+## Structure des Dossiers
+
+```
+components/
+├── base/           # Composants de base réutilisables
+├── layout/         # Composants liés à la mise en page
+└── [feature]/      # Composants spécifiques à une fonctionnalité
+```
+
+## 1. Composants de Base (`base/`)
+
+### Règles de Nommage
+- Préfixer avec `Base` (ex: `BaseInput`, `BaseButton`)
+- Utiliser PascalCase pour les noms de composants
+- Utiliser kebab-case pour les noms de fichiers
+
+### Structure des Props
+```vue
+<script setup lang="ts">
+interface Props {
+  // Props obligatoires
+  requiredProp: string
+  // Props optionnelles avec valeurs par défaut
+  optionalProp?: number
+}
+
+withDefaults(defineProps<Props>(), {
+  optionalProp: 0
+})
+</script>
+```
+
+### Événements
+```vue
+<script setup lang="ts">
+defineEmits<{
+  (e: 'update:modelValue', value: string): void
+  (e: 'submit', data: FormData): void
+}>()
+</script>
+```
+
+### Tests
+- Créer un fichier de test pour chaque composant (`*.nuxt.test.ts`)
+- Tester les cas d'utilisation principaux
+- Tester les props, événements et états
+- Utiliser `test()` au lieu de `it()`
+
+Exemple de test :
+```typescript
+import { describe, test, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import BaseComponent from './BaseComponent.vue'
+
+describe('BaseComponent', () => {
+  test('renders correctly with required props', () => {
+    const wrapper = mount(BaseComponent, {
+      props: {
+        requiredProp: 'value'
+      }
+    })
+    expect(wrapper.exists()).toBe(true)
+  })
+})
+```
+
+## 2. Composants de Fonctionnalité
+
+### Règles de Nommage
+- Nom descriptif sans préfixe (ex: `SearchBar`, `GifGrid`)
+- Éviter les noms génériques
+- Refléter la fonctionnalité du composant
+
+### Organisation
+- Grouper par fonctionnalité
+- Éviter les composants trop grands (> 200 lignes)
+- Extraire la logique complexe dans des composables
+
+### Exemple de Structure
+```vue
+<template>
+  <div class="component-container">
+    <!-- Structure sémantique -->
+    <header v-if="title">
+      <h2>{{ title }}</h2>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+    
+    <footer v-if="$slots.footer">
+      <slot name="footer" />
+    </footer>
+  </div>
+</template>
+
+<script setup lang="ts">
+// Imports
+import { useFeature } from '~/composables/useFeature'
+
+// Props
+interface Props {
+  title?: string
+}
+
+defineProps<Props>()
+
+// Composables
+const { data, loading } = useFeature()
+
+// Logique
+const handleEvent = () => {
+  // ...
+}
+</script>
+```
+
+## 3. Règles Générales
+
+### Style et Conventions
+1. **TypeScript**
+   - Utiliser des interfaces pour les props
+   - Typer les événements et les retours de fonctions
+   - Éviter `any`
+
+2. **CSS/Tailwind**
+   - Utiliser les classes Tailwind
+   - Éviter les styles inline
+   - Maintenir la cohérence visuelle
+   - Utiliser les variables CSS pour les thèmes
+
+3. **Accessibilité**
+   - Utiliser des balises sémantiques
+   - Ajouter des attributs ARIA appropriés
+   - Tester avec des lecteurs d'écran
+   - Assurer la navigation au clavier
+
+### Performance
+1. **Optimisations**
+   - Utiliser `v-show` au lieu de `v-if` pour les éléments fréquemment basculés
+   - Implémenter le lazy loading pour les composants lourds
+   - Éviter les watchers profonds
+   - Utiliser `computed` pour les calculs coûteux
+
+2. **Props**
+   - Valider les props avec des types stricts
+   - Fournir des valeurs par défaut appropriées
+   - Documenter les props avec des commentaires
+
+### Documentation
+1. **Composants**
+   ```vue
+   <!--
+   @component BaseButton
+   @description Bouton de base avec support pour différents styles et états
+   @prop {string} label - Texte du bouton
+   @prop {string} [variant='primary'] - Style du bouton (primary|secondary|danger)
+   @prop {boolean} [disabled=false] - État désactivé
+   @event {Event} click - Émis lors du clic
+   -->
+   ```
+
+2. **Composables**
+   ```typescript
+   /**
+   * @composable useFeature
+   * @description Gère la logique pour une fonctionnalité spécifique
+   * @returns {Object} { data, loading, error, fetch }
+   */
+   ```
+
+## 4. Checklist de Création
+
+Avant de soumettre un nouveau composant, vérifier :
+
+- [ ] Le composant suit les conventions de nommage
+- [ ] Les props sont correctement typées
+- [ ] Les événements sont documentés
+- [ ] Les tests sont écrits et passent
+- [ ] Le composant est accessible
+- [ ] La documentation est à jour
+- [ ] Le code est optimisé pour les performances
+- [ ] Les styles suivent les conventions Tailwind
+- [ ] Le composant est responsive
+- [ ] Les erreurs sont gérées correctement
+
+## 5. Exemples
+
+### Composant de Base
+```vue
+<!-- components/base/BaseButton.vue -->
+<template>
+  <button
+    :class="[
+      'px-4 py-2 rounded-md transition-colors',
+      variantClasses[variant],
+      { 'opacity-50 cursor-not-allowed': disabled }
+    ]"
+    :disabled="disabled"
+    @click="$emit('click', $event)"
+  >
+    <slot>{{ label }}</slot>
+  </button>
+</template>
+
+<script setup lang="ts">
+interface Props {
+  label?: string
+  variant?: 'primary' | 'secondary' | 'danger'
+  disabled?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  variant: 'primary',
+  disabled: false
+})
+
+const variantClasses = {
+  primary: 'bg-blue-500 text-white hover:bg-blue-600',
+  secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300',
+  danger: 'bg-red-500 text-white hover:bg-red-600'
+}
+
+defineEmits<{
+  (e: 'click', event: MouseEvent): void
+}>()
+</script>
+```
+
+### Composant de Fonctionnalité
+```vue
+<!-- components/feature/FeatureCard.vue -->
+<template>
+  <article class="rounded-lg shadow-md p-4">
+    <header class="mb-4">
+      <h3 class="text-lg font-semibold">{{ title }}</h3>
+    </header>
+    
+    <div class="content">
+      <slot />
+    </div>
+    
+    <footer v-if="$slots.footer" class="mt-4">
+      <slot name="footer" />
+    </footer>
+  </article>
+</template>
+
+<script setup lang="ts">
+interface Props {
+  title: string
+}
+
+defineProps<Props>()
+</script>
+```
+
+## 6. Bonnes Pratiques Supplémentaires
+
+1. **Gestion d'État**
+   - Utiliser des composables pour la logique partagée
+   - Éviter la duplication de logique
+   - Préférer les props pour la communication parent-enfant
+
+2. **Erreurs et Validation**
+   - Valider les props avec des types stricts
+   - Gérer les cas d'erreur gracieusement
+   - Fournir des messages d'erreur utiles
+
+3. **Internationalisation**
+   - Utiliser des clés de traduction
+   - Supporter le RTL si nécessaire
+   - Formater les dates et nombres selon la locale
+
+4. **Tests**
+   - Tests unitaires pour la logique
+   - Tests d'intégration pour les interactions
+   - Tests de snapshot pour l'UI
+   - Tests d'accessibilité
+
+5. **Maintenance**
+   - Documenter les changements majeurs
+   - Maintenir la rétrocompatibilité
+   - Suivre les mises à jour de dépendances
+   - Nettoyer le code inutilisé 
+

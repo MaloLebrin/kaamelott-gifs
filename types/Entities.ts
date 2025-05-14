@@ -8,4 +8,7 @@ export enum Entities {
   CHARACTER = 'characters',
   EPISODE = 'episodes',
   SEASON = 'seasons',
+  LIKE = 'likes',
 }
+
+export type LikeableEntity = Entities.GIF | Entities.CHARACTER | Entities.EPISODE | Entities.SEASON
