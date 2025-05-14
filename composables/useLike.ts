@@ -1,5 +1,5 @@
 import { useToast } from './useToast'
-import { Entities, type LikeableEntity } from '~/types'
+import { Entities, type EpisodeCode, type LikeableEntity } from '~/types'
 
 const successMessages = {
   [Entities.GIF]: 'GIF liké !',
@@ -13,7 +13,7 @@ interface LikeState {
   likesCount: number
 }
 
-export const useLike = (entityId: number, entityType: LikeableEntity) => {
+export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEntity) => {
   const { success, denied } = useToast()
   
   // États

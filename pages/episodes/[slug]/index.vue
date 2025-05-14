@@ -5,7 +5,13 @@
   <Breadcrumbs :items="breadcrumbItems" />
   <div class="mb-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
     <div class="flex justify-between">
-      <h1 class="text-2xl lg:text-4xl font-bold mb-4">{{ data.episode.title }}</h1>
+      <div class="flex mb-4 space-x-2.5">
+        <h1 class="text-2xl lg:text-4xl font-bold">{{ data.episode.title }}</h1>
+        <LikeButton
+          :entity-id="data.episode.code"
+          :entity-type="Entities.EPISODE"
+        />
+      </div>
       <NuxtLink
         :to="`/livres/${slugify(livre as string)}`"
         class="text-gray-800 dark:text-gray-50 md:text-lg"
@@ -68,6 +74,8 @@ import { getLivreFromCode } from '~/shared/utils/episodes/code'
 import { getTomeFromCode } from '~/shared/utils/livres/tome'
 import { composeEpisodeToStructuredData } from '~/shared/utils/episodes/structuredData'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
+import LikeButton from '~/components/base/LikeButton.vue'
+import { Entities } from '~/types'
 
 const route = useRoute()
 const router = useRouter()

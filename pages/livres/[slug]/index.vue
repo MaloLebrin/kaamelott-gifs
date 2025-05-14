@@ -4,7 +4,13 @@
   <div
     v-if="seasonData"
     class="my-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800 dark:text-gray-50">
-    <h1 class="text-4xl font-bold mb-4">{{ seasonData.season.title }}</h1>
+    <div class="flex mb-4 space-x-2.5">
+      <h1 class="text-4xl font-bold ">{{ seasonData.season.title }}</h1>
+      <LikeButton
+        :entity-id="seasonData.season.id"
+        :entity-type="Entities.SEASON"
+      />
+    </div>
     <p class="text-gray-600 dark:text-gray-500 mb-2">{{ seasonData.season.airDate }}</p>
     <div class="flex items-center text-sm text-gray-500 dark:text-gray-200  mb-4">
       <span class="mr-4">{{ seasonData.season.episodesCount }} épisodes</span>
@@ -68,7 +74,9 @@ import LivreGrid from '~/components/livres/LivreGrid.vue'
 import Pagination from '~/components/base/Pagination.vue'
 import EpisodeGrid from '~/components/episodes/EpisodeGrid.vue'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
+import LikeButton from '~/components/base/LikeButton.vue'
 import { usePagination } from '~/composables/usePagination'
+import { Entities } from '~/types'
 
 const route = useRoute()
 const slug = route.params.slug as string
