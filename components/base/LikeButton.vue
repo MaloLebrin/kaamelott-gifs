@@ -1,27 +1,30 @@
-
 <template>
 <button
   :class="[
-    'inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5',
+    'inline-flex items-center gap-2 rounded-full px-3 py-1.5',
     'transition-all duration-200 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed',
     {
       'bg-red-500/10 hover:bg-red-500/20 animate-heartBeat': isLiked,
-      'bg-white/10 hover:bg-white/20': !isLiked
+      'bg-white/10 hover:bg-white/20': !isLiked,
+      'text-sm px-2 py-1': size === 'sm',
+      'text-base': size === 'md' || !size,
+      'text-lg px-4 py-2': size === 'lg'
     }
   ]"
   :disabled="isLoading"
   type="button"
   aria-label="Like"
-  @click="toggleLike"
->
+  @click="toggleLike">
   <div class="relative flex items-center justify-center">
-    <Icon
-      :name="isLiked ? 'ph:heart-fill' : 'ph:heart'"
-      class="text-xl transition-transform duration-200"
-      :class="{ 'text-red-500 scale-110': isLiked }"
-    />
+    <i
+      :class="[
+        'text-xl transition-transform duration-200',
+        isLiked ? 'ph:heart-fill text-red-500 scale-110' : 'ph:heart',
+
+      ]"
+      :name="isLiked ? 'ph:heart-fill' : 'ph:heart'" />
   </div>
-  <span class="font-medium tabular-nums">{{ likesCount?.toLocaleString() }}</span>
+  <span class="font-medium tabular-nums">{{ likesCount.toLocaleString('fr-FR') }}</span>
 </button>
 </template>
 
