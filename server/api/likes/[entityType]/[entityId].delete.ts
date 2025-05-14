@@ -1,11 +1,22 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
-import { Entities } from '~/types'
+import { likeableEntitiesIds, validEntityTypes } from '~/shared/utils/likes/likeableEntities'
+import { Entities, type LikeableEntity } from '~/types'
+
 export default defineEventHandler(async event => {
-  const gifId = getRouterParam(event, 'gifId')
-  if (!gifId) {
+  const entityType = getRouterParam(event, 'entityType') as LikeableEntity
+  const entityId = getRouterParam(event, 'entityId')
+
+  if (!entityType || !entityId) {
     throw createError({
       statusCode: 400,
-      message: 'GIF ID is required'
+      message: 'Entity type and ID are required'
+    })
+  }
+
+  if (!validEntityTypes.includes(entityType as Entities)) {
+    throw createError({
+      statusCode: 400,
+      message: 'Invalid entity type'
     })
   }
 
@@ -24,7 +35,7 @@ export default defineEventHandler(async event => {
   const { error } = await client
     .from(Entities.LIKE)
     .delete()
-    .eq('gifId', gifId)
+    .eq(likeableEntitiesIds[entityType], entityId)
     .eq('userId', user.id)
 
   if (error) {

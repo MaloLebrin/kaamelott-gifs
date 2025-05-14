@@ -1,7 +1,7 @@
 <template>
 <button
   :class="[
-    'inline-flex items-center gap-2 rounded-full px-3 py-1.5',
+    'inline-flex items-center gap-2 rounded-full px-3 py-1.5 cursor-pointer',
     'transition-all duration-200 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed',
     {
       'bg-red-500/10 hover:bg-red-500/20 animate-heartBeat': isLiked,
@@ -16,7 +16,7 @@
   :aria-label="`Like ${entityType}`"
   @click="toggleLike">
   <div class="relative flex items-center justify-center">
-    <i
+    <Icon
       :class="[
         'text-xl transition-transform duration-200',
         isLiked ? 'ph:heart-fill text-red-500 scale-110' : 'ph:heart',

@@ -1,11 +1,19 @@
 import { useToast } from './useToast'
+import { Entities, type LikeableEntity } from '~/types'
+
+const successMessages = {
+  [Entities.GIF]: 'GIF liké !',
+  [Entities.CHARACTER]: 'Personnage liké !',
+  [Entities.EPISODE]: 'Épisode liké !',
+  [Entities.SEASON]: 'Saison likée !'
+}
 
 interface LikeState {
   isLiked: boolean
   likesCount: number
 }
 
-export const useLike = (gifId: number) => {
+export const useLike = (entityId: number, entityType: LikeableEntity) => {
   const { success, denied } = useToast()
   
   // États
@@ -16,7 +24,7 @@ export const useLike = (gifId: number) => {
   // Vérifier l'état initial
   const checkInitialState = async () => {
     try {
-      const { data } = await useFetch<LikeState>(`/api/likes/gifs/${gifId}`)
+      const { data } = await useFetch<LikeState>(`/api/likes/${entityType}/${entityId}`)
       if (data.value) {
         isLiked.value = data.value.isLiked
         likesCount.value = data.value.likesCount
@@ -40,21 +48,23 @@ export const useLike = (gifId: number) => {
 
       if (isLiked.value) {
         // Ajouter le like
-        const { error } = await useFetch(`/api/likes/gifs/${gifId}`, {
+        const { error } = await useFetch(`/api/likes/${entityType}/${entityId}`, {
           method: 'POST'
         })
 
         if (error.value) throw error.value
-        success('GIF liké !')
+        
+        success(successMessages[entityType])
       } else {
         // Retirer le like
-        const { error } = await useFetch(`/api/likes/gifs/${gifId}`, {
+        const { error } = await useFetch(`/api/likes/${entityType}/${entityId}`, {
           method: 'DELETE'
         })
 
         if (error.value) throw error.value
         success('Like retiré')
       }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       // Rollback en cas d'erreur
       isLiked.value = previousLikedState

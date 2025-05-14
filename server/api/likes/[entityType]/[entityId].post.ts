@@ -1,12 +1,22 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
-import { Entities } from '~/types'
+import { likeableEntitiesIds, validEntityTypes } from '~/shared/utils/likes/likeableEntities'
+import { Entities, type LikeableEntity } from '~/types'
 
 export default defineEventHandler(async event => {
-  const gifId = getRouterParam(event, 'gifId')
-  if (!gifId) {
+  const entityType = getRouterParam(event, 'entityType') as LikeableEntity
+  const entityId = getRouterParam(event, 'entityId')
+
+  if (!entityType || !entityId) {
     throw createError({
       statusCode: 400,
-      message: 'GIF ID is required'
+      message: 'Entity type and ID are required'
+    })
+  }
+
+  if (!validEntityTypes.includes(entityType as Entities)) {
+    throw createError({
+      statusCode: 400,
+      message: 'Invalid entity type'
     })
   }
 
@@ -17,7 +27,7 @@ export default defineEventHandler(async event => {
   if (!user) {
     throw createError({
       statusCode: 401,
-      message: 'Vous devez être connecté pour liker un GIF'
+      message: 'Vous devez être connecté pour liker'
     })
   }
 
@@ -25,14 +35,14 @@ export default defineEventHandler(async event => {
   const { data: existingLike } = await client
     .from(Entities.LIKE)
     .select('id')
-    .eq('gifId', gifId)
+    .eq(likeableEntitiesIds[entityType], entityId)
     .eq('userId', user.id)
     .single()
 
   if (existingLike) {
     throw createError({
       statusCode: 400,
-      message: 'Vous avez déjà liké ce GIF'
+      message: 'Vous avez déjà liké cet élément'
     })
   }
 
@@ -40,7 +50,7 @@ export default defineEventHandler(async event => {
   const { error } = await client
     .from(Entities.LIKE)
     .insert([{
-      gifId,
+      [likeableEntitiesIds[entityType]]: entityId,
       userId: user.id
     }] as never)
 
