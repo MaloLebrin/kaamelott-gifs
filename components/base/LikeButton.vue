@@ -13,14 +13,13 @@
   ]"
   :disabled="isLoading"
   type="button"
-  aria-label="Like"
+  :aria-label="`Like ${entityType}`"
   @click="toggleLike">
   <div class="relative flex items-center justify-center">
     <i
       :class="[
         'text-xl transition-transform duration-200',
         isLiked ? 'ph:heart-fill text-red-500 scale-110' : 'ph:heart',
-
       ]"
       :name="isLiked ? 'ph:heart-fill' : 'ph:heart'" />
   </div>
@@ -30,11 +29,15 @@
 
 <script setup lang="ts">
 import { useLike } from '~/composables/useLike'
+import type { LikeableEntity } from '~/types'
 
-const props = defineProps<{
-  gifId: number
+const props = withDefaults(defineProps<{
+  entityId: number
+  entityType: LikeableEntity
   size?: 'sm' | 'md' | 'lg'
-}>()
+}>(), {
+  size: 'md'
+})
 
-const { isLoading, isLiked, likesCount, toggleLike } = useLike(props.gifId)
+const { isLoading, isLiked, likesCount, toggleLike } = useLike(props.entityId, props.entityType)
 </script>

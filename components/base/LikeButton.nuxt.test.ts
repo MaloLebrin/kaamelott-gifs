@@ -3,6 +3,9 @@ import { describe, test, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 import LikeButton from './LikeButton.vue'
 import { useLike } from '~/composables/useLike'
+import { Entities } from '~/types'
+
+type LikeableEntity = Entities.GIF | Entities.CHARACTER | Entities.EPISODE | Entities.SEASON
 
 // Mock du composable useLike
 vi.mock('~/composables/useLike', () => ({
@@ -10,7 +13,8 @@ vi.mock('~/composables/useLike', () => ({
 }))
 
 describe('LikeButton', () => {
-  const mockGifId = 123
+  const mockEntityId = 123
+  const mockEntityType: LikeableEntity = Entities.GIF
   const mockUseLike = {
     isLoading: false,
     isLiked: false,
@@ -26,7 +30,8 @@ describe('LikeButton', () => {
   test('renders correctly with initial state', () => {
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -51,7 +56,8 @@ describe('LikeButton', () => {
 
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -65,7 +71,8 @@ describe('LikeButton', () => {
   test('calls toggleLike when clicked', async () => {
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -84,7 +91,8 @@ describe('LikeButton', () => {
 
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -100,7 +108,8 @@ describe('LikeButton', () => {
 
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -118,7 +127,8 @@ describe('LikeButton', () => {
 
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -141,7 +151,8 @@ describe('LikeButton', () => {
 
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -152,7 +163,8 @@ describe('LikeButton', () => {
   test('shows correct icon based on like state false', () => {
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
@@ -168,11 +180,33 @@ describe('LikeButton', () => {
 
     const wrapper = mount(LikeButton, {
       props: {
-        gifId: mockGifId
+        entityId: mockEntityId,
+        entityType: mockEntityType
       }
     })
 
     // Vérifie que le compteur affiche 0
     expect(wrapper.find('button span').text()).toBe('0')
+  })
+
+  test('renders with different entity types', () => {
+    const entityTypes: LikeableEntity[] = [
+      Entities.GIF,
+      Entities.CHARACTER,
+      Entities.EPISODE,
+      Entities.SEASON
+    ]
+
+    entityTypes.forEach(entityType => {
+      const wrapper = mount(LikeButton, {
+        props: {
+          entityId: mockEntityId,
+          entityType
+        }
+      })
+
+      // Vérifie que le bouton est rendu avec le bon aria-label
+      expect(wrapper.find('button').attributes('aria-label')).toBe(`Like ${entityType}`)
+    })
   })
 }) 

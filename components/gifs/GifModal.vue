@@ -4,6 +4,7 @@ import ShareButtons from './ShareButtons.vue'
 import AppImage from '~/components/base/AppImage.vue'
 import LikeButton from '~/components/base/LikeButton.vue'
 import { slugify } from '~/shared/utils/string'
+import { Entities } from '~/types'
 
 defineProps<{
   gif: Gif
@@ -85,7 +86,10 @@ const handleClose = () => {
         </div>
         <div class="mt-6 border-t pt-4">
           <div class="flex items-center justify-between">
-            <LikeButton :gif-id="gif.id" />
+            <LikeButton
+              :entity-id="gif.id"
+              :entity-type="Entities.GIF"
+            />
             <ShareButtons
               :gif-url="gif.url"
               :quote="gif.quote"
