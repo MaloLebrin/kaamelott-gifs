@@ -53,7 +53,13 @@ const handleClose = () => {
         </button>
       </div>
       <div class="p-4">
-        <p class="text-xl font-medium text-gray-900">{{ gif.quote }}</p>
+        <div class="flex space-x-2.5 items-center">
+          <p class="text-xl font-medium text-gray-900">{{ gif.quote }}</p>
+          <LikeButton
+            :entity-id="gif.id"
+            :entity-type="Entities.GIF"
+          />
+        </div>
         <div class="mt-4">
           <p class="text-sm text-gray-500">Personnages présents :</p>
           <div class="flex flex-wrap gap-2 mt-2">
@@ -86,10 +92,6 @@ const handleClose = () => {
         </div>
         <div class="mt-6 border-t pt-4">
           <div class="flex items-center justify-between">
-            <LikeButton
-              :entity-id="gif.id"
-              :entity-type="Entities.GIF"
-            />
             <ShareButtons
               :gif-url="gif.url"
               :quote="gif.quote"
