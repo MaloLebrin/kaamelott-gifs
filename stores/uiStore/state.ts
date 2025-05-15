@@ -2,6 +2,7 @@ export interface UiState {
   modalNameOpen: ModalNames | null;
   loadingCount: number;
   loadingMessage: string;
+  authRedirectUrl: string | null;
 }
 
 export enum ModalNames {
@@ -12,7 +13,8 @@ export const defaultUiState = (): UiState => {
   return {
     modalNameOpen: null,
     loadingCount: 0,
-    loadingMessage: 'Chargement en cours...'
+    loadingMessage: 'Chargement en cours...',
+    authRedirectUrl: null
   }
 }
 export const uiState = defaultUiState()

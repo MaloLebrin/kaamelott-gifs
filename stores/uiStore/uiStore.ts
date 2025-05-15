@@ -1,4 +1,4 @@
-import { uiState, type ModalNames } from "~/stores/uiStore/state"
+import { uiState, ModalNames } from '~/stores/uiStore/state'
 
 export const useUiStore = defineStore('ui', {
   state: () => ({
@@ -13,12 +13,16 @@ export const useUiStore = defineStore('ui', {
   },
 
   actions: {
-    openModal(modalName: ModalNames) {
+    openModal(modalName: ModalNames, redirectUrl?: string) {
       this.modalNameOpen = modalName
+      if (modalName === ModalNames.AUTH_MODAL && redirectUrl) {
+        this.authRedirectUrl = redirectUrl
+      }
     },
 
     closeModal() {
       this.modalNameOpen = null
+      this.authRedirectUrl = null
     },
 
     IncLoading(message?: string) {
