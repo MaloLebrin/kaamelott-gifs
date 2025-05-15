@@ -1,12 +1,11 @@
 <template>
 <button
-  v-if="user"
   :class="[
     'inline-flex items-center gap-2 rounded-full px-3 py-1.5 cursor-pointer',
-    'transition-all duration-200 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed',
+    'transition-all duration-200  disabled:cursor-not-allowed',
     {
       'bg-red-500/10 hover:bg-red-500/20 animate-heartBeat': isLiked,
-      'bg-gray-200/10 hover:bg-gray-200/20': !isLiked,
+      'bg-gray-100 hover:bg-gray-200/60': !isLiked,
       'text-sm px-2 py-1': size === 'sm',
       'text-base': size === 'md' || !size,
       'text-lg': size === 'lg',
