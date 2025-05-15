@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Header from '~/components/layout/Header.vue'
 import Footer from '~/components/layout/Footer.vue'
+import AuthModal from '~/components/auth/AuthModal.vue'
 </script>
 
 <template>
@@ -22,6 +23,7 @@ import Footer from '~/components/layout/Footer.vue'
     </main>
     <Footer />
     <BaseToast />
+    <AuthModal />
   </div>
 </div>
 </template>

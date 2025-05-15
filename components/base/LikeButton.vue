@@ -9,18 +9,21 @@
       'bg-gray-200/10 hover:bg-gray-200/20': !isLiked,
       'text-sm px-2 py-1': size === 'sm',
       'text-base': size === 'md' || !size,
-      'text-lg px-4 py-2': size === 'lg'
+      'text-lg': size === 'lg',
     }
   ]"
   :disabled="isLoading"
   type="button"
   :aria-label="`Like ${entityType}`"
-  @click="toggleLike">
+  @click="handleClick">
   <div class="relative flex items-center justify-center">
     <Icon
       :class="[
         'text-xl transition-transform duration-200',
-        isLiked ? 'ph:heart-fill text-red-500 scale-110' : 'ph:heart',
+        {
+          'scale-110': isLiked,
+          'scale-90': !isLiked
+        }
       ]"
       :name="isLiked ? 'ph:heart-fill' : 'ph:heart'" />
   </div>
@@ -30,6 +33,8 @@
 
 <script setup lang="ts">
 import { useLike } from '~/composables/useLike'
+import { useUiStore } from '~/stores/uiStore'
+import { ModalNames } from '~/stores/uiStore/state'
 import type { EpisodeCode, LikeableEntity } from '~/types'
 
 const props = withDefaults(defineProps<{
@@ -42,4 +47,14 @@ const props = withDefaults(defineProps<{
 
 const { isLoading, isLiked, likesCount, toggleLike } = useLike(props.entityId, props.entityType)
 const user = useSupabaseUser()
+const uiStore = useUiStore()
+
+const handleClick = async () => {
+  if (!user.value) {
+    uiStore.openModal(ModalNames.AUTH_MODAL, window.location.href)
+    return
+  }
+
+  await toggleLike()
+}
 </script>
