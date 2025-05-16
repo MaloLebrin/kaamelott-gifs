@@ -1,7 +1,23 @@
 /**
- * Format the gifs from the backend to the frontend
- * @param gifs - The gifs to format
- * @returns The formatted gifs
+ * Convertit les données des GIFs du format backend (chaînes séparées par des virgules) vers le format frontend (tableaux)
+ * @template T - Type des GIFs qui doit inclure une propriété 'characters' de type string
+ * @param {T[]} gifs - Liste des GIFs à formater
+ * @returns {T[]} Liste des GIFs avec les personnages convertis en tableaux
+ * 
+ * @example
+ * ```ts
+ * const backendGifs = [
+ *   { id: 1, characters: 'Arthur,Perceval', characters_speaking: 'Arthur' },
+ *   { id: 2, characters: 'Karadoc,Perceval', characters_speaking: 'Karadoc' }
+ * ]
+ * 
+ * const frontendGifs = formatFromBackToFront(backendGifs)
+ * // Résultat:
+ * // [
+ * //   { id: 1, characters: ['Arthur', 'Perceval'], characters_speaking: ['Arthur'] },
+ * //   { id: 2, characters: ['Karadoc', 'Perceval'], characters_speaking: ['Karadoc'] }
+ * // ]
+ * ```
  */
 export function formatFromBackToFront<T extends {
   characters: string

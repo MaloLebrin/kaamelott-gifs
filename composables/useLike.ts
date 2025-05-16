@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useToast } from './useToast'
 import { Entities, type EpisodeCode, type LikeableEntity } from '~/types'
 
+/** Messages de succès pour chaque type d'entité */
 const successMessages = {
   [Entities.GIF]: 'GIF liké !',
   [Entities.CHARACTER]: 'Personnage liké !',
@@ -8,11 +10,32 @@ const successMessages = {
   [Entities.SEASON]: 'Saison likée !'
 }
 
+/** État d'un like pour une entité */
 interface LikeState {
+  /** Indique si l'entité est likée par l'utilisateur courant */
   isLiked: boolean
+  /** Nombre total de likes sur l'entité */
   likesCount: number
 }
 
+/**
+ * Composable pour gérer les likes sur une entité (GIF, Personnage, Épisode, Saison).
+ * Gère l'état des likes, le compteur et les interactions avec l'API.
+ * 
+ * @param {number | EpisodeCode} entityId - L'identifiant de l'entité à liker
+ * @param {LikeableEntity} entityType - Le type d'entité (gif, character, episode, season)
+ * 
+ * @returns {Object} Un objet contenant l'état et les méthodes de gestion des likes
+ * @property {Ref<boolean>} isLoading - Indique si une opération de like est en cours
+ * @property {Ref<boolean>} isLiked - Indique si l'entité est likée par l'utilisateur courant
+ * @property {Ref<number>} likesCount - Le nombre total de likes sur l'entité
+ * @property {Function} toggleLike - Fonction pour liker/unliker l'entité
+ * 
+ * @example
+ * ```ts
+ * const { isLoading, isLiked, likesCount, toggleLike } = useLike(gifId, 'gif')
+ * ```
+ */
 export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEntity) => {
   const { success, denied } = useToast()
   
@@ -21,7 +44,10 @@ export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEnti
   const isLiked = ref(false)
   const likesCount = ref(0)
 
-  // Vérifier l'état initial
+  /**
+   * Vérifie l'état initial des likes pour l'entité
+   * @private
+   */
   const checkInitialState = async () => {
     try {
       const { data } = await useFetch<LikeState>(`/api/likes/${entityType}/${entityId}`)
@@ -34,7 +60,11 @@ export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEnti
     }
   }
 
-  // Gérer le like/unlike
+  /**
+   * Bascule l'état du like pour l'entité
+   * Gère les mises à jour optimistes et le rollback en cas d'erreur
+   * @private
+   */
   const toggleLike = async () => {
     const previousLikedState = isLiked.value
     const previousCount = likesCount.value
@@ -64,7 +94,7 @@ export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEnti
         if (error.value) throw error.value
         success('Like retiré')
       }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     } catch (error: any) {
       // Rollback en cas d'erreur
       isLiked.value = previousLikedState
@@ -78,8 +108,8 @@ export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEnti
   }
 
   // Vérifier l'état initial au montage
-  onMounted(() => {
-    checkInitialState()
+  onMounted(async () => {
+    await checkInitialState()
   })
 
   return {

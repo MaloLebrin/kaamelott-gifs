@@ -1,9 +1,12 @@
 import type { EpisodeCode } from '~/types'
 
 /**
- * Get the livre from the code
- * @param code - The code of the episode
- * @returns The livre of the episode
+ * Extrait le numéro du livre à partir du code d'un épisode
+ * @param {EpisodeCode} code - Le code de l'épisode (ex: 'S01E01')
+ * @returns {string | null} Le numéro du livre (ex: '1') ou null si le code est invalide
+ * @example
+ * getLivreFromCode('S01E01') // '1'
+ * getLivreFromCode('S02E05') // '2'
  */
 export function getLivreFromCode(code: EpisodeCode) {
   if (!code) {
@@ -16,9 +19,14 @@ export function getLivreFromCode(code: EpisodeCode) {
 }
 
 /**
- * Get the episode id from the episode code
- * @param episode - The episode to get the id from
- * @returns The episode id
+ * Extrait l'identifiant de l'épisode à partir du code d'un épisode
+ * @template T - Type de l'objet épisode qui doit avoir une propriété 'code'
+ * @param {T} episode - L'objet épisode contenant le code
+ * @returns {string} L'identifiant de l'épisode
+ * @throws {Error} Si le code de l'épisode est manquant
+ * @example
+ * getEpisodeId({ code: 'S01E01' }) // '01'
+ * getEpisodeId({ code: 'S02E05' }) // '05'
  */
 export function getEpisodeId<T extends { code: EpisodeCode }>(episode: T): string {
   if (!episode.code) {
