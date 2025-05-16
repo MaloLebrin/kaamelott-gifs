@@ -36,7 +36,6 @@ const isLoading = computed(() => {
 })
 
 const handleUploadSuccess = () => {
-  // Vous pouvez ajouter ici une logique supplémentaire après un upload réussi
-  // Par exemple, rediriger vers la page des GIFs ou rafraîchir la liste
+  // Fonction vide pour le moment, à utiliser si besoin de logique post-upload
 };
 </script>
