@@ -52,32 +52,14 @@
                 class="flex flex-col gap-4"
                 @submit.prevent="handleSubmit">
                 <div class="flex flex-col gap-2">
-                  <label
-                    for="email"
-                    class="text-sm font-medium text-gray-700">Email</label>
-                  <input
+                  <BaseInput
                     id="email"
                     v-model="email"
+                    label="Adresse e-mail"
                     type="email"
                     required
-                    class="rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    placeholder="votre@email.com"
-                  >
-                </div>
-
-                <div class="flex flex-col gap-2">
-                  <label
-                    for="password"
-                    class="text-sm font-medium text-gray-700">Mot de passe</label>
-                  <input
-                    id="password"
-                    v-model="password"
-                    type="password"
-                    required
-                    minlength="8"
-                    class="rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    placeholder="••••••••"
-                  >
+                    placeholder="perceval@kaamelott.fr"
+                  />
                 </div>
 
                 <div class="flex flex-col gap-3">
