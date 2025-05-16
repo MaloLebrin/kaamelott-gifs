@@ -37,54 +37,16 @@
           >
             <DialogTitle
               as="h3"
-              class="text-lg font-medium leading-6 text-gray-900"
+              class="text-lg font-medium leading-6 text-gray-900 mb-4"
             >
-              {{ isSignUp ? 'Inscription' : 'Connexion' }}
+              Connexion à la Table Ronde
             </DialogTitle>
-            <div class="flex flex-col gap-4">
-              <div
-                v-if="error"
-                class="rounded-lg bg-red-50 p-3 text-sm text-red-600">
-                {{ error }}
-              </div>
-
-              <form
-                class="flex flex-col gap-4"
-                @submit.prevent="handleSubmit">
-                <div class="flex flex-col gap-2">
-                  <BaseInput
-                    id="email"
-                    v-model="email"
-                    label="Adresse e-mail"
-                    type="email"
-                    required
-                    placeholder="perceval@kaamelott.fr"
-                  />
-                </div>
-
-                <div class="flex flex-col gap-3">
-                  <button
-                    type="submit"
-                    :disabled="isLoading"
-                    class="flex items-center justify-center gap-2 rounded-lg bg-amber-600 hover:bg-amber-700 px-4 py-2 text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                  >
-                    <Icon
-                      v-if="isLoading"
-                      name="ph:spinner-gap"
-                      class="animate-spin text-xl" />
-                    <span>{{ isSignUp ? 'Créer un compte' : 'Se connecter' }}</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    class="text-sm text-gray-600 hover:text-gray-900 hover:underline cursor-pointer"
-                    @click="isSignUp = !isSignUp"
-                  >
-                    {{ isSignUp ? 'Déjà un compte ? Se connecter' : 'Pas de compte ? S\'inscrire' }}
-                  </button>
-                </div>
-              </form>
-            </div>
+            <p class="mb-4 text-gray-700">Entrez votre adresse pour recevoir un lien magique d'accès. (Pas de sortilège foireux, promis par Merlin !)</p>
+            <LoginForm
+              :redirect-to="uiStore.authRedirectUrl || route.fullPath"
+              @success="handleSuccess"
+              @error="handleError"
+            />
           </DialogPanel>
         </TransitionChild>
       </div>
@@ -103,67 +65,20 @@ import {
 } from '@headlessui/vue'
 import { useUiStore } from '~/stores/uiStore'
 import { ModalNames } from '~/stores/uiStore/state'
-import { useSupabaseClient } from '#imports'
+import LoginForm from './LoginForm.vue'
+import { useToast } from '~/composables/useToast'
+import { useRoute } from 'vue-router'
 
-const uiStore = useUiStore() // Store pour gérer l'état de l'UI (modales, loading, etc.)
-const client = useSupabaseClient() // Client Supabase pour l'authentification
+const uiStore = useUiStore()
+const { success: showSuccessToast, denied: showErrorToast } = useToast()
+const route = useRoute()
 
-// État local du composant
-const email = ref('') // Email saisi par l'utilisateur
-const password = ref('') // Mot de passe saisi par l'utilisateur
-const error = ref<string | null>(null) // Message d'erreur à afficher
-const isLoading = ref(false) // État de chargement pendant les requêtes
-const isSignUp = ref(false) // Mode inscription (true) ou connexion (false)
+const handleSuccess = () => {
+  showSuccessToast('Lien magique envoyé ! Vérifiez votre boîte mail.')
+  // On ne ferme pas la modale pour que l'utilisateur puisse voir le message de succès
+}
 
-/**
- * Gère la soumission du formulaire (connexion ou inscription)
- * Cette fonction est appelée lorsque l'utilisateur clique sur le bouton de soumission
- */
-const handleSubmit = async () => {
-  // Réinitialisation des états
-  error.value = null
-  isLoading.value = true
-
-  try {
-    if (isSignUp.value) {
-      // Mode inscription
-      const { error: signUpError } = await client.auth.signUp({
-        email: email.value,
-        password: password.value,
-        options: {
-          // URL de redirection après confirmation de l'email
-          // Utilise l'URL de redirection stockée dans le store ou l'URL courante
-          emailRedirectTo: uiStore.authRedirectUrl || window.location.href
-        }
-      })
-
-      if (signUpError) throw signUpError
-
-      // Succès de l'inscription
-      // Affiche un message de confirmation et réinitialise le formulaire
-      error.value = 'Un email de confirmation vous a été envoyé.'
-      email.value = ''
-      password.value = ''
-    } else {
-      // Mode connexion
-      const { error: signInError } = await client.auth.signInWithPassword({
-        email: email.value,
-        password: password.value
-      })
-
-      if (signInError) throw signInError
-
-      // Succès de la connexion
-      // Ferme la modale pour laisser l'utilisateur accéder à l'application
-      uiStore.closeModal()
-    }
-  } catch (e) {
-    // Gestion des erreurs
-    // Affiche le message d'erreur de Supabase ou un message par défaut
-    error.value = e instanceof Error ? e.message : 'Une erreur est survenue'
-  } finally {
-    // Réinitialisation de l'état de chargement dans tous les cas
-    isLoading.value = false
-  }
+const handleError = (errorMessage: string) => {
+  showErrorToast(errorMessage)
 }
 </script> 
