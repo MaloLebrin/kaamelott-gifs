@@ -119,6 +119,7 @@
 <script setup lang="ts">
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { isUserAdmin } from '~/shared/utils/auth/profiles'
 
 const navigation = [
   { name: 'Accueil', href: '/' },
