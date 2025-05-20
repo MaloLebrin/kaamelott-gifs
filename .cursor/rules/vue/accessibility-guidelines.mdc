@@ -1,0 +1,135 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Accessibility Guidelines
+
+## Overview
+These guidelines are designed to ensure our application is accessible to all users, including those with disabilities. Following these guidelines helps us meet WCAG 2.1 Level AA standards and provides a better user experience for everyone.
+
+## 1. Structure and Navigation
+- Use semantic HTML elements (`<header>`, `<main>`, `<nav>`, `<section>`, etc.)
+- Maintain a consistent heading hierarchy (h1 → h6)
+- Implement intuitive keyboard navigation
+- Provide a "skip link" to access main content directly
+- Maintain logical tab order
+- Ensure all interactive elements are keyboard accessible
+
+## 2. Forms and Interactions
+- All form fields must have explicit labels
+- Required fields must be clearly indicated
+- Error messages must be descriptive and linked to relevant fields
+- Buttons must have explicit labels
+- Important actions must be keyboard accessible
+- Avoid automatic timeouts without warning
+- Provide clear focus indicators
+- Group related form elements logically
+
+## 3. Content and Presentation
+- Maintain a minimum contrast ratio of 4.5:1 for text
+- Don't rely solely on color to convey information
+- Use readable text size (minimum 16px)
+- Ensure content remains readable when zoomed (up to 200%)
+- Avoid text in images
+- Provide text alternatives for images
+- Use sufficient line spacing and paragraph spacing
+- Ensure text remains readable when resized
+
+## 4. Interactive Components
+- All interactive components must be keyboard accessible
+- Component states must be clearly indicated (focus, hover, active, disabled)
+- Dropdown menus must be keyboard navigable
+- Modals must have focus trap
+- Notifications must be announced to screen readers
+- Custom components must follow ARIA patterns
+- Provide clear visual feedback for all interactions
+
+## 5. Multimedia
+- Provide captions for videos
+- Provide transcripts for audio content
+- Avoid content that flashes or could trigger seizures
+- Allow control of animations and carousels
+- Provide alternative content for multimedia
+- Ensure media players are keyboard accessible
+
+## 6. Responsive Design
+- Ensure content is accessible on all devices
+- Avoid horizontal scrolling
+- Adapt touch target sizes (minimum 44x44px)
+- Maintain readability on small screens
+- Test on various devices and screen sizes
+- Ensure responsive layouts don't break accessibility
+
+## 7. Testing and Validation
+- Regular testing with screen readers (NVDA, VoiceOver, JAWS)
+- Validate color contrast
+- Test keyboard navigation
+- Verify compatibility with assistive technologies
+- Use accessibility audit tools (Lighthouse, axe)
+- Conduct regular accessibility audits
+- Include accessibility in code reviews
+
+## 8. General Best Practices
+- Follow WCAG 2.1 (minimum Level AA)
+- Document accessible components
+- Train team members on accessibility best practices
+- Include users with disabilities in testing
+- Maintain documentation of known accessibility issues
+- Keep up with accessibility standards updates
+- Consider accessibility in all design decisions
+
+## 9. Error Handling
+- Provide clear and descriptive error messages
+- Suggest corrections when possible
+- Allow easy error recovery
+- Announce errors to screen readers
+- Provide clear instructions for error resolution
+- Validate input in real-time when possible
+- Prevent form submission with errors
+
+## 10. Performance
+- Optimize loading times
+- Avoid animations that could cause issues
+- Ensure content is accessible without JavaScript
+- Provide alternatives for heavy features
+- Optimize images and media
+- Minimize layout shifts
+- Ensure fast response times for interactions
+
+## Implementation Checklist
+- [ ] Semantic HTML structure
+- [ ] Keyboard navigation
+- [ ] Screen reader compatibility
+- [ ] Color contrast
+- [ ] Form accessibility
+- [ ] Error handling
+- [ ] Responsive design
+- [ ] Multimedia alternatives
+- [ ] Performance optimization
+- [ ] Regular testing
+
+## Resources
+- [WCAG 2.1 Guidelines](mdc:https:/www.w3.org/WAI/WCAG21/quickref)
+- [ARIA Authoring Practices](mdc:https:/www.w3.org/WAI/ARIA/apg)
+- [WebAIM Checklist](mdc:https:/webaim.org/standards/wcag/checklist)
+- [A11Y Project](mdc:https:/www.a11yproject.com/checklist)
+
+## Maintenance
+These guidelines should be:
+- Integrated into the development process
+- Regularly reviewed and updated
+- Shared with the entire team
+- Used as a reference for code reviews
+- Updated based on user feedback
+- Reviewed quarterly for relevance
+
+## Getting Help
+If you need assistance with accessibility implementation:
+1. Consult the WCAG guidelines
+2. Use automated testing tools
+3. Test with actual users
+4. Consult with the accessibility team
+5. Document any issues or questions
+
+Remember: Accessibility is not a feature, it's a fundamental requirement for all users.
