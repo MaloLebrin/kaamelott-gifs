@@ -23,12 +23,8 @@ export default defineEventHandler(async event => {
 
   const client = await serverSupabaseClient<Database>(event)
   // Récupérer l'utilisateur
-  const { data: { user }, error: userError } = await client.auth.getUser()
+  const { data: { user } } = await client.auth.getUser()
 
-  if (userError) {
-    console.error(userError, 'error fetching user')
-  }
-  
   let isLiked = false
   if (user) {
     // Vérifier si l'utilisateur a liké
