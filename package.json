@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "clean-gifs": "node scripts/clean-gifs.js",
+    "generate:types": "pnpx supabase gen types typescript --project-id 'aatfrcexkbcbuyaritlj' --schema public > types/database.types.ts",
     "test": "vitest",
     "lint": "eslint ."
   },

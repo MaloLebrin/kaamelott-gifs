@@ -23,7 +23,7 @@
         role="navigation"
         aria-label="Navigation principale">
         <NuxtLink
-          v-for="item in navigation"
+          v-for="item in navigationItems"
           :key="item.name"
           :to="item.href"
           class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-900 hidden md:block focus:outline-none "
@@ -91,12 +91,14 @@
             <div class="-my-6 divide-y divide-gray-500/10">
               <div class="space-y-2 py-6">
                 <NuxtLink
-                  v-for="item in navigation"
+                  v-for="item in navigationItems"
                   :key="item.name"
                   :to="item.href"
                   class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 focus:outline-none "
                   :class="{ 'bg-gray-100': $route.path === item.href }"
                   :aria-current="$route.path === item.href ? 'page' : undefined"
+                  :aria-hidden="item.isAdmin ? 'true' : 'false'"
+                  :aria-label="item.name"
                   :v-posthog-capture="`click_header_link_${item.name}`"
                   prefetch
                   @click="closeMobileMenu"
@@ -113,13 +115,13 @@
 </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
   { name: 'Accueil', href: '/' },
-  { name: 'Ajouter un GIF', href: '/gifs/creer', isAuth: true },
+  { name: 'Ajouter un GIF', href: '/gifs/creer', isAdmin: true },
   { name: 'Livres', href: '/livres' },
   { name: 'Films', href: '/films' },
   { name: 'Personnages', href: '/characters' },
@@ -130,6 +132,17 @@ const mobileMenuOpen = ref(false)
 function closeMobileMenu() {
   mobileMenuOpen.value = false
 }
+
+const user = useSupabaseUser()
+
+const { data: profile } = await useFetch(`/api/auth/roles/${user.value?.id}`)
+
+const navigationItems = computed(() => {
+  if (isUserAdmin(profile.value?.role)) {
+    return navigation
+  }
+  return navigation.filter(item => !item.isAdmin)
+})
 
 // Gérer l'état aria-expanded du bouton mobile
 watch(mobileMenuOpen, newValue => {

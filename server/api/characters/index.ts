@@ -8,6 +8,7 @@ import type { Database } from '~/types/database.types';
 export default defineEventHandler(async event => {
   try {
     const client = await serverSupabaseClient<Database>(event)
+
     const [
       { data, error },
       { data: charactersData, error: charactersError }

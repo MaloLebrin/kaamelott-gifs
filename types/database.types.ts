@@ -179,6 +179,27 @@ export type Database = {
           },
         ]
       }
+      profiles: {
+        Row: {
+          createdAt: string
+          id: number
+          role: string
+          userId: string
+        }
+        Insert: {
+          createdAt?: string
+          id?: number
+          role?: string
+          userId?: string
+        }
+        Update: {
+          createdAt?: string
+          id?: number
+          role?: string
+          userId?: string
+        }
+        Relationships: []
+      }
       seasons: {
         Row: {
           airDate: string | null
