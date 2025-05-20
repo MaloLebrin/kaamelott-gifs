@@ -50,7 +50,9 @@ export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEnti
    */
   const checkInitialState = async () => {
     try {
-      const { data } = await useFetch<LikeState>(`/api/likes/${entityType}/${entityId}`)
+      const { data } = await useFetch<LikeState>(`/api/likes/${entityType}/${entityId}`, {
+        headers: useRequestHeaders(['cookie'])
+      })
       if (data.value) {
         isLiked.value = data.value.isLiked
         likesCount.value = data.value.likesCount
@@ -79,7 +81,8 @@ export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEnti
       if (isLiked.value) {
         // Ajouter le like
         const { error } = await useFetch(`/api/likes/${entityType}/${entityId}`, {
-          method: 'POST'
+          method: 'POST',
+          headers: useRequestHeaders(['cookie'])
         })
 
         if (error.value) throw error.value
@@ -88,7 +91,8 @@ export const useLike = (entityId: number | EpisodeCode, entityType: LikeableEnti
       } else {
         // Retirer le like
         const { error } = await useFetch(`/api/likes/${entityType}/${entityId}`, {
-          method: 'DELETE'
+          method: 'DELETE',
+          headers: useRequestHeaders(['cookie'])
         })
 
         if (error.value) throw error.value

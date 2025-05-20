@@ -22,9 +22,12 @@ export default defineEventHandler(async event => {
   }
 
   const client = await serverSupabaseClient<Database>(event)
-  
   // Récupérer l'utilisateur
-  const user = await serverSupabaseUser(event)
+  const { data: { user }, error: userError } = await client.auth.getUser()
+
+  if (userError) {
+    console.error(userError, 'error fetching user')
+  }
   
   let isLiked = false
   if (user) {
@@ -40,10 +43,14 @@ export default defineEventHandler(async event => {
   }
 
   // Récupérer le nombre de likes
-  const { count } = await client
+  const { count, error } = await client
     .from(Entities.LIKE)
     .select('*', { count: 'exact', head: true })
     .eq(likeableEntitiesIds[entityType], entityId)
+
+  if (error) {
+    console.error(error, 'error fetching likes count')
+  }
 
   return {
     isLiked,
