@@ -1,7 +1,7 @@
 <template>
 <div
   v-if="gif"
-  class="container mx-auto px-4 pt-2"
+  class="container mx-auto px-4 pt-2 space-y-4"
 >
   <h1 class="sr-only">{{ gif.quote }}</h1>
   <div class=" rounded-lg bg-white">
@@ -10,6 +10,11 @@
       :alt="gif.quote"
       class="w-full h-full object-cover rounded-lg" >
     <div class="p-4">
+      <LikeButton
+        :entity-id="gif.id"
+        :entity-type="Entities.GIF"
+        size="lg"
+      />
       <ShareButtons
         :gif-url="gif.url"
         :quote="gif.quote" />
@@ -22,7 +27,9 @@
 <script setup lang="ts">
 import ShareButtons from '~/components/gifs/ShareButtons.vue'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
+import LikeButton from '~/components/base/LikeButton.vue'
 import type { Gif } from '~/types'
+import { Entities } from '~/types/Entities'
 
 const route = useRoute()
 const slug = route.params.slug as string
