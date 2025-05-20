@@ -121,14 +121,6 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { isUserAdmin } from '~/shared/utils/auth/profiles'
 
-const navigation = [
-  { name: 'Accueil', href: '/' },
-  { name: 'Ajouter un GIF', href: '/gifs/creer', isAdmin: true },
-  { name: 'Livres', href: '/livres' },
-  { name: 'Films', href: '/films' },
-  { name: 'Personnages', href: '/characters' },
-  { name: 'À propos', href: '/about' },
-]
 const mobileMenuOpen = ref(false)
 
 function closeMobileMenu() {
@@ -143,12 +135,7 @@ if (user.value) {
   isAdmin.value = isUserAdmin(profile.value?.role)
 }
 
-const navigationItems = computed(() => {
-  if (isAdmin.value) {
-    return navigation
-  }
-  return navigation.filter(item => !item.isAdmin)
-})
+const navigationItems = computed(() => getNavigationItems({ isAuth: Boolean(user.value), isAdmin: isAdmin.value }))
 
 // Gérer l'état aria-expanded du bouton mobile
 watch(mobileMenuOpen, newValue => {
