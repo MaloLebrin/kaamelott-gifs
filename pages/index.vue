@@ -52,12 +52,6 @@ interface Character {
 const route = useRoute()
 const router = useRouter()
 const { $clientPosthog } = useNuxtApp()
-// const user = useSupabaseUser()
-// console.log(user.value, 'user')
-// const supabase = useSupabaseClient()
-// const { data, error } = await supabase.auth.admin.getUserById(user.value?.id)
-// console.log(data, 'data')
-// console.log(error, 'error')
 
 // Initialiser les états depuis l'URL
 const searchQuery = ref(route.query.q?.toString() || '')
