@@ -87,7 +87,7 @@ const selectedType = ref<Entities | undefined>(route.query.type as Entities || u
 const currentPage = ref(Number(route.query.page) || 1)
 
 // Charger les favoris
-const { data: favoritesData } = await useFetch('/api/favorites', {
+const { data: favoritesData } = await useFetch('/api/likes', {
   query: computed(() => ({
     type: selectedType.value,
     page: currentPage.value,
