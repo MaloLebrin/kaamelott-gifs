@@ -8,9 +8,9 @@ export const navigation = [
   { name: 'Ajouter un GIF', href: '/gifs/creer', isAdmin: true, isAuth: true },
   { name: 'Livres', href: '/livres' },
   { name: 'Films', href: '/films' },
-  { name: 'Personnages', href: '/characters' },
-  { name: 'Favoris', href: '/favorites', isAuth: true },
-  { name: 'À propos', href: '/about' },
+  { name: 'Personnages', href: '/personnages' },
+  { name: 'Favoris', href: '/favoris', isAuth: true },
+  { name: 'À propos', href: '/a-propos' },
 ]
 
 /**

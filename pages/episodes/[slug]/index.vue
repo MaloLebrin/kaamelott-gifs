@@ -33,7 +33,7 @@
           :key="character"
           class="my-0.5">
           <NuxtLink
-            :to="`/characters/${slugify(character)}`"
+            :to="`/personnages/${slugify(character)}`"
             prefetch
           >
             <BaseTag :label="character.trim()" />

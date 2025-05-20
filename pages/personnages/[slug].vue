@@ -147,18 +147,18 @@ const { data: episodes } = await useFetch<Pick<Episode, 'code' | 'title' | 'slug
 const breadcrumbItems = computed(() => [
   {
     label: 'Personnages',
-    to: '/characters'
+    to: '/personnages'
   },
   {
     label: data.value?.character.name || '',
-    to: `/characters/${data.value?.character.slug}`
+    to: `/personnages/${data.value?.character.slug}`
   }
 ])
 
 onMounted(() => {
   if ($clientPosthog) {
     $clientPosthog.capture('page_view', {
-      page: 'characters',
+      page: 'personnages',
       character:  data.value?.character.name
     })
   }
@@ -196,7 +196,7 @@ useSeoMeta({
   keywords: composeKeywordsForCharacter(data.value?.character),
   author: 'Kaamelott GIFs',
   robots: 'index, follow',
-  ogUrl: `https://kaamelottgifs.fr/characters/${data.value?.character.slug || characterSlug}`,
+  ogUrl: `https://kaamelottgifs.fr/personnages/${data.value?.character.slug || characterSlug}`,
   ogType: 'website',
   twitterImage: '/fondKBg.webp',
   twitterCard: 'summary_large_image',

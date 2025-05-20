@@ -13,9 +13,9 @@ describe('getNavigationItems', () => {
       { name: 'Accueil', href: '/' },
       { name: 'Livres', href: '/livres' },
       { name: 'Films', href: '/films' },
-      { name: 'Personnages', href: '/characters' },
-      { name: 'Favoris', href: '/favorites', isAuth: true },
-      { name: 'À propos', href: '/about' },
+      { name: 'Personnages', href: '/personnages' },
+      { name: 'Favoris', href: '/favoris', isAuth: true },
+      { name: 'À propos', href: '/a-propos' },
     ])
   })
 
@@ -24,8 +24,8 @@ describe('getNavigationItems', () => {
       { name: 'Accueil', href: '/' },
       { name: 'Livres', href: '/livres' },
       { name: 'Films', href: '/films' },
-      { name: 'Personnages', href: '/characters' },
-      { name: 'À propos', href: '/about' },
+      { name: 'Personnages', href: '/personnages' },
+      { name: 'À propos', href: '/a-propos' },
     ]
     expect(getNavigationItems({ isAuth: false, isAdmin: false })).toStrictEqual(expectedItems)
     expect(getNavigationItems({ isAuth: false, isAdmin: true })).toStrictEqual(expectedItems)

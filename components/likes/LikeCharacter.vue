@@ -1,6 +1,6 @@
 <template>
 <NuxtLink
-  :to="'/characters/' + like.characters.slug"
+  :to="'/personnages/' + like.characters.slug"
   class="block p-6"
   :v-posthog-capture="'click_favorite_character_' + like.characters.id"
   prefetch

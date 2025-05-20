@@ -13,28 +13,27 @@ export const routeRulesConfig ={
   },
   
   // Page À propos - Prérendue
-  '/about': { 
+  '/a-propos': { 
     prerender: true,
     headers: {
       'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
     }
   },
   
-  '/characters/**': { 
+  '/personnages/**': { 
     prerender: true,
     isr: true,
     headers: {
       'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
     }
   },
-  '/characters': { 
+  '/personnages': { 
     prerender: true,
     isr: true,
     headers: {
       'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
     }
   },
-  
   // Pages des GIFs - Générées à la demande avec cache
   '/gifs/**': { 
     prerender: true,

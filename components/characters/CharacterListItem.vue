@@ -1,6 +1,6 @@
 <template>
 <NuxtLink
-  :to="`/characters/${slugify(character.name)}`"
+  :to="`/personnages/${slugify(character.name)}`"
   class="group"
   :v-posthog-capture="`click_character_link_${character.name}`"
   prefetch
