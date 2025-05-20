@@ -21,30 +21,57 @@
           'bg-blue-500 text-white': selectedType === type.value,
           'bg-gray-100 hover:bg-gray-200 text-gray-700': selectedType !== type.value
         }"
-        @click="handleTypeChange(type.value)"
+        @click="setEntityType(type.value)"
       >
         {{ type.label }}
       </button>
     </div>
   </div>
 
+  <!-- État de chargement -->
   <div
-    v-if="favorites && favorites.length > 0"
-    class="space-y-8">
+    v-if="isLoading"
+    class="flex justify-center items-center py-12"
+  >
+    <Icon
+      name="heroicons:arrow-path"
+      class="w-8 h-8 animate-spin text-blue-500" />
+  </div>
+
+  <!-- État d'erreur -->
+  <div
+    v-else-if="error"
+    class="text-center py-12 bg-white rounded-lg shadow"
+  >
+    <p class="text-xl text-red-600 mb-4">{{ error.message }}</p>
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+      @click="() => refresh()"
+    >
+      Réessayer
+    </button>
+  </div>
+
+  <!-- Liste des favoris -->
+  <div
+    v-else-if="likes.length > 0"
+    class="space-y-8"
+  >
     <LikeItem
-      v-for="like in favorites"
+      v-for="like in likes"
       :key="like.id"
-      :like="like as unknown as LikeWithRelation"
+      :like="like"
     />
 
     <Pagination
       v-if="totalPages > 1"
       :current-page="currentPage"
       :total-pages="totalPages"
-      @page-change="handlePageChange"
+      @page-change="setPage"
     />
   </div>
 
+  <!-- État vide -->
   <div
     v-else
     class="text-center py-12 bg-white rounded-lg shadow"
@@ -64,10 +91,9 @@ import { Entities, type LikeableEntity } from '~/types/Entities'
 import Pagination from '~/components/base/Pagination.vue'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import LikeItem from '~/components/likes/LikeItem.vue'
-import type { LikeWithRelation } from '~/types/Like'
+import { useLikesList } from '~/composables/useLikesList'
 
-const route = useRoute()
-const { $clientPosthog, $router } = useNuxtApp()
+const { $clientPosthog } = useNuxtApp()
 
 // Types d'entités pour les filtres
 const entityTypes: { value: LikeableEntity | undefined, label: string }[] = [
@@ -78,65 +104,21 @@ const entityTypes: { value: LikeableEntity | undefined, label: string }[] = [
   { value: Entities.SEASON, label: 'Saisons' }
 ]
 
-// États
-const selectedType = ref<Entities | undefined>(route.query.type as Entities || undefined)
-const currentPage = ref(Number(route.query.page) || 1)
-
-// Charger les favoris
-const { data: favoritesData } = await useFetch('/api/likes', {
-  query: computed(() => ({
-    type: selectedType.value,
-    page: currentPage.value,
-    itemsPerPage: 21
-  }))
-})
-
-// Watcher pour les changements d'URL
-watch(
-  () => route.query,
-  newQuery => {
-    // Mettre à jour le type sélectionné
-    const newType = newQuery.type as Entities | undefined
-    if (newType !== selectedType.value) {
-      selectedType.value = newType
-    }
-
-    // Mettre à jour la page
-    const newPage = Number(newQuery.page) || 1
-    if (newPage !== currentPage.value) {
-      currentPage.value = newPage
-    }
-  },
-  { immediate: true }
-)
-
-// Computed properties
-const favorites = computed(() => favoritesData.value?.likes || [])
-const totalPages = computed(() => favoritesData.value?.totalPages || 0)
+// Utiliser le composable
+const {
+  likes,
+  currentPage,
+  totalPages,
+  isLoading,
+  error,
+  selectedType,
+  setPage,
+  setEntityType,
+  refresh
+} = useLikesList()
 
 // Méthodes
-function handleTypeChange(type: Entities | undefined) {
-  // Mettre à jour l'URL sans recharger la page
-  $router.push({
-    query: {
-      ...route.query,
-      type: type || undefined,
-      page: '1' // Réinitialiser la page à 1 lors du changement de type
-    }
-  })
-}
-
-function handlePageChange(page: number) {
-  // Mettre à jour l'URL sans recharger la page
-  $router.push({
-    query: {
-      ...route.query,
-      page: page.toString()
-    }
-  })
-}
-
-function getEntityTypeLabel(type: Entities): string {
+function getEntityTypeLabel(type: LikeableEntity): string {
   return entityTypes.find(t => t.value === type)?.label || type
 }
 
