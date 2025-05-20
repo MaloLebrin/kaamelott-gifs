@@ -28,7 +28,6 @@
     </div>
   </div>
 
-  <!-- Grille de favoris -->
   <div
     v-if="favorites && favorites.length > 0"
     class="space-y-8">
@@ -38,8 +37,6 @@
       :like="like as unknown as LikeWithRelation"
     />
 
-
-    <!-- Pagination -->
     <Pagination
       v-if="totalPages > 1"
       :current-page="currentPage"
@@ -48,7 +45,6 @@
     />
   </div>
 
-  <!-- Message si aucun favori -->
   <div
     v-else
     class="text-center py-12 bg-white rounded-lg shadow"
@@ -64,7 +60,7 @@
 </template>
 
 <script setup lang="ts">
-import { Entities } from '~/types'
+import { Entities, type LikeableEntity } from '~/types/Entities'
 import Pagination from '~/components/base/Pagination.vue'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import LikeItem from '~/components/likes/LikeItem.vue'
@@ -74,7 +70,7 @@ const route = useRoute()
 const { $clientPosthog, $router } = useNuxtApp()
 
 // Types d'entités pour les filtres
-const entityTypes = [
+const entityTypes: { value: LikeableEntity | undefined, label: string }[] = [
   { value: undefined, label: 'Tous' },
   { value: Entities.GIF, label: 'GIFs' },
   { value: Entities.CHARACTER, label: 'Personnages' },

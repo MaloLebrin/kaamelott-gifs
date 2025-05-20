@@ -1,6 +1,8 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
+import { likeableEntitiesIds } from '~/shared/utils/likes/likeableEntities'
 import { orderingLikes } from '~/shared/utils/likes/orderingLikes'
 import type { Database } from '~/types/database.types'
+import type { LikeableEntity } from '~/types/Entities'
 import type { LikeWithRelation } from '~/types/Like'
 
 export default defineEventHandler(async event => {
@@ -8,7 +10,7 @@ export default defineEventHandler(async event => {
   const user = await serverSupabaseUser(event)
   const query = getQuery(event)
   
-  // const entityType = query.type as Entities | undefined
+  const entityType = query.type as LikeableEntity | undefined
   const currentPage = Number(query.page) || 1
   const itemsPerPage = Number(query.itemsPerPage) || 21
 
@@ -22,25 +24,31 @@ export default defineEventHandler(async event => {
   const from = (currentPage - 1) * itemsPerPage
   const to = from + itemsPerPage - 1
 
+  const queryBuilder = client
+    .from('likes')
+    .select(`
+    *,
+    gifs (*),
+    characters (*),
+    episodes (*),
+    seasons (*)
+  `, {
+      count: 'exact',
+    })
+    .eq('userId', user.id)
+
+  if (entityType) {
+    queryBuilder.not(likeableEntitiesIds[entityType], 'is', null)
+  }
+
   const {
     data: likes,
     error,
     count,
-  } = await client
-    .from('likes')
-    .select(`
-      *,
-      gifs (*),
-      characters (*),
-      episodes (*),
-      seasons (*)
-    `, {
-      count: 'exact',
-    })
-    .eq('userId', user.id)
+  } = await queryBuilder
     .order('createdAt', { ascending: false })
     .range(from, to)
-    .overrideTypes<LikeWithRelation[]>( )
+    .overrideTypes<LikeWithRelation[]>()
 
   if (error) {
     throw createError({
