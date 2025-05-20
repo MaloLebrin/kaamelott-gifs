@@ -1,5 +1,7 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
+import { orderingLikes } from '~/shared/utils/likes/orderingLikes'
 import type { Database } from '~/types/database.types'
+import type { LikeWithRelation } from '~/types/Like'
 
 export default defineEventHandler(async event => {
   const client = await serverSupabaseClient<Database>(event)
@@ -38,6 +40,7 @@ export default defineEventHandler(async event => {
     .eq('userId', user.id)
     .order('createdAt', { ascending: false })
     .range(from, to)
+    .overrideTypes<LikeWithRelation[]>( )
 
   if (error) {
     throw createError({
@@ -49,7 +52,7 @@ export default defineEventHandler(async event => {
   const totalPages = count ? Math.ceil(count / itemsPerPage) : 0
   
   return {
-    favorites: likes,
+    likes: orderingLikes(likes),
     total: count || 0,
     page: currentPage,
     itemsPerPage,

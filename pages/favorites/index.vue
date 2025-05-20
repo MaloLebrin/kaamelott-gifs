@@ -115,7 +115,7 @@ watch(
 )
 
 // Computed properties
-const favorites = computed(() => favoritesData.value?.favorites || [])
+const favorites = computed(() => favoritesData.value?.likes || [])
 const totalPages = computed(() => favoritesData.value?.totalPages || 0)
 
 // Méthodes
