@@ -79,8 +79,8 @@ const signInWithOtp = async () => {
     }
   })
 
-  loading.value = false
   if (supaError) {
+    console.error(supaError, 'authentication error in login form')
     if (supaError.message === 'Signups not allowed for this instance') {
       error.value = 'Les inscriptions sont temporairement fermées. Veuillez réessayer plus tard.'
     } else {
@@ -95,5 +95,6 @@ const signInWithOtp = async () => {
       successTimeout = null
     }, 5000)
   }
+  loading.value = false
 }
 </script> 
