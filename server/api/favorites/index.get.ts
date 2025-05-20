@@ -1,7 +1,5 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
 import type { Database } from '~/types/database.types'
-import type { Entities } from '~/types'
-import { likeableEntitiesIds } from '~/shared/utils/likes/likeableEntities'
 
 export default defineEventHandler(async event => {
   const client = await serverSupabaseClient<Database>(event)
@@ -36,7 +34,6 @@ export default defineEventHandler(async event => {
       seasons (*)
     `, {
       count: 'exact',
-      head: true,
     })
     .eq('userId', user.id)
     .order('createdAt', { ascending: false })
