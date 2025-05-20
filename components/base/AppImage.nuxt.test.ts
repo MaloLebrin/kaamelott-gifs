@@ -7,7 +7,8 @@ describe('AppImage', () => {
     const wrapper = mount(AppImage, {
       props: {
         src: 'test.jpg',
-        alt: 'Test image'
+        alt: 'Test image',
+        format: 'jpg'
       }
     })
 
@@ -20,6 +21,7 @@ describe('AppImage', () => {
       props: {
         src: 'test.jpg',
         alt: 'Test image',
+        format: 'jpg',
         className: 'custom-class'
       }
     })

@@ -12,7 +12,17 @@ import {
 export default defineNuxtConfig({
   devtools: { enabled: true },
   routeRules: routeRulesConfig,
-  modules: ['@nuxt/image', '@nuxt/icon', '@nuxt/test-utils/module', '@nuxtjs/seo', 'nuxt-posthog', '@nuxtjs/supabase', '@vueuse/nuxt', '@nuxt/eslint', '@pinia/nuxt'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/icon',
+    '@nuxt/test-utils/module',
+    '@nuxtjs/seo',
+    'nuxt-posthog',
+    '@nuxtjs/supabase',
+    '@vueuse/nuxt',
+    '@nuxt/eslint',
+    '@pinia/nuxt',
+  ],
 
   supabase: {
     redirect: false,

@@ -11,6 +11,12 @@ import type {
 
 const siteUrl = 'https://kaamelottgifs.fr'
 
+/**
+ * Construit les données de base pour un élément structuré selon le type spécifié
+ * @param {BaseItem} item - L'élément de base contenant les informations communes
+ * @param {ItemType} type - Le type d'élément (gif, character, episode, season)
+ * @returns {Partial<StructuredData>} Les données structurées de base
+ */
 export function buildBaseData(item: BaseItem, type: ItemType): Partial<StructuredData> {
   return {
     '@context': 'https://schema.org',
@@ -29,6 +35,11 @@ export function buildBaseData(item: BaseItem, type: ItemType): Partial<Structure
   }
 }
 
+/**
+ * Construit les données structurées pour un GIF
+ * @param {GifItem} item - Les informations du GIF
+ * @returns {StructuredData} Les données structurées complètes du GIF
+ */
 export function buildGifData(item: GifItem): StructuredData {
   const baseData = buildBaseData(item, 'gif')
   
@@ -50,6 +61,11 @@ export function buildGifData(item: GifItem): StructuredData {
   } as StructuredData
 }
 
+/**
+ * Construit les données structurées pour un personnage
+ * @param {CharacterItem} item - Les informations du personnage
+ * @returns {StructuredData} Les données structurées complètes du personnage
+ */
 export function buildCharacterData(item: CharacterItem): StructuredData {
   const baseData = buildBaseData(item, 'character')
   
@@ -68,6 +84,11 @@ export function buildCharacterData(item: CharacterItem): StructuredData {
   } as StructuredData
 }
 
+/**
+ * Construit les données structurées pour un épisode
+ * @param {EpisodeItem} item - Les informations de l'épisode
+ * @returns {StructuredData} Les données structurées complètes de l'épisode
+ */
 export function buildEpisodeData(item: EpisodeItem): StructuredData {
   const baseData = buildBaseData(item, 'episode')
   
@@ -87,6 +108,11 @@ export function buildEpisodeData(item: EpisodeItem): StructuredData {
   } as StructuredData
 }
 
+/**
+ * Construit les données structurées pour une saison
+ * @param {SeasonItem} item - Les informations de la saison
+ * @returns {StructuredData} Les données structurées complètes de la saison
+ */
 export function buildSeasonData(item: SeasonItem): StructuredData {
   const baseData = buildBaseData(item, 'season')
   
@@ -105,6 +131,12 @@ export function buildSeasonData(item: SeasonItem): StructuredData {
   } as StructuredData
 }
 
+/**
+ * Obtient le type de schéma correspondant au type d'élément
+ * @param {ItemType} type - Le type d'élément
+ * @returns {string} Le type de schéma correspondant
+ * @private
+ */
 function getSchemaType(type: ItemType): string {
   switch (type) {
     case 'gif': return 'VideoObject'
@@ -115,6 +147,13 @@ function getSchemaType(type: ItemType): string {
   }
 }
 
+/**
+ * Génère une description par défaut selon le type d'élément
+ * @param {ItemType} type - Le type d'élément
+ * @param {any} item - L'élément pour lequel générer la description
+ * @returns {string} La description générée
+ * @private
+ */
 function getDefaultDescription(type: ItemType, item: any): string {
   switch (type) {
     case 'gif':
@@ -130,6 +169,13 @@ function getDefaultDescription(type: ItemType, item: any): string {
   }
 } 
 
+/**
+ * Construit les données structurées complètes selon le type d'élément
+ * @param {ItemType} type - Le type d'élément
+ * @param {any} item - Les informations de l'élément
+ * @returns {StructuredData} Les données structurées complètes
+ * @throws {Error} Si le type n'est pas supporté
+ */
 export function buildStructuredData(type: ItemType, item: any): StructuredData {
   switch (type) {
     case 'gif': return buildGifData(item as GifItem)

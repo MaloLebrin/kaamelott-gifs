@@ -5,10 +5,31 @@ import type { Gif } from "~/types/Gif"
 import type { EpisodeItem } from "~/types/structuredData"
 
 /**
- * Compose an EpisodeItem from an Episode and an array of Gifs
- * @param episode - The episode to compose
- * @param gifs - The array of gifs
- * @returns The composed EpisodeItem
+ * Compose un EpisodeItem à partir d'un Episode et d'un tableau de GIFs pour les données structurées (SEO)
+ * @param {Object} params - Les paramètres de composition
+ * @param {Episode} params.episode - L'épisode source
+ * @param {Gif[]} params.gifs - Les GIFs associés à l'épisode
+ * @returns {EpisodeItem} Les données structurées de l'épisode
+ * 
+ * @example
+ * ```ts
+ * const episodeItem = composeEpisodeToStructuredData({
+ *   episode: {
+ *     code: 'S01E01',
+ *     title: 'Le titre de l\'épisode',
+ *     resume: 'Résumé de l\'épisode',
+ *     createdAt: '2024-01-01'
+ *   },
+ *   gifs: [
+ *     { quote: 'Réplique 1', characters: ['Arthur'] },
+ *     { quote: 'Réplique 2', characters: ['Perceval'] }
+ *   ]
+ * })
+ * // Retourne un EpisodeItem avec:
+ * // - Les répliques des GIFs
+ * // - Les personnages uniques
+ * // - Les métadonnées de l'épisode
+ * ```
  */
 export function composeEpisodeToStructuredData({
   episode,

@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "clean-gifs": "node scripts/clean-gifs.js",
+    "generate:types": "pnpx supabase gen types typescript --project-id 'aatfrcexkbcbuyaritlj' --schema public > types/database.types.ts",
     "test": "vitest",
     "lint": "eslint ."
   },
@@ -42,6 +42,7 @@
     "eslint-plugin-vue": "^10.1.0",
     "happy-dom": "^17.4.4",
     "playwright-core": "^1.52.0",
+    "supabase": "^2.23.4",
     "typescript": "^5.8.3",
     "vitest": "^3.1.2"
   }

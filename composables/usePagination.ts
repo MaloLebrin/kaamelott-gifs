@@ -2,13 +2,48 @@
 import { ref, computed, watch } from 'vue'
 import { useRouter, useRoute } from '#app'
 
+/** Options de configuration pour le composable de pagination */
 interface UsePaginationOptions<T> {
+  /** Liste des éléments à paginer */
   items: T[]
+  /** Nombre d'éléments par page (défaut: 21) */
   itemsPerPage?: number
+  /** Champ à utiliser pour la recherche (défaut: 'quote') */
   searchField?: string
+  /** Champ à utiliser pour le filtrage par personnage (défaut: 'characters') */
   characterField?: string
 }
 
+/**
+ * Composable pour gérer la pagination, la recherche et le filtrage d'une liste d'éléments.
+ * Gère automatiquement la synchronisation avec l'URL pour permettre le partage et la navigation.
+ * 
+ * @template T - Le type des éléments à paginer
+ * @param options - Les options de configuration
+ * @param options.items - Liste des éléments à paginer
+ * @param [options.itemsPerPage=21] - Nombre d'éléments par page
+ * @param [options.searchField='quote'] - Champ à utiliser pour la recherche
+ * @param [options.characterField='characters'] - Champ à utiliser pour le filtrage par personnage
+ * 
+ * @returns Un objet contenant l'état et les méthodes de pagination
+ * @property {Ref<number>} currentPage - La page courante
+ * @property {ComputedRef<number>} totalPages - Le nombre total de pages
+ * @property {ComputedRef<T[]>} paginatedItems - Les éléments de la page courante
+ * @property {Ref<string>} searchQuery - La requête de recherche
+ * @property {Ref<string>} selectedCharacter - Le personnage sélectionné
+ * @property {Function} handleSearch - Fonction pour gérer la recherche et le filtrage
+ * @property {Function} handlePageChange - Fonction pour changer de page
+ * 
+ * @example
+ * ```ts
+ * const { currentPage, totalPages, paginatedItems, handleSearch, handlePageChange } = usePagination({
+ *   items: gifs,
+ *   itemsPerPage: 12,
+ *   searchField: 'quote',
+ *   characterField: 'characters'
+ * })
+ * ```
+ */
 export function usePagination<T>(options: UsePaginationOptions<T>) {
   const router = useRouter()
   const route = useRoute()

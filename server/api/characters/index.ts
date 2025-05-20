@@ -3,10 +3,12 @@ import { composeCharacters } from '~/shared/utils/characters/composeCharacters'
 import { slugify } from '~/shared/utils/string'
 import type { Gif } from '~/types';
 import { Entities } from '~/types'
+import type { Database } from '~/types/database.types';
 
 export default defineEventHandler(async event => {
   try {
-    const client = await serverSupabaseClient(event)
+    const client = await serverSupabaseClient<Database>(event)
+
     const [
       { data, error },
       { data: charactersData, error: charactersError }
@@ -36,7 +38,7 @@ export default defineEventHandler(async event => {
       return []
     }
 
-    const gifs = data as Pick<Gif, 'characters' | 'characters_speaking'>[]
+    const gifs = data as unknown as Pick<Gif, 'characters' | 'characters_speaking'>[]
 
     const sortedCharacters = composeCharacters(data)
 

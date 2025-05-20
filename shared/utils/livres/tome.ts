@@ -1,7 +1,15 @@
 /**
- * Get the tome from the number
- * @param nb - The number of the tome
- * @returns The tome
+ * Convertit un numéro de livre en son nom complet
+ * @param {number} nb - Le numéro du livre (1 à 6)
+ * @returns {string | null} Le nom complet du livre (ex: 'Livre I') ou null si le numéro est invalide
+ * 
+ * @example
+ * ```ts
+ * getTomeFromCode(1) // 'Livre I'
+ * getTomeFromCode(3) // 'Livre III'
+ * getTomeFromCode(6) // 'Livre VI'
+ * getTomeFromCode(0) // null
+ * ```
  */
 export function getTomeFromCode(nb: number) {
   if (!nb) {
