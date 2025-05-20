@@ -4,8 +4,8 @@
  * @returns The formatted gifs
  */
 export function formatFromBackToFront<T extends {
-  characters: string
-  characters_speaking?: string
+  characters: string | null
+  characters_speaking?: string | null
 }>(gifs: T[]): T[] {
   if (!gifs || gifs.length === 0) {
     return []

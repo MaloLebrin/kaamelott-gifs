@@ -5,6 +5,7 @@ import { formatEpisode } from '~/shared/utils/gifs/formatEpisode'
 import { transformUrl } from '~/shared/utils/gifs/transformUrl'
 import { validateNewGif } from '~/shared/utils/gifs/validateNewGif'
 import { newSlugify } from '~/shared/utils/string'
+import type { Database } from '~/types/database.types'
 import { Entities } from '~/types/Entities'
 import type { Gif } from '~/types/Gif'
 
@@ -41,7 +42,7 @@ export default defineEventHandler(async event => {
       })
     }
   
-    const client = await serverSupabaseClient(event)
+    const client = await serverSupabaseClient<Database>(event)
     const { gifFile, gifData } = validateNewGif(formData)
   
     await uploadGifToS3(gifFile, gifData.filename)

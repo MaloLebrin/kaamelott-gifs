@@ -1,8 +1,9 @@
 import { serverSupabaseClient } from '#supabase/server'
 import { Entities } from '~/types'
+import type { Database } from '~/types/database.types'
 
 export default defineEventHandler(async event => {
-  const client = await serverSupabaseClient(event)
+  const client = await serverSupabaseClient<Database>(event)
 
   const { data, error } = await client.from(Entities.SEASON).select('*')
 

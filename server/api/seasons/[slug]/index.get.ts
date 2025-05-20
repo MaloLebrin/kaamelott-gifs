@@ -2,6 +2,8 @@ import { serverSupabaseClient } from '#supabase/server'
 import { Entities } from '~/types'
 import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront'
 import type { Season } from '~/types/Season'
+import type { Database } from '~/types/database.types'
+
 export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string
 
@@ -9,7 +11,7 @@ export default defineEventHandler(async event => {
     throw createError({ statusCode: 400, statusMessage: 'Slug is required' })
   }
 
-  const client = await serverSupabaseClient(event)
+  const client = await serverSupabaseClient<Database>(event)
 
   const { data: seasonData, error } = await client
     .from(Entities.SEASON)

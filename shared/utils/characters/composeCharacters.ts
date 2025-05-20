@@ -1,5 +1,4 @@
 import { formatCharactersToFront } from "~/shared/utils/gifs/formatCharacters"
-import type { Gif } from "~/types"
 
 /**
  * Compose les personnages de gifs en un seul tableau
@@ -8,8 +7,8 @@ import type { Gif } from "~/types"
  */
 export function composeCharacters(
   objects: {
-    characters: string
-    characters_speaking: string
+    characters: string | null
+    characters_speaking: string | null
   }[]
 ) {
   // Créer un Set pour avoir des personnages uniques
@@ -17,14 +16,18 @@ export function composeCharacters(
   
   objects.forEach(gif => {
     // Ajouter les personnages
-    formatCharactersToFront(gif.characters).forEach(character => {
-      characters.add(character)
-    })
+    if (gif.characters) {
+      formatCharactersToFront(gif.characters).forEach(character => {
+        characters.add(character)
+      })
+    }
     
     // Ajouter les personnages qui parlent
-    formatCharactersToFront(gif.characters_speaking).forEach(character => {
-      characters.add(character)
-    })
+    if (gif.characters_speaking) {
+      formatCharactersToFront(gif.characters_speaking).forEach(character => {
+        characters.add(character)
+      })
+    }
   })
 
   // Convertir le Set en Array et trier selon l'ordre alphabétique français

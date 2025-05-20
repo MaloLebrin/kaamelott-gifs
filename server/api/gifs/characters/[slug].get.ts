@@ -3,6 +3,7 @@ import { serverSupabaseClient } from '#supabase/server'
 import { Entities } from '~/types'
 import { slugify } from '~/shared/utils/string'
 import { charactersData } from '~/server/data/characters'
+import type { Database } from '~/types/database.types'
 
 export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string
@@ -17,7 +18,7 @@ export default defineEventHandler(async event => {
   const character = charactersData.find(character => slugify(character.name) === slug)
   const name = character?.name || slug
 
-  const client = await serverSupabaseClient(event)
+  const client = await serverSupabaseClient<Database>(event)
 
   const [{ data, error }, { data: characterData, error: characterError }] = await Promise.all([
     client
