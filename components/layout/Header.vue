@@ -29,6 +29,7 @@
           class="px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-900 hidden md:block focus:outline-none "
           :class="{ 'bg-gray-100 text-gray-900': $route.path === item.href }"
           :aria-current="$route.path === item.href ? 'page' : undefined"
+          :aria-label="item.name"
           :v-posthog-capture="`click_header_link_${item.name}`"
           prefetch
         >
