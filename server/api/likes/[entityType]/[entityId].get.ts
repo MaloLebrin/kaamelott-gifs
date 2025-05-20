@@ -1,4 +1,4 @@
-import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
+import { serverSupabaseClient } from '#supabase/server'
 import { Entities, type LikeableEntity } from '~/types'
 import { likeableEntitiesIds, validEntityTypes } from '~/shared/utils/likes/likeableEntities'
 import type { Database } from '~/types/database.types'
