@@ -136,11 +136,15 @@ function closeMobileMenu() {
 }
 
 const user = useSupabaseUser()
+const isAdmin = ref(false)
 
-const { data: profile } = await useFetch(`/api/auth/roles/${user.value?.id}`)
+if (user.value) {
+  const { data: profile } = await useFetch(`/api/auth/roles/${user.value.id}`)
+  isAdmin.value = isUserAdmin(profile.value?.role)
+}
 
 const navigationItems = computed(() => {
-  if (isUserAdmin(profile.value?.role)) {
+  if (isAdmin.value) {
     return navigation
   }
   return navigation.filter(item => !item.isAdmin)
