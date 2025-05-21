@@ -25,6 +25,7 @@ describe('getNavigationItems', () => {
       { name: 'Livres', href: '/livres' },
       { name: 'Films', href: '/films' },
       { name: 'Personnages', href: '/personnages' },
+      { name: 'Favoris', href: '/favoris', isAuth: true },
       { name: 'À propos', href: '/a-propos' },
     ]
     expect(getNavigationItems({ isAuth: false, isAdmin: false })).toStrictEqual(expectedItems)

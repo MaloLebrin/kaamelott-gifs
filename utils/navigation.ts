@@ -28,12 +28,7 @@ export function getNavigationItems({
   isAuth?: boolean,
   isAdmin?: boolean,
 }) {
-  // Filtrer les éléments qui nécessitent une authentification
-  if (!isAuth) {
-    return navigation.filter(item => !item.isAuth && !item.isAdmin)
-  }
-
-  if (!isAdmin) {
+  if (!isAdmin || !isAuth) {
     return navigation.filter(item => !item.isAdmin)
   }
   

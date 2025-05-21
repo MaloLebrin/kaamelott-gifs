@@ -147,11 +147,6 @@ onMounted(() => {
   }
 })
 
-// Suppression du middleware auth
-definePageMeta({
-  isAuth: true
-})
-
 useSeoMeta({
   title: 'Mes Favoris',
   ogTitle: 'Mes Favoris',
