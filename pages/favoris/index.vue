@@ -12,7 +12,9 @@
     <h1 class="text-4xl font-bold mb-4">Mes Favoris</h1>
     
     <!-- Filtres -->
-    <div class="flex flex-wrap gap-2 mb-6">
+    <div 
+      v-if="user"
+      class="flex flex-wrap gap-2 mb-6">
       <button
         v-for="type in entityTypes"
         :key="type.value"
@@ -38,23 +40,9 @@
       class="w-8 h-8 animate-spin text-blue-500" />
   </div>
 
-  <!-- État d'erreur -->
-  <div
-    v-else-if="error"
-    class="text-center py-12 bg-white rounded-lg shadow"
-  >
-    <p class="text-xl text-red-600 mb-4">{{ error.message }}</p>
-    <button
-      class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-      @click="() => refresh()"
-    >
-      Réessayer
-    </button>
-  </div>
-
   <!-- Liste des favoris -->
   <div
-    v-else-if="likes.length > 0"
+    v-else-if="user && likes.length > 0"
     class="space-y-8"
   >
     <LikeItem
@@ -73,7 +61,7 @@
 
   <!-- État vide -->
   <div
-    v-else
+    v-else-if="user"
     class="text-center py-12 bg-white rounded-lg shadow"
   >
     <p class="text-xl text-gray-600">
@@ -82,6 +70,22 @@
         : 'Aucun favori trouvé' 
       }}
     </p>
+  </div>
+
+  <!-- Message pour les utilisateurs non connectés -->
+  <div
+    v-else
+    class="text-center py-12 bg-white rounded-lg shadow"
+  >
+    <p class="text-xl text-gray-600 mb-4">
+      Connectez-vous pour voir vos favoris
+    </p>
+    <button
+      class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+      @click="uiStore.openModal(ModalNames.AUTH_MODAL, window.location.href)"
+    >
+      Se connecter
+    </button>
   </div>
 </div>
 </template>
@@ -92,8 +96,12 @@ import Pagination from '~/components/base/Pagination.vue'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import LikeItem from '~/components/likes/LikeItem.vue'
 import { useLikesList } from '~/composables/useLikesList'
+import { useUiStore } from '~/stores/uiStore'
+import { ModalNames } from '~/stores/uiStore/state'
 
 const { $clientPosthog } = useNuxtApp()
+const user = useSupabaseUser()
+const uiStore = useUiStore()
 
 // Types d'entités pour les filtres
 const entityTypes: { value: LikeableEntity | undefined, label: string }[] = [
@@ -103,6 +111,13 @@ const entityTypes: { value: LikeableEntity | undefined, label: string }[] = [
   { value: Entities.EPISODE, label: 'Épisodes' },
   { value: Entities.SEASON, label: 'Saisons' }
 ]
+
+// Ouvrir la modale de connexion si l'utilisateur n'est pas connecté
+onMounted(() => {
+  if (!user.value) {
+    uiStore.openModal(ModalNames.AUTH_MODAL, window.location.href)
+  }
+})
 
 // Utiliser le composable
 const {
@@ -124,7 +139,7 @@ function getEntityTypeLabel(type: LikeableEntity): string {
 
 // Analytics
 onMounted(() => {
-  if ($clientPosthog) {
+  if ($clientPosthog && user.value) {
     $clientPosthog.capture('page_view', {
       page: 'favorites',
       type: selectedType.value
@@ -132,8 +147,8 @@ onMounted(() => {
   }
 })
 
+// Suppression du middleware auth
 definePageMeta({
-  middleware: ['auth'],
   isAuth: true
 })
 
