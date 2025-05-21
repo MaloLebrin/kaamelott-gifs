@@ -15,6 +15,68 @@ Une application web moderne pour explorer et partager des GIFs de la série Kaam
 - Dark mode
 - Performance optimisée
 
+## 🗺️ Roadmap
+
+### Découverte et Exploration
+- [ ] Page "Découverte" avec GIFs aléatoires et tendances
+- [ ] Système de "GIF du jour"
+- [ ] Collections thématiques (ex: "Les meilleures répliques de Perceval")
+- [ ] Système de tags avancé pour une meilleure catégorisation
+
+### Communauté et Social
+- [ ] Système de commentaires sur les GIFs
+- [ ] Création de playlists publiques
+- [ ] Modération communautaire
+- [ ] Forum de discussion
+- [ ] Système de contribution pour de nouveaux GIFs
+
+### Recherche Avancée
+- [ ] Recherche par réplique exacte
+- [ ] Filtres avancés (saison, épisode, personnage, type d'humour)
+- [ ] Suggestions de recherche intelligentes
+- [ ] Historique de recherche
+
+### Intégration et Partage
+- [ ] Intégration avec les réseaux sociaux
+- [ ] Widgets pour sites externes
+- [ ] API publique pour développeurs
+- [ ] Extension de navigateur
+
+### Contenu Enrichi
+- [ ] Sous-titres personnalisables
+- [ ] Création de GIFs personnalisés
+- [ ] Informations contextuelles sur les scènes
+- [ ] Transcription des dialogues
+
+### Gamification
+- [ ] Système de badges
+- [ ] Défis quotidiens
+- [ ] Système de points
+- [ ] Classement des utilisateurs
+
+### Accessibilité et Internationalisation
+- [ ] Support multilingue
+- [ ] Amélioration de l'accessibilité
+- [ ] Options de personnalisation de l'interface
+
+### Analytics et Insights
+- [ ] Statistiques de popularité
+- [ ] Tendances saisonnières
+- [ ] Rapports d'utilisation
+- [ ] Insights utilisateurs
+
+### Mobile et Applications
+- [ ] Application mobile native
+- [ ] PWA (Progressive Web App)
+- [ ] Widgets mobile
+- [ ] Notifications push
+
+### Éducation et Culture
+- [ ] Section "Le saviez-vous ?"
+- [ ] Explications des références culturelles
+- [ ] Quiz sur Kaamelott
+- [ ] Dictionnaire des expressions
+
 ## 🛠️ Technologies
 
 - [Nuxt.js](https://nuxt.com) - Framework Vue.js
