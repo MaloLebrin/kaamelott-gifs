@@ -27,6 +27,7 @@
         <NuxtLink 
           :to="item.to" 
           class="hover:text-gray-900 transition-colors duration-200 dark:text-gray-50 dark:hover:text-gray-50"
+          :aria-label="item.label"
         >
           {{ item.label }}
         </NuxtLink>
