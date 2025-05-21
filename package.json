@@ -2,7 +2,7 @@
   "name": "kaamelott-gifs",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.11.0+sha256.a69e9cb077da419d47d18f1dd52e207245b29cac6e076acedbeb8be3b1a67bd7",
+  "packageManager": "pnpm@10.11.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -14,36 +14,36 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.802.0",
+    "@aws-sdk/client-s3": "^3.812.0",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@nuxt/icon": "1.12.0",
     "@nuxt/image": "1.10.0",
     "@nuxtjs/seo": "^3.0.3",
     "@pinia/nuxt": "0.11.0",
-    "@tailwindcss/vite": "^4.1.4",
-    "@vueuse/components": "^13.1.0",
-    "@vueuse/core": "^13.1.0",
+    "@tailwindcss/vite": "^4.1.7",
+    "@vueuse/components": "^13.2.0",
+    "@vueuse/core": "^13.2.0",
     "@vueuse/nuxt": "13.1.0",
-    "nuxt": "^3.17.1",
+    "nuxt": "^3.17.4",
     "nuxt-posthog": "1.6.3",
     "pinia": "^3.0.2",
-    "tailwindcss": "^4.1.4",
-    "vue": "^3.5.13"
+    "tailwindcss": "^4.1.7",
+    "vue": "^3.5.14"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.3.0",
-    "@nuxt/eslint-config": "^1.3.0",
+    "@nuxt/eslint-config": "^1.4.1",
     "@nuxt/test-utils": "3.17.2",
     "@nuxtjs/robots": "^5.2.10",
-    "@nuxtjs/supabase": "^1.5.0",
+    "@nuxtjs/supabase": "^1.5.1",
     "@vue/test-utils": "^2.4.6",
-    "eslint": "^9.25.1",
+    "eslint": "^9.27.0",
     "eslint-plugin-vue": "^10.1.0",
-    "happy-dom": "^17.4.4",
+    "happy-dom": "^17.4.7",
     "playwright-core": "^1.52.0",
     "supabase": "^2.23.4",
     "typescript": "^5.8.3",
-    "vitest": "^3.1.2"
+    "vitest": "^3.1.4"
   }
 }
