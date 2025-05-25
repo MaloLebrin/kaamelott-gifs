@@ -3,6 +3,8 @@ import type { BaseEntity } from './Entities'
 
 export type CommentStatus = 'pending' | 'approved' | 'rejected'
 
+export type CommentEntityType = 'gif' | 'character' | 'episode' | 'season'
+
 export interface Comment extends BaseEntity {
   content: string
   userId: string
