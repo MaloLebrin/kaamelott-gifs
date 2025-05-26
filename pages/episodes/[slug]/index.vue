@@ -61,6 +61,17 @@
     class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90">
     <p class="text-gray-500">Aucun GIF disponible pour cet épisode.</p>
   </div>
+
+  <!-- Section des commentaires -->
+  <div
+    v-if="data?.episode"
+    class="mt-8 bg-white rounded-lg shadow-sm p-6">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Commentaires</h2>
+    <CommentList
+      entity-type="episode"
+      :entity-id="data.episode.code"
+    />
+  </div>
 </div>
 </template>
 
@@ -75,6 +86,7 @@ import { getTomeFromCode } from '~/shared/utils/livres/tome'
 import { composeEpisodeToStructuredData } from '~/shared/utils/episodes/structuredData'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import LikeButton from '~/components/base/LikeButton.vue'
+import CommentList from '~/components/comments/CommentList.vue'
 import { Entities } from '~/types'
 
 const route = useRoute()
