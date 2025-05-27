@@ -96,6 +96,13 @@ const handleClose = () => {
               :gif-url="gif.url"
               :quote="gif.quote"
             />
+            <NuxtLink
+              :to="`/gifs/${gif.slug}`"
+              class="px-3 py-1.5 bg-orange-200/80 rounded-xl text-sm text-orange-700 border-[0.25px] border-orange-800/50 dark:bg-orange-800 dark:text-orange-200"
+              prefetch
+            >
+              Voir plus
+            </NuxtLink>
           </div>
         </div>
       </div>
