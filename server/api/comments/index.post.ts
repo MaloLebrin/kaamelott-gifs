@@ -106,7 +106,6 @@ export default defineEventHandler(async event => {
     .from(Entities.COMMENT)
     .insert({
       content,
-      userId: user.id,
       gifId,
       characterId,
       episodeCode,

@@ -74,7 +74,7 @@ export type Database = {
           seasonId?: number | null
           status?: string | null
           updatedAt?: string
-          userId: string
+          userId?: string
         }
         Update: {
           characterId?: number | null
