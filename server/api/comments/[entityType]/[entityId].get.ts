@@ -1,8 +1,8 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
 import type { Database } from '~/types/database.types'
-import type { CommentEntityType, CommentWithUser } from '~/types/Comments'
 import { Entities } from '~/types'
-import { isCommentable } from '~/shared/utils/comments/commentableEntities'
+import { commentableEntitiesIds, isCommentable } from '~/shared/utils/comments/commentableEntities'
+import type { CommentEntityType } from '~/types/Comments'
 
 export default defineEventHandler(async event => {
   const entityType = getRouterParam(event, 'entityType') as CommentEntityType
@@ -16,7 +16,7 @@ export default defineEventHandler(async event => {
   }
 
   // Vérifier que le type d'entité est valide
-  if (!isCommentable(entityType)) {
+  if (!isCommentable(entityType as Entities)) {
     throw createError({
       statusCode: 400,
       message: 'Invalid entity type'
@@ -26,39 +26,18 @@ export default defineEventHandler(async event => {
   const user = await serverSupabaseUser(event)
   const client = await serverSupabaseClient<Database>(event)
 
-  // Construire la requête en fonction du type d'entité
-  let query = client
+  const { data: comments, error } = await client
     .from(Entities.COMMENT)
     .select(`
-      *,
-      user:userId (
-        id,
-        email,
-        user_metadata
-      )
-    `)
+    *,
+    users (*),
+  `)
     .eq('status', 'approved')
+    .eq(commentableEntitiesIds[entityType], entityId)
     .order('createdAt', { ascending: false })
 
-  // Ajouter la condition en fonction du type d'entité
-  switch (entityType) {
-    case 'gif':
-      query = query.eq('gifId', parseInt(entityId))
-      break
-    case 'character':
-      query = query.eq('characterId', parseInt(entityId))
-      break
-    case 'episode':
-      query = query.eq('episodeCode', entityId as string)
-      break
-    case 'season':
-      query = query.eq('seasonId', parseInt(entityId))
-      break
-  }
-
-  const { data: comments, error } = await query
-
   if (error) {
+    console.error(error, 'error fetching comments')
     throw createError({
       statusCode: 500,
       message: error.message
