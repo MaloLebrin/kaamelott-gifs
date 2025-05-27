@@ -26,6 +26,7 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
   const comments = ref<CommentWithUser[]>([])
   const content = ref('')
   const isSubmitting = ref(false)
+  const isLoading = ref(true)
 
   /**
    * Charge les commentaires pour une entité spécifique
@@ -34,15 +35,18 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
    */
   const loadComments = async () => {
     try {
-      const { data, error } = await useFetch<CommentWithUser[]>(
+      const { data, error, pending } = await useFetch<CommentWithUser[]>(
         `/api/comments/${options.entityType}/${options.entityId}`
       )
 
       if (error.value) throw error.value
+      isLoading.value = pending.value
       comments.value = data.value || []
     } catch (error) {
       console.error('Erreur lors du chargement des commentaires:', error)
       denied('Impossible de charger les commentaires')
+    } finally {
+      isLoading.value = false
     }
   }
 
@@ -93,6 +97,7 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
     content,
     isSubmitting,
     handleSubmit,
-    loadComments
+    loadComments,
+    isLoading,
   }
 } 

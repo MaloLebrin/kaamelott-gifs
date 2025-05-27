@@ -9,7 +9,7 @@
       v-model="content"
       :disabled="isSubmitting"
       placeholder="Écrivez votre commentaire..."
-      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
       rows="3"
       required
     />
@@ -17,7 +17,7 @@
       <button
         type="submit"
         :disabled="isSubmitting || !content.trim()"
-        class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        class="px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <span v-if="isSubmitting">
           <Icon
@@ -32,17 +32,21 @@
 
   <!-- Liste des commentaires -->
   <div
-    v-if="comments.length > 0"
     class="space-y-4">
+    <CommentItemServer
+      v-if="isLoading"
+    />
     <CommentItem
       v-for="comment in comments"
+      v-else
       :key="comment.id"
-      :comment="comment" />
+      :comment="comment"
+    />
   </div>
 
   <!-- État vide -->
   <div
-    v-else-if="user"
+    v-if="comments.length === 0 && !isLoading"
     class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800">
     <p class="text-gray-500 dark:text-gray-400">
       Aucun commentaire pour le moment
@@ -58,7 +62,7 @@
     </p>
     <button
       class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-      @click="uiStore.openModal(ModalNames.AUTH_MODAL, requestURL.toString())"
+      @click="uiStore.openModal(ModalNames.AUTH_MODAL, requestURL?.toString())"
     >
       Se connecter
     </button>
@@ -69,6 +73,7 @@
 <script setup lang="ts">
 import type { LikeableEntity } from '~/types/Entities'
 import CommentItem from './CommentItem.vue'
+import CommentItemServer from './CommentItem.server.vue'
 import { useCommentsList } from '~/composables/useCommentsList'
 import { useUiStore } from '~/stores/uiStore'
 import { ModalNames } from '~/stores/uiStore/state'
@@ -86,7 +91,8 @@ const {
   comments,
   content,
   isSubmitting,
-  handleSubmit
+  handleSubmit,
+  isLoading,
 } = useCommentsList({
   entityType: props.entityType,
   entityId: props.entityId
