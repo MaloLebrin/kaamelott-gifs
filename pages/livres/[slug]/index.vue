@@ -62,6 +62,17 @@
       v-if="seasonData.otherSeasons"
       :seasons="seasonData.otherSeasons" />
   </div>
+
+  <!-- Section des commentaires -->
+  <div
+    v-if="seasonData?.season"
+    class="mt-8 bg-white rounded-lg shadow-sm p-6">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Commentaires</h2>
+    <CommentList
+      entity-type="season"
+      :entity-id="seasonData.season.id"
+    />
+  </div>
 </div>
 </template>
 
@@ -75,6 +86,7 @@ import Pagination from '~/components/base/Pagination.vue'
 import EpisodeGrid from '~/components/episodes/EpisodeGrid.vue'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import LikeButton from '~/components/base/LikeButton.vue'
+import CommentList from '~/components/comments/CommentList.vue'
 import { usePagination } from '~/composables/usePagination'
 import { Entities } from '~/types'
 

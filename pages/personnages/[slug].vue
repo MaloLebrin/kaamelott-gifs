@@ -115,6 +115,17 @@
       </NuxtLink>
     </div>
   </section>
+
+  <!-- Section des commentaires -->
+  <div
+    v-if="data?.character"
+    class="mt-8 bg-white rounded-lg shadow-sm p-6">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Commentaires</h2>
+    <CommentList
+      :entity-type="Entities.CHARACTER"
+      :entity-id="data.character.id"
+    />
+  </div>
 </div>
 </template> 
 
@@ -129,6 +140,7 @@ import { getLivreFromCode } from '~/shared/utils/episodes/code'
 import { getTomeFromCode } from '~/shared/utils/livres/tome'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import LikeButton from '~/components/base/LikeButton.vue'
+import CommentList from '~/components/comments/CommentList.vue'
 import { Entities } from '~/types'
 
 const route = useRoute()
