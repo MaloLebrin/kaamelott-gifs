@@ -1,4 +1,4 @@
-import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
+import { serverSupabaseClient } from '#supabase/server'
 import type { Database } from '~/types/database.types'
 import { Entities } from '~/types'
 import { commentableEntitiesIds, isCommentable } from '~/shared/utils/comments/commentableEntities'
@@ -23,7 +23,6 @@ export default defineEventHandler(async event => {
     })
   }
 
-  const user = await serverSupabaseUser(event)
   const client = await serverSupabaseClient<Database>(event)
 
   const { data: comments, error } = await client
