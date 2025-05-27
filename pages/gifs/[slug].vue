@@ -4,6 +4,7 @@
   class="container mx-auto px-4 pt-2 space-y-4"
 >
   <h1 class="sr-only">{{ gif.quote }}</h1>
+  <Breadcrumbs :items="breadcrumbItems" />
   <div class=" rounded-lg bg-white">
     <img
       :src="gif.url"
@@ -20,8 +21,6 @@
         :quote="gif.quote" />
     </div>
   </div>
-  <Breadcrumbs :items="breadcrumbItems" />
-
   <!-- Section des commentaires -->
   <div class="mt-8 bg-white rounded-lg shadow-sm p-6">
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Commentaires</h2>
