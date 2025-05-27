@@ -1,15 +1,12 @@
 <template>
 <div class="flex gap-4 p-4 bg-white rounded-lg shadow-sm">
-  <!-- Avatar de l'utilisateur -->
-  <div class="flex-shrink-0">
+  <div>
     <img
-      v-if="comment.user?.avatar"
-      :src="comment.user.avatar"
-      :alt="comment.user.name"
+      :src="comment.user?.avatar || '/characters/unknown.jpg'"
+      :alt="comment.user?.name || 'Utilisateur'"
       class="w-10 h-10 rounded-full"
     >
     <div
-      v-else
       class="flex items-center justify-center w-10 h-10 text-sm font-medium text-white bg-primary-600 rounded-full"
     >
       {{ comment.user?.name?.charAt(0)?.toUpperCase() || '?' }}
