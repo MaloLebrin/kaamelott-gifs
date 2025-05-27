@@ -26,10 +26,11 @@ export interface CommentEntity extends BaseEntity {
 
 export interface CommentUser {
   id: string
-  name: string
-  avatar?: string
+  username: string
+  email: string
+  role: string
 }
 
 export interface CommentWithUser extends CommentEntity {
-  user?: CommentUser
+  profile?: CommentUser
 } 

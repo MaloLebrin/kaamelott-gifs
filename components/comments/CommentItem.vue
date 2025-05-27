@@ -2,14 +2,14 @@
 <div class="flex gap-4 p-4 bg-white rounded-lg shadow-sm">
   <div>
     <img
-      :src="comment.user?.avatar || '/characters/unknown.jpg'"
-      :alt="comment.user?.name || 'Utilisateur'"
+      :src="'/characters/unknown.jpg'"
+      :alt="comment.profile?.username || 'Utilisateur'"
       class="w-10 h-10 rounded-full"
     >
     <div
       class="flex items-center justify-center w-10 h-10 text-sm font-medium text-white bg-primary-600 rounded-full"
     >
-      {{ comment.user?.name?.charAt(0)?.toUpperCase() || '?' }}
+      {{ comment.profile?.username?.charAt(0)?.toUpperCase() || '?' }}
     </div>
   </div>
 
@@ -17,7 +17,7 @@
   <div class="flex-1 min-w-0">
     <div class="flex items-center gap-2">
       <span class="text-sm font-medium text-gray-900">
-        {{ comment.user?.name || 'Utilisateur' }}
+        {{ comment.profile?.username || 'Utilisateur' }}
       </span>
       <span class="text-xs text-gray-500">
         {{ formatDate(comment.createdAt) }}

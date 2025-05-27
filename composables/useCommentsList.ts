@@ -33,7 +33,7 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
    * @async
    * @throws {Error} Si une erreur survient lors de la requête API
    */
-  const loadComments = async () => {
+  async function loadComments() {
     try {
       const { data, error, pending } = await useFetch<CommentWithUser[]>(
         `/api/comments/${options.entityType}/${options.entityId}`
@@ -55,7 +55,7 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
    * @async
    * @throws {Error} Si une erreur survient lors de la requête API
    */
-  const handleSubmit = async () => {
+  async function handleSubmit() {
     if (!content.value.trim() || isSubmitting.value) return
 
     isSubmitting.value = true

@@ -3,6 +3,7 @@ import type { Database } from '~/types/database.types'
 import { Entities } from '~/types'
 import { commentableEntitiesIds, isCommentable } from '~/shared/utils/comments/commentableEntities'
 import type { CommentEntityType } from '~/types/Comments'
+import { unique } from '~/shared/utils/array'
 
 export default defineEventHandler(async event => {
   const entityType = getRouterParam(event, 'entityType') as CommentEntityType
@@ -27,13 +28,7 @@ export default defineEventHandler(async event => {
 
   const { data: comments, error } = await client
     .from(Entities.COMMENT)
-    .select(`
-      *,
-      users!inner(
-        id,
-        email,
-      ),
-    `)
+    .select('*')
     .eq('status', 'approved')
     .eq(commentableEntitiesIds[entityType], entityId)
     .order('createdAt', { ascending: false })
@@ -46,15 +41,22 @@ export default defineEventHandler(async event => {
     })
   }
 
-  // // Transformer les données pour inclure les informations utilisateur
-  // const commentsWithUser: CommentWithUser[] = comments.map(comment => ({
-  //   ...comment,
-  //   user: comment.user ? {
-  //     id: comment.user.id,
-  //     name: comment.user.user_metadata?.full_name || comment.user.email,
-  //     avatar: comment.user.user_metadata?.avatar_url
-  //   } : undefined
-  // }))
+  const userIds = unique(comments.map(comment => comment.userId))
+  const { data: profiles, error: profilesError } = await client
+    .from('profiles')
+    .select('*')
+    .in('userId', userIds)
 
-  return comments
+  if (profilesError) {
+    console.error(profilesError, 'error fetching profiles')
+    throw createError({
+      statusCode: 500,
+      message: profilesError.message
+    })
+  }
+
+  return comments.map(comment => ({
+    ...comment,
+    profile: profiles.find(p => p.userId === comment.userId)
+  }));
 }) 
