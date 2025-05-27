@@ -16,6 +16,7 @@
       v-for="comment in comments"
       v-else
       :key="comment.id"
+      :is-user-comment="comment.userId === user?.id"
       :comment="comment"
     />
   </div>
@@ -31,7 +32,7 @@
 
   <!-- Message pour les utilisateurs non connectés -->
   <div
-    v-else
+    v-if="!user"
     class="text-center py-8 backdrop-blur-lg rounded-lg p-4 bg-white/90 dark:bg-gray-800">
     <p class="text-gray-500 dark:text-gray-400 mb-4">
       Connectez-vous pour commenter
@@ -61,6 +62,7 @@ const props = defineProps<{
 }>()
 
 const uiStore = useUiStore()
+const user = useSupabaseUser()
 const requestURL = useRequestURL()
 
 const {
@@ -70,4 +72,6 @@ const {
   entityType: props.entityType,
   entityId: props.entityId
 })
+
+console.log(comments.value, 'comments')
 </script> 

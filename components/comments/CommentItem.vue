@@ -27,6 +27,21 @@
       {{ comment.content }}
     </p>
   </div>
+
+  <div
+    v-if="isUserComment"
+    class="flex gap-x-2 self-start">
+    <button>
+      <Icon
+        name="heroicons:pencil"
+        class="text-gray-500" />
+    </button>
+    <button>
+      <Icon
+        name="heroicons:trash"
+        class="text-red-800" />
+    </button>
+  </div>
 </div>
 </template>
 
@@ -34,7 +49,10 @@
 import type { CommentWithUser } from '~/types/Comments'
 import { formatDate } from '~/shared/utils/date'
 
-defineProps<{
+withDefaults(defineProps<{
   comment: CommentWithUser
-}>()
+  isUserComment: boolean
+}>(), {
+  isUserComment: false
+})
 </script> 
