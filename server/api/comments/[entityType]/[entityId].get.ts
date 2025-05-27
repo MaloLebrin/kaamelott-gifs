@@ -28,9 +28,12 @@ export default defineEventHandler(async event => {
   const { data: comments, error } = await client
     .from(Entities.COMMENT)
     .select(`
-    *,
-    users (*),
-  `)
+      *,
+      users!inner(
+        id,
+        email,
+      ),
+    `)
     .eq('status', 'approved')
     .eq(commentableEntitiesIds[entityType], entityId)
     .order('createdAt', { ascending: false })

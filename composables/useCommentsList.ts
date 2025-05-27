@@ -92,6 +92,8 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
     await loadComments()
   })
 
+  const isContentFull = computed(() => content.value?.length >= 1000)
+
   return {
     comments,
     content,
@@ -99,5 +101,6 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
     handleSubmit,
     loadComments,
     isLoading,
+    isContentFull,
   }
 } 

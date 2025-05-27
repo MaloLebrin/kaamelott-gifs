@@ -1,34 +1,10 @@
 <template>
 <div class="space-y-4">
   <!-- Formulaire de commentaire -->
-  <form
-    v-if="user"
-    class="space-y-4"
-    @submit.prevent="handleSubmit">
-    <textarea
-      v-model="content"
-      :disabled="isSubmitting"
-      placeholder="Écrivez votre commentaire..."
-      class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
-      rows="3"
-      required
-    />
-    <div class="flex justify-end">
-      <button
-        type="submit"
-        :disabled="isSubmitting || !content.trim()"
-        class="px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        <span v-if="isSubmitting">
-          <Icon
-            name="heroicons:arrow-path"
-            class="w-5 h-5 animate-spin inline-block mr-2" />
-          Publication...
-        </span>
-        <span v-else>Publier</span>
-      </button>
-    </div>
-  </form>
+  <CommentForm
+    :entity-type="entityType"
+    :entity-id="entityId"
+  />
 
   <!-- Liste des commentaires -->
   <div
@@ -73,7 +49,8 @@
 <script setup lang="ts">
 import type { LikeableEntity } from '~/types/Entities'
 import CommentItem from './CommentItem.vue'
-import CommentItemServer from './CommentItem.server.vue'
+import CommentItemServer from './CommentItemServer.server.vue'
+import CommentForm from './CommentForm.vue'
 import { useCommentsList } from '~/composables/useCommentsList'
 import { useUiStore } from '~/stores/uiStore'
 import { ModalNames } from '~/stores/uiStore/state'
@@ -83,15 +60,11 @@ const props = defineProps<{
   entityId: string | number
 }>()
 
-const user = useSupabaseUser()
 const uiStore = useUiStore()
 const requestURL = useRequestURL()
 
 const {
   comments,
-  content,
-  isSubmitting,
-  handleSubmit,
   isLoading,
 } = useCommentsList({
   entityType: props.entityType,
