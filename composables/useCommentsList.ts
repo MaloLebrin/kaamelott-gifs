@@ -84,8 +84,8 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
   }
 
   // Charger les commentaires au montage
-  onMounted(() => {
-    loadComments()
+  onMounted(async () => {
+    await loadComments()
   })
 
   return {
