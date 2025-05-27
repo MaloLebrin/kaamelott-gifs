@@ -1,4 +1,5 @@
 import { Entities, type Season, type Character, type Episode, type Gif } from "~/types"
+import type { CommentEntity } from "~/types/Comments"
 import type { Like, LikeWithRelation } from "~/types/Like"
 
 /**
@@ -39,7 +40,7 @@ export const likeableEntitiesIds = {
  * // Retourne Entities.CHARACTER
  * getEntityType({ characterId: '789', userId: '456' })
  */
-export function getEntityType(like: Like): Entities {
+export function getEntityType(like: Like | CommentEntity): Entities {
   if (like.gifId) return Entities.GIF
   if (like.characterId) return Entities.CHARACTER
   if (like.episodeCode) return Entities.EPISODE

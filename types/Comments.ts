@@ -3,7 +3,7 @@ import type { BaseEntity } from './Entities'
 
 export type CommentStatus = 'pending' | 'approved' | 'rejected'
 
-export type CommentEntityType = 'gif' | 'character' | 'episode' | 'season'
+export type CommentEntityType = 'gifs' | 'characters' | 'episodes' | 'seasons'
 
 export interface CommentInput {
   content: string
@@ -13,7 +13,7 @@ export interface CommentInput {
   seasonId?: number
 }
 
-export interface Comment extends BaseEntity {
+export interface CommentEntity extends BaseEntity {
   content: string
   userId: string
   status: CommentStatus
@@ -30,6 +30,6 @@ export interface CommentUser {
   avatar?: string
 }
 
-export interface CommentWithUser extends Comment {
+export interface CommentWithUser extends CommentEntity {
   user?: CommentUser
 } 
