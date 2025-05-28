@@ -23,18 +23,29 @@
         {{ formatDate(comment.createdAt) }}
       </span>
     </div>
-    <p class="mt-1 text-sm text-gray-700 whitespace-pre-wrap">
+    <CommentForm
+      v-if="isEditing"
+      :comment-id="comment.id"
+      :initial-content="comment.content"
+      is-editing
+      @cancel="cancelEdit"
+      @success="handleUpdateSuccess"
+    />
+    <p
+      v-else
+      class="mt-1 text-sm text-gray-700 whitespace-pre-wrap">
       {{ comment.content }}
     </p>
   </div>
 
   <div
-    v-if="isUserComment"
+    v-if="isUserComment && !isEditing"
     class="flex gap-x-2 self-start">
     <button
       aria-label="Modifier le commentaire"
       title="Modifier le commentaire"
       class="cursor-pointer"
+      @click="startEdit"
     >
       <Icon
         name="heroicons:pencil"
@@ -57,6 +68,7 @@
 <script setup lang="ts">
 import type { CommentWithUser } from '~/types/Comments'
 import { formatDate } from '~/shared/utils/date'
+import CommentForm from './CommentForm.vue'
 
 const props = withDefaults(defineProps<{
   comment: CommentWithUser
@@ -65,15 +77,37 @@ const props = withDefaults(defineProps<{
   isUserComment: false
 })
 
-const events = defineEmits<{
-  (e: 'deleteComment', commentId: number): void
-  (e: 'updateComment', comment: CommentWithUser): void
+const emit = defineEmits<{
+  (e: 'delete-comment' | 'update-comment'): void
 }>()
 
+const isEditing = ref(false)
+
+function startEdit() {
+  isEditing.value = true
+}
+
+function cancelEdit() {
+  isEditing.value = false
+}
+
+function handleUpdateSuccess() {
+  isEditing.value = false
+  emit('update-comment')
+}
+
 async function handleDeleteComment() {
-  await $fetch(`/api/comments/${props.comment.id}`, {
-    method: 'DELETE'
-  })
-  events('deleteComment', props.comment.id)
+  if (!confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?')) {
+    return
+  }
+
+  try {
+    await $fetch(`/api/comments/${props.comment.id}`, {
+      method: 'DELETE'
+    })
+    emit('delete-comment')
+  } catch (error) {
+    console.error('Erreur lors de la suppression du commentaire:', error)
+  }
 }
 </script> 
