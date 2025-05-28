@@ -24,20 +24,19 @@ Une application web moderne pour explorer et partager des GIFs de la série Kaam
 - [ ] Système de tags avancé pour une meilleure catégorisation
 
 ### Communauté et Social
-- [ ] Système de commentaires sur les GIFs
+- [x] Système de commentaires sur les GIFs
 - [ ] Création de playlists publiques
 - [ ] Modération communautaire
-- [ ] Forum de discussion
-- [ ] Système de contribution pour de nouveaux GIFs
+- [x] Système de contribution pour de nouveaux GIFs
 
 ### Recherche Avancée
-- [ ] Recherche par réplique exacte
-- [ ] Filtres avancés (saison, épisode, personnage, type d'humour)
+- [x] Recherche par réplique exacte
+- [x] Filtres avancés (saison, épisode, personnage, type d'humour)
 - [ ] Suggestions de recherche intelligentes
 - [ ] Historique de recherche
 
 ### Intégration et Partage
-- [ ] Intégration avec les réseaux sociaux
+- [x] Intégration avec les réseaux sociaux
 - [ ] Widgets pour sites externes
 - [ ] API publique pour développeurs
 - [ ] Extension de navigateur
@@ -56,7 +55,7 @@ Une application web moderne pour explorer et partager des GIFs de la série Kaam
 
 ### Accessibilité et Internationalisation
 - [ ] Support multilingue
-- [ ] Amélioration de l'accessibilité
+- [x] Amélioration de l'accessibilité
 - [ ] Options de personnalisation de l'interface
 
 ### Analytics et Insights
