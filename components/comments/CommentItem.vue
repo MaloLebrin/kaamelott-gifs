@@ -27,6 +27,7 @@
       v-if="isEditing"
       :comment-id="comment.id"
       :initial-content="comment.content"
+      :entity-type="getEntityType(comment) as LikeableEntity"
       is-editing
       @cancel="cancelEdit"
       @success="handleUpdateSuccess"
@@ -69,6 +70,8 @@
 import type { CommentWithUser } from '~/types/Comments'
 import { formatDate } from '~/shared/utils/date'
 import CommentForm from './CommentForm.vue'
+import { getEntityType } from '~/shared/utils/likes/likeableEntities';
+import type { LikeableEntity } from '~/types/Entities';
 
 const props = withDefaults(defineProps<{
   comment: CommentWithUser

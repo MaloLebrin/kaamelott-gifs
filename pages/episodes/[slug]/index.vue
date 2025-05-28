@@ -68,7 +68,7 @@
     class="mt-8 bg-white rounded-lg shadow-sm p-6">
     <h2 class="text-2xl font-bold text-gray-900 mb-6">Commentaires</h2>
     <CommentList
-      entity-type="episode"
+      :entity-type="Entities.EPISODE"
       :entity-id="data.episode.code"
     />
   </div>
