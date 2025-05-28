@@ -31,12 +31,21 @@
   <div
     v-if="isUserComment"
     class="flex gap-x-2 self-start">
-    <button>
+    <button
+      aria-label="Modifier le commentaire"
+      title="Modifier le commentaire"
+      class="cursor-pointer"
+    >
       <Icon
         name="heroicons:pencil"
         class="text-gray-500" />
     </button>
-    <button>
+    <button
+      aria-label="Supprimer le commentaire"
+      title="Supprimer le commentaire"
+      class="cursor-pointer"
+      @click="handleDeleteComment"
+    >
       <Icon
         name="heroicons:trash"
         class="text-red-800" />
@@ -49,10 +58,22 @@
 import type { CommentWithUser } from '~/types/Comments'
 import { formatDate } from '~/shared/utils/date'
 
-withDefaults(defineProps<{
+const props = withDefaults(defineProps<{
   comment: CommentWithUser
   isUserComment: boolean
 }>(), {
   isUserComment: false
 })
+
+const events = defineEmits<{
+  (e: 'deleteComment', commentId: number): void
+  (e: 'updateComment', comment: CommentWithUser): void
+}>()
+
+async function handleDeleteComment() {
+  await $fetch(`/api/comments/${props.comment.id}`, {
+    method: 'DELETE'
+  })
+  events('deleteComment', props.comment.id)
+}
 </script> 

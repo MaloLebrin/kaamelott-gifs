@@ -18,6 +18,8 @@
       :key="comment.id"
       :is-user-comment="comment.userId === user?.id"
       :comment="comment"
+      @delete-comment="loadComments"
+      @update-comment="loadComments"
     />
   </div>
 
@@ -68,10 +70,9 @@ const requestURL = useRequestURL()
 const {
   comments,
   isLoading,
+  loadComments,
 } = useCommentsList({
   entityType: props.entityType,
   entityId: props.entityId
 })
-
-console.log(comments.value, 'comments')
 </script> 
