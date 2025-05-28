@@ -4,6 +4,7 @@
   class="container mx-auto px-4 pt-2 space-y-4"
 >
   <h1 class="sr-only">{{ gif.quote }}</h1>
+  <Breadcrumbs :items="breadcrumbItems" />
   <div class=" rounded-lg bg-white">
     <img
       :src="gif.url"
@@ -20,7 +21,14 @@
         :quote="gif.quote" />
     </div>
   </div>
-  <Breadcrumbs :items="breadcrumbItems" />
+  <!-- Section des commentaires -->
+  <div class="mt-8 bg-white rounded-lg shadow-sm p-3 md:p-6">
+    <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-6">Commentaires</h2>
+    <CommentList
+      :entity-type="Entities.GIF"
+      :entity-id="gif.id"
+    />
+  </div>
 </div>
 </template>
 
@@ -28,6 +36,7 @@
 import ShareButtons from '~/components/gifs/ShareButtons.vue'
 import Breadcrumbs from '~/components/base/Breadcrumbs.vue'
 import LikeButton from '~/components/base/LikeButton.vue'
+import CommentList from '~/components/comments/CommentList.vue'
 import type { Gif } from '~/types'
 import { Entities } from '~/types/Entities'
 

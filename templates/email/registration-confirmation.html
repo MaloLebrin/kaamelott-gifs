@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue à la Table Ronde</title>
+  <style>
+    /* Styles de base pour assurer la compatibilité avec les clients mail */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background-color: #f3f4f6;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #fef3c7;
+      border-radius: 8px 8px 0 0;
+    }
+    .content {
+      padding: 30px 20px;
+      background-color: #ffffff;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #6b7280;
+      background-color: #f9fafb;
+      border-radius: 0 0 8px 8px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #d97706;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      margin: 20px 0;
+    }
+    .button:hover {
+      background-color: #b45309;
+    }
+    .quote {
+      font-style: italic;
+      color: #4b5563;
+      border-left: 4px solid #fbbf24;
+      padding-left: 16px;
+      margin: 20px 0;
+    }
+    .warning {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 20px;
+    }
+    .divider {
+      height: 1px;
+      background-color: #e5e7eb;
+      margin: 20px 0;
+    }
+    .welcome-message {
+      font-size: 18px;
+      color: #92400e;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 style="margin: 0; color: #92400e;">Bienvenue à la Table Ronde</h1>
+    </div>
+    
+    <div class="content">
+      <p class="welcome-message">Bienvenue {{ .Username }} !</p>
+      
+      <p>Merlin et tous les chevaliers de la Table Ronde sont ravis de vous accueillir parmi nous. Votre inscription a été confirmée avec succès, et vous faites maintenant partie de notre noble assemblée.</p>
+      
+      <div style="text-align: center;">
+        <a href="{{ .LoginURL }}" class="button">Accéder à la Table Ronde</a>
+      </div>
+      
+      <div class="quote">
+        "La Table Ronde est un lieu où tous les chevaliers sont égaux, où chacun a sa place." - Le Roi Arthur
+      </div>
+      
+      <p>Vous pouvez dès maintenant vous connecter à votre compte et commencer à explorer notre royaume. N'hésitez pas à personnaliser votre profil et à découvrir toutes les fonctionnalités disponibles.</p>
+      
+      <div class="warning">
+        <p>⚠️ Si le bouton ne fonctionne pas, vous pouvez copier et coller ce lien dans votre navigateur :</p>
+        <p style="word-break: break-all; font-size: 12px; color: #4b5563;">{{ .LoginURL }}</p>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <p style="font-size: 14px; color: #6b7280;">
+        Cet email a été envoyé automatiquement par Merlin, le grand enchanteur de la Table Ronde.<br>
+        Pour toute question ou assistance, n'hésitez pas à nous contacter.
+      </p>
+    </div>
+    
+    <div class="footer">
+      <p>© {{ .CurrentYear }} La Table Ronde - Tous droits réservés</p>
+      <p style="font-size: 12px; color: #9ca3af;">
+        Cet email a été envoyé à {{ .Email }}.<br>
+        Si vous n'êtes pas à l'origine de cette inscription, veuillez nous contacter immédiatement.
+      </p>
+    </div>
+  </div>
+</body>
+</html> 

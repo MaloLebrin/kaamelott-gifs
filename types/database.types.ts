@@ -51,6 +51,74 @@ export type Database = {
         }
         Relationships: []
       }
+      comments: {
+        Row: {
+          characterId: number | null
+          content: string
+          createdAt: string
+          episodeCode: string | null
+          gifId: number | null
+          id: number
+          seasonId: number | null
+          status: string | null
+          updatedAt: string
+          userId: string
+        }
+        Insert: {
+          characterId?: number | null
+          content: string
+          createdAt?: string
+          episodeCode?: string | null
+          gifId?: number | null
+          id?: number
+          seasonId?: number | null
+          status?: string | null
+          updatedAt?: string
+          userId?: string
+        }
+        Update: {
+          characterId?: number | null
+          content?: string
+          createdAt?: string
+          episodeCode?: string | null
+          gifId?: number | null
+          id?: number
+          seasonId?: number | null
+          status?: string | null
+          updatedAt?: string
+          userId?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "comments_characterId_fkey"
+            columns: ["characterId"]
+            isOneToOne: false
+            referencedRelation: "characters"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "comments_episodeCode_fkey"
+            columns: ["episodeCode"]
+            isOneToOne: false
+            referencedRelation: "episodes"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "comments_gifId_fkey"
+            columns: ["gifId"]
+            isOneToOne: false
+            referencedRelation: "gifs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "comments_seasonId_fkey"
+            columns: ["seasonId"]
+            isOneToOne: false
+            referencedRelation: "seasons"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       episodes: {
         Row: {
           characters: string | null
