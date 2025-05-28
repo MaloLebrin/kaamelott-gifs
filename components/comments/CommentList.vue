@@ -4,6 +4,7 @@
   <CommentForm
     :entity-type="entityType"
     :entity-id="entityId"
+    @success="loadComments"
   />
 
   <!-- Liste des commentaires -->
