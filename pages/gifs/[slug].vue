@@ -22,8 +22,8 @@
     </div>
   </div>
   <!-- Section des commentaires -->
-  <div class="mt-8 bg-white rounded-lg shadow-sm p-6">
-    <h2 class="text-2xl font-bold text-gray-900 mb-6">Commentaires</h2>
+  <div class="mt-8 bg-white rounded-lg shadow-sm p-3 md:p-6">
+    <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-6">Commentaires</h2>
     <CommentList
       :entity-type="Entities.GIF"
       :entity-id="gif.id"
