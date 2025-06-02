@@ -19,6 +19,13 @@ export const routeRulesConfig ={
       'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400'
     }
   },
+
+  '/characters/**': { 
+    redirect: '/personnages/**'
+  },
+  '/characters': { 
+    redirect: '/personnages'
+  },
   
   '/personnages/**': { 
     prerender: true,
