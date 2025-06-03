@@ -31,10 +31,9 @@
 </template>
 
 <script setup lang="ts">
-import { useLike } from '~/composables/useLike'
 import { useUiStore } from '~/stores/uiStore'
 import { ModalNames } from '~/stores/uiStore/state'
-import type { EpisodeCode, LikeableEntity } from '~/types'
+import { Entities, type EpisodeCode, type LikeableEntity } from '~/types'
 
 const props = withDefaults(defineProps<{
   entityId: number | EpisodeCode
@@ -44,9 +43,99 @@ const props = withDefaults(defineProps<{
   size: 'md'
 })
 
-const { isLoading, isLiked, likesCount, toggleLike } = useLike(props.entityId, props.entityType)
 const user = useSupabaseUser()
 const uiStore = useUiStore()
+const { success, denied } = useToast()
+
+interface LikeState {
+  /** Indique si l'entité est likée par l'utilisateur courant */
+  isLiked: boolean
+  /** Nombre total de likes sur l'entité */
+  likesCount: number
+}
+// États
+const isLoading = ref(false)
+const isLiked = ref(false)
+const likesCount = ref(0)
+
+/**
+   * Vérifie l'état initial des likes pour l'entité
+   * @private
+   */
+const checkInitialState = async () => {
+  try {
+    const { data } = await useFetch<LikeState>(`/api/likes/${props.entityType}/${props.entityId}`, {
+      headers: useRequestHeaders(['cookie']),
+    })
+    if (data.value) {
+      isLiked.value = data.value.isLiked
+      likesCount.value = data.value.likesCount
+    }
+  } catch (error) {
+    console.error('Error checking initial state:', error)
+  }
+}
+/** Messages de succès pour chaque type d'entité */
+const successMessages: Record<LikeableEntity, string> = {
+  [Entities.GIF]: 'GIF liké !',
+  [Entities.CHARACTER]: 'Personnage liké !',
+  [Entities.EPISODE]: 'Épisode liké !',
+  [Entities.SEASON]: 'Saison likée !'
+}
+/**
+   * Bascule l'état du like pour l'entité
+   * Gère les mises à jour optimistes et le rollback en cas d'erreur
+   * @private
+   */
+const toggleLike = async () => {
+  const previousLikedState = isLiked.value
+  const previousCount = likesCount.value
+
+  try {
+    isLoading.value = true
+
+    // Optimistic update
+    isLiked.value = !isLiked.value
+    likesCount.value += isLiked.value ? 1 : -1
+
+    if (isLiked.value) {
+      // Ajouter le like
+      const { error } = await useFetch(`/api/likes/${props.entityType}/${props.entityId}`, {
+        method: 'POST',
+        headers: useRequestHeaders(['cookie'])
+      })
+
+      if (error.value) throw error.value
+        
+      success(successMessages[props.entityType])
+    } else {
+      // Retirer le like
+      const { error } = await useFetch(`/api/likes/${props.entityType}/${props.entityId}`, {
+        method: 'DELETE',
+        headers: useRequestHeaders(['cookie'])
+      })
+
+      if (error.value) throw error.value
+      success('Like retiré')
+    }
+     
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    // Rollback en cas d'erreur
+    isLiked.value = previousLikedState
+    likesCount.value = previousCount
+      
+    console.error('Error toggling like:', error)
+    denied(error.data?.message || 'Erreur lors du like')
+  } finally {
+    isLoading.value = false
+  }
+}
+
+// Vérifier l'état initial au montage
+onMounted(async () => {
+  await checkInitialState()
+})
 
 const handleClick = async () => {
   if (!user.value) {
