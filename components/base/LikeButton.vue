@@ -126,7 +126,9 @@ const toggleLike = async () => {
 
 // Vérifier l'état initial au montage
 onMounted(async () => {
+  isLoading.value = true
   await checkInitialState()
+  isLoading.value = false
 })
 
 const handleClick = async () => {
