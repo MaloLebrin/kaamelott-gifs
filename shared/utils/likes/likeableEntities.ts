@@ -1,4 +1,4 @@
-import { Entities, type Season, type Character, type Episode, type Gif } from "~/types"
+import { Entities, type Season, type Character, type Episode, type Gif, type LikeableEntity } from "~/types"
 import type { CommentEntity } from "~/types/Comments"
 import type { Like, LikeWithRelation } from "~/types/Like"
 
@@ -27,6 +27,14 @@ export const likeableEntitiesIds = {
   [Entities.CHARACTER]: 'characterId',
   [Entities.EPISODE]: 'episodeCode',
   [Entities.SEASON]: 'seasonId'
+}
+
+/** Messages de succès pour chaque type d'entité */
+export const successLikeMessage: Record<LikeableEntity, string> = {
+  [Entities.GIF]: 'GIF liké !',
+  [Entities.CHARACTER]: 'Personnage liké !',
+  [Entities.EPISODE]: 'Épisode liké !',
+  [Entities.SEASON]: 'Saison likée !'
 }
 
 /**

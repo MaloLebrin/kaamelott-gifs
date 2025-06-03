@@ -11,11 +11,13 @@
       :alt="gif.quote"
       class="w-full h-full object-cover rounded-lg" >
     <div class="p-4">
-      <LikeButton
-        :entity-id="gif.id"
-        :entity-type="Entities.GIF"
-        size="lg"
-      />
+      <ClientOnly>
+        <LikeButton
+          :entity-id="gif.id"
+          :entity-type="Entities.GIF"
+          size="lg"
+        />
+      </ClientOnly>
       <ShareButtons
         :gif-url="gif.url"
         :quote="gif.quote" />
