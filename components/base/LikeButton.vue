@@ -31,9 +31,10 @@
 </template>
 
 <script setup lang="ts">
+import { successLikeMessage } from '~/shared/utils/likes/likeableEntities';
 import { useUiStore } from '~/stores/uiStore'
 import { ModalNames } from '~/stores/uiStore/state'
-import { Entities, type EpisodeCode, type LikeableEntity } from '~/types'
+import type { EpisodeCode, LikeableEntity } from '~/types'
 
 const props = withDefaults(defineProps<{
   entityId: number | EpisodeCode
@@ -72,13 +73,7 @@ const checkInitialState = async () => {
     console.error('Error checking initial state:', error)
   }
 }
-/** Messages de succès pour chaque type d'entité */
-const successMessages: Record<LikeableEntity, string> = {
-  [Entities.GIF]: 'GIF liké !',
-  [Entities.CHARACTER]: 'Personnage liké !',
-  [Entities.EPISODE]: 'Épisode liké !',
-  [Entities.SEASON]: 'Saison likée !'
-}
+
 /**
    * Bascule l'état du like pour l'entité
    * Gère les mises à jour optimistes et le rollback en cas d'erreur
@@ -104,7 +99,7 @@ const toggleLike = async () => {
 
       if (error.value) throw error.value
         
-      success(successMessages[props.entityType])
+      success(successLikeMessage[props.entityType])
     } else {
       // Retirer le like
       const { error } = await useFetch(`/api/likes/${props.entityType}/${props.entityId}`, {
