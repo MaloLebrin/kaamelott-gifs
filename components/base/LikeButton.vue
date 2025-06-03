@@ -47,12 +47,6 @@ const user = useSupabaseUser()
 const uiStore = useUiStore()
 const { success, denied } = useToast()
 
-interface LikeState {
-  /** Indique si l'entité est likée par l'utilisateur courant */
-  isLiked: boolean
-  /** Nombre total de likes sur l'entité */
-  likesCount: number
-}
 // États
 const isLoading = ref(false)
 const isLiked = ref(false)
@@ -64,7 +58,10 @@ const likesCount = ref(0)
    */
 const checkInitialState = async () => {
   try {
-    const { data } = await useFetch<LikeState>(`/api/likes/${props.entityType}/${props.entityId}`, {
+    const { data } = await useFetch<{
+      isLiked: boolean
+      likesCount: number
+    }>(`/api/likes/${props.entityType}/${props.entityId}`, {
       headers: useRequestHeaders(['cookie']),
     })
     if (data.value) {
