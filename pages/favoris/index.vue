@@ -82,7 +82,7 @@
     </p>
     <button
       class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-      @click="uiStore.openModal(ModalNames.AUTH_MODAL, window.location.href)"
+      @click="uiStore.openModal(ModalNames.AUTH_MODAL, window?.location?.href || '/')"
     >
       Se connecter
     </button>
