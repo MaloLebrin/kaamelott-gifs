@@ -5,6 +5,7 @@
   <div class="flex gap-2">
     <label
       for="search-input"
+      aria-hidden="true"
       class="sr-only">Rechercher une réplique</label>
     <input
       id="search-input"
