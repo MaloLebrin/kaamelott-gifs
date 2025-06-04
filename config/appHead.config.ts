@@ -14,7 +14,7 @@ export const appHead = {
       { name: 'theme-color', content: '#ffffff' },
       { name: 'robots', content: 'index, follow' },
       { name: 'author', content: 'Kaamelott GIFs' },
-      { name: 'keywords', content: 'Kaamelott, GIFs, répliques, citations, série TV, humour, France' },
+      { name: 'keywords', content: 'Kaamelott, GIFs, répliques, citations, série TV, humour, alexandre astier, perceval, kaamelott-gifs, karadoc' },
       { property: 'og:site_name', content: 'Kaamelott GIFs' },
       { property: 'og:type', content: 'website' },
       { property: 'og:locale', content: 'fr_FR' },
