@@ -1,6 +1,7 @@
 <template>
 <div class="max-w-2xl mx-auto py-4 min-h-screen">
   <h1 class="text-3xl font-bold text-gray-900 mb-8">Télécharger un GIF</h1>
+  <Breadcrumbs :items="[{ label: 'Accueil', to: '/' }, { label: 'Ajouter un GIF', to: '/gifs/creer' }]"/>
   <UploadForm
     v-if="characters && episodes && characters.length > 0 && episodes.length > 0 && !isLoading"
     :characters="characters?.map(char => char.name) ?? []"
@@ -14,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+import Breadcrumbs from '~/components/base/Breadcrumbs.vue';
 import UploadForm from '~/components/gifs/UploadForm.vue';
 
 definePageMeta({
