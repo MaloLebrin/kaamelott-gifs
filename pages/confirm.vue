@@ -20,4 +20,12 @@ watch(user, () => {
     return navigateTo(path || '/gifs/creer')
   }
 }, { immediate: true })
+
+useSeoMeta({
+  title: 'Connexion en cours…',
+  description: 'Connexion en cours…',
+  ogTitle: 'Connexion en cours…',
+  ogDescription: 'Connexion en cours…',
+  ogImage: 'https://kaamelott-gifs.com/og-image.png'
+})
 </script>

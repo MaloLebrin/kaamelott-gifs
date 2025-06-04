@@ -10,4 +10,12 @@
 
 <script setup lang="ts">
 import LoginForm from '~/components/auth/LoginForm.vue'
+
+useSeoMeta({
+  title: 'Connexion à la Table Ronde',
+  description: 'Connexion à la Table Ronde',
+  ogTitle: 'Connexion à la Table Ronde',
+  ogDescription: 'Connexion à la Table Ronde',
+  ogImage: 'https://kaamelott-gifs.com/og-image.png'
+})
 </script>
