@@ -38,4 +38,19 @@ const isLoading = computed(() => {
 const handleUploadSuccess = () => {
   // Fonction vide pour le moment, à utiliser si besoin de logique post-upload
 };
+
+useSeoMeta({
+  title: 'Ajouter un GIF',
+  description: 'Ajoutez un GIF de Kaamelott',
+  ogTitle: 'Ajouter un GIF',
+  ogDescription: 'Ajoutez un GIF de Kaamelott',
+  ogImage: 'https://kaamelott-gifs.com/og-image.png',
+  twitterTitle: 'Ajouter un GIF',
+  twitterDescription: 'Ajoutez un GIF de Kaamelott',
+  twitterImage: 'https://kaamelott-gifs.com/og-image.png',
+  twitterCard: 'summary_large_image',
+  twitterSite: '@kaamelott_gifs',
+  twitterCreator: '@kaamelott_gifs',
+  keywords: 'Kaamelott, GIF, créer, ajouter, télécharger, personnages, épisodes, livres, répliques, kaamelott-gifs, alexandre astier'
+})
 </script>
