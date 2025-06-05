@@ -18,6 +18,16 @@ export const siteMapConfig = {
     '/_nuxt/',
     '/confirm',
   ],
+  include: [
+    '/public/**',
+    '/a-propos',
+    '/personnages',
+    '/livres',
+    '/gifs',
+    '/personnages/**',
+    '/livres/**',
+    '/gifs/**',
+  ],
   defaults: {
     changefreq: 'daily',
     priority: 0.8,

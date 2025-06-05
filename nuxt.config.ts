@@ -22,6 +22,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/eslint',
     '@pinia/nuxt',
+    '@nuxtjs/sitemap'
   ],
 
   supabase: {
