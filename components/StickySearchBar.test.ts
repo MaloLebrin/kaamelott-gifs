@@ -88,8 +88,9 @@ describe('StickySearchBar', () => {
     const button = wrapper.find('button[aria-controls="sticky-character-menu"]')
     await button.trigger('click')
 
-    // Vérifier que le menu est visible
-    const menu = wrapper.find('#sticky-character-menu')
+    // Attendre que le menu soit monté
+    await new Promise(resolve => setTimeout(resolve, 0))
+    const menu = wrapper.findComponent({ name: 'ListboxOptions' })
     expect(menu.exists()).toBe(true)
     expect(menu.isVisible()).toBe(true)
   })
@@ -105,8 +106,9 @@ describe('StickySearchBar', () => {
     await button.trigger('click')
 
     // Sélectionner un personnage
-    const characterButton = wrapper.findComponent({ name: 'CharacterButton' })
-    await characterButton.vm.$emit('select', 'Arthur')
+    const vm = wrapper.vm as unknown as { selectedCharacter: string; handleSearch: () => void };
+    vm.selectedCharacter = 'Arthur';
+    vm.handleSearch();
 
     // Vérifier que l'événement search est émis avec les bonnes valeurs
     expect(wrapper.emitted('search')).toBeTruthy()
@@ -139,8 +141,8 @@ describe('StickySearchBar', () => {
     await button.trigger('click')
 
     // Sélectionner un personnage
-    const characterButton = wrapper.findComponent({ name: 'CharacterButton' })
-    await characterButton.vm.$emit('select', 'Arthur')
+    const characterOption = wrapper.findComponent({ name: 'ListboxOption' })
+    await characterOption.trigger('click')
 
     // Vérifier que l'événement search est émis immédiatement
     expect(wrapper.emitted('search')).toBeTruthy()

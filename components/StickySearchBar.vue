@@ -34,47 +34,67 @@
             aria-label="Rechercher une réplique"
             @input="handleSearch"
           >
-          <button
-            class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors focus:outline-none"
-            :aria-expanded="isMobileMenuOpen"
-            aria-controls="sticky-character-menu"
-            aria-label="Sélectionner un personnage"
-            @click="isMobileMenuOpen = !isMobileMenuOpen"
-          >
-            {{ selectedCharacter || 'Personnages' }}
-          </button>
-        </div>
 
-        <!-- Menu mobile des personnages -->
-        <div
-          v-if="isMobileMenuOpen"
-          class="fixed inset-0 bg-black/50 z-50"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu de sélection des personnages"
-          @click="isMobileMenuOpen = false"
-        >
-          <div
-            id="sticky-character-menu"
-            class="absolute bottom-0 left-0 right-0 bg-white p-4 rounded-t-lg max-h-[80vh] overflow-y-auto"
-            role="dialog"
-            aria-label="Liste des personnages"
-            @click.stop
-          >
-            <div
-              class="flex flex-wrap gap-2"
-              role="group"
-              aria-label="Filtrer par personnage"
-            >
-              <CharacterButton
-                v-for="character in characters"
-                :key="character.name"
-                :character="character"
-                :is-selected="selectedCharacter === character.name"
-                @select="handleCharacterSelect"
-              />
+          <Listbox v-model="selectedCharacter">
+            <div class="relative mt-1">
+              <ListboxButton
+                class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors focus:outline-none flex items-center"
+                :aria-expanded="isMobileMenuOpen"
+                aria-controls="sticky-character-menu"
+                aria-label="Sélectionner un personnage"
+              >
+                <span class="block truncate">{{ selectedCharacter || 'Personnages' }}</span>
+                <span
+                  class="hidden lg:flex pointer-events-none items-center ml-1"
+                >
+                  <ChevronUpDownIcon
+                    class="h-5 w-5 text-white"
+                    aria-hidden="true"
+                  />
+                </span>
+              </ListboxButton>
+
+              <transition
+                leave-active-class="transition duration-100 ease-in"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0"
+              >
+                <ListboxOptions
+                  class="absolute mt-1 max-h-60 md:max-h-80 lg:max-h-96 w-full md:w-44 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm"
+                >
+                  <ListboxOption
+                    v-for="character in characters"
+                    v-slot="{ active, selected }"
+                    :key="character.name"
+                    :value="character.name"
+                    as="template"                  >
+                    <li
+                      :class="[
+                        active ? 'bg-amber-100 text-amber-900' : 'text-gray-900',
+                        'relative cursor-pointer select-none py-2 pl-10 pr-4',
+                      ]"
+                    >
+                      <span
+                        :class="[
+                          selected ? 'font-medium' : 'font-normal',
+                          'block truncate',
+                        ]"
+                      >{{ character.name }}</span
+                      >
+                      <span
+                        v-if="selected"
+                        class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+                      >
+                        <CheckIcon
+                          class="h-5 w-5"
+                          aria-hidden="true" />
+                      </span>
+                    </li>
+                  </ListboxOption>
+                </ListboxOptions>
+              </transition>
             </div>
-          </div>
+          </Listbox>
         </div>
       </div>
     </div>
@@ -83,8 +103,8 @@
 </template>
 
 <script setup lang="ts">
-import CharacterButton from './characters/CharacterButton.vue'
-import { useDebounce } from '@vueuse/core'
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/24/outline'
 
 interface Character {
   name: string
@@ -174,8 +194,12 @@ watch(() => props.initialQuery, newQuery => {
   searchQuery.value = newQuery || ''
 })
 
-watch(() => props.initialCharacter, newCharacter => {
-  selectedCharacter.value = newCharacter || ''
+watch(() => selectedCharacter.value, newCharacter => {
+  if (newCharacter !== selectedCharacter.value) {
+    handleCharacterSelect(newCharacter)
+  } else {
+    handleSearch()
+  }
 })
 </script>
 
