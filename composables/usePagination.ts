@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ref, computed, watch } from 'vue'
 import { useRouter, useRoute } from '#app'
+import { useDebounce } from '@vueuse/core'
 
 /** Options de configuration pour le composable de pagination */
 interface UsePaginationOptions<T> {
@@ -12,6 +13,8 @@ interface UsePaginationOptions<T> {
   searchField?: string
   /** Champ à utiliser pour le filtrage par personnage (défaut: 'characters') */
   characterField?: string
+  /** Délai de debounce pour la recherche en ms (défaut: 300) */
+  searchDebounceMs?: number
 }
 
 /**
@@ -24,6 +27,7 @@ interface UsePaginationOptions<T> {
  * @param [options.itemsPerPage=21] - Nombre d'éléments par page
  * @param [options.searchField='quote'] - Champ à utiliser pour la recherche
  * @param [options.characterField='characters'] - Champ à utiliser pour le filtrage par personnage
+ * @param [options.searchDebounceMs=300] - Délai de debounce pour la recherche en ms
  * 
  * @returns Un objet contenant l'état et les méthodes de pagination
  * @property {Ref<number>} currentPage - La page courante
@@ -40,7 +44,8 @@ interface UsePaginationOptions<T> {
  *   items: gifs,
  *   itemsPerPage: 12,
  *   searchField: 'quote',
- *   characterField: 'characters'
+ *   characterField: 'characters',
+ *   searchDebounceMs: 300
  * })
  * ```
  */
@@ -52,12 +57,16 @@ export function usePagination<T>(options: UsePaginationOptions<T>) {
     items,
     itemsPerPage = 21,
     searchField = 'quote',
-    characterField = 'characters'
+    characterField = 'characters',
+    searchDebounceMs = 300
   } = options
 
   const currentPage = ref(1)
   const searchQuery = ref('')
   const selectedCharacter = ref('')
+
+  // Ajouter le debounce sur la recherche
+  const debouncedSearchQuery = useDebounce(searchQuery, searchDebounceMs)
 
   // Initialize from URL query parameters
   if (route.query.page) {
@@ -72,8 +81,8 @@ export function usePagination<T>(options: UsePaginationOptions<T>) {
 
   const filteredItems = computed(() => {
     return items.filter(item => {
-      const matchesSearch = !searchQuery.value || 
-        String((item as Record<string, any>)[searchField]).toLowerCase().includes(searchQuery.value.toLowerCase())
+      const matchesSearch = !debouncedSearchQuery.value || 
+        String((item as Record<string, any>)[searchField]).toLowerCase().includes(debouncedSearchQuery.value.toLowerCase())
       
       const matchesCharacter = selectedCharacter.value === '' || 
         ((item as Record<string, any>)[characterField] && 
