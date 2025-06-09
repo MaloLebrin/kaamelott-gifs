@@ -84,6 +84,7 @@
 
 <script setup lang="ts">
 import CharacterButton from './characters/CharacterButton.vue'
+import { useDebounce } from '@vueuse/core'
 
 interface Character {
   name: string

@@ -50,7 +50,7 @@ describe('StickySearchBar', () => {
   test('sticky bar is hidden by default', () => {
     const stickyBar = wrapper.find('.fixed')
     expect(stickyBar.exists()).toBe(true)
-    expect(stickyBar.isVisible()).toBe(false)
+    expect(stickyBar.classes()).toContain('opacity-0')
   })
 
   test('sticky bar becomes visible when original bar is out of view', async () => {
@@ -126,5 +126,24 @@ describe('StickySearchBar', () => {
     // Vérifier que l'événement search est émis avec la nouvelle requête
     expect(wrapper.emitted('search')).toBeTruthy()
     expect(wrapper.emitted('search')?.[0]).toEqual(['test query', ''])
+  })
+
+  test('character selection is not debounced', async () => {
+    // Simuler l'intersection observer callback pour afficher la barre fixe
+    const observerCallback = vi.mocked(window.IntersectionObserver).mock.calls[0][0]
+    observerCallback([createMockEntry(false)], {} as IntersectionObserver)
+    await new Promise(resolve => setTimeout(resolve, 150))
+
+    // Cliquer sur le bouton de sélection de personnage
+    const button = wrapper.find('button[aria-controls="sticky-character-menu"]')
+    await button.trigger('click')
+
+    // Sélectionner un personnage
+    const characterButton = wrapper.findComponent({ name: 'CharacterButton' })
+    await characterButton.vm.$emit('select', 'Arthur')
+
+    // Vérifier que l'événement search est émis immédiatement
+    expect(wrapper.emitted('search')).toBeTruthy()
+    expect(wrapper.emitted('search')?.[0]).toEqual(['', 'Arthur'])
   })
 }) 
