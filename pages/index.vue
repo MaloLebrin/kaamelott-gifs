@@ -2,17 +2,24 @@
 <div class="flex-1">
   <h1 class="sr-only">Kaamelott GIFs - Collection de GIFs de la série Kaamelott</h1>
 
-  <section aria-labelledby="search-heading">
-    <h2
-      id="search-heading"
-      class="sr-only">Recherche de GIFs</h2>
-    <SearchBar 
-      :characters="charactersData || []" 
-      :initial-query="searchQuery" 
-      :initial-character="selectedCharacter"
-      @search="handleSearch" 
-    />
-  </section>
+  <StickySearchBar
+    :characters="charactersData || []"
+    :initial-query="searchQuery"
+    :initial-character="selectedCharacter"
+    @search="handleSearch"
+  >
+    <section aria-labelledby="search-heading">
+      <h2
+        id="search-heading"
+        class="sr-only">Recherche de GIFs</h2>
+      <SearchBar 
+        :characters="charactersData || []" 
+        :initial-query="searchQuery" 
+        :initial-character="selectedCharacter"
+        @search="handleSearch" 
+      />
+    </section>
+  </StickySearchBar>
     
   <section
     aria-labelledby="gifs-heading"
@@ -40,6 +47,7 @@
 <script setup lang="ts">
 import GifGrid from '~/components/gifs/GifGrid.vue'
 import SearchBar from '~/components/SearchBar.vue'
+import StickySearchBar from '~/components/StickySearchBar.vue'
 import Pagination from '~/components/base/Pagination.vue'
 import type { Gif } from '~/types'
 import { usePagination } from '~/composables/usePagination'
