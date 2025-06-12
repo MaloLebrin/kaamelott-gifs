@@ -2,6 +2,7 @@
 import { ref, computed, watch } from 'vue'
 import { useRouter, useRoute } from '#app'
 import { useDebounce } from '@vueuse/core'
+import { sortGifsByCharacters } from '~/shared/utils/gifs/sortGifsByCharacters'
 
 /** Options de configuration pour le composable de pagination */
 interface UsePaginationOptions<T> {
@@ -80,7 +81,7 @@ export function usePagination<T>(options: UsePaginationOptions<T>) {
   }
 
   const filteredItems = computed(() => {
-    return items.filter(item => {
+    const filteredGifs = items.filter(item => {
       const matchesSearch = !debouncedSearchQuery.value || 
         String((item as Record<string, any>)[searchField]).toLowerCase().includes(debouncedSearchQuery.value.toLowerCase())
       
@@ -89,6 +90,20 @@ export function usePagination<T>(options: UsePaginationOptions<T>) {
         (item as Record<string, any>)[characterField].includes(selectedCharacter.value))
 
       return matchesSearch && matchesCharacter
+    })
+
+    if (selectedCharacter.value === '') {
+      return filteredGifs
+    }
+
+    type SatisfiesTWithCharacters = T extends {
+      characters: string[] | null
+      characters_speaking?: string[] | null
+    } ? T : never
+
+    return sortGifsByCharacters({
+      gifs: filteredGifs as SatisfiesTWithCharacters[],
+      character: selectedCharacter.value
     })
   })
 
