@@ -81,7 +81,7 @@ export function usePagination<T>(options: UsePaginationOptions<T>) {
   }
 
   const filteredItems = computed(() => {
-    const filteredGifs = items.filter(item => {
+    return items.filter(item => {
       const matchesSearch = !debouncedSearchQuery.value || 
         String((item as Record<string, any>)[searchField]).toLowerCase().includes(debouncedSearchQuery.value.toLowerCase())
       
@@ -90,20 +90,6 @@ export function usePagination<T>(options: UsePaginationOptions<T>) {
         (item as Record<string, any>)[characterField].includes(selectedCharacter.value))
 
       return matchesSearch && matchesCharacter
-    })
-
-    if (selectedCharacter.value === '') {
-      return filteredGifs
-    }
-
-    type SatisfiesTWithCharacters = T extends {
-      characters: string[] | null
-      characters_speaking?: string[] | null
-    } ? T : never
-
-    return sortGifsByCharacters({
-      gifs: filteredGifs as SatisfiesTWithCharacters[],
-      character: selectedCharacter.value
     })
   })
 

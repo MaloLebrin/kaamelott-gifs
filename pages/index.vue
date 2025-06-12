@@ -27,7 +27,11 @@
     <h2
       id="gifs-heading"
       class="sr-only">Gifs de Kaamelott</h2>
-    <GifGrid :gifs="paginatedGifs" />
+    <GifGrid
+      :gifs="sortGifsByCharacters({
+        gifs: paginatedGifs,
+        character: selectedCharacter
+      })" />
       
     <!-- Pagination -->
     <nav
@@ -51,6 +55,7 @@ import StickySearchBar from '~/components/StickySearchBar.vue'
 import Pagination from '~/components/base/Pagination.vue'
 import type { Gif } from '~/types'
 import { usePagination } from '~/composables/usePagination'
+import { sortGifsByCharacters } from '~/shared/utils/gifs/sortGifsByCharacters'
 
 interface Character {
   name: string

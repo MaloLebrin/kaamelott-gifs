@@ -14,6 +14,10 @@ export function sortGifsByCharacters<T extends {
     return []
   }
 
+  if (!character) {
+    return gifs
+  }
+
   return gifs.sort((gifA, gifB) => {
     const charactersA = gifA.characters || []
     const charactersB = gifB.characters || []
