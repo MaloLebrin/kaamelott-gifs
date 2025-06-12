@@ -2,7 +2,7 @@
   "name": "kaamelott-gifs",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@10.11.1",
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -14,7 +14,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.824.0",
+    "@aws-sdk/client-s3": "^3.828.0",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@nuxt/icon": "1.12.0",
@@ -22,14 +22,14 @@
     "@nuxtjs/seo": "^3.0.3",
     "@nuxtjs/sitemap": "7.3.1",
     "@pinia/nuxt": "0.11.0",
-    "@tailwindcss/vite": "^4.1.8",
+    "@tailwindcss/vite": "^4.1.10",
     "@vueuse/components": "^13.3.0",
     "@vueuse/core": "^13.3.0",
     "@vueuse/nuxt": "13.1.0",
     "nuxt": "^3.17.5",
     "nuxt-posthog": "1.6.3",
     "pinia": "^3.0.3",
-    "tailwindcss": "^4.1.8",
+    "tailwindcss": "^4.1.10",
     "vue": "^3.5.16"
   },
   "devDependencies": {
@@ -40,11 +40,11 @@
     "@nuxtjs/supabase": "^1.5.1",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.28.0",
-    "eslint-plugin-vue": "^10.1.0",
-    "happy-dom": "^17.6.3",
-    "playwright-core": "^1.52.0",
+    "eslint-plugin-vue": "^10.2.0",
+    "happy-dom": "^18.0.1",
+    "playwright-core": "^1.53.0",
     "supabase": "^2.24.3",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.1"
+    "vitest": "^3.2.3"
   }
 }
