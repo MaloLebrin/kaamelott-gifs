@@ -8,6 +8,7 @@
       </p>
     </div>
     <a
+      v-posthog-capture="'click_github_footer'"
       href="https://github.com/MaloLebrin/kaamelott-gifs"
       target="_blank"
       rel="noopener noreferrer"
