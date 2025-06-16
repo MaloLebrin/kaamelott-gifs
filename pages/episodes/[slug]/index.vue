@@ -165,7 +165,7 @@ useSeoMeta({
   ogTitle: seoTitle,
   description: seoDescription,
   ogDescription: seoDescription,
-  ogImage: '/fondKBg.webp',
+  ogImage: data.value?.episode?.imgUrl || '/fondKBg.webp',
   keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
   author: 'Kaamelott GIFs',
   robots: 'index, follow',
