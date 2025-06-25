@@ -1,9 +1,9 @@
 import { serverSupabaseClient } from '#supabase/server'
-import { Entities } from '~/types'
 import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront'
+import { Entities } from '~/types'
 import type { Database } from '~/types/database.types'
 
-export default defineEventHandler(async event => {
+export default defineCachedEventHandler(async event => {
   const client = await serverSupabaseClient<Database>(event)
 
   const { data, error } = await client.from(Entities.GIF).select('*')
@@ -13,4 +13,6 @@ export default defineEventHandler(async event => {
   }
 
   return formatFromBackToFront(data)
+}, {
+  swr: true,
 })
