@@ -9,13 +9,24 @@
 </template>
 
 <script setup lang="ts">
-import LoginForm from '~/components/auth/LoginForm.vue'
+import LoginForm from '~/components/auth/LoginForm.vue';
 
 useSeoMeta({
   title: 'Connexion à la Table Ronde',
   description: 'Connexion à la Table Ronde',
   ogTitle: 'Connexion à la Table Ronde',
   ogDescription: 'Connexion à la Table Ronde',
-  ogImage: 'https://kaamelott-gifs.com/og-image.png'
+  ogImage: 'https://kaamelott-gifs.com/og-image.png',
+  keywords: 'kaamelott, gifs, alexandre astier, série française, moments cultes, collection',
+  author: 'Kaamelott GIFs',
+  robots: 'index, follow',
+  ogUrl: 'https://kaamelottgifs.fr/login',
+  ogType: 'website',
+  twitterTitle: 'Connexion à la Table Ronde',
+  twitterDescription: 'Connexion à la Table Ronde',
+  twitterImage: 'https://kaamelott-gifs.com/og-image.png',
+  twitterCard: 'summary_large_image',
+  twitterSite: '@kaamelott_gifs',
+  twitterCreator: '@kaamelott_gifs',
 })
 </script>
