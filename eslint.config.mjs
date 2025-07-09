@@ -8,15 +8,6 @@ export default withNuxt({
     vue
   },
   rules: {
-    'vue/max-attributes-per-line': ['error', {
-      singleline: {
-        max: 1
-      },
-      multiline: {
-        max: 1
-      }
-    }],
-    "vue/no-required-prop-with-default": "off",
   }
 }).override('nuxt/typescript/rules', {
   rules: {
