@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "ci:install": "pnpm install --ignore-scripts --frozen-lockfile && nuxt prepare",
+    "ci:install": "pnpm install --ignore-scripts --frozen-lockfile",
+    "ci:clean": "rm -rf node_modules/.cache node_modules/.pnpm-store",
     "generate:types": "pnpx supabase gen types typescript --project-id 'aatfrcexkbcbuyaritlj' --schema public > types/database.types.ts",
     "test": "vitest",
     "lint": "eslint ."
@@ -29,7 +30,6 @@
     "@vueuse/nuxt": "13.1.0",
     "nuxt": "^3.17.7",
     "nuxt-posthog": "1.6.3",
-    "oxc-parser": "^0.77.2",
     "pinia": "^3.0.3",
     "tailwindcss": "^4.1.11",
     "vue": "^3.5.17"

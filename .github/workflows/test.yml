@@ -28,8 +28,14 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: pnpm
 
+      - name: 🧹 Clean cache
+        run: pnpm run ci:clean
+
       - name: 🔧 Install
         run: pnpm run ci:install
+
+      - name: 🏗️ Prepare Nuxt
+        run: nuxt prepare
 
       - name: ☑️ Linting
         run: pnpm run lint
@@ -55,8 +61,14 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: pnpm
 
+      - name: 🧹 Clean cache
+        run: pnpm run ci:clean
+
       - name: 🔧 Install
         run: pnpm run ci:install
+
+      - name: 🏗️ Prepare Nuxt
+        run: nuxt prepare
 
       # - name: 🏗 Build
       #   run: pnpm run build
