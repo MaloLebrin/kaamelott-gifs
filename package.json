@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "ci:install": "pnpm install --ignore-scripts --frozen-lockfile",
+    "ci:install": "pnpm install --ignore-scripts",
     "ci:clean": "rm -rf node_modules/.cache node_modules/.pnpm-store",
     "generate:types": "pnpx supabase gen types typescript --project-id 'aatfrcexkbcbuyaritlj' --schema public > types/database.types.ts",
     "test": "vitest",
