@@ -75,6 +75,9 @@ importers:
       '@nuxtjs/supabase':
         specifier: ^1.5.1
         version: 1.6.0
+      '@oxc-parser/binding-linux-x64-gnu':
+        specifier: ^0.78.0
+        version: 0.78.0
       '@vue/test-utils':
         specifier: ^2.4.6
         version: 2.4.6
@@ -7991,8 +7994,7 @@ snapshots:
   '@oxc-parser/binding-linux-s390x-gnu@0.78.0':
     optional: true
 
-  '@oxc-parser/binding-linux-x64-gnu@0.78.0':
-    optional: true
+  '@oxc-parser/binding-linux-x64-gnu@0.78.0': {}
 
   '@oxc-parser/binding-linux-x64-musl@0.78.0':
     optional: true
