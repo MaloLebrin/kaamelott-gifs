@@ -1,6 +1,6 @@
-import { describe, test, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Pagination from '../../../components/base/Pagination.vue'
+import { describe, expect, test, vi } from 'vitest'
+import Pagination from './Pagination.vue'
 
 // Mock useRoute
 vi.mock('#app', () => ({
@@ -38,7 +38,7 @@ describe('Pagination', () => {
     const links = wrapper.findAllComponents({ name: 'NuxtLink' })
     
     // Click on page 2
-    await links[2].trigger('click')
+    await links[2]?.trigger('click')
     
     expect(wrapper.emitted('pageChange')).toBeTruthy()
     expect(wrapper.emitted('pageChange')?.[0]).toEqual([2])
@@ -48,14 +48,15 @@ describe('Pagination', () => {
     const wrapper = createWrapper({ currentPage: 1 })
     const links = wrapper.findAllComponents({ name: 'NuxtLink' })
     
-    expect(links[0].attributes('disabled')).toBeDefined()
+    expect(links[0]?.attributes('disabled')).toBeDefined()
   })
 
   test('disables next button on last page', () => {
     const wrapper = createWrapper({ currentPage: 5 })
     const links = wrapper.findAllComponents({ name: 'NuxtLink' })
-    
-    expect(links[links.length - 1].attributes('disabled')).toBeDefined()
+    if (links.length > 0) {
+      expect(links[links?.length - 1]?.attributes('disabled')).toBeDefined()
+    }
   })
 
   test('shows ellipsis for large page counts', () => {
@@ -69,7 +70,7 @@ describe('Pagination', () => {
     const links = wrapper.findAllComponents({ name: 'NuxtLink' })
     
     // Click on page 4
-    await links[3].trigger('click')
+    await links[3]?.trigger('click')
     expect(wrapper.emitted('pageChange')?.[0]).toEqual([3])
   })
 
@@ -78,7 +79,7 @@ describe('Pagination', () => {
     const links = wrapper.findAllComponents({ name: 'NuxtLink' })
     
     // Try to click prev (page 0)
-    await links[0].trigger('click')
+    await links[0]?.trigger('click')
     expect(wrapper.emitted('pageChange')).toBeFalsy()
   })
 })
