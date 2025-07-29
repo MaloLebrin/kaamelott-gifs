@@ -1,6 +1,0 @@
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - core-js
-  - esbuild
-  - supabase
-  - unrs-resolver
