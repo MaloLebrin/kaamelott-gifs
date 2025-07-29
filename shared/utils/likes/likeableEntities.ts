@@ -1,6 +1,6 @@
-import { Entities, type Season, type Character, type Episode, type Gif, type LikeableEntity } from "~/types"
-import type { CommentEntity } from "~/types/Comments"
-import type { Like, LikeWithRelation } from "~/types/Like"
+import { Entities, type Character, type Episode, type Gif, type LikeableEntity, type Season } from "~~/shared/types"
+import type { CommentEntity } from "~~/shared/types/Comments"
+import type { Like, LikeWithRelation } from "~~/shared/types/Like"
 
 /**
  * Liste des types d'entités qui peuvent être likées

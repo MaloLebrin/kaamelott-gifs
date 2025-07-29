@@ -3,13 +3,11 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
+    "module": "esnext",
   },
   "exclude": [
     "node_modules",
     ".output",
-    "dist",
-    "**/*.test.ts",
-    "**/*.nuxt.test.ts"
+    "dist"
   ]
 }

@@ -1,7 +1,7 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
-import type { Database } from '~/types/database.types'
-import type { CommentInput } from '~/types/Comments'
-import { Entities } from '~/types'
+import { Entities } from '~~/shared/types'
+import type { CommentInput } from '~~/shared/types/Comments'
+import type { Database } from '~~/shared/types/database.types'
 
 export default defineEventHandler(async event => {
   const user = await serverSupabaseUser(event)

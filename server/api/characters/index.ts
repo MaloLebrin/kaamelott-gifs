@@ -1,9 +1,9 @@
-import { serverSupabaseClient } from '#supabase/server'
-import { composeCharacters } from '~/shared/utils/characters/composeCharacters'
-import { slugify } from '~/shared/utils/string'
-import type { Gif } from '~/types';
-import { Entities } from '~/types'
-import type { Database } from '~/types/database.types';
+import { serverSupabaseClient } from '#supabase/server';
+import type { Gif } from '~~/shared/types';
+import { Entities } from '~~/shared/types';
+import type { Database } from '~~/shared/types/database.types';
+import { composeCharacters } from '~~/shared/utils/characters/composeCharacters';
+import { slugify } from '~~/shared/utils/string';
 
 export default defineEventHandler(async event => {
   try {

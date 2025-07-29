@@ -1,13 +1,13 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
-import { uploadGifToS3 } from '~/server/services/aws/client'
-import { formatCharactersToBack } from '~/shared/utils/gifs/formatCharacters'
-import { formatEpisode } from '~/shared/utils/gifs/formatEpisode'
-import { transformUrl } from '~/shared/utils/gifs/transformUrl'
-import { validateNewGif } from '~/shared/utils/gifs/validateNewGif'
-import { newSlugify } from '~/shared/utils/string'
-import type { Database } from '~/types/database.types'
-import { Entities } from '~/types/Entities'
-import type { Gif } from '~/types/Gif'
+import { uploadGifToS3 } from '~~/server/services/aws/client'
+import { Entities } from '~~/shared/types/Entities'
+import type { Gif } from '~~/shared/types/Gif'
+import type { Database } from '~~/shared/types/database.types'
+import { formatCharactersToBack } from '~~/shared/utils/gifs/formatCharacters'
+import { formatEpisode } from '~~/shared/utils/gifs/formatEpisode'
+import { transformUrl } from '~~/shared/utils/gifs/transformUrl'
+import { validateNewGif } from '~~/shared/utils/gifs/validateNewGif'
+import { newSlugify } from '~~/shared/utils/string'
 
 export default defineEventHandler(async event => {
   try {

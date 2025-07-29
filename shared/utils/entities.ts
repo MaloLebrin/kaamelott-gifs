@@ -1,7 +1,7 @@
-import type { Gif } from "~/types/Gif"
-import type { Character } from "~/types/Characters"
-import type { Episode } from "~/types/Episode"
-import type { Season } from "~/types/Season"
+import type { Character } from "~~/shared/types/Characters"
+import type { Episode } from "~~/shared/types/Episode"
+import type { Gif } from "~~/shared/types/Gif"
+import type { Season } from "~~/shared/types/Season"
 
 /**
  * Vérifie si l'entité est un GIF

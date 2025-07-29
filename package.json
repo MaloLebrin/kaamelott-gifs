@@ -21,7 +21,7 @@
     "@nuxt/image": "1.10.0",
     "@nuxtjs/seo": "^3.0.3",
     "@nuxtjs/sitemap": "7.3.1",
-    "@pinia/nuxt": "0.11.0",
+    "@pinia/nuxt": "0.11.2",
     "@tailwindcss/vite": "^4.1.10",
     "@vueuse/components": "^13.3.0",
     "@vueuse/core": "^13.3.0",
@@ -46,5 +46,8 @@
     "supabase": "^2.24.3",
     "typescript": "^5.8.3",
     "vitest": "^3.2.3"
+  },
+  "volta": {
+    "node": "22.17.1"
   }
 }

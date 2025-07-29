@@ -1,9 +1,9 @@
 import { serverSupabaseClient } from '#supabase/server'
-import type { Database } from '~/types/database.types'
-import { Entities } from '~/types'
-import { commentableEntitiesIds, isCommentable } from '~/shared/utils/comments/commentableEntities'
-import type { CommentEntityType } from '~/types/Comments'
-import { unique } from '~/shared/utils/array'
+import { Entities } from '~~/shared/types'
+import type { CommentEntityType } from '~~/shared/types/Comments'
+import type { Database } from '~~/shared/types/database.types'
+import { unique } from '~~/shared/utils/array'
+import { commentableEntitiesIds, isCommentable } from '~~/shared/utils/comments/commentableEntities'
 
 export default defineEventHandler(async event => {
   const entityType = getRouterParam(event, 'entityType') as CommentEntityType
