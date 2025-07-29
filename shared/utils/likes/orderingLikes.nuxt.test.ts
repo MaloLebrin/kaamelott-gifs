@@ -1,9 +1,9 @@
-import { orderingLikes } from "~/shared/utils/likes/orderingLikes"
-import { Entities, type LikeableEntity } from "~/types/Entities"
-import type { Character, Episode, Gif, Season } from "~/types"
-import type { LikeWithRelation } from "~/types/Like"
-import { describe, test, expect } from "vitest"
-import { getEntityType } from "~/shared/utils/likes/likeableEntities"
+import { describe, expect, test } from "vitest"
+import type { Character, Episode, Gif, Season } from "~~/shared/types"
+import { Entities, type LikeableEntity } from "~~/shared/types/Entities"
+import type { LikeWithRelation } from "~~/shared/types/Like"
+import { getEntityType } from "~~/shared/utils/likes/likeableEntities"
+import { orderingLikes } from "~~/shared/utils/likes/orderingLikes"
 
 
 // Helper pour créer des mocks de LikeWithRelation

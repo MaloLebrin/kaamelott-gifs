@@ -1,7 +1,7 @@
-import { formatCharactersToBack } from "~/shared/utils/gifs/formatCharacters"
-import { newSlugify, slugify } from "~/shared/utils/string"
-import type { CharacterInput } from "~/types/Characters"
-import type { Episode } from "~/types/Episode"
+import type { CharacterInput } from "~~/shared/types/Characters"
+import type { Episode } from "~~/shared/types/Episode"
+import { formatCharactersToBack } from "~~/shared/utils/gifs/formatCharacters"
+import { newSlugify, slugify } from "~~/shared/utils/string"
 
 export const charactersData = [
   {

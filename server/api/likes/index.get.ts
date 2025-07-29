@@ -1,9 +1,9 @@
 import { serverSupabaseClient, serverSupabaseUser } from '#supabase/server'
-import { likeableEntitiesIds } from '~/shared/utils/likes/likeableEntities'
-import { orderingLikes } from '~/shared/utils/likes/orderingLikes'
-import type { Database } from '~/types/database.types'
-import type { LikeableEntity } from '~/types/Entities'
-import type { LikeWithRelation } from '~/types/Like'
+import type { LikeableEntity } from '~~/shared/types/Entities'
+import type { LikeWithRelation } from '~~/shared/types/Like'
+import type { Database } from '~~/shared/types/database.types'
+import { likeableEntitiesIds } from '~~/shared/utils/likes/likeableEntities'
+import { orderingLikes } from '~~/shared/utils/likes/orderingLikes'
 
 export default defineEventHandler(async event => {
   const client = await serverSupabaseClient<Database>(event)

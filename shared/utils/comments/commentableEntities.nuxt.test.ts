@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { isCommentable, commentableEntities } from './commentableEntities'
-import type { CommentEntityType } from '~/types/Comments'
+import type { CommentEntityType } from '~~/shared/types/Comments'
+import { commentableEntities, isCommentable } from './commentableEntities'
 
 describe('isCommentable', () => {
   // Test des cas positifs - toutes les entités commentables

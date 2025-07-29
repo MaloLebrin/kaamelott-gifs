@@ -1,9 +1,9 @@
-import { describe, test, expect } from 'vitest'
-import { isGif, isCharacter, isEpisode, isSeason } from './entities'
-import type { Gif } from '~/types/Gif'
-import type { Character } from '~/types/Characters'
-import type { Episode } from '~/types/Episode'
-import type { Season } from '~/types/Season'
+import { describe, expect, test } from 'vitest'
+import type { Character } from '~~/shared/types/Characters'
+import type { Episode } from '~~/shared/types/Episode'
+import type { Gif } from '~~/shared/types/Gif'
+import type { Season } from '~~/shared/types/Season'
+import { isCharacter, isEpisode, isGif, isSeason } from './entities'
 
 describe('entities', () => {
   describe('isGif', () => {

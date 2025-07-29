@@ -1,8 +1,8 @@
-import { unique } from "~/shared/utils/array"
-import { getEpisodeId, getLivreFromCode } from "~/shared/utils/episodes/code"
-import type { Episode } from "~/types/Episode"
-import type { Gif } from "~/types/Gif"
-import type { EpisodeItem } from "~/types/structuredData"
+import type { Episode } from "~~/shared/types/Episode"
+import type { Gif } from "~~/shared/types/Gif"
+import type { EpisodeItem } from "~~/shared/types/structuredData"
+import { unique } from "~~/shared/utils/array"
+import { getEpisodeId, getLivreFromCode } from "~~/shared/utils/episodes/code"
 
 /**
  * Compose un EpisodeItem à partir d'un Episode et d'un tableau de GIFs pour les données structurées (SEO)

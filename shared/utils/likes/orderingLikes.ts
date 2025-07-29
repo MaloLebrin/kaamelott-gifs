@@ -1,6 +1,6 @@
-import type { LikeWithRelation } from '~/types/Like'
+import { Entities, type LikeableEntity } from '~~/shared/types/Entities'
+import type { LikeWithRelation } from '~~/shared/types/Like'
 import { getEntityType } from './likeableEntities'
-import { Entities, type LikeableEntity } from '~/types/Entities'
 
 // Définition de l'ordre de tri pour chaque type d'entité likable
 const typeOrder: Record<LikeableEntity, number> = {

@@ -1,8 +1,8 @@
-import { describe, test, expect } from 'vitest'
-import { Entities } from '~/types'
-import { validEntityTypes, likeableEntitiesIds, getEntityType, getEntity } from './likeableEntities'
-import type { Like, LikeWithRelation } from '~/types/Like'
-import type { Gif, Character, Episode, Season } from '~/types'
+import { describe, expect, test } from 'vitest'
+import type { Character, Episode, Gif, Season } from '~~/shared/types'
+import { Entities } from '~~/shared/types'
+import type { Like, LikeWithRelation } from '~~/shared/types/Like'
+import { getEntity, getEntityType, likeableEntitiesIds, validEntityTypes } from './likeableEntities'
 
 describe('likeableEntities', () => {
   describe('validEntityTypes', () => {

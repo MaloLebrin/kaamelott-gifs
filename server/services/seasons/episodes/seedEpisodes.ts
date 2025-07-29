@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { episodes } from "~/server/data/episodes";
-import type { Episode } from "~/types";
-import { Entities } from "~/types";
-import { slugify } from "~/shared/utils/string";
+import type { Episode } from "~~/shared/types";
+import { Entities } from "~~/shared/types";
+import { slugify } from "~~/shared/utils/string";
 
 /**
  * Seed episodes

@@ -1,7 +1,7 @@
 import { serverSupabaseClient } from '#supabase/server'
-import { Entities, type LikeableEntity } from '~/types'
-import { likeableEntitiesIds, validEntityTypes } from '~/shared/utils/likes/likeableEntities'
-import type { Database } from '~/types/database.types'
+import { Entities, type LikeableEntity } from '~~/shared/types'
+import type { Database } from '~~/shared/types/database.types'
+import { likeableEntitiesIds, validEntityTypes } from '~~/shared/utils/likes/likeableEntities'
 
 export default defineEventHandler(async event => {
   const entityType = getRouterParam(event, 'entityType') as LikeableEntity
