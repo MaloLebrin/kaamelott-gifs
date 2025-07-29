@@ -1,7 +1,7 @@
-import { describe, test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import CharacterGrid from '../../../components/characters/CharacterGrid.vue'
-import CharacterListItem from '../../../components/characters/CharacterListItem.vue'
+import { describe, expect, test } from 'vitest'
+import CharacterGrid from './CharacterGrid.vue'
+import CharacterListItem from './CharacterListItem.vue'
 
 interface Character {
   name: string

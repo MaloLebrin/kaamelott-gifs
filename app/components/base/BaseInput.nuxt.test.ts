@@ -1,6 +1,6 @@
-import { describe, test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BaseInput from '../../../components/base/BaseInput.vue'
+import { describe, expect, test } from 'vitest'
+import BaseInput from './BaseInput.vue'
 
 describe('BaseInput', () => {
   test('renders correctly with required props', () => {

@@ -1,6 +1,6 @@
-import { describe, test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import AppImage from '../../../components/base/AppImage.vue'
+import { describe, expect, test } from 'vitest'
+import AppImage from './AppImage.vue'
 
 describe('AppImage', () => {
   test('renders with default props', () => {

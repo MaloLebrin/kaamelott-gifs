@@ -1,6 +1,6 @@
-import { describe, test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import CharacterButton from '../../../components/characters/CharacterButton.vue'
+import { describe, expect, test } from 'vitest'
+import CharacterButton from './CharacterButton.vue'
 
 describe('CharacterButton', () => {
   const mockCharacter = {

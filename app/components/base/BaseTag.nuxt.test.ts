@@ -1,6 +1,6 @@
-import { describe, test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BaseTag from '../../../components/base/BaseTag.vue'
+import { describe, expect, test } from 'vitest'
+import BaseTag from './BaseTag.vue'
 
 describe('BaseTag', () => {
 

@@ -1,7 +1,7 @@
-import { describe, test, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BaseToast from '../../../components/base/BaseToast.vue'
-import { useToast } from '~/composables/useToast'
+import { describe, expect, test, vi } from 'vitest'
+import BaseToast from './BaseToast.vue'
+// oxlint-disable-next-line no-unused-vars
 
 // Mock the useToast composable
 vi.mock('~/composables/useToast', () => ({
@@ -44,19 +44,19 @@ describe('BaseToast', () => {
     const wrapper = mount(BaseToast)
     const messages = wrapper.findAll('span')
     
-    expect(messages[0].text()).toBe('Success message')
-    expect(messages[1].text()).toBe('Error message')
-    expect(messages[2].text()).toBe('Info message')
-    expect(messages[3].text()).toBe('Warning message')
+    expect(messages[0]?.text()).toBe('Success message')
+    expect(messages[1]?.text()).toBe('Error message')
+    expect(messages[2]?.text()).toBe('Info message')
+    expect(messages[3]?.text()).toBe('Warning message')
   })
 
   test('applies correct classes based on toast type', () => {
     const wrapper = mount(BaseToast)
     const toasts = wrapper.findAll('div[class*="min-w-[300px]"]')
     
-    expect(toasts[0].classes()).toContain('bg-green-500')
-    expect(toasts[1].classes()).toContain('bg-red-500')
-    expect(toasts[2].classes()).toContain('bg-blue-500')
+    expect(toasts[0]?.classes()).toContain('bg-green-500')
+    expect(toasts[1]?.classes()).toContain('bg-red-500')
+    expect(toasts[2]?.classes()).toContain('bg-blue-500')
   })
 
   test('renders correct icons for each toast type', () => {

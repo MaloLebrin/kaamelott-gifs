@@ -1,6 +1,6 @@
-import { describe, test, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BaseTextarea from '../../../components/base/BaseTextarea.vue'
+import { describe, expect, test } from 'vitest'
+import BaseTextarea from './BaseTextarea.vue'
 
 describe('BaseTextarea', () => {
   test('renders correctly with required props', () => {

@@ -1,4 +1,4 @@
-import { describe, test, expect, vi, beforeEach } from 'vitest'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
 import { useToast } from './useToast'
 
 describe('useToast', () => {
@@ -84,9 +84,9 @@ describe('useToast', () => {
     success('Third message')
     
     expect(toasts.value).toHaveLength(3)
-    expect(toasts.value[0].id).toBe(1)
-    expect(toasts.value[1].id).toBe(2)
-    expect(toasts.value[2].id).toBe(3)
+    expect(toasts.value[0]?.id).toBe(1)
+    expect(toasts.value[1]?.id).toBe(2)
+    expect(toasts.value[2]?.id).toBe(3)
   })
 
   test('should handle multiple toasts with different types', () => {

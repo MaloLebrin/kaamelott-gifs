@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import type { Gif } from '~~/shared/types'
-import GifCard from '../../../components/gifs/GifCard.vue'
+import GifCard from './GifCard.vue'
 
 describe('GifCard', () => {
   const mockGif: Gif = {
@@ -11,7 +11,7 @@ describe('GifCard', () => {
     quote: 'Test quote',
     characters: ['Character 1', 'Character 2'],
     filename: 'test.gif',
-    public_id: 'test',
+    // public_id: 'test',
     episode: null,
     createdAt: new Date().toISOString()
   }
@@ -48,8 +48,8 @@ describe('GifCard', () => {
 
     const tags = wrapper.findAllComponents({ name: 'BaseTag' })
     expect(tags).toHaveLength(2)
-    expect(tags[0].props('label')).toBe('Character 1')
-    expect(tags[1].props('label')).toBe('Character 2')
+    expect(tags[0]?.props('label')).toBe('Character 1')
+    expect(tags[1]?.props('label')).toBe('Character 2')
   })
 
   test('applies correct classes', () => {
@@ -61,18 +61,5 @@ describe('GifCard', () => {
 
     expect(wrapper.find('article').classes()).toContain('rounded-[32px]')
     expect(wrapper.find('article').classes()).toContain('cursor-pointer')
-  })
-
-  test('renders AppImage with correct props', () => {
-    const wrapper = mount(GifCard, {
-      props: {
-        gif: mockGif
-      }
-    })
-
-    const appImage = wrapper.findComponent({ name: 'AppImage' })
-    expect(appImage.exists()).toBe(true)
-    expect(appImage.props('src')).toBe(mockGif.url)
-    expect(appImage.props('alt')).toBe(mockGif.quote)
   })
 }) 

@@ -1,6 +1,6 @@
-import { describe, test, expect, vi, beforeEach } from 'vitest'
 import { mount } from '@vue/test-utils'
-import StickySearchBar from '../../components/StickySearchBar.vue'
+import { beforeEach, describe, expect, test, vi } from 'vitest'
+import StickySearchBar from './StickySearchBar.vue'
 
 describe('StickySearchBar', () => {
   let wrapper: ReturnType<typeof mount>
@@ -55,7 +55,10 @@ describe('StickySearchBar', () => {
 
   test('sticky bar becomes visible when original bar is out of view', async () => {
     // Simuler l'intersection observer callback
-    const observerCallback = vi.mocked(window.IntersectionObserver).mock.calls[0][0]
+    const observerCallback = vi.mocked(window.IntersectionObserver).mock?.calls?.[0]?.[0]
+    if (!observerCallback) {
+      throw new Error('Observer callback is undefined')
+    }
     observerCallback([createMockEntry(false)], {} as IntersectionObserver)
 
     // Attendre la transition
@@ -68,7 +71,10 @@ describe('StickySearchBar', () => {
 
   test('sticky bar hides when original bar is in view', async () => {
     // Simuler l'intersection observer callback
-    const observerCallback = vi.mocked(window.IntersectionObserver).mock.calls[0][0]
+    const observerCallback = vi.mocked(window.IntersectionObserver).mock?.calls?.[0]?.[0]
+    if (!observerCallback) {
+      throw new Error('Observer callback is undefined')
+    }
     observerCallback([createMockEntry(true)], {} as IntersectionObserver)
 
     // Attendre la transition
@@ -80,7 +86,10 @@ describe('StickySearchBar', () => {
 
   test('opens character menu when clicking the button', async () => {
     // Simuler l'intersection observer callback pour afficher la barre fixe
-    const observerCallback = vi.mocked(window.IntersectionObserver).mock.calls[0][0]
+    const observerCallback = vi.mocked(window.IntersectionObserver).mock?.calls?.[0]?.[0]
+    if (!observerCallback) {
+      throw new Error('Observer callback is undefined')
+    }
     observerCallback([createMockEntry(false)], {} as IntersectionObserver)
     await new Promise(resolve => setTimeout(resolve, 150))
 
@@ -97,7 +106,10 @@ describe('StickySearchBar', () => {
 
   test('emits search event when selecting a character', async () => {
     // Simuler l'intersection observer callback pour afficher la barre fixe
-    const observerCallback = vi.mocked(window.IntersectionObserver).mock.calls[0][0]
+    const observerCallback = vi.mocked(window.IntersectionObserver).mock?.calls?.[0]?.[0]
+    if (!observerCallback) {
+      throw new Error('Observer callback is undefined')
+    }
     observerCallback([createMockEntry(false)], {} as IntersectionObserver)
     await new Promise(resolve => setTimeout(resolve, 150))
 
@@ -117,7 +129,10 @@ describe('StickySearchBar', () => {
 
   test('updates search query when typing', async () => {
     // Simuler l'intersection observer callback pour afficher la barre fixe
-    const observerCallback = vi.mocked(window.IntersectionObserver).mock.calls[0][0]
+    const observerCallback = vi.mocked(window.IntersectionObserver).mock?.calls?.[0]?.[0]
+    if (!observerCallback) {
+      throw new Error('Observer callback is undefined')
+    }
     observerCallback([createMockEntry(false)], {} as IntersectionObserver)
     await new Promise(resolve => setTimeout(resolve, 150))
 
@@ -132,7 +147,10 @@ describe('StickySearchBar', () => {
 
   test('character selection is not debounced', async () => {
     // Simuler l'intersection observer callback pour afficher la barre fixe
-    const observerCallback = vi.mocked(window.IntersectionObserver).mock.calls[0][0]
+    const observerCallback = vi.mocked(window.IntersectionObserver).mock?.calls?.[0]?.[0]
+    if (!observerCallback) {
+      throw new Error('Observer callback is undefined')
+    }
     observerCallback([createMockEntry(false)], {} as IntersectionObserver)
     await new Promise(resolve => setTimeout(resolve, 150))
 

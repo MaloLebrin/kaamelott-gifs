@@ -1,6 +1,6 @@
-import { describe, test, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import CharacterAvatar from '../../../components/characters/CharacterAvatar.vue'
+import { describe, expect, test, vi } from 'vitest'
+import CharacterAvatar from './CharacterAvatar.vue'
 
 describe('CharacterAvatar', () => {
   test('renders the character avatar when loaded', () => {
