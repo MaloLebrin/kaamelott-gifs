@@ -40,8 +40,8 @@
 </template>
 
 <script setup lang="ts">
-import CharacterAvatar from './CharacterAvatar.vue'
-import { slugify } from '~~/shared/utils/string'
+import { slugify } from '~~/shared/utils/string';
+import CharacterAvatar from './CharacterAvatar.vue';
 
 interface Character {
   name: string

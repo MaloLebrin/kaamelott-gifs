@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { useImage } from '@vueuse/core'
+import { useImage } from '@vueuse/core';
 
 interface Props {
   character: {
