@@ -1,4 +1,4 @@
-import type { EpisodeCode } from '~/types'
+import type { EpisodeCode } from '~~/shared/types'
 
 /**
  * Extrait le numéro du livre à partir du code d'un épisode

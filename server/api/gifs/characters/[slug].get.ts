@@ -1,9 +1,9 @@
-import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront'
 import { serverSupabaseClient } from '#supabase/server'
-import { Entities } from '~/types'
-import { slugify } from '~/shared/utils/string'
-import { charactersData } from '~/server/data/characters'
-import type { Database } from '~/types/database.types'
+import { Entities } from '~~/shared/types'
+import type { Database } from '~~/shared/types/database.types'
+import { formatFromBackToFront } from '~~/shared/utils/gifs/formatFromBackToFront'
+import { slugify } from '~~/shared/utils/string'
+import { charactersData } from '../../../data/characters'
 
 export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string

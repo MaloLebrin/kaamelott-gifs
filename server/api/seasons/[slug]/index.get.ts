@@ -1,8 +1,8 @@
 import { serverSupabaseClient } from '#supabase/server'
-import { Entities } from '~/types'
-import { formatFromBackToFront } from '~/shared/utils/gifs/formatFromBackToFront'
-import type { Season } from '~/types/Season'
-import type { Database } from '~/types/database.types'
+import { Entities } from '~~/shared/types'
+import type { Season } from '~~/shared/types/Season'
+import type { Database } from '~~/shared/types/database.types'
+import { formatFromBackToFront } from '~~/shared/utils/gifs/formatFromBackToFront'
 
 export default defineEventHandler(async event => {
   const slug = getRouterParam(event, 'slug') as string

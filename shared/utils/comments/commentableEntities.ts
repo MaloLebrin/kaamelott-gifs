@@ -1,5 +1,5 @@
-import { Entities } from '~/types'
-import type { CommentEntityType } from '~/types/Comments'
+import { Entities } from '~~/shared/types'
+import type { CommentEntityType } from '~~/shared/types/Comments'
 
 /**
  * Liste des types d'entités qui peuvent recevoir des commentaires

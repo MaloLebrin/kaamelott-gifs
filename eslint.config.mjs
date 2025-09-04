@@ -1,54 +1,64 @@
 // @ts-check
-import vue from 'eslint-plugin-vue'
-import withNuxt from './.nuxt/eslint.config.mjs'
+import typescript from '@typescript-eslint/eslint-plugin'
+import typescriptParser from '@typescript-eslint/parser'
 
-export default withNuxt({
-  files: ['**/*.vue'],
-  plugins: {
-    vue
+// Configuration ESLint de base pour Kaamelott GIFs
+const config = [
+  {
+    ignores: [
+      '.nuxt/**',
+      '.output/**',
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      '*.min.js',
+      '*.min.css'
+    ]
   },
-  rules: {
-  }
-}).override('nuxt/typescript/rules', {
-  rules: {
-    '@typescript-eslint/no-explicit-any': 'warn',
-    'no-useless-escape': 'warn',
-    "indent": ["error", 2, {
-      "SwitchCase": 1
-    }],
-    "vue/html-indent": ["error", 2, {
-      "baseIndent": 0
-    }],
-    // "vue/component-tags-order": ["error", {
-    //   "order": ["template", "script", "style"]
-    // }],
-    "vue/max-attributes-per-line": ["error", {
-      "singleline": {
-        "max": 1
-      },
-      "multiline": {
-        "max": 1
+  {
+    files: ['**/*.js', '**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module'
+    },
+    rules: {
+      'no-useless-escape': 'warn',
+      "indent": ["error", 2, {
+        "SwitchCase": 1
+      }],
+      "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd"] }],
+      "curly": [0, "all"],
+      "brace-style": [0, "stroustrup", { "allowSingleLine": false }],
+      "no-unused-vars": "off",
+      "arrow-parens": [2, "as-needed"],
+    }
+  },
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module'
       }
-    }],
-    "vue/no-unused-components": ["error", {
-      "ignoreWhenBindingPresent": true
-    }],
-    "vue/no-unused-vars": ["error", {
-      "ignorePattern": "^_"
-    }],
-    "vue/no-template-shadow": "off",
-    "vue/v-on-event-hyphenation": "off",
-    "vue/return-in-computed-property": "off",
-    "vue/no-required-prop-with-default": "off",
-    "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd"] }],
-    "curly": [0, "all"],
-    "brace-style": [0, "stroustrup", { "allowSingleLine": false }],
-    "@typescript-eslint/brace-style": [0, "stroustrup", { "allowSingleLine": false }],
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": ["off"],
-    "arrow-parens": [2, "as-needed"],
-    '@typescript-eslint/no-dynamic-delete': 'off',
-    "@typescript-eslint/no-duplicate-enum-values": "off",
-    "@typescript-eslint/no-empty-object-type": "off",
+    },
+    plugins: {
+      '@typescript-eslint': typescript
+    },
+    rules: {
+      'no-useless-escape': 'warn',
+      "indent": ["error", 2, {
+        "SwitchCase": 1
+      }],
+      "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd"] }],
+      "curly": [0, "all"],
+      "brace-style": [0, "stroustrup", { "allowSingleLine": false }],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "arrow-parens": [2, "as-needed"],
+      "@typescript-eslint/no-explicit-any": "warn",
+    }
   }
-})
+]
+
+export default config

@@ -1,4 +1,4 @@
-import { formatCharactersToFront } from "~/shared/utils/gifs/formatCharacters"
+import { formatCharactersToFront } from "~~/shared/utils/gifs/formatCharacters"
 
 /**
  * Compose les personnages de gifs en un seul tableau
