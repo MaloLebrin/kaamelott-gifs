@@ -144,6 +144,7 @@ describe('likeableEntities', () => {
         userId: '456',
         gifId: 123,
         characterId: 0,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         episodeCode: null as any,
         seasonId: 0,
         createdAt: '2024-01-01T00:00:00Z',

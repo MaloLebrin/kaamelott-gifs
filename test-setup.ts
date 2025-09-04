@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // test-setup.ts
 // Gestion globale des erreurs pour les tests
 process.on('unhandledRejection', (reason, promise) => {
@@ -11,7 +12,7 @@ process.on('unhandledRejection', (reason, promise) => {
   console.error('Unhandled Rejection at:', promise, 'reason:', reason)
 })
 
-process.on('uncaughtException', (error) => {
+process.on('uncaughtException', error => {
   // Ignorer les erreurs spécifiques de Nuxt
   if (error.message && error.message.includes('Cannot read properties of undefined')) {
     return
