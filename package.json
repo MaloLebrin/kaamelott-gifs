@@ -11,7 +11,7 @@
     "postinstall": "nuxt prepare",
     "generate:types": "pnpx supabase gen types typescript --project-id 'aatfrcexkbcbuyaritlj' --schema public > types/database.types.ts",
     "test": "vitest",
-    "lint": "eslint ."
+    "lint": "nuxt prepare && eslint ."
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.855.0",

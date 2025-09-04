@@ -1,6 +1,21 @@
 // @ts-check
 import vue from 'eslint-plugin-vue'
-import withNuxt from '.nuxt/eslint.config.mjs'
+import { existsSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const nuxtEslintConfigPath = join(__dirname, '.nuxt/eslint.config.mjs')
+
+// Vérifier si le fichier de configuration Nuxt ESLint existe
+let withNuxt
+if (existsSync(nuxtEslintConfigPath)) {
+  withNuxt = (await import(nuxtEslintConfigPath)).default
+} else {
+  // Fallback pour l'environnement CI où .nuxt n'est pas encore généré
+  withNuxt = (config: any) => config
+}
 
 export default withNuxt({
   files: ['**/*.vue'],
