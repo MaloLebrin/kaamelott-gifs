@@ -11,7 +11,8 @@
     "postinstall": "nuxt prepare",
     "generate:types": "pnpx supabase gen types typescript --project-id 'aatfrcexkbcbuyaritlj' --schema public > types/database.types.ts",
     "test": "vitest",
-    "lint": "nuxt prepare && eslint ."
+    "lint": "eslint . --ext .js,.ts,.mjs --ignore-pattern '.nuxt/**' --ignore-pattern '.output/**'",
+    "lint:fix": "eslint . --ext .js,.ts,.mjs --ignore-pattern '.nuxt/**' --ignore-pattern '.output/**' --fix"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.855.0",
@@ -39,6 +40,8 @@
     "@nuxtjs/robots": "^5.4.0",
     "@nuxtjs/supabase": "^1.6.0",
     "@oxc-parser/binding-linux-x64-gnu": "^0.78.0",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.32.0",
     "eslint-plugin-vue": "^10.3.0",

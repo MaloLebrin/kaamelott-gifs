@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type {
-    BaseItem,
-    CharacterItem,
-    EpisodeItem,
-    GifItem,
-    ItemType,
-    SeasonItem,
-    StructuredData
+  BaseItem,
+  CharacterItem,
+  EpisodeItem,
+  GifItem,
+  ItemType,
+  SeasonItem,
+  StructuredData
 } from '~~/shared/types/structuredData'
 
 const siteUrl = 'https://kaamelottgifs.fr'
