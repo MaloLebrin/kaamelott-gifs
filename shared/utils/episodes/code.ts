@@ -15,7 +15,7 @@ export function getLivreFromCode(code: EpisodeCode) {
 
   const [livre, _episode] = code.split('E')
 
-  return livre.replace('S0', '')
+  return livre?.replace('S0', '') || null
 }
 
 /**
@@ -28,7 +28,7 @@ export function getLivreFromCode(code: EpisodeCode) {
  * getEpisodeId({ code: 'S01E01' }) // '01'
  * getEpisodeId({ code: 'S02E05' }) // '05'
  */
-export function getEpisodeId<T extends { code: EpisodeCode }>(episode: T): string {
+export function getEpisodeId<T extends { code: EpisodeCode }>(episode: T) {
   if (!episode.code) {
     throw new Error('Episode code is required')
   }

@@ -9,9 +9,12 @@
     class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105">
     <img
       v-if="episode.imgUrl"
-      :src="episode.imgUrl"
+      :src="type === 'movie' ? `/movies/${episode.code}/${episode.code}.jpg` : episode.imgUrl"
       :alt="episode.title"
-      class="w-full h-48 object-cover"
+      :class="[
+        type === 'movie' ? 'h-96' : 'h-48',
+        'w-full object-cover',
+      ]"
     >
     <div class="p-6 space-y-2">
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
@@ -46,4 +49,6 @@ withDefaults(defineProps<{
 }>(), {
   type: 'episode'
 })
+
+
 </script>
