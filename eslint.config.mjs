@@ -26,7 +26,7 @@ const config = [
       "indent": ["error", 2, {
         "SwitchCase": 1
       }],
-      "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd"] }],
+      "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd", "info"] }],
       "curly": [0, "all"],
       "brace-style": [0, "stroustrup", { "allowSingleLine": false }],
       "no-unused-vars": "off",
@@ -50,7 +50,7 @@ const config = [
       "indent": ["error", 2, {
         "SwitchCase": 1
       }],
-      "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd"] }],
+      "no-console": ["warn", { "allow": ["warn", "error", "time", "timeEnd", "info"] }],
       "curly": [0, "all"],
       "brace-style": [0, "stroustrup", { "allowSingleLine": false }],
       "no-unused-vars": "off",
