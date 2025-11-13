@@ -276,6 +276,254 @@ export const charactersData = [
   }
 ]
 
+export const sndMovieCharacters = [
+  {
+    "actor": "Alexandra Saadoun",
+    "name": "Aziliz",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Nicolas Gabion",
+    "name": "Bohort de Gaunes",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Cyrille Coton-Bonacchi",
+    "name": "Brise-Bûche",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Stéphane Margot",
+    "name": "Calogrenant de Calédonie",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Haroun",
+    "name": "Casparzh",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Léa Pellin",
+    "name": "Ciar d'Orcanie",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Daniel Mesguich",
+    "name": "Conle le Fameux",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Claire Nadeau",
+    "name": "Cryda de Tintagel",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Audrey Fleurot",
+    "name": "La Dame du Lac",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Thomas Chimer",
+    "name": "Déneig",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Mathieu Duboclard",
+    "name": "La Drille",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Bruno Fontaine",
+    "name": "Élias de Kelliwich",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Luna Karys",
+    "name": "Ffraid",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Marie-Christine Orry",
+    "name": "Fraganan de Carmélide",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Thomas Neyret",
+    "name": "Gareth d'Orcanie",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Aurélien Portehaut",
+    "name": "Gauvain d'Orcanie",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Moguiz",
+    "name": "Géran",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Hugo Halet",
+    "name": "Girflet",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Serge Papagalli",
+    "name": "Guethenoc",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Tony Saba",
+    "name": "Hervé de Rinel",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Eddy Letexier",
+    "name": "Hoël d'Armorique",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Hugo Leman",
+    "name": "Iagu",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Brice Fournier",
+    "name": "Kadoc de Vannes",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Jean-Christophe Hembert",
+    "name": "Karadoc de Vannes",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Stéphane Filloque",
+    "name": "Kleyton",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Sylvain Quimene",
+    "name": "Kolaig",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "François Raison",
+    "name": "Lamorak de Galles",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Thomas Cousseau",
+    "name": "Lancelot du Lac",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Lionnel Astier",
+    "name": "Léodagan de Carmélide",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Etienne Fague",
+    "name": "Lionel de Gaunes",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Ethan Astier",
+    "name": "Lucan, Chevalier-Seiche",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "David Ayala",
+    "name": "Maclou",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Ariane Astier",
+    "name": "Mehben",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Jeanne Astier",
+    "name": "Mehgan",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Jacques Chambon",
+    "name": "Merlin l'Enchanteur",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Carlo Brandt",
+    "name": "Méléagant",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Lucas García",
+    "name": "Petrok",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Mehdi Rahim-Silvioli",
+    "name": "La Pègue",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Gilles Graveleau",
+    "name": "Roparzh",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Paul Vally",
+    "name": "Rostan, Chevalier de Provence",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Joëlle Sevilla",
+    "name": "Séli",
+    "isMainCharacter": true
+  },
+  {
+    "actor": "Redouane Bougheraba",
+    "name": "Silas",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Louise Orry-Diquéro",
+    "name": "Socra d'Irlande",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Alain Chapuis",
+    "name": "Le Tavernier",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "James Astier",
+    "name": "Trévor",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Magali Saadoun",
+    "name": "Tumet",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Linh-Dan Pham",
+    "name": "Vareznota",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Loïc Varraut",
+    "name": "Venec",
+    "isMainCharacter": false
+  },
+  {
+    "actor": "Josée Drevon",
+    "name": "Ygerne de Tintagel",
+    "isMainCharacter": false
+  }
+]
+
 /**
  * Compose a character from a character object
  * @param character - The character object
