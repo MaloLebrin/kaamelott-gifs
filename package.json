@@ -43,7 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^8.63.0",
     "@typescript-eslint/parser": "^8.63.0",
     "@vue/test-utils": "^2.4.11",
-    "eslint": "^9.39.5",
+    "eslint": "^10.7.0",
     "eslint-plugin-vue": "^10.9.2",
     "happy-dom": "^18.0.1",
     "playwright-core": "^1.61.1",
