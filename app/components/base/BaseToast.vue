@@ -11,7 +11,8 @@
     :class="{
       'bg-green-500 text-white': toast.type === 'success',
       'bg-red-500 text-white': toast.type === 'error',
-      'bg-blue-500 text-white': toast.type === 'info'
+      'bg-blue-500 text-white': toast.type === 'info',
+      'bg-yellow-500 text-white': toast.type === 'warning'
     }"
   >
     <component

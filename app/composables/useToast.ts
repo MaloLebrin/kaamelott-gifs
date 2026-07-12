@@ -28,7 +28,7 @@ export const useToast = () => {
     addToast(message, 'success')
   }
 
-  const denied = (message: string) => {
+  const error = (message: string) => {
     addToast(message, 'error')
   }
 
@@ -45,7 +45,7 @@ export const useToast = () => {
     addToast,
     removeToast,
     success,
-    denied,
+    error,
     info,
     warning
   }

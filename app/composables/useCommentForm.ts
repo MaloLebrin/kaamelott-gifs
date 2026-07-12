@@ -21,7 +21,7 @@ interface UseCommentFormOptions {
  * @returns {Object} Un objet contenant l'état et les méthodes de gestion du formulaire
  */
 export const useCommentForm = (options: UseCommentFormOptions = {}) => {
-  const { success, denied } = useToast()
+  const { success, error: showErrorToast } = useToast()
 
   // États
   const content = ref(options.initialContent || '')
@@ -79,7 +79,7 @@ export const useCommentForm = (options: UseCommentFormOptions = {}) => {
       options.onSuccess?.()
     } catch (error) {
       console.error('Erreur lors de la soumission du commentaire:', error)
-      denied(options.commentId 
+      showErrorToast(options.commentId
         ? 'Impossible de modifier le commentaire'
         : 'Impossible de publier le commentaire'
       )

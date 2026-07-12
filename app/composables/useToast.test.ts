@@ -19,8 +19,8 @@ describe('useToast', () => {
   })
 
   test('should add a toast with error type', () => {
-    const { toasts, denied } = useToast()
-    denied('Operation failed')
+    const { toasts, error } = useToast()
+    error('Operation failed')
     
     expect(toasts.value).toHaveLength(1)
     expect(toasts.value[0]).toEqual({
@@ -90,9 +90,9 @@ describe('useToast', () => {
   })
 
   test('should handle multiple toasts with different types', () => {
-    const { toasts, success, denied, info, warning } = useToast()
+    const { toasts, success, error, info, warning } = useToast()
     success('Success message')
-    denied('Error message')
+    error('Error message')
     info('Info message')
     warning('Warning message')
     
