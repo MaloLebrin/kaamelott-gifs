@@ -11,7 +11,8 @@
 <img
   v-else-if="error"
   src="/fondKBg.webp"
-  alt="Image"
+  alt=""
+  role="presentation"
   :width="width"
   :height="height"
   :loading="loading"
@@ -21,6 +22,7 @@
   v-else
   :src="src"
   :alt="alt"
+  :role="alt ? undefined : 'presentation'"
   :width="width"
   :height="height"
   :loading="loading"
@@ -56,7 +58,7 @@ const props = withDefaults(defineProps<Props>(), {
   fit: 'cover',
   position: 'center',
   background: 'transparent',
-  alt: 'Image'
+  alt: ''
 })
 
 const { isLoading, error } = useImage({ src: props.src })
