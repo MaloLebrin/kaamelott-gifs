@@ -1,13 +1,18 @@
 <template>
 <article
   class="group rounded-[32px] transition-colors duration-300 cursor-pointer max-w-[400px]"
+  role="button"
+  tabindex="0"
+  :aria-label="cardLabel"
   :v-posthog-capture="`click_gif_${gif.slug}`"
-  @click="handleClick">
+  @click="handleClick"
+  @keydown.enter.prevent="handleClick"
+  @keydown.space.prevent="handleClick">
   <div class="relative aspect-video rounded-[32px] overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
       <AppImage
         :src="gif.url"
-        :alt="gif.quote"
+        :alt="imageAlt"
         format="gif"
         class="w-full h-full object-cover transform transition-transform duration-500 ease-out" />
     </div>
@@ -37,6 +42,7 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import type { Gif } from '~~/shared/types'
 import AppImage from '~/components/base/AppImage.vue'
 
@@ -47,6 +53,15 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'click', gif: Gif): void
 }>()
+
+const character = computed(() => props.gif.characters?.[0] ?? '')
+
+const imageAlt = computed(() => {
+  const parts = [character.value, props.gif.quote].filter(Boolean)
+  return parts.length ? `GIF Kaamelott — ${parts.join(' : ')}` : 'GIF Kaamelott'
+})
+
+const cardLabel = computed(() => `Voir le GIF ${imageAlt.value}`)
 
 const handleClick = () => {
   emit('click', props.gif)
