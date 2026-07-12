@@ -70,7 +70,7 @@ import { useToast } from '~/composables/useToast'
 import { useRoute } from 'vue-router'
 
 const uiStore = useUiStore()
-const { success: showSuccessToast, denied: showErrorToast } = useToast()
+const { success: showSuccessToast, error: showErrorToast } = useToast()
 const route = useRoute()
 
 const handleSuccess = () => {

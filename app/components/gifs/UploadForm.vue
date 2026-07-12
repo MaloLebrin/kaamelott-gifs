@@ -93,7 +93,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const isLoading = ref(false);
 const file = ref<File | null>(null);
-const { success, denied } = useToast();
+const { success, error: showErrorToast } = useToast();
 
 const characters = props.characters;
 const episodes = props.episodes ?? [];
@@ -146,7 +146,7 @@ const handleFileCleared = () => {
 const uploadFile = async () => {
   isLoading.value = true;
   if (!file.value || !isFormValid.value) {
-    denied('Veuillez remplir tous les champs requis.');
+    showErrorToast('Veuillez remplir tous les champs requis.');
     isLoading.value = false;
     return;
   }
@@ -188,11 +188,11 @@ const uploadFile = async () => {
       navigateTo(`/gifs/${slug}`)
       emit('upload-success');
     } else {
-      denied('Erreur lors du téléchargement.');
+      showErrorToast('Erreur lors du téléchargement.');
     }
   } catch (error) {
     console.error(error, 'error');
-    denied('Erreur lors du téléchargement.');
+    showErrorToast('Erreur lors du téléchargement.');
   } finally {
     isLoading.value = false;
   }

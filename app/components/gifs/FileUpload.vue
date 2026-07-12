@@ -58,7 +58,7 @@ const emit = defineEmits<{
 const file = ref<File | null>(null);
 const previewUrl = ref<string | null>(null);
 const isDragging = ref(false);
-const { denied } = useToast();
+const { error: showErrorToast } = useToast();
 
 const onFileChange = (event: Event) => {
   const input = event.target as HTMLInputElement;
@@ -78,7 +78,7 @@ const handleFile = (selectedFile: File) => {
   if (!selectedFile) return;
   
   if (selectedFile.type !== 'image/gif') {
-    denied('Veuillez sélectionner un fichier GIF valide.');
+    showErrorToast('Veuillez sélectionner un fichier GIF valide.');
     return;
   }
 

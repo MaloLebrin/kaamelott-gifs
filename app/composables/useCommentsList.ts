@@ -20,7 +20,7 @@ interface UseCommentsListOptions {
  * @property {Function} loadComments - Fonction pour charger les commentaires
  */
 export const useCommentsList = (options: UseCommentsListOptions) => {
-  const { success, denied } = useToast()
+  const { success, error: showErrorToast } = useToast()
 
   // États
   const comments = ref<CommentWithUser[]>([])
@@ -44,7 +44,7 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
       comments.value = data.value || []
     } catch (error) {
       console.error('Erreur lors du chargement des commentaires:', error)
-      denied('Impossible de charger les commentaires')
+      showErrorToast('Impossible de charger les commentaires')
     } finally {
       isLoading.value = false
     }
@@ -81,7 +81,7 @@ export const useCommentsList = (options: UseCommentsListOptions) => {
       success('Commentaire publié avec succès')
     } catch (error) {
       console.error('Erreur lors de la publication du commentaire:', error)
-      denied('Impossible de publier le commentaire')
+      showErrorToast('Impossible de publier le commentaire')
     } finally {
       isSubmitting.value = false
     }

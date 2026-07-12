@@ -7,7 +7,7 @@ const props = defineProps<{
   quote: string
 }>()
 
-const { success, denied } = useToast()
+const { success, error: showErrorToast } = useToast()
 const currentUrl = ref('')
 const isLinkCopied = ref(false)
 
@@ -36,7 +36,7 @@ const copyLink = async () => {
       isLinkCopied.value = false
     }, 2000)
   } catch (err) {
-    denied('Erreur lors de la copie du lien')
+    showErrorToast('Erreur lors de la copie du lien')
   }
 }
 </script>

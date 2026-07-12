@@ -42,32 +42,31 @@ export const useLikesList = (options: UseLikesListOptions = {}) => {
   // États
   const currentPage = ref(Number(route.query.page) || 1)
   const selectedType = ref<LikeableEntity | undefined>(route.query.type as LikeableEntity || options.entityType)
-  const isLoading = ref(false)
-  const error = ref<Error | null>(null)
 
-  // Requête pour récupérer les likes
-  const { data, refresh } = useFetch<LikesListResponse>('/api/likes', {
+  // Requête pour récupérer les likes.
+  // On s'appuie sur l'état natif de useFetch (`status`, `error`) plutôt que
+  // sur des refs maintenues manuellement via les callbacks, plus fiables lors
+  // des refetch successifs.
+  const { data, status, error: fetchError, refresh } = useFetch<LikesListResponse>('/api/likes', {
     query: computed(() => ({
       type: selectedType.value,
       page: currentPage.value,
       itemsPerPage: options.itemsPerPage || 21
-    })),
-    onRequest() {
-      isLoading.value = true
-      error.value = null
-    },
-    onResponse() {
-      isLoading.value = false
-    },
-    onResponseError({ response }) {
-      isLoading.value = false
-      error.value = new Error(response._data?.message || 'Erreur lors de la récupération des favoris')
-    }
+    }))
   })
 
   // Computed properties
   const likes = computed(() => data.value?.likes || [])
   const totalPages = computed(() => data.value?.totalPages || 0)
+  const isLoading = computed(() => status.value === 'pending')
+  const error = computed(() =>
+    fetchError.value
+      ? new Error(
+        (fetchError.value.data as { message?: string })?.message
+        || 'Erreur lors de la récupération des favoris'
+      )
+      : null
+  )
 
   // Méthodes
   const setPage = (page: number) => {

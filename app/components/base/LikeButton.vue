@@ -46,7 +46,7 @@ const props = withDefaults(defineProps<{
 
 const user = useSupabaseUser()
 const uiStore = useUiStore()
-const { success, denied } = useToast()
+const { success, error: showErrorToast } = useToast()
 
 // États
 const isLoading = ref(false)
@@ -118,7 +118,7 @@ const toggleLike = async () => {
     likesCount.value = previousCount
       
     console.error('Error toggling like:', error)
-    denied(error.data?.message || 'Erreur lors du like')
+    showErrorToast(error.data?.message || 'Erreur lors du like')
   } finally {
     isLoading.value = false
   }
