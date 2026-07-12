@@ -23,10 +23,11 @@ export const appHead = {
       { name: 'twitter:creator', content: '@kaamelott_gifs' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'canonical', href: 'https://kaamelottgifs.fr' },
-      { rel: 'alternate', hreflang: 'fr', href: 'https://kaamelottgifs.fr' },
-      { rel: 'alternate', hreflang: 'x-default', href: 'https://kaamelottgifs.fr' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      // Le canonical par page est géré automatiquement par @nuxtjs/seo
+      // (nuxt-seo-utils) à partir de `site.url` + la route courante.
+      // On ne définit pas de canonical statique ici : cela ferait pointer
+      // toutes les pages profondes vers la home (contenu dupliqué).
     ],
     script: [
       {

@@ -12,7 +12,8 @@ export const siteConfig = {
 }
 
 export const siteMapConfig = {
-  debug: true,
+  // Le mode debug ne doit être actif qu'en développement.
+  debug: process.env.NODE_ENV === 'development',
   // DOC: https://nuxtseo.com/docs/sitemap/guides/filtering-urls
   exclude: [
     '/_nuxt/',
@@ -31,6 +32,9 @@ export const siteMapConfig = {
   defaults: {
     changefreq: 'daily',
     priority: 0.8,
+    // lastmod par défaut = date du build. Évalué une fois au chargement de
+    // la config (donc identique pour toutes les URLs sans lastmod propre).
+    // Les sources qui exposent une vraie date de mise à jour la surchargent.
     lastmod: new Date()
   }
 }
