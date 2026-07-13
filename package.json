@@ -38,7 +38,7 @@
     "@nuxt/eslint-config": "^1.16.0",
     "@nuxt/test-utils": "3.17.2",
     "@nuxtjs/robots": "^5.7.1",
-    "@nuxtjs/supabase": "^1.6.2",
+    "@nuxtjs/supabase": "^2.0.9",
     "@oxc-parser/binding-linux-x64-gnu": "^0.139.0",
     "@typescript-eslint/eslint-plugin": "^8.63.0",
     "@typescript-eslint/parser": "^8.63.0",
