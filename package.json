@@ -48,7 +48,7 @@
     "happy-dom": "^18.0.1",
     "playwright-core": "^1.61.1",
     "supabase": "^2.109.1",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "vitest": "^3.2.7"
   },
   "volta": {
